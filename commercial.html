@@ -1,0 +1,1554 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TS9Designs - Commercial Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '716800377403198');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=716800377403198&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <style>
+    /* Swiss Design System */
+    :root {
+      /* Color palette */
+      --color-black: #000000;
+      --color-white: #ffffff;
+      --color-accent: #4da6e7; /* Ts9 main color */
+      --color-gray-100: #f7f7f7;
+      --color-gray-200: #e6e6e6;
+      --color-gray-300: #d1d1d1;
+      --color-gray-400: #a8a8a8;
+      --color-gray-500: #737373;
+      --color-gray-600: #525252;
+      --color-gray-700: #404040;
+      --color-gray-800: #262626;
+      
+      /* Typography */
+      --font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-size-xs: 0.75rem;   /* 12px */
+      --font-size-sm: 0.875rem;  /* 14px */
+      --font-size-md: 1rem;      /* 16px */
+      --font-size-lg: 1.125rem;  /* 18px */
+      --font-size-xl: 1.25rem;   /* 20px */
+      --font-size-2xl: 1.5rem;   /* 24px */
+      --font-size-3xl: 1.875rem; /* 30px */
+      --font-size-4xl: 2.25rem;  /* 36px */
+      
+      /* Spacing */
+      --space-1: 0.25rem;  /* 4px */
+      --space-2: 0.5rem;   /* 8px */
+      --space-3: 0.75rem;  /* 12px */
+      --space-4: 1rem;     /* 16px */
+      --space-5: 1.5rem;   /* 24px */
+      --space-6: 2rem;     /* 32px */
+      --space-7: 2.5rem;   /* 40px */
+      --space-8: 3rem;     /* 48px */
+      --space-9: 4rem;     /* 64px */
+      --space-10: 5rem;    /* 80px */
+      
+      /* Grid */
+      --grid-columns: 12;
+      --container-width: 1440px;
+      --container-padding: var(--space-4);
+      
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+      --transition-slow: 350ms ease;
+      
+      /* Borders */
+      --border-radius-sm: 2px;
+      --border-radius-md: 4px;
+      --border-radius-lg: 8px;
+      --border-width: 1px;
+      
+      /* Z-index layers */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal: 300;
+      --z-overlay: 400;
+    }
+    
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-family);
+      line-height: 1.5;
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    a {
+      color: var(--color-black);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    
+    a:hover {
+      color: var(--color-accent);
+    }
+    
+    button {
+      font-family: var(--font-family);
+      cursor: pointer;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--space-5);
+    }
+    
+    h2 {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    h3 {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    h4 {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    p {
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Layout */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+    
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+    
+    .grid-main {
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 992px) {
+      .grid-main {
+        grid-template-columns: 8fr 4fr;
+      }
+      
+      .grid-2-col {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .grid-3-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .grid-4-col {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .house-plan-section {
+      padding: var(--space-9) 0;
+    }
+    
+    /* Header and Navigation */
+    .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 1rem;
+    }
+    
+    .site-logo {
+      font-weight: 700;
+      font-size: var(--font-size-xl);
+      display: flex;
+      align-items: center;
+    }
+    
+    .site-logo svg {
+      margin-right: var(--space-2);
+    }
+    
+    .main-nav {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      gap: 0.9rem;
+    }
+    
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    
+    .nav-item {
+      margin-left: 0;
+      position: relative;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.86rem;
+      color: var(--color-gray-500);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-link::after { display: none; }
+    .nav-link:hover,
+    .nav-link.active { color: var(--color-accent-dark); }
+
+    .nav-list .nav-item:last-child .nav-link {
+      border: 1px solid var(--color-gray-200);
+      color: var(--color-black);
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-list .nav-item:last-child .nav-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent-dark);
+    }
+    
+    .nav-link svg {
+      margin-left: var(--space-1);
+    }
+
+    .search-bar {
+      display: none;
+    }
+    
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-2) 0;
+      margin-top: var(--space-2);
+    }
+    
+    .dropdown:hover .dropdown-menu,
+    .dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-item {
+      display: block;
+      padding: var(--space-2) var(--space-4);
+      color: var(--color-black);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .dropdown-item:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    .dropdown-divider {
+      height: 1px;
+      background-color: var(--color-gray-200);
+      margin: var(--space-2) 0;
+    }
+    
+    /* Mega Menu */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      width: 800px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-6);
+      margin-top: var(--space-2);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .dropdown:hover .mega-menu,
+    .mega-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .mega-menu-column h4 {
+      margin-bottom: var(--space-3);
+      font-size: var(--font-size-md);
+      font-weight: 600;
+    }
+    
+    .mega-menu-list {
+      list-style: none;
+    }
+    
+    .mega-menu-item {
+      margin-bottom: var(--space-2);
+    }
+    
+    .mega-menu-link {
+      color: var(--color-gray-700);
+      transition: color var(--transition-fast);
+    }
+    
+    .mega-menu-link:hover {
+      color: var(--color-accent);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: var(--space-2);
+    }
+    
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-left: var(--space-5);
+    }
+    
+    .search-input {
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      width: 200px;
+      transition: border-color var(--transition-fast), width var(--transition-normal);
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--color-black);
+      width: 250px;
+    }
+    
+    .search-button {
+      background: none;
+      border: none;
+      padding: var(--space-2);
+      margin-left: var(--space-1);
+      color: var(--color-gray-500);
+      transition: color var(--transition-fast);
+    }
+    
+    .search-button:hover {
+      color: var(--color-black);
+    }
+    
+    /* Filter Bar */
+    .filter-bar {
+      background-color: var(--color-white);
+      padding: var(--space-4) 0;
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .filter-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    
+    .filter-group {
+      position: relative;
+    }
+    
+    .filter-button {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      transition: border-color var(--transition-fast);
+    }
+    
+    .filter-button:hover {
+      border-color: var(--color-black);
+    }
+    
+    .filter-button svg {
+      margin-left: var(--space-2);
+    }
+    
+    .filter-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-3);
+      margin-top: var(--space-2);
+    }
+    
+    .filter-group:hover .filter-dropdown,
+    .filter-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .filter-dropdown-title {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .filter-option {
+      display: flex;
+      align-items: center;
+    }
+    
+    .filter-checkbox {
+      margin-right: var(--space-2);
+    }
+    
+    .filter-label {
+      font-size: var(--font-size-sm);
+    }
+    
+    .filter-range {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .filter-range-input {
+      width: 80px;
+      padding: var(--space-1) var(--space-2);
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+    }
+    
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .filter-reset {
+      background: none;
+      border: none;
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    .filter-apply {
+      background-color: var(--color-black);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--border-radius-sm);
+      padding: var(--space-1) var(--space-3);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+    
+    .filter-apply:hover {
+      background-color: var(--color-gray-800);
+    }
+    
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    
+    .filter-tag {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-gray-100);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-xs);
+    }
+    
+    .filter-tag-remove {
+      background: none;
+      border: none;
+      margin-left: var(--space-1);
+      color: var(--color-gray-500);
+      font-size: var(--font-size-sm);
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-6);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    .breadcrumb span {
+      margin: 0 var(--space-2);
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3) var(--space-5);
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      font-size: var(--font-size-md);
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform var(--transition-fast);
+    }
+    
+    .btn:hover::after {
+      transform: translateY(0);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn-primary {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--color-gray-800);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-black);
+      border: var(--border-width) solid var(--color-gray-300);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--color-black);
+    }
+    
+    .btn-accent {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+    
+    .btn-accent:hover {
+      background-color: #3a93d4; /* Darker accent */
+    }
+    
+    /* Footer */
+    .site-footer {
+      background-color: var(--color-gray-800);
+      color: var(--color-white);
+      padding: var(--space-9) 0 var(--space-6);
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    
+    .footer-logo {
+      font-weight: 700;
+      font-size: var(--font-size-xl);
+      display: flex;
+      align-items: center;
+      color: var(--color-white);
+      margin-bottom: var(--space-4);
+    }
+    
+    .footer-logo svg {
+      margin-right: var(--space-2);
+    }
+    
+    .footer-about {
+      color: var(--color-gray-300);
+      margin-bottom: var(--space-4);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: var(--space-3);
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: var(--color-gray-700);
+      border-radius: 50%;
+      color: var(--color-white);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .social-link:hover {
+      background-color: var(--color-accent);
+    }
+    
+    .footer-heading {
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-white);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link-item {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-link {
+      color: var(--color-gray-300);
+      transition: color var(--transition-fast);
+    }
+    
+    .footer-link:hover {
+      color: var(--color-white);
+    }
+    
+    .footer-newsletter {
+      margin-top: var(--space-4);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      margin-top: var(--space-2);
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: var(--space-2) var(--space-3);
+      border: none;
+      border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+    }
+    
+    .newsletter-button {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      padding: var(--space-2) var(--space-3);
+      font-weight: 500;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-gray-700);
+      color: var(--color-gray-400);
+      font-size: var(--font-size-sm);
+    }
+    
+    .footer-copyright a {
+      color: var(--color-gray-300);
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: var(--space-4);
+    }
+    
+    .legal-link {
+      color: var(--color-gray-400);
+    }
+    
+    .legal-link:hover {
+      color: var(--color-white);
+    }
+    
+    /* Project Card Styles */
+    .project-card {
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+      margin-bottom: var(--space-6);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .project-image {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+    
+    .project-content {
+      padding: var(--space-5);
+    }
+    
+    .project-location {
+      color: var(--color-gray-500);
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--space-2);
+    }
+    
+    .project-description {
+      margin-bottom: var(--space-4);
+    }
+    
+    .project-actions {
+      display: flex;
+      gap: var(--space-3);
+    }
+    
+    .project-actions .btn {
+      flex: 1;
+    }
+    
+    /* PDF Modal Styles */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: var(--z-modal);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .pdf-modal-content {
+      background-color: var(--color-white);
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .pdf-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-4) var(--space-5);
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .pdf-modal-close {
+      background: none;
+      border: none;
+      font-size: var(--font-size-2xl);
+      cursor: pointer;
+      color: var(--color-gray-500);
+      transition: color var(--transition-fast);
+    }
+    
+    .pdf-modal-close:hover {
+      color: var(--color-black);
+    }
+    
+    .pdf-modal-body {
+      padding: var(--space-2);
+      max-height: calc(90vh - 70px);
+      overflow: auto;
+    }
+    
+    /* Loading indicator */
+    .loading-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-gray-200);
+      z-index: 1000;
+    }
+    
+    .loading-bar {
+      height: 100%;
+      width: 0;
+      background-color: var(--color-accent);
+      transition: width 0.3s ease;
+    }
+    
+    /* Utilities */
+    .text-accent {
+      color: var(--color-accent);
+    }
+    
+    .text-muted {
+      color: var(--color-gray-500);
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .font-bold {
+      font-weight: 700;
+    }
+    
+    .font-medium {
+      font-weight: 500;
+    }
+    
+    .mb-1 { margin-bottom: var(--space-1); }
+    .mb-2 { margin-bottom: var(--space-2); }
+    .mb-4 { margin-bottom: var(--space-4); }
+    .mb-6 { margin-bottom: var(--space-6); }
+    .mb-8 { margin-bottom: var(--space-8); }
+    
+    .mt-1 { margin-top: var(--space-1); }
+    .mt-2 { margin-top: var(--space-2); }
+    .mt-4 { margin-top: var(--space-4); }
+    .mt-6 { margin-top: var(--space-6); }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      
+      .footer-about-column {
+        grid-column: span 3;
+        margin-bottom: var(--space-6);
+      }
+      
+      .mega-menu {
+        width: 600px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .mega-menu {
+        width: 100%;
+        left: 0;
+        transform: translateX(0) translateY(10px);
+      }
+      
+      .dropdown:hover .mega-menu,
+      .mega-menu.show {
+        transform: translateX(0) translateY(0);
+      }
+      
+      .grid-3-col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+      
+      .main-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-3-col {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-actions {
+        flex-direction: column;
+      }
+      
+      .pdf-modal-content {
+        width: 95%;
+      }
+      
+      .house-plan-section {
+        padding: var(--space-6) 0;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6) var(--space-4);
+      }
+      
+      .footer-about-column {
+        grid-column: span 2;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+      }
+      
+      .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-about-column {
+        grid-column: span 1;
+      }
+      
+      h1 {
+        font-size: var(--font-size-3xl);
+      }
+    }
+  
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
+.footer-social{display:flex;gap:.6rem}
+.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
+.social-link:hover{background:#4da6e7;color:#fff}
+.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-links{list-style:none;margin:0;padding:0}
+.footer-link-item{margin-bottom:.6rem}
+.footer-link{color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-link:hover{color:#1d4ed8}
+.footer-newsletter{margin-top:1.5rem}
+.newsletter-form{display:flex;gap:.4rem}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.newsletter-input::placeholder{color:#94a3b8}
+.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:8px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:#1d4ed8}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
+.footer-legal{display:flex;gap:1rem}
+.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.legal-link:hover{color:#1d4ed8}
+@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <!-- Loading indicator -->
+  <div class="loading-indicator">
+    <div class="loading-bar" id="loading-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="site-logo">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 38px; width: auto;">
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="/about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="/#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="/#pricing" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="/#portfolio" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="/residential.html" class="nav-link active">Get Plans</a></li>
+          <li class="nav-item"><a href="/case-studies/index.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="/permit-estimate.html" class="nav-link">Estimate</a></li>
+          <li class="nav-item"><a href="https://calendly.com/ts9designs/discovery" class="nav-link">Book A Call</a></li>
+        </ul>
+        
+        <div class="search-bar">
+          <input type="text" class="search-input" placeholder="Search house plans...">
+          <button class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-container">
+                <div class="filter-group">
+          <button class="filter-button">
+            Project Type
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Project Type</div>
+            <div class="filter-options">
+              <a href="commercial.html" class="dropdown-item" style="padding: 8px 12px; display: block; text-decoration: none; color: inherit;">
+                Commercial Projects
+              </a>
+              <a href="residential.html" class="dropdown-item" style="padding: 8px 12px; display: block; text-decoration: none; color: inherit;">
+                Residential Projects
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            Square Feet
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Square Footage</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="under-1000">
+                <span class="filter-label">Under 1,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1000-1500">
+                <span class="filter-label">1,000-1,500 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1500-2000">
+                <span class="filter-label">1,500-2,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2000-2500">
+                <span class="filter-label">2,000-2,500 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2500-3000">
+                <span class="filter-label">2,500-3,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3000+">
+                <span class="filter-label">3,000+ sq ft</span>
+              </label>
+            </div>
+            <div class="filter-range">
+              <input type="text" class="filter-range-input" placeholder="Min">
+              <span>to</span>
+              <input type="text" class="filter-range-input" placeholder="Max">
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            More Filters
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Additional Filters</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="pdf-available">
+                <span class="filter-label">PDF Available</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3d-model">
+                <span class="filter-label">3D Model</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="virtual-tour">
+                <span class="filter-label">Virtual Tour</span>
+              </label>
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="filter-tags" id="filter-tags">
+        <div class="filter-tag">
+          Commercial Project
+          <button class="filter-tag-remove">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content Area -->
+  <section class="house-plan-section">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="commercial.html">Commercial Projects</a>
+      </div>
+      
+      <h1 class="mb-6">Commercial Projects</h1>
+      <p class="mb-6">Browse our collection of commercial projects including restaurants, retail spaces, offices, and more. Our team provides full building design and engineering services for commercial clients in select U.S. states where we support permit-ready delivery.</p>
+      
+      <!-- Projects Grid -->
+      <div class="grid grid-3-col">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Pet Supplies Plus</h3>
+            <p class="project-location">Hamilton, New Jersey</p>
+            <p class="project-description">Full engineering plans for a new retail location, following corporate design standards.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=mountain-cabin" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/pet-supplies-plus.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/conmigo/conmigo.jpg" alt="Cafe Conmigo" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Cafe Conmigo</h3>
+            <p class="project-location">Western Pennsylvania</p>
+            <p class="project-description">Building design and engineering plans for a cozy community-focused coffee shop.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=modern-ranch" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/cafe-conmigo.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/DolceVilla/dolce1.jpg" alt="La Dolce Villa" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>La Dolce Villa</h3>
+            <p class="project-location">Dover, New Hampshire</p>
+            <p class="project-description">Building design and MEP engineering for an elegant dining destination.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=contemporary-urban" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/la-dolce-villa.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 4 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/Optometry/Optometry.jpg" alt="Eyes on J Optometry" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Eyes on J Optometry</h3>
+            <p class="project-location">Sacramento, California</p>
+            <p class="project-description">MEP engineering for a modern eye care clinic with focus on patient comfort.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=tudor-revival" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/optometry.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 5 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/RomaBar/romabar.jpeg" alt="Roma Bar" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Roma Bar</h3>
+            <p class="project-location">Henderson, Nevada</p>
+            <p class="project-description">Full building design and MEP plans for a vibrant hospitality space.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=mediterranean-villa" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/roma-bar.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 6 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/Tropicana/Tropicana.jpg" alt="Luccinos Pizza" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>Luccinos Pizza</h3>
+            <p class="project-location">Las Vegas, Nevada</p>
+            <p class="project-description">Building design and engineering plans for a new pizzeria location.</p>
+            <div class="project-actions">
+              <a href="plans.html?plan=prairie-style" class="btn btn-outline">View Details</a>
+              <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/luccinos-pizza.pdf">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PDF Viewer Modal -->
+  <div class="pdf-modal" id="pdf-modal">
+    <div class="pdf-modal-content">
+      <div class="pdf-modal-header">
+        <h3 id="pdf-title">Project PDF</h3>
+        <button class="pdf-modal-close">&times;</button>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdf-iframe" src="about:blank" title="PDF preview" width="100%" height="600px"></iframe>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about-column">
+          <a href="/" class="footer-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            TS9Designs
+          </a>
+          <p class="footer-about">
+            TS9 Designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/TS9Designs" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/ts9designs/" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://linkedin.com/company/ts9designs" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.646h3.554v1.348c-.009.015-.021.029-.03.042h.03v-.042c.418-.645 1.162-1.571 2.828-1.571 2.065 0 3.615 1.348 3.615 4.253v5.616zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.951.77-1.704 1.963-1.704 1.192 0 1.915.753 1.948 1.704 0 .946-.756 1.704-1.996 1.704zm-1.6 11.597h3.119V9.671H3.737v10.781zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/case-studies/index.html" class="footer-link">Case Studies</a></li>
+            <li class="footer-link-item"><a href="/permit-estimate.html" class="footer-link">Get an Estimate</a></li>
+            <li class="footer-link-item"><a href="/blogs.html" class="footer-link">Blog</a></li>
+            <li class="footer-link-item"><a href="/#faqs" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a></li>
+            <li class="footer-link-item"><a href="tel:+12154367333" class="footer-link">(215) 436-7333</a></li>
+          </ul>
+          <div class="footer-newsletter">
+            <h4 class="footer-heading">Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">Copyright &copy; TSABA Corp. All Rights Reserved. Services requiring licensure are performed in accordance with applicable jurisdiction requirements.</div>
+        <div class="footer-legal">
+          <a href="/privacypolicy.html" class="legal-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/emailjs-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/newsletter.js"></script>
+  <script>
+    // PDF Viewer functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const pdfModal = document.getElementById('pdf-modal');
+      const pdfIframe = document.getElementById('pdf-iframe');
+      const pdfTitle = document.getElementById('pdf-title');
+      const pdfButtons = document.querySelectorAll('.pdf-preview');
+      const closeButton = document.querySelector('.pdf-modal-close');
+      
+      // Open PDF modal
+      pdfButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pdfPath = this.getAttribute('data-pdf');
+          const projectTitle = this.closest('.project-content').querySelector('h3').textContent;
+          
+          pdfIframe.src = pdfPath;
+          pdfTitle.textContent = projectTitle + ' - PDF Plans';
+          pdfModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+      });
+      
+      // Close PDF modal
+      closeButton.addEventListener('click', function() {
+        pdfModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        pdfIframe.src = ''; // Clear iframe source
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === pdfModal) {
+          pdfModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          pdfIframe.src = '';
+        }
+      });
+      
+      // Filter functionality
+      const filterApplyButtons = document.querySelectorAll('.filter-apply');
+      
+      filterApplyButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const dropdown = this.closest('.filter-dropdown');
+          const filterGroup = dropdown.closest('.filter-group');
+          const filterName = filterGroup.querySelector('.filter-button').textContent.trim().split('\n')[0];
+          
+          // Check if this is the Project Type filter
+          if (filterName === 'Project Type') {
+            const commercialChecked = dropdown.querySelector('input[value="commercial"]').checked;
+            const residentialChecked = dropdown.querySelector('input[value="residential"]').checked;
+            
+            if (commercialChecked && !residentialChecked) {
+              window.location.href = 'commercial.html';
+            } else if (residentialChecked && !commercialChecked) {
+              window.location.href = 'residential.html';
+            } else if (commercialChecked && residentialChecked) {
+              window.location.href = 'plans.html'; // Both selected, go to main plans page
+            }
+          }
+        });
+      });
+      
+      // Handle filter tag removal
+      const filterTagRemoves = document.querySelectorAll('.filter-tag-remove');
+      
+      filterTagRemoves.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tag = this.parentElement;
+          const tagText = tag.textContent.trim().split('×')[0].trim();
+          
+          // If removing a project type tag, redirect to main plans page
+          if (tagText === 'Commercial Project' || tagText === 'Residential Project') {
+            window.location.href = 'plans.html';
+          } else {
+            tag.remove();
+          }
+        });
+      });
+      
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      
+      mobileMenuToggle.addEventListener('click', function() {
+        if (mainNav.style.display === 'flex') {
+          mainNav.style.display = 'none';
+        } else {
+          mainNav.style.display = 'flex';
+          mainNav.style.flexDirection = 'column';
+          mainNav.style.position = 'absolute';
+          mainNav.style.top = '100%';
+          mainNav.style.left = '0';
+          mainNav.style.right = '0';
+          mainNav.style.backgroundColor = 'var(--color-white)';
+          mainNav.style.padding = 'var(--space-4)';
+          mainNav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+        }
+      });
+      
+      // Handle window resize for mobile menu
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          mainNav.style.display = 'flex';
+          mainNav.style.flexDirection = '';
+          mainNav.style.position = '';
+          mainNav.style.top = '';
+          mainNav.style.left = '';
+          mainNav.style.right = '';
+          mainNav.style.backgroundColor = '';
+          mainNav.style.padding = '';
+          mainNav.style.boxShadow = '';
+        } else {
+          if (!mobileMenuToggle.classList.contains('active')) {
+            mainNav.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,3428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TS9Designs - TS9 Plans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Swiss Design System */
+    :root {
+      /* Color palette */
+      --color-black: #000000;
+      --color-white: #ffffff;
+      --color-accent: #4da6e7; /* Ts9 main color */
+      --color-gray-100: #f7f7f7;
+      --color-gray-200: #e6e6e6;
+      --color-gray-300: #d1d1d1;
+      --color-gray-400: #a8a8a8;
+      --color-gray-500: #737373;
+      --color-gray-600: #525252;
+      --color-gray-700: #404040;
+      --color-gray-800: #262626;
+      
+      /* Typography */
+      --font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-size-xs: 0.75rem;   /* 12px */
+      --font-size-sm: 0.875rem;  /* 14px */
+      --font-size-md: 1rem;      /* 16px */
+      --font-size-lg: 1.125rem;  /* 18px */
+      --font-size-xl: 1.25rem;   /* 20px */
+      --font-size-2xl: 1.5rem;   /* 24px */
+      --font-size-3xl: 1.875rem; /* 30px */
+      --font-size-4xl: 2.25rem;  /* 36px */
+      
+      /* Spacing */
+      --space-1: 0.25rem;  /* 4px */
+      --space-2: 0.5rem;   /* 8px */
+      --space-3: 0.75rem;  /* 12px */
+      --space-4: 1rem;     /* 16px */
+      --space-5: 1.5rem;   /* 24px */
+      --space-6: 2rem;     /* 32px */
+      --space-7: 2.5rem;   /* 40px */
+      --space-8: 3rem;     /* 48px */
+      --space-9: 4rem;     /* 64px */
+      --space-10: 5rem;    /* 80px */
+      
+      /* Grid */
+      --grid-columns: 12;
+      --container-width: 1440px;
+      --container-padding: var(--space-4);
+      
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+      --transition-slow: 350ms ease;
+      
+      /* Borders */
+      --border-radius-sm: 2px;
+      --border-radius-md: 4px;
+      --border-radius-lg: 8px;
+      --border-width: 1px;
+      
+      /* Z-index layers */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal: 300;
+      --z-overlay: 400;
+    }
+    
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-family);
+      line-height: 1.5;
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    a {
+      color: var(--color-black);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    
+    a:hover {
+      color: var(--color-accent);
+    }
+    
+    button {
+      font-family: var(--font-family);
+      cursor: pointer;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--space-5);
+    }
+    
+    h2 {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    h3 {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    h4 {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    p {
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Layout */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+    
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+    
+    .grid-main {
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 992px) {
+      .grid-main {
+        grid-template-columns: 8fr 4fr;
+      }
+      
+      .grid-2-col {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .grid-3-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .grid-4-col {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .house-plan-section {
+      padding: var(--space-9) 0;
+    }
+    
+    /* Header and Navigation */
+    .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 1rem;
+    }
+    
+    .site-logo {
+      font-weight: 700;
+      font-size: var(--font-size-xl);
+      display: flex;
+      align-items: center;
+    }
+    
+    .site-logo svg {
+      margin-right: var(--space-2);
+    }
+    
+    .main-nav {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      gap: 0.9rem;
+    }
+    
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    
+    .nav-item {
+      margin-left: 0;
+      position: relative;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.86rem;
+      color: var(--color-gray-500);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-link::after { display: none; }
+    .nav-link:hover,
+    .nav-link.active { color: var(--color-accent-dark); }
+
+    .nav-list .nav-item:last-child .nav-link {
+      border: 1px solid var(--color-gray-200);
+      color: var(--color-black);
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-list .nav-item:last-child .nav-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent-dark);
+    }
+    
+    .nav-link svg {
+      margin-left: var(--space-1);
+    }
+
+    .search-bar {
+      display: none;
+    }
+    
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-2) 0;
+      margin-top: var(--space-2);
+    }
+    
+    .dropdown:hover .dropdown-menu,
+    .dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-item {
+      display: block;
+      padding: var(--space-2) var(--space-4);
+      color: var(--color-black);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .dropdown-item:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    .dropdown-divider {
+      height: 1px;
+      background-color: var(--color-gray-200);
+      margin: var(--space-2) 0;
+    }
+    
+    /* Mega Menu */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      width: 800px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-6);
+      margin-top: var(--space-2);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .dropdown:hover .mega-menu,
+    .mega-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .mega-menu-column h4 {
+      margin-bottom: var(--space-3);
+      font-size: var(--font-size-md);
+      font-weight: 600;
+    }
+    
+    .mega-menu-list {
+      list-style: none;
+    }
+    
+    .mega-menu-item {
+      margin-bottom: var(--space-2);
+    }
+    
+    .mega-menu-link {
+      color: var(--color-gray-700);
+      transition: color var(--transition-fast);
+    }
+    
+    .mega-menu-link:hover {
+      color: var(--color-accent);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: var(--space-2);
+    }
+    
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-left: var(--space-5);
+    }
+    
+    .search-input {
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      width: 200px;
+      transition: border-color var(--transition-fast), width var(--transition-normal);
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--color-black);
+      width: 250px;
+    }
+    
+    .search-button {
+      background: none;
+      border: none;
+      padding: var(--space-2);
+      margin-left: var(--space-1);
+      color: var(--color-gray-500);
+      transition: color var(--transition-fast);
+    }
+    
+    .search-button:hover {
+      color: var(--color-black);
+    }
+    
+    /* Secondary Header */
+    .secondary-header {
+      background-color: var(--color-gray-100);
+      padding: var(--space-3) 0;
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .secondary-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .secondary-nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .secondary-nav-item {
+      margin-right: var(--space-4);
+    }
+    
+    .secondary-nav-link {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+    }
+    
+    .secondary-nav-link:hover {
+      color: var(--color-black);
+    }
+    
+    .user-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    .user-action-link {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+      margin-left: var(--space-4);
+      display: flex;
+      align-items: center;
+    }
+    
+    .user-action-link svg {
+      margin-right: var(--space-1);
+    }
+    
+    .user-action-link:hover {
+      color: var(--color-black);
+    }
+    
+    /* Filter Bar */
+    .filter-bar {
+      background-color: var(--color-white);
+      padding: var(--space-4) 0;
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .filter-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    
+    .filter-group {
+      position: relative;
+    }
+    
+    .filter-button {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-2) var(--space-3);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      transition: border-color var(--transition-fast);
+    }
+    
+    .filter-button:hover {
+      border-color: var(--color-black);
+    }
+    
+    .filter-button svg {
+      margin-left: var(--space-2);
+    }
+    
+    .filter-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+      z-index: var(--z-dropdown);
+      padding: var(--space-3);
+      margin-top: var(--space-2);
+    }
+    
+    .filter-group:hover .filter-dropdown,
+    .filter-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .filter-dropdown-title {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .filter-option {
+      display: flex;
+      align-items: center;
+    }
+    
+    .filter-checkbox {
+      margin-right: var(--space-2);
+    }
+    
+    .filter-label {
+      font-size: var(--font-size-sm);
+    }
+    
+    .filter-range {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .filter-range-input {
+      width: 80px;
+      padding: var(--space-1) var(--space-2);
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+    }
+    
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .filter-reset {
+      background: none;
+      border: none;
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    .filter-apply {
+      background-color: var(--color-black);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--border-radius-sm);
+      padding: var(--space-1) var(--space-3);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+    
+    .filter-apply:hover {
+      background-color: var(--color-gray-800);
+    }
+    
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    
+    .filter-tag {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-gray-100);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-xs);
+    }
+    
+    .filter-tag-remove {
+      background: none;
+      border: none;
+      margin-left: var(--space-1);
+      color: var(--color-gray-500);
+      font-size: var(--font-size-sm);
+    }
+    
+    /* Plans Navigation */
+    .plans-nav {
+      background-color: var(--color-gray-100);
+      padding: var(--space-4) 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      position: relative;
+    }
+    
+    .plans-nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    
+    .plans-nav-container {
+      display: flex;
+      gap: var(--space-4);
+      padding-bottom: var(--space-1); /* Add padding to prevent cut-off shadows */
+    }
+    
+    .plan-nav-item {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-200);
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      flex-shrink: 0; /* Prevent items from shrinking */
+    }
+    
+    .plan-nav-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .plan-nav-item.active {
+      border-color: var(--color-accent);
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+    
+    .plan-nav-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      margin-right: var(--space-3);
+      border-radius: var(--border-radius-sm);
+    }
+    
+    .plan-nav-info {
+      text-align: left;
+    }
+    
+    .plan-nav-title {
+      font-weight: 500;
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--space-1);
+    }
+    
+    .plan-nav-details {
+      font-size: var(--font-size-xs);
+      color: var(--color-gray-500);
+    }
+    
+    .plan-nav-item.active .plan-nav-details {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Navigation scroll buttons */
+    .plans-nav-scroll {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-white);
+      border: var(--border-width) solid var(--color-gray-300);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .plans-nav-scroll:hover {
+      background-color: var(--color-gray-100);
+    }
+    
+    .plans-nav-scroll-left {
+      left: var(--space-4);
+    }
+    
+    .plans-nav-scroll-right {
+      right: var(--space-4);
+    }
+    
+    /* Hide scroll buttons when not needed */
+    .plans-nav-scroll.hidden {
+      display: none;
+    }
+    
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-6);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    .breadcrumb span {
+      margin: 0 var(--space-2);
+    }
+    
+    /* Gallery - Swiss Design */
+    .gallery {
+      position: relative;
+      margin-bottom: var(--space-6);
+      overflow: hidden;
+    }
+    
+    .gallery-main {
+      position: relative;
+      aspect-ratio: 16/9;
+      background-color: var(--color-gray-100);
+      overflow: hidden;
+    }
+    
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .gallery-main:hover img {
+      transform: scale(1.02);
+    }
+    
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--color-white);
+      border: none;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: background-color var(--transition-fast);
+    }
+    
+    .gallery-nav:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+    
+    .gallery-prev {
+      left: 0;
+    }
+    
+    .gallery-next {
+      right: 0;
+    }
+    
+    .gallery-counter {
+      position: absolute;
+      bottom: var(--space-4);
+      right: var(--space-4);
+      background-color: var(--color-white);
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      z-index: 2;
+    }
+    
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .gallery-thumbnail {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .gallery-thumbnail::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-black);
+      opacity: 0.1;
+      transition: opacity var(--transition-fast);
+    }
+    
+    .gallery-thumbnail.active::after {
+      opacity: 0;
+    }
+    
+    .gallery-thumbnail:hover::after {
+      opacity: 0;
+    }
+    
+    .gallery-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
+    }
+    
+    .gallery-thumbnail:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Tabs - Swiss Design */
+    .tabs {
+      margin-top: var(--space-8);
+    }
+    
+    .tabs-list {
+      display: flex;
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+      margin-bottom: var(--space-6);
+      position: relative;
+    }
+    
+    .tab-indicator {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: transform var(--transition-normal), width var(--transition-normal);
+    }
+    
+    .tab-trigger {
+      padding: var(--space-3) var(--space-4);
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--color-gray-500);
+      transition: color var(--transition-fast);
+      position: relative;
+      white-space: nowrap;
+    }
+    
+    .tab-trigger:hover {
+      color: var(--color-black);
+    }
+    
+    .tab-trigger.active {
+      color: var(--color-black);
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Cards - Swiss Design */
+    .card {
+      background-color: var(--color-white);
+      margin-bottom: var(--space-6);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    
+    .card-content {
+      padding: var(--space-6);
+    }
+    
+    /* Features */
+    .feature-list {
+      list-style: none;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: var(--space-3);
+      position: relative;
+      padding-left: var(--space-4);
+    }
+    
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 6px;
+      height: 1px;
+      background-color: var(--color-accent);
+    }
+    
+    /* Specifications */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .specs-table tr {
+      border-bottom: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .specs-table tr:last-child {
+      border-bottom: none;
+    }
+    
+    .specs-table td {
+      padding: var(--space-3) 0;
+    }
+    
+    .specs-table td:last-child {
+      text-align: right;
+      font-weight: 500;
+    }
+    
+    /* Plan Info */
+    .plan-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    
+    .plan-info-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .plan-info-value {
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .plan-info-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    /* Buttons - Swiss Design */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3) var(--space-5);
+      font-weight: 500;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      font-size: var(--font-size-md);
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform var(--transition-fast);
+    }
+    
+    .btn:hover::after {
+      transform: translateY(0);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn-primary {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--color-gray-800);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-black);
+      border: var(--border-width) solid var(--color-gray-300);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--color-black);
+    }
+    
+    .btn-accent {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+    
+    .btn-accent:hover {
+      background-color: #e6352b; /* Darker accent */
+    }
+    
+    .btn-lg {
+      padding: var(--space-4) var(--space-6);
+      font-size: var(--font-size-lg);
+    }
+    
+    .btn-full {
+      width: 100%;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: var(--space-3);
+      margin: var(--space-4) 0;
+    }
+    
+    /* Similar Plans */
+    .similar-plan {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      cursor: pointer;
+    }
+    
+    .similar-plan:last-child {
+      margin-bottom: 0;
+    }
+    
+    .similar-plan-img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+    }
+    
+    .similar-plan-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
+    }
+    
+    .similar-plan:hover .similar-plan-img img {
+      transform: scale(1.05);
+    }
+    
+    .similar-plan-title {
+      font-weight: 500;
+      margin-bottom: var(--space-1);
+    }
+    
+    .similar-plan-details {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: var(--space-6);
+    }
+    
+    .sidebar-card {
+      margin-bottom: var(--space-6);
+      border: var(--border-width) solid var(--color-gray-200);
+    }
+    
+    .sidebar-card-content {
+      padding: var(--space-6);
+    }
+    
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: var(--space-4);
+    }
+    
+    .price-value {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      margin-right: var(--space-2);
+    }
+    
+    .price-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+    }
+    
+    /* Footer */
+    .site-footer {
+      background-color: var(--color-gray-800);
+      color: var(--color-white);
+      padding: var(--space-9) 0 var(--space-6);
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    
+    .footer-logo {
+      font-weight: 700;
+      font-size: var(--font-size-xl);
+      display: flex;
+      align-items: center;
+      color: var(--color-white);
+      margin-bottom: var(--space-4);
+    }
+    
+    .footer-logo svg {
+      margin-right: var(--space-2);
+    }
+    
+    .footer-about {
+      color: var(--color-gray-300);
+      margin-bottom: var(--space-4);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: var(--space-3);
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: var(--color-gray-700);
+      border-radius: 50%;
+      color: var(--color-white);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .social-link:hover {
+      background-color: var(--color-accent);
+    }
+    
+    .footer-heading {
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--color-white);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link-item {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-link {
+      color: var(--color-gray-300);
+      transition: color var(--transition-fast);
+    }
+    
+    .footer-link:hover {
+      color: var(--color-white);
+    }
+    
+    .footer-newsletter {
+      margin-top: var(--space-4);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      margin-top: var(--space-2);
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: var(--space-2) var(--space-3);
+      border: none;
+      border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+    }
+    
+    .newsletter-button {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      padding: var(--space-2) var(--space-3);
+      font-weight: 500;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-gray-700);
+      color: var(--color-gray-400);
+      font-size: var(--font-size-sm);
+    }
+    
+    .footer-copyright a {
+      color: var(--color-gray-300);
+    }
+    
+    .footer-legal {
+      display: flex;
+      gap: var(--space-4);
+    }
+    
+    .legal-link {
+      color: var(--color-gray-400);
+    }
+    
+    .legal-link:hover {
+      color: var(--color-white);
+    }
+    
+    /* Page transitions */
+    .page-transition {
+      transition: opacity var(--transition-normal), transform var(--transition-normal);
+    }
+    
+    .page-transition.fade-out {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    
+    .page-transition.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Loading indicator */
+    .loading-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-gray-200);
+      z-index: 1000;
+    }
+    
+    .loading-bar {
+      height: 100%;
+      width: 0;
+      background-color: var(--color-accent);
+      transition: width 0.3s ease;
+    }
+    
+    /* Geometric accents - Swiss design elements */
+    .geometric-accent {
+      position: absolute;
+      background-color: var(--color-accent);
+      z-index: -1;
+    }
+    
+    .accent-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+      opacity: 0.1;
+    }
+    
+    .accent-square {
+      width: 80px;
+      height: 80px;
+      bottom: -40px;
+      left: -40px;
+      opacity: 0.1;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .animate-slide-up {
+      animation: slideUp 0.5s ease forwards;
+    }
+    
+    /* Utilities */
+    .text-accent {
+      color: var(--color-accent);
+    }
+    
+    .text-muted {
+      color: var(--color-gray-500);
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .font-bold {
+      font-weight: 700;
+    }
+    
+    .font-medium {
+      font-weight: 500;
+    }
+    
+    .mb-1 { margin-bottom: var(--space-1); }
+    .mb-2 { margin-bottom: var(--space-2); }
+    .mb-4 { margin-bottom: var(--space-4); }
+    .mb-6 { margin-bottom: var(--space-6); }
+    .mb-8 { margin-bottom: var(--space-8); }
+    
+    .mt-1 { margin-top: var(--space-1); }
+    .mt-2 { margin-top: var(--space-2); }
+    .mt-4 { margin-top: var(--space-4); }
+    .mt-6 { margin-top: var(--space-6); }
+    
+    .flex {
+      display: flex;
+    }
+    
+    .items-center {
+      align-items: center;
+    }
+    
+    .justify-between {
+      justify-content: space-between;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      
+      .footer-about-column {
+        grid-column: span 3;
+        margin-bottom: var(--space-6);
+      }
+      
+      .mega-menu {
+        width: 600px;
+      }
+      
+      .plans-nav-scroll {
+        display: flex;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .mega-menu {
+        width: 100%;
+        left: 0;
+        transform: translateX(0) translateY(10px);
+      }
+      
+      .dropdown:hover .mega-menu,
+      .mega-menu.show {
+        transform: translateX(0) translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+      
+      .main-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .tabs-list {
+        overflow-x: auto;
+        padding-bottom: var(--space-2);
+      }
+      
+      .plan-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .house-plan-section {
+        padding: var(--space-6) 0;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6) var(--space-4);
+      }
+      
+      .footer-about-column {
+        grid-column: span 2;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+      }
+      
+      .footer-legal {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .secondary-nav {
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      
+      .secondary-nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .user-actions {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .plan-info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+      }
+      
+      .plan-nav-item {
+        padding: var(--space-2) var(--space-3);
+      }
+      
+      .plan-nav-item img {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-about-column {
+        grid-column: span 1;
+      }
+      
+      .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
+.footer-social{display:flex;gap:.6rem}
+.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
+.social-link:hover{background:#4da6e7;color:#fff}
+.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-links{list-style:none;margin:0;padding:0}
+.footer-link-item{margin-bottom:.6rem}
+.footer-link{color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-link:hover{color:#1d4ed8}
+.footer-newsletter{margin-top:1.5rem}
+.newsletter-form{display:flex;gap:.4rem}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.newsletter-input::placeholder{color:#94a3b8}
+.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:8px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:#1d4ed8}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
+.footer-legal{display:flex;gap:1rem}
+.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.legal-link:hover{color:#1d4ed8}
+@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <!-- Loading indicator -->
+  <div class="loading-indicator">
+    <div class="loading-bar" id="loading-bar"></div>
+  </div>
+
+  <!-- Secondary Header -->
+  <!--<div class="secondary-header">-->
+  <!--  <div class="container">-->
+  <!--    <div class="secondary-nav">-->
+  <!--      <ul class="secondary-nav-list">-->
+  <!--        <li class="secondary-nav-item">-->
+  <!--          <a href="#" class="secondary-nav-link">Customer Support</a>-->
+  <!--        </li>-->
+  <!--        <li class="secondary-nav-item">-->
+  <!--          <a href="#" class="secondary-nav-link">Find a Builder</a>-->
+  <!--        </li>-->
+  <!--        <li class="secondary-nav-item">-->
+  <!--          <a href="#" class="secondary-nav-link">Shipping Information</a>-->
+  <!--        </li>-->
+  <!--        <li class="secondary-nav-item">-->
+  <!--          <a href="#" class="secondary-nav-link">FAQ</a>-->
+  <!--        </li>-->
+  <!--      </ul>-->
+  <!--      <div class="user-actions">-->
+  <!--        <a href="#" class="user-action-link">-->
+  <!--          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>-->
+  <!--          My Account-->
+  <!--        </a>-->
+  <!--        <a href="#" class="user-action-link">-->
+  <!--          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>-->
+  <!--          Cart (0)-->
+  <!--        </a>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="site-logo">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 38px; width: auto;">
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="/about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="/#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="/#pricing" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="/#portfolio" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="/residential.html" class="nav-link active">Get Plans</a></li>
+          <li class="nav-item"><a href="/case-studies/index.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="/permit-estimate.html" class="nav-link">Estimate</a></li>
+          <li class="nav-item"><a href="https://calendly.com/ts9designs/discovery" class="nav-link">Book A Call</a></li>
+        </ul>
+        
+        <div class="search-bar">
+          <input type="text" class="search-input" placeholder="Search house plans...">
+          <button class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-container">
+        <div class="filter-group">
+          <button class="filter-button">
+            Project Type
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Project Type</div>
+            <div class="filter-options">
+              <a href="commercial.html" class="dropdown-item" style="padding: 8px 12px; display: block; text-decoration: none; color: inherit;">
+                Commercial Projects
+              </a>
+              <a href="residential.html" class="dropdown-item" style="padding: 8px 12px; display: block; text-decoration: none; color: inherit;">
+                Residential Projects
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            Bedrooms
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Number of Bedrooms</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1">
+                <span class="filter-label">1 Bedroom</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2">
+                <span class="filter-label">2 Bedrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3">
+                <span class="filter-label">3 Bedrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="4">
+                <span class="filter-label">4 Bedrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="5+">
+                <span class="filter-label">5+ Bedrooms</span>
+              </label>
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            Bathrooms
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Number of Bathrooms</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1">
+                <span class="filter-label">1 Bathroom</span>
+              </label>
+                <span class="filter-label">1 Bathroom</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1.5">
+                <span class="filter-label">1.5 Bathrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2">
+                <span class="filter-label">2 Bathrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2.5">
+                <span class="filter-label">2.5 Bathrooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3+">
+                <span class="filter-label">3+ Bathrooms</span>
+              </label>
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            Square Feet
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Square Footage</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="under-1000">
+                <span class="filter-label">Under 1,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1000-1500">
+                <span class="filter-label">1,000-1,500 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1500-2000">
+                <span class="filter-label">1,500-2,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2000-2500">
+                <span class="filter-label">2,000-2,500 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2500-3000">
+                <span class="filter-label">2,500-3,000 sq ft</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3000+">
+                <span class="filter-label">3,000+ sq ft</span>
+              </label>
+            </div>
+            <div class="filter-range">
+              <input type="text" class="filter-range-input" placeholder="Min">
+              <span>to</span>
+              <input type="text" class="filter-range-input" placeholder="Max">
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            Stories
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Number of Stories</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1">
+                <span class="filter-label">1 Story</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="1.5">
+                <span class="filter-label">1.5 Stories</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="2">
+                <span class="filter-label">2 Stories</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="3+">
+                <span class="filter-label">3+ Stories</span>
+              </label>
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <button class="filter-button">
+            More Filters
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-dropdown">
+            <div class="filter-dropdown-title">Additional Filters</div>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="garage">
+                <span class="filter-label">Garage</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="basement">
+                <span class="filter-label">Basement</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="main-floor-master">
+                <span class="filter-label">Main Floor Master</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="open-floor-plan">
+                <span class="filter-label">Open Floor Plan</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="home-office">
+                <span class="filter-label">Home Office</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" class="filter-checkbox" value="outdoor-living">
+                <span class="filter-label">Outdoor Living</span>
+              </label>
+            </div>
+            <div class="filter-actions">
+              <button class="filter-reset">Reset</button>
+              <button class="filter-apply">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="filter-tags" id="filter-tags">
+        <!-- Active filters will appear here -->
+        <div class="filter-tag">
+          Bishop Pond
+          <button class="filter-tag-remove">×</button>
+        </div>
+        <div class="filter-tag">
+          30+ Bedrooms
+          <button class="filter-tag-remove">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Plans Navigation -->
+  <div class="plans-nav">
+    <button class="plans-nav-scroll plans-nav-scroll-left" id="scroll-left" aria-label="Scroll left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    
+    <div class="container plans-nav-container" id="plans-nav-container">
+      <div class="plan-nav-item" data-plan-id="modern-ranch">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Conmigo</div>
+          <div class="plan-nav-details">Western Pennysylvania</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="coastal-cottage">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Daycare</div>
+          <div class="plan-nav-details">Hazel Crest, IL</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="contemporary-urban">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">La Dolce Villa</div>
+          <div class="plan-nav-details">Dover, NH</div>
+        </div>
+      </div>
+      <div class="plan-nav-item active" data-plan-id="farmhouse-craftsman">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Bishop Pond</div>
+          <div class="plan-nav-details">62nd Street Coffman Ave</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="mountain-cabin">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Pet Supply Plus</div>
+          <div class="plan-nav-details">Hamilton, NJ</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="tudor-revival">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Optometry</div>
+          <div class="plan-nav-details">Sacramento, CA</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="mediterranean-villa">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Roma Bar</div>
+          <div class="plan-nav-details">Henderson, Nevada</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="prairie-style">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Tropicana</div>
+          <div class="plan-nav-details">Las Vegas, Nevada</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="tiny-house">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Uplift Christian Ministries</div>
+          <div class="plan-nav-details">Charlotte, North Carolina</div>
+        </div>
+      </div>
+      <div class="plan-nav-item" data-plan-id="colonial-classic">
+        <div class="plan-nav-info">
+          <div class="plan-nav-title">Wayne Triplex</div>
+          <div class="plan-nav-details">Philadelphia, Pennyslvania</div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="plans-nav-scroll plans-nav-scroll-right" id="scroll-right" aria-label="Scroll right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+  
+  <!-- Main Content Area -->
+  <section class="house-plan-section">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="#">Home</a>
+        <span>/</span>
+        <a href="#">Residential</a>
+        <span>/</span>
+        <a href="#" id="plan-type-breadcrumb">Bishop Pond</a>
+        <span id="plan-id-breadcrumb"></span>
+      </div>
+      
+      <div class="grid grid-main page-transition" id="plan-content">
+        <!-- Main Content -->
+        <div class="animate-fade-in">
+          <!-- Plan Title - Mobile only -->
+          <div class="mb-6 display-block md-hidden">
+            <h1 id="plan-title-mobile">Bishop Pond</h1>
+            <p class="text-muted" id="plan-id-mobile">Plan 1</p>
+          </div>
+          
+          <!-- Image Gallery -->
+          <div class="gallery">
+            <div class="geometric-accent accent-circle"></div>
+            <div class="gallery-main">
+              <img src="assets/images/Bishop/frontview.jpg" alt="Bishop pond Plan" width="1200" height="675" id="main-gallery-image">
+              <button class="gallery-nav gallery-prev" aria-label="Previous image">&#10094;</button>
+              <button class="gallery-nav gallery-next" aria-label="Next image">&#10095;</button>
+              <div class="gallery-counter">
+                <span id="current-image">1</span>/<span id="total-images">9</span>
+              </div>
+            </div>
+            <div class="gallery-thumbnails" id="gallery-thumbnails">
+              <div class="gallery-thumbnail active" data-index="0">
+                <img src="assets/images/Bishop/frontview.jpg" alt="House plan thumbnail 1" width="150" height="150" loading="eager">
+              </div>
+              <div class="gallery-thumbnail" data-index="1">
+                <img src="assets/images/Bishop/bishop-pond-bathro.jpg" alt="House plan thumbnail 2" width="150" height="150" loading="lazy">
+              </div>
+              <div class="gallery-thumbnail" data-index="2">
+                <img src="assets/images/Bishop/Large-outdoor-Deck.jpg" alt="House plan thumbnail 3" width="150" height="150" loading="lazy">
+              </div>
+              <div class="gallery-thumbnail" data-index="3">
+                <img src="assets/images/Bishop/Living-Room.webp" alt="House plan thumbnail 4" width="150" height="150" loading="lazy">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tabs -->
+          <div class="tabs">
+            <div class="tabs-list" role="tablist">
+              <button class="tab-trigger active" data-tab="details" role="tab" aria-selected="true" aria-controls="details">Details</button>
+              <button class="tab-trigger" data-tab="floor-plans" role="tab" aria-selected="false" aria-controls="floor-plans">Floor Plans</button>
+              <button class="tab-trigger" data-tab="features" role="tab" aria-selected="false" aria-controls="features">Features</button>
+              <button class="tab-trigger" data-tab="specifications" role="tab" aria-selected="false" aria-controls="specifications">Specifications</button>
+              <div class="tab-indicator" id="tab-indicator"></div>
+            </div>
+            
+            <!-- Details Tab -->
+            <div id="details" class="tab-content active" role="tabpanel" aria-labelledby="details-tab">
+              <h3>Plan Description</h3>
+              <div id="plan-description">
+                <p>
+                  TS9Designs proudly provided the full engineering plans for the Bishop Pond residential community in Indianapolis a beautifully planned development combining modern living with classic Midwestern charm.
+                </p>
+                <p>
+                 Our team delicered comprehesive Mechanical, electrical, Electrical, and Plumbing(MEP) engineering designed for efficiency, comfort, and long-term reliability, aligning with the builder's vision and local code requirements.
+                </p>
+                <p>
+                  From concept to permit-ready plans, our engineering support helped bring elegant neighbohood to life another example of how TS9Designs powers great design through smart engineering.
+                </p>
+                <p>
+                  <a href="https://www.bishoppond.com/gallery/" class="btn btn-primary btn-full mb-2">View Gallery</a>
+                </p>
+              </div>
+            </div>
+            
+            
+            <!-- Floor Plans Tab -->
+            <div id="floor-plans" class="tab-content" role="tabpanel" aria-labelledby="floor-plans-tab">
+              <div class="grid grid-2-col">
+                <div>
+                  <h3>First Floor</h3>
+                  <div class="card">
+                    <img src="https://via.placeholder.com/800x800" alt="First floor plan" width="800" height="800" loading="lazy" id="first-floor-image">
+                  </div>
+                </div>
+                <div>
+                  <h3>Second Floor</h3>
+                  <div class="card">
+                    <img src="https://via.placeholder.com/800x800" alt="Second floor plan" width="800" height="800" loading="lazy" id="second-floor-image">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Features Tab -->
+            <div id="features" class="tab-content" role="tabpanel" aria-labelledby="features-tab">
+              <div class="grid grid-2-col">
+                <div>
+                  <h3>Exterior Features</h3>
+                  <ul class="feature-list" id="exterior-features">
+                    <li class="feature-item">Farmhouse/Craftsman Design style</li>
+                    <li class="feature-item">Covered front porch</li>
+                    <li class="feature-item">Board and batten siding</li>
+                    <li class="feature-item">Stone accents</li>
+                    <li class="feature-item">2-car garage</li>
+                    <li class="feature-item">Rear covered patio</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>Montserratior Features</h3>
+                  <ul class="feature-list" id="Montserratior-features">
+                    <li class="feature-item">Open concept main living area</li>
+                    <li class="feature-item">First floor primary suite</li>
+                    <li class="feature-item">Walk-in closets</li>
+                    <li class="feature-item">Kitchen island with breakfast bar</li>
+                    <li class="feature-item">Pantry</li>
+                    <li class="feature-item">Mudroom with built-in storage</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Specifications Tab -->
+            <div id="specifications" class="tab-content" role="tabpanel" aria-labelledby="specifications-tab">
+              <div class="grid grid-2-col">
+                <div>
+                  <h3>Dimensions</h3>
+                  <table class="specs-table" id="dimensions-table">
+                    <tbody>
+                      <tr>
+                        <td>Width</td>
+                        <td>52'</td>
+                      </tr>
+                      <tr>
+                        <td>Depth</td>
+                        <td>60'</td>
+                      </tr>
+                      <tr>
+                        <td>Height</td>
+                        <td>28'</td>
+                      </tr>
+                      <tr>
+                        <td>Main Floor Ceiling</td>
+                        <td>9'</td>
+                      </tr>
+                      <tr>
+                        <td>Upper Floor Ceiling</td>
+                        <td>8'</td>
+                      </tr>
+                      <tr>
+                        <td>Foundation</td>
+                        <td>Basement/Crawl</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <h3>Room Sizes</h3>
+                  <table class="specs-table" id="room-sizes-table">
+                    <tbody>
+                      <tr>
+                        <td>Great Room</td>
+                        <td>18' x 16'</td>
+                      </tr>
+                      <tr>
+                        <td>Kitchen</td>
+                        <td>14' x 12'</td>
+                      </tr>
+                      <tr>
+                        <td>Dining Room</td>
+                        <td>12' x 10'</td>
+                      </tr>
+                      <tr>
+                        <td>Primary Bedroom</td>
+                        <td>16' x 14'</td>
+                      </tr>
+                      <tr>
+                        <td>Bedroom 2</td>
+                        <td>12' x 11'</td>
+                      </tr>
+                      <tr>
+                        <td>Bedroom 3</td>
+                        <td>12' x 11'</td>
+                      </tr>
+                      <tr>
+                        <td>Bedroom 4</td>
+                        <td>11' x 10'</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="sidebar">
+            <!-- Plan Info Card -->
+            <div class="sidebar-card">
+              <div class="geometric-accent accent-square"></div>
+              <div class="sidebar-card-content">
+                <div class="mb-6">
+                  <h1 id="plan-title">Bishop Pond</h1>
+                  <p class="text-muted" id="plan-id">Coffman Ave</p>
+                </div>
+                
+                <div class="plan-info-grid mb-6">
+                  <div class="plan-info-item">
+                    <div class="plan-info-value" id="square-feet">33</div>
+                    <div class="plan-info-label">Square Feet</div>
+                  </div>
+                  <div class="plan-info-item">
+                    <div class="plan-info-value" id="bedrooms">39</div>
+                    <div class="plan-info-label">Bedrooms</div>
+                  </div>
+                  <div class="plan-info-item">
+                    <div class="plan-info-value" id="bathrooms">25</div>
+                    <div class="plan-info-label">Bathrooms</div>
+                  </div>
+                  <div class="plan-info-item">
+                    <div class="plan-info-value" id="garage">20</div>
+                    <div class="plan-info-label">Car Garage</div>
+                  </div>
+                </div>
+                
+                <div class="price-tag mb-6">
+                  <div class="price-value" id="price">$0.45</div>
+                  <div class="price-label">Per sqft</div>
+                </div>
+                
+                <a href="#" class="btn btn-accent btn-lg btn-full mb-4">Purchase Plans</a>
+                
+                <div class="btn-group">
+                  <a href="#" class="btn btn-outline" style="flex: 1;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    Save
+                  </a>
+                  <a href="#" class="btn btn-outline" style="flex: 1;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    Share
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="sidebar-card">
+              <div class="sidebar-card-content">
+                <h3 class="mb-4">Have Questions?</h3>
+                <p class="text-muted mb-4">
+                  Our design specialists are here to help you with any questions about this plan.
+                </p>
+                <a href="mailto:info@ts9designs.com" class="btn btn-primary btn-full mb-2">Contact Us</a>
+                <p class="text-sm text-center text-muted">
+                  or call us at <span class="font-medium">215-436-7333</span>
+                </p>
+              </div>
+            </div>
+            
+            <!-- Similar Plans -->
+            <div class="sidebar-card">
+              <div class="sidebar-card-content">
+                <h3 class="mb-4">Similar Plans</h3>
+                
+                <div class="similar-plan" data-plan-id="modern-ranch">
+                  <div class="similar-plan-img">
+                    <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet supplies Plus" width="150" height="150" loading="lazy">
+                  </div>
+                  <div>
+                    <h4 class="similar-plan-title">Pet Supplies Plus</h4>
+                    <p class="similar-plan-details">
+                      Hamilton, New Jersey
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="similar-plan" data-plan-id="coastal-cottage">
+                  <div class="similar-plan-img">
+                    <img src="assets/images/conmigo.jpg" alt="Similar house plan 2" width="150" height="150" loading="lazy">
+                  </div>
+                  <div>
+                    <h4 class="similar-plan-title">Cafe conmigo</h4>
+                    <p class="similar-plan-details">
+                      Western Pennyslvania
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="similar-plan" data-plan-id="prairie-style">
+                  <div class="similar-plan-img">
+                    <img src="assets/images/dolce.jpg" alt="Similar house plan 3" width="150" height="150" loading="lazy">
+                  </div>
+                  <div>
+                    <h4 class="similar-plan-title">La Dolce Villa</h4>
+                    <p class="similar-plan-details">
+                      Dover, New Hampshire
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+    <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about-column">
+          <a href="/" class="footer-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            TS9Designs
+          </a>
+          <p class="footer-about">
+            TS9 Designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/TS9Designs" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/ts9designs/" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://linkedin.com/company/ts9designs" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.646h3.554v1.348c-.009.015-.021.029-.03.042h.03v-.042c.418-.645 1.162-1.571 2.828-1.571 2.065 0 3.615 1.348 3.615 4.253v5.616zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.951.77-1.704 1.963-1.704 1.192 0 1.915.753 1.948 1.704 0 .946-.756 1.704-1.996 1.704zm-1.6 11.597h3.119V9.671H3.737v10.781zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/case-studies/index.html" class="footer-link">Case Studies</a></li>
+            <li class="footer-link-item"><a href="/permit-estimate.html" class="footer-link">Get an Estimate</a></li>
+            <li class="footer-link-item"><a href="/blogs.html" class="footer-link">Blog</a></li>
+            <li class="footer-link-item"><a href="/#faqs" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a></li>
+            <li class="footer-link-item"><a href="tel:+12154367333" class="footer-link">(215) 436-7333</a></li>
+          </ul>
+          <div class="footer-newsletter">
+            <h4 class="footer-heading">Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">Copyright &copy; TSABA Corp. All Rights Reserved. Services requiring licensure are performed in accordance with applicable jurisdiction requirements.</div>
+        <div class="footer-legal">
+          <a href="/privacypolicy.html" class="legal-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/emailjs-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/newsletter.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // House plan data
+      const housePlans = {
+        'farmhouse-craftsman': {
+          title: 'Bishop Pond',
+          planId: 'Indianapolis, IN',
+          type: '',
+          squareFeet: '30',
+          bedrooms: '30',
+          bathrooms: '42',
+          garage: '15',
+          price: '$0.45',
+          description: `
+            <p>
+            TS9Designs proudly provided the full engineering plans for the Bishop Pond residential community in Indianapolis a beautifully planned development combining modern living with classic Midwestern charm.
+            </p>
+            <p>
+             Our team delicered comprehesive Mechanical, electrical, Electrical, and Plumbing(MEP) engineering designed for efficiency, comfort, and long-term reliability, aligning with the builder's vision and local code requirements.
+            </p>
+            <p>
+              From concept to permit-ready plans, our engineering support helped bring elegant neighbohood to life another example of how TS9Designs powers great design through smart engineering.
+            </p>
+            <p>
+              <a href="https://www.bishoppond.com/gallery/" class="btn btn-primary btn-full mb-2">View Gallery</a>
+            </p>
+          `,
+          exteriorFeatures: [
+            'Farmhouse/Craftsman design style',
+            'Covered front porch',
+            'Board and batten siding',
+            'Stone accents',
+            '2-car garage',
+            'Rear covered patio'
+          ],
+          MontserratiorFeatures: [
+            'Open concept main living area',
+            'First floor primary suite',
+            'Walk-in closets',
+            'Kitchen island with breakfast bar',
+            'Pantry',
+            'Mudroom with built-in storage'
+          ],
+          dimensions: {
+            'Width': '52\'',
+            'Depth': '60\'',
+            'Height': '28\'',
+            'Main Floor Ceiling': '9\'',
+            'Upper Floor Ceiling': '8\'',
+            'Foundation': 'Basement/Crawl'
+          },
+          roomSizes: {
+            'Great Room': '18\' x 16\'',
+            'Kitchen': '14\' x 12\'',
+            'Dining Room': '12\' x 10\'',
+            'Primary Bedroom': '16\' x 14\'',
+            'Bedroom 2': '12\' x 11\'',
+            'Bedroom 3': '12\' x 11\'',
+            'Bedroom 4': '11\' x 10\''
+          },
+          images: [
+            'assets/images/Bishop/frontview.jpg',
+            'assets/images/Bishop/bishop-pond-bathro.jpg',
+            'assets/images/Bishop/Large-outdoor-Deck.jpg',
+            'assets/images/Bishop/Living-Room.webp'
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'modern-ranch': {
+          title: 'Cafe Conmigo',
+          planId: 'Commercial',
+          type: '',
+          squareFeet: '2,150',
+          bedrooms: '0',
+          bathrooms: '2',
+          garage: '2',
+          price: '$0.45',
+          description: `
+            <p>
+              TS9Designs is proud to have provided both Building Design Services and Engineering plans for Conmigo Café, a cozy and community-focused coffee shop located in Western Pennsylvania.
+              From the very start, we worked closely with the café team to bring their warm, welcoming vision to life—delivering detailed floor plans, thoughtful exterior elevations, and efficient Mechanical, Electrical, and Plumbing (MEP) designs tailored to café operations. Our focus was on creating a space that feels just as good as it functions—blending aesthetics with code compliance and practical flow.
+            </p>
+            <p>
+              The open floor plan creates a seamless flow between the great room, dining area, and gourmet kitchen, perfect for entertaining. Large windows throughout the home bring in abundant natural light and connect the Montserratior spaces with the outdoors.
+            </p>
+          `,
+          exteriorFeatures: [
+            'Modern ranch design style',
+            'Low-pitched roof with wide eaves',
+            'Mixed material facade (stucco, wood, stone)',
+            'Covered entry porch',
+            '2-car garage with storage',
+            'Large rear patio with optional outdoor kitchen'
+          ],
+          MontserratiorFeatures: [
+            'Open concept floor plan',
+            'Gourmet kitchen with large island',
+            'Primary suite with spa bathroom',
+            'Home office/flex room',
+            'Mudroom with built-in storage',
+            'Optional basement finish'
+          ],
+          dimensions: {
+            'Width': '76\'',
+            'Depth': '65\'',
+            'Height': '18\'',
+            'Ceiling Height': '10\'',
+            'Foundation': 'Slab/Basement Option'
+          },
+          roomSizes: {
+            'Great Room': '20\' x 18\'',
+            'Kitchen': '16\' x 14\'',
+            'Dining Room': '14\' x 12\'',
+            'Primary Bedroom': '18\' x 16\'',
+            'Bedroom 2': '14\' x 12\'',
+            'Bedroom 3': '14\' x 12\'',
+            'Office/Flex': '12\' x 10\''
+          },
+          images: [
+            'assets/images/conmigo/conmigo2.jpg',
+            'assets/images/conmigo/conmigo1.jpg',
+            'assets/images/conmigo/conmigo.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: null
+          }
+        },
+        'coastal-cottage': {
+          title: 'Daycare',
+          planId: 'Commercial',
+          type: '',
+          squareFeet: '1,650',
+          bedrooms: '3',
+          bathrooms: '5',
+          garage: '1',
+          price: '$0.45',
+          description: `
+            <p>
+             TS9Designs was proud to provide full Mechanical, Electrical, and Plumbing (MEP) engineering plans for the renovation of a daycare and office space for our client, Richard Andrews. The scope included upgrading the facility to meet current building codes and optimizing the layout for functionality and safety—especially important in a childcare setting.</p>
+            <p>
+             One of the standout aspects of this project was our strategic reuse of the existing mechanical systems. After a thorough inspection, we found the systems to be in excellent condition and capable of supporting the new design. This allowed us to reduce unnecessary demolition and replacement, ultimately saving the client thousands of dollars in construction costs while still achieving code-compliant, energy-efficient results.</p>
+            <p>
+             Our team ensured the renovated space met both childcare licensing requirements and modern office standards. We balanced practical needs—such as air circulation, lighting, and plumbing—with cost-efficiency and regulatory compliance. This project reflects TS9Designs’ ongoing commitment to delivering smart, tailored engineering solutions that support our clients’ long-term goals.</p>
+          `,
+          exteriorFeatures: [
+            'Coastal cottage design style',
+            'Board and batten siding with shake accents',
+            'Metal roof details',
+            'Covered front and rear porches',
+            '1-car garage with storage',
+            'Optional widow\'s walk'
+          ],
+          MontserratiorFeatures: [
+            'Vaulted ceilings in main living area',
+            'First floor primary suite',
+            'Upstairs loft/flex space',
+            'Built-in window seats',
+            'Mudroom entry',
+            'Optional fireplace'
+          ],
+          dimensions: {
+            'Width': '42\'',
+            'Depth': '58\'',
+            'Height': '28\'',
+            'Main Floor Ceiling': '9\'/Vaulted',
+            'Upper Floor Ceiling': '8\'',
+            'Foundation': 'Crawl/Pier'
+          },
+          roomSizes: {
+            'Living Room': '16\' x 14\'',
+            'Kitchen': '12\' x 10\'',
+            'Dining Area': '10\' x 10\'',
+            'Primary Bedroom': '14\' x 12\'',
+            'Bedroom 2': '12\' x 10\'',
+            'Bedroom 3': '12\' x 10\'',
+            'Loft': '10\' x 8\''
+          },
+          images: [
+            'assets/images/Daycare/daycare1.jpg',
+            'assets/images/Daycare/daycare2.jpg',
+            'assets/images/Daycare/daycare3.jpg',
+            'assets/images/Daycare/daycare4.jpg',
+            'assets/images/Daycare/daycare5.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'contemporary-urban': {
+          title: 'La Dolce Villa',
+          planId: 'Dover, New Hampshire',
+          type: '',
+          squareFeet: '2,400',
+          bedrooms: '4',
+          bathrooms: '3.5',
+          garage: '2',
+          price: '$0.45',
+          description: `
+            <p>
+            TS9Designs proudly provided both Building Design Services and Engineering plans for La Dolce Vita, an elegant dining destination in Dover, New Hampshire.</p>
+            <p>
+            Our scope included full Building Design layouts and exterior elevations, capturing the restaurant’s desired aesthetic while ensuring functionality and code compliance. From floor plans to façade detailing, we worked closely with ownership to bring their vision to life through thoughtful design.</p>
+            <p>
+            We also delivered complete Mechanical, Electrical, and Plumbing (MEP) engineering solutions, tailored to support the kitchen, dining, and back-of-house operations efficiently.</p>
+          `,
+          exteriorFeatures: [
+            'Contemporary Building Design Services style',
+            'Mixed material facade (metal, glass, concrete)',
+            'Flat roof with rooftop deck option',
+            'Large energy-efficient windows',
+            '2-car garage with EV charging',
+            'Private courtyard'
+          ],
+          MontserratiorFeatures: [
+            'Open concept floor plan',
+            'High ceilings with exposed elements',
+            'Floating staircase',
+            'Smart home technology pre-wiring',
+            'Energy-efficient systems',
+            'Flexible spaces for home office/gym'
+          ],
+          dimensions: {
+            'Width': '32\'',
+            'Depth': '60\'',
+            'Height': '35\'',
+            'Main Floor Ceiling': '10\'',
+            'Upper Floor Ceiling': '9\'',
+            'Foundation': 'Basement'
+          },
+          roomSizes: {
+            'Living Room': '20\' x 16\'',
+            'Kitchen': '16\' x 14\'',
+            'Dining Area': '14\' x 12\'',
+            'Primary Bedroom': '16\' x 14\'',
+            'Bedroom 2': '14\' x 12\'',
+            'Bedroom 3': '12\' x 12\'',
+            'Bedroom 4/Office': '12\' x 10\''
+          },
+          images: [
+            'assets/images/DolceVilla/dolce1.jpg',
+            'assets/images/DolceVilla/dolce2.jpg',
+            'assets/images/DolceVilla/dolce3.jpg',
+            'assets/images/DolceVilla/dolce4.jpg',
+            'assets/images/DolceVilla/dolce5.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'mountain-cabin': {
+          title: 'Pet Supply Plus',
+          planId: 'Hamilton, New jersey',
+          type: 'Commercial',
+          squareFeet: '4,000',
+          bedrooms: '0',
+          bathrooms: '2',
+          garage: '5',
+          price: '$0.45',
+          description: `
+            <p>
+                TS9Designs provided the full engineering plans for the new Pet Supplies Plus location in Hamilton, New Jersey.</p>
+            <p>
+              For this project, we collaborated closely with the corporate team to ensure their brand standards and operational requirements were fully integrated into our drawings. From lighting layouts and electrical panel coordination to mechanical and plumbing systems, every element was tailored to meet their established design guidelines and ensure a seamless rollout.
+            </p>
+            <p>
+              Check them out in Hamilton, NJ—another example of how TS9Designs brings national brands to life at the local level!
+            </p>
+          `,
+          exteriorFeatures: [
+            'Rustic cabin Design style',
+            'Natural wood siding and stone accents',
+            'Metal roof',
+            'Covered front and rear porches',
+            '1-car garage with storage',
+            'Optional basement for additional space'
+          ],
+          MontserratiorFeatures: [
+            'Vaulted ceilings with exposed beams',
+            'Stone fireplace',
+            'Open loft area',
+            'Built-in window seats and storage',
+            'Mudroom entry',
+            'Energy-efficient systems for remote locations'
+          ],
+          dimensions: {
+            'Width': '36\'',
+            'Depth': '40\'',
+            'Height': '24\'',
+            'Main Floor Ceiling': 'Vaulted',
+            'Loft Ceiling': '8\'',
+            'Foundation': 'Crawl/Basement Option'
+          },
+          roomSizes: {
+            'Great Room': '16\' x 14\'',
+            'Kitchen/Dining': '14\' x 12\'',
+            'Primary Bedroom': '12\' x 12\'',
+            'Loft Bedroom': '12\' x 10\'',
+            'Covered Deck': '16\' x 8\''
+          },
+          images: [
+            'assets/images/PetSupplies/pet-supplies.webp',
+            'assets/images/PetSupplies/pet-supplies.jpg',
+            'assets/images/PetSupplies/pet-supplies1.jpg',
+            'assets/images/PetSupplies/pet-supplies2.jpg',
+            'assets/images/PetSupplies/pet-supplies3.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: null
+          }
+        },
+        'tudor-revival': {
+          title: 'Optometry',
+          planId: 'Sacramento, Carlifornia',
+          type: 'Commercial',
+          squareFeet: '2,850',
+          bedrooms: '6',
+          bathrooms: '5',
+          garage: '2',
+          price: '$0.45',
+          description: `
+            <p>
+              TS9Designs had the pleasure of providing engineering plans for Eyes on J Optometry, a modern and welcoming eye care clinic located in Sacramento, California.
+            </p>
+            <p>
+              We loved working with Dr. Sarah to bring her vision to life—focusing on delivering high-quality, efficient Mechanical, Electrical, and Plumbing (MEP) designs that support the clinic’s functionality and patient experience. From lighting and HVAC to plumbing systems, every detail was tailored to fit the needs of a professional medical space while keeping comfort and efficiency top of mind.
+            </p>
+          `,
+          exteriorFeatures: [
+            'Tudor Design style',
+            'Decorative half-timbering',
+            'Steep roof pitches',
+            'Brick and stucco exterior',
+            '2-car garage with storage',
+            'Covered entry porch'
+          ],
+          MontserratiorFeatures: [
+            'Grand foyer with staircase',
+            'Formal living and dining rooms',
+            'Stone fireplace in family room',
+            'Gourmet kitchen with island',
+            'Primary suite with sitting area',
+            'Built-in bookshelves and window seats'
+          ],
+          dimensions: {
+            'Width': '65\'',
+            'Depth': '70\'',
+            'Height': '35\'',
+            'Main Floor Ceiling': '10\'',
+            'Upper Floor Ceiling': '9\'',
+            'Foundation': 'Basement'
+          },
+          roomSizes: {
+            'Living Room': '16\' x 14\'',
+            'Dining Room': '14\' x 12\'',
+            'Family Room': '20\' x 18\'',
+            'Kitchen': '16\' x 14\'',
+            'Primary Bedroom': '18\' x 16\'',
+            'Bedroom 2': '14\' x 12\'',
+            'Bedroom 3': '14\' x 12\'',
+            'Bedroom 4': '12\' x 12\''
+          },
+          images: [
+            'assets/images/Optometry/Optometry.jpg',
+            'assets/images/Optometry/Optometry1.jpg',
+            'assets/images/Optometry/Optometry2.jpg',
+            'assets/images/Optometry/Optometry3.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'mediterranean-villa': {
+          title: 'Roma Bar',
+          planId: 'Henderson, Nevada',
+          type: 'Commercial',
+          squareFeet: '3,200',
+          bedrooms: '0',
+          bathrooms: '4',
+          garage: '3',
+          price: '$0.45',
+          description: `
+            <p>
+              TS9Designs provided full Building Design Services and MEP (Mechanical, Electrical, and Plumbing) plans for the renovation of Roma Bar—a vibrant hospitality space designed to serve as a social and culinary hub. From concept to construction documents, our team worked closely with the client to translate their vision into functional, code-compliant plans ready for city approval.
+            <p>
+              Our approach balanced aesthetic appeal with efficiency. The bar layout was designed to optimize both the customer experience and back-of-house workflow, ensuring smooth operations during busy service hours. We provided detailed electrical and mechanical layouts tailored to restaurant equipment, ventilation needs, and ambient lighting to enhance the overall atmosphere.
+            </p>
+            <p>
+              The project highlights our ability to support hospitality businesses with fast, reliable design services that don’t compromise on quality. Roma Bar is now set to become a go-to spot in the community, and we’re proud to have played a part in bringing it to life.
+            </p>
+            <a href="https://chefsromakitchen.com/" class="btn btn-primary btn-full mb-2">View project</a>
+          `,
+          exteriorFeatures: [
+            'Mediterranean Design  style',
+            'Stucco exterior with stone accents',
+            'Tile roof',
+            'Arched entryways and windows',
+            '3-car garage',
+            'Covered loggia and courtyard'
+          ],
+          MontserratiorFeatures: [
+            'Grand living room with fireplace',
+            'Gourmet kitchen with large island',
+            'First floor primary suite',
+            'Bonus room/media room',
+            'Wine cellar',
+            'Wrought iron details'
+          ],
+          dimensions: {
+            'Width': '80\'',
+            'Depth': '85\'',
+            'Height': '35\'',
+            'Main Floor Ceiling': '12\'',
+            'Upper Floor Ceiling': '10\'',
+            'Foundation': 'Slab/Basement Option'
+          },
+          roomSizes: {
+            'Living Room': '22\' x 18\'',
+            'Dining Room': '16\' x 14\'',
+            'Kitchen': '18\' x 16\'',
+            'Primary Bedroom': '20\' x 16\'',
+            'Bedroom 2': '16\' x 14\'',
+            'Bedroom 3': '14\' x 12\'',
+            'Bedroom 4': '14\' x 12\'',
+            'Bedroom 5': '12\' x 12\'',
+            'Bonus Room': '20\' x 16\''
+          },
+          images: [
+            'assets/images/RomaBar/romabar.jpeg',
+            'assets/images/RomaBar/Romabar.jpg',
+            'assets/images/RomaBar/romabar1.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'prairie-style': {
+          title: 'Luccinos Pizza',
+          planId: 'Las Vegas, Nevada',
+          type: '',
+          squareFeet: '2,600',
+          bedrooms: '0',
+          bathrooms: '2',
+          garage: '2',
+          price: '$0.45',
+          description: `
+            <p>
+              TS9Designs was proud to provide the full Building Design Services and Engineering plans for Luccino’s Pizza, a vibrant new pizzeria located at 3035 East Tropicana in Las Vegas, Nevada.
+            </p>
+            <p>
+              TS9Designs was proud to provide the full Permit Drawing Services and Engineering plans for Luccino’s Pizza, a vibrant new pizzeria located at 3035 East Tropicana in Las Vegas, Nevada.
+            </p>
+            <a href="https://linktr.ee/lucinospizza" class="btn btn-primary btn-full mb-2">View project</a>
+          `,
+          exteriorFeatures: [
+            'Prairie design style',
+            'Horizontal lines and broad eaves',
+            'Low-pitched hipped roof',
+            'Natural materials (stone, wood, stucco)',
+            '2-car garage',
+            'Covered entry and rear patio'
+          ],
+          MontserratiorFeatures: [
+            'Open floor plan',
+            'Central fireplace',
+            'Built-in cabinetry',
+            'Large windows for natural light',
+            'First floor primary suite',
+            'Loft/flex space'
+          ],
+          dimensions: {
+            'Width': '70\'',
+            'Depth': '65\'',
+            'Height': '25\'',
+            'Main Floor Ceiling': '10\'',
+            'Upper Floor Ceiling': '9\'',
+            'Foundation': 'Basement'
+          },
+          roomSizes: {
+            'Great Room': '20\' x 18\'',
+            'Dining Area': '14\' x 12\'',
+            'Kitchen': '16\' x 14\'',
+            'Primary Bedroom': '16\' x 14\'',
+            'Bedroom 2': '14\' x 12\'',
+            'Bedroom 3': '14\' x 12\'',
+            'Loft': '16\' x 12\''
+          },
+          images: [
+            'assets/images/Tropicana/Tropicana2.jpg',
+            'assets/images/Tropicana/Tropicana1.jpg',
+            'assets/images/Tropicana/Tropicana.jpg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        },
+        'tiny-house': {
+          title: 'Uplift Christian Ministries',
+          planId: 'Charlotte, North Carolina',
+          type: '',
+          squareFeet: '1,650',
+          bedrooms: '0',
+          bathrooms: '4',
+          garage: '30',
+          price: '$0.45',
+          description: `
+            <p>
+                TS9Designs was honored to provide full MEP engineering plans for Uplift Christian Ministries, a growing place of worship focused on faith, community, and outreach. Our team was brought in to support their expansion by delivering detailed and compliant mechanical, electrical, and plumbing designs that reflect the needs of a modern church facility.</p>
+            <p>
+                We worked closely with the ministry to understand their vision and ensure that the design supported both their worship services and community events. From efficient HVAC systems for large congregations to carefully planned lighting and electrical layouts, every element was designed to enhance comfort, safety, and functionality within the space.</p>
+            <p>
+                This project reflects TS9Designs’ dedication to supporting faith-based institutions with thoughtful, high-quality engineering. Uplift Christian Ministries now has a reliable and efficient facility that will serve its congregation for years to come.</p>
+            <a href="https://upliftcm.com/" class="btn btn-primary btn-full mb-2">View project</a>
+          `,
+          exteriorFeatures: [
+            'Modern tiny house design',
+            'Metal roof',
+            'Cedar siding with metal accents',
+            'Large windows',
+            'Covered entry porch',
+            'Optional rooftop deck'
+          ],
+          MontserratiorFeatures: [
+            'Open concept living area',
+            'Multi-functional spaces',
+            'Sleeping loft',
+            'Full-sized appliances',
+            'Built-in storage',
+            'Energy-efficient systems'
+          ],
+          dimensions: {
+            'Width': '8.5\'',
+            'Length': '24\'',
+            'Height': '13.5\'',
+            'Main Floor Ceiling': '11\' (sloped)',
+            'Loft Ceiling': '4\' (peak)',
+            'Foundation': 'Trailer'
+          },
+          roomSizes: {
+            'Living Area': '11\' x 8\'',
+            'Kitchen': '8\' x 6\'',
+            'Bathroom': '8\' x 3\'',
+            'Sleeping Loft': '8\' x 8\'',
+            'Storage Loft': '4\' x 8\''
+          },
+          images: [
+            'assets/images/Uplift/Uplift2.png',
+            'assets/images/Uplift/Uplift1.jpeg',
+            'assets/images/Uplift/Uplift3.jpeg',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: null
+          }
+        },
+        'colonial-classic': {
+          title: 'Wayne Triplex',
+          planId: 'Philadelphia, Pennyslvania',
+          type: 'Residential',
+          squareFeet: '3,100',
+          bedrooms: '4',
+          bathrooms: '3',
+          garage: '3',
+          price: '$0.45',
+          description: `
+            <p>
+                TS9Designs delivered full Permit Drawing Services and MEP engineering plans for the Wayne Triplex, a multi-family residential project designed for both functionality and long-term value. This three-unit development required detailed planning to ensure each unit offered comfortable living spaces while meeting zoning and building code requirements.</p>
+            <p>
+                Our team focused on maximizing space efficiency and utility access, providing clear floor plans and precise MEP layouts for heating, cooling, lighting, and plumbing. The design was tailored to streamline construction, reduce costs, and support long-term maintenance with durable, code-compliant systems throughout.</p>
+            <p>
+                The Wayne Triplex showcases TS9Designs’ ability to deliver practical, scalable residential solutions. Whether for developers or investors, our team ensures each multi-unit design supports tenant needs while optimizing for project success.</p>
+          `,
+          exteriorFeatures: [
+            'Colonial design style',
+            'Symmetrical facade',
+            'Columns and shuttered windows',
+            'Brick exterior',
+            '2-car side-entry garage',
+            'Covered front porch'
+          ],
+          MontserratiorFeatures: [
+            'Center hall floor plan',
+            'Formal living and dining rooms',
+            'Family room with fireplace',
+            'Gourmet kitchen with island',
+            'Home office',
+            'Upstairs laundry room'
+          ],
+          dimensions: {
+            'Width': '60\'',
+            'Depth': '45\'',
+            'Height': '35\'',
+            'Main Floor Ceiling': '9\'',
+            'Upper Floor Ceiling': '9\'',
+            'Foundation': 'Basement'
+          },
+          roomSizes: {
+            'Living Room': '16\' x 14\'',
+            'Dining Room': '14\' x 12\'',
+            'Family Room': '20\' x 16\'',
+            'Kitchen': '16\' x 14\'',
+            'Office': '12\' x 10\'',
+            'Primary Bedroom': '18\' x 16\'',
+            'Bedroom 2': '14\' x 12\'',
+            'Bedroom 3': '14\' x 12\'',
+            'Bedroom 4': '12\' x 12\''
+          },
+          images: [
+            'assets/images/Wayne/triplex2.webp',
+            'assets/images/Wayne/triplex1.webp',
+            'assets/images/Wayne/triplex.webp',
+            'assets/images/Wayne/triplex3.webp',
+          ],
+          floorPlans: {
+            first: 'https://via.placeholder.com/800x800',
+            second: 'https://via.placeholder.com/800x800'
+          }
+        }
+      };
+      
+      // Gallery functionality
+      const mainImage = document.getElementById('main-gallery-image');
+      const currentImageEl = document.getElementById('current-image');
+      const totalImagesEl = document.getElementById('total-images');
+      const prevBtn = document.querySelector('.gallery-prev');
+      const nextBtn = document.querySelector('.gallery-next');
+      
+      let currentImageIndex = 0;
+      let currentPlanId = 'farmhouse-craftsman';
+      let galleryImages = housePlans[currentPlanId].images;
+      
+      totalImagesEl.textContent = galleryImages.length;
+      
+      // Update gallery
+      function updateGallery(index) {
+        // Update active thumbnail (re-query after plan switches rebuild thumbnails)
+        const thumbNodes = document.querySelectorAll('#gallery-thumbnails .gallery-thumbnail');
+        thumbNodes.forEach(t => t.classList.remove('active'));
+        if (thumbNodes[index]) thumbNodes[index].classList.add('active');
+        
+        // Update main image with fade effect
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+          mainImage.src = galleryImages[index];
+          mainImage.style.opacity = '1';
+        }, 200);
+        
+        // Update counter
+        currentImageEl.textContent = index + 1;
+        currentImageIndex = index;
+      }
+      
+      // Thumbnail click
+      document.getElementById('gallery-thumbnails').addEventListener('click', function(e) {
+        const thumbnail = e.target.closest('.gallery-thumbnail');
+        if (thumbnail) {
+          const index = parseInt(thumbnail.getAttribute('data-index'), 10);
+          updateGallery(index);
+        }
+      });
+      
+      // Previous button
+      prevBtn.addEventListener('click', () => {
+        const newIndex = currentImageIndex === 0 ? galleryImages.length - 1 : currentImageIndex - 1;
+        updateGallery(newIndex);
+      });
+      
+      // Next button
+      nextBtn.addEventListener('click', () => {
+        const newIndex = currentImageIndex === galleryImages.length - 1 ? 0 : currentImageIndex + 1;
+        updateGallery(newIndex);
+      });
+      
+      // Tab functionality with sliding indicator
+      const tabTriggers = document.querySelectorAll('.tab-trigger');
+      const tabContents = document.querySelectorAll('.tab-content');
+      const tabIndicator = document.getElementById('tab-indicator');
+      
+      // Initialize tab indicator position
+      function updateTabIndicator(tab) {
+        tabIndicator.style.width = `${tab.offsetWidth}px`;
+        tabIndicator.style.transform = `translateX(${tab.offsetLeft}px)`;
+      }
+      
+      // Set initial tab indicator position
+      updateTabIndicator(tabTriggers[0]);
+      
+      tabTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+          // Get tab ID
+          const tabId = this.getAttribute('data-tab');
+          
+          // Update ARIA attributes and active class
+          tabTriggers.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
+          
+          // Update tab indicator position
+          updateTabIndicator(this);
+          
+          // Update tab content with animation
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          const activeContent = document.getElementById(tabId);
+          activeContent.classList.add('active');
+        });
+      });
+      
+      // Handle window resize for tab indicator
+      window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('.tab-trigger.active');
+        if (activeTab) {
+          updateTabIndicator(activeTab);
+        }
+      });
+      
+      // Plans navigation scroll buttons
+      const scrollLeftBtn = document.getElementById('scroll-left');
+      const scrollRightBtn = document.getElementById('scroll-right');
+      const plansNavContainer = document.getElementById('plans-nav-container');
+      
+      // Scroll left
+      scrollLeftBtn.addEventListener('click', () => {
+        plansNavContainer.scrollBy({
+          left: -300,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Scroll right
+      scrollRightBtn.addEventListener('click', () => {
+        plansNavContainer.scrollBy({
+          left: 300,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Check if scroll buttons should be visible
+      function checkScrollButtons() {
+        if (plansNavContainer.scrollWidth <= plansNavContainer.clientWidth) {
+          scrollLeftBtn.classList.add('hidden');
+          scrollRightBtn.classList.add('hidden');
+        } else {
+          scrollLeftBtn.classList.remove('hidden');
+          scrollRightBtn.classList.remove('hidden');
+          
+          // Hide left button if at start
+          if (plansNavContainer.scrollLeft <= 0) {
+            scrollLeftBtn.classList.add('hidden');
+          } else {
+            scrollLeftBtn.classList.remove('hidden');
+          }
+          
+          // Hide right button if at end
+          if (plansNavContainer.scrollLeft + plansNavContainer.clientWidth >= plansNavContainer.scrollWidth - 10) {
+            scrollRightBtn.classList.add('hidden');
+          } else {
+            scrollRightBtn.classList.remove('hidden');
+          }
+        }
+      }
+      
+      // Check scroll buttons on load and resize
+      window.addEventListener('load', checkScrollButtons);
+      window.addEventListener('resize', checkScrollButtons);
+      
+      // Check scroll buttons on scroll
+      plansNavContainer.addEventListener('scroll', checkScrollButtons);
+      
+      // Plan navigation
+      const planNavItems = document.querySelectorAll('.plan-nav-item');
+      const planContent = document.getElementById('plan-content');
+      const loadingBar = document.getElementById('loading-bar');
+      
+      // Update plan content (set updateHistory: false for popstate or initial DOM sync so the URL is not rewritten)
+      function updatePlanContent(planId, opts) {
+        const updateHistory = !opts || opts.updateHistory !== false;
+        // Show loading indicator
+        loadingBar.style.width = '30%';
+        
+        // Fade out current content
+        planContent.classList.add('fade-out');
+        
+        setTimeout(() => {
+          // Update loading progress
+          loadingBar.style.width = '60%';
+          
+          const plan = housePlans[planId];
+          
+          // Update plan details
+          document.getElementById('plan-title').textContent = plan.title;
+          document.getElementById('plan-title-mobile').textContent = plan.title;
+          document.getElementById('plan-id').textContent = `Plan ${plan.planId}`;
+          document.getElementById('plan-id-mobile').textContent = `Plan ${plan.planId}`;
+          document.getElementById('plan-id-breadcrumb').textContent = `Plan ${plan.planId}`;
+          document.getElementById('plan-type-breadcrumb').textContent = plan.type;
+          document.getElementById('square-feet').textContent = plan.squareFeet;
+          document.getElementById('bedrooms').textContent = plan.bedrooms;
+          document.getElementById('bathrooms').textContent = plan.bathrooms;
+          document.getElementById('garage').textContent = plan.garage;
+          document.getElementById('price').textContent = plan.price;
+          
+          // Update plan description
+          document.getElementById('plan-description').innerHTML = plan.description;
+          
+          // Update floor plan images
+          document.getElementById('first-floor-image').src = plan.floorPlans.first;
+          if (plan.floorPlans.second) {
+            document.getElementById('second-floor-image').src = plan.floorPlans.second;
+            document.getElementById('second-floor-image').parentElement.parentElement.style.display = 'block';
+          } else {
+            document.getElementById('second-floor-image').parentElement.parentElement.style.display = 'none';
+          }
+          
+          // Update features
+          const exteriorFeaturesList = document.getElementById('exterior-features');
+          exteriorFeaturesList.innerHTML = '';
+          plan.exteriorFeatures.forEach(feature => {
+            const li = document.createElement('li');
+            li.className = 'feature-item';
+            li.textContent = feature;
+            exteriorFeaturesList.appendChild(li);
+          });
+          
+          const MontserratiorFeaturesList = document.getElementById('Montserratior-features');
+          MontserratiorFeaturesList.innerHTML = '';
+          plan.MontserratiorFeatures.forEach(feature => {
+            const li = document.createElement('li');
+            li.className = 'feature-item';
+            li.textContent = feature;
+            MontserratiorFeaturesList.appendChild(li);
+          });
+          
+          // Update dimensions table
+          const dimensionsTable = document.getElementById('dimensions-table').querySelector('tbody');
+          dimensionsTable.innerHTML = '';
+          Object.entries(plan.dimensions).forEach(([key, value]) => {
+            const tr = document.createElement('tr');
+            const tdKey = document.createElement('td');
+            const tdValue = document.createElement('td');
+            tdKey.textContent = key;
+            tdValue.textContent = value;
+            tr.appendChild(tdKey);
+            tr.appendChild(tdValue);
+            dimensionsTable.appendChild(tr);
+          });
+          
+          // Update room sizes table
+          const roomSizesTable = document.getElementById('room-sizes-table').querySelector('tbody');
+          roomSizesTable.innerHTML = '';
+          Object.entries(plan.roomSizes).forEach(([key, value]) => {
+            const tr = document.createElement('tr');
+            const tdKey = document.createElement('td');
+            const tdValue = document.createElement('td');
+            tdKey.textContent = key;
+            tdValue.textContent = value;
+            tr.appendChild(tdKey);
+            tr.appendChild(tdValue);
+            roomSizesTable.appendChild(tr);
+          });
+          
+          // Update gallery images
+          galleryImages = plan.images;
+          totalImagesEl.textContent = galleryImages.length;
+          
+          // Update thumbnails
+          const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+          thumbnailsContainer.innerHTML = '';
+          galleryImages.forEach((src, index) => {
+            const div = document.createElement('div');
+            div.className = `gallery-thumbnail ${index === 0 ? 'active' : ''}`;
+            div.setAttribute('data-index', index);
+            
+            const img = document.createElement('img');
+            img.src = src.replace('1200x675', '150x150');
+            img.alt = `${plan.title} thumbnail ${index + 1}`;
+            img.width = 150;
+            img.height = 150;
+            img.loading = index === 0 ? 'eager' : 'lazy';
+            
+            div.appendChild(img);
+            thumbnailsContainer.appendChild(div);
+          });
+          
+          // Update main gallery image
+          mainImage.src = galleryImages[0];
+          currentImageIndex = 0;
+          currentImageEl.textContent = '1';
+          
+          // Update URL without page reload (skip when syncing from history or first paint)
+          if (updateHistory) {
+            const url = new URL(window.location);
+            url.searchParams.set('plan', planId);
+            window.history.pushState({planId}, '', url);
+          }
+          
+          // Update loading progress
+          loadingBar.style.width = '100%';
+          
+          // Fade in updated content
+          planContent.classList.remove('fade-out');
+          
+          setTimeout(() => {
+            loadingBar.style.width = '0';
+          }, 300);
+        }, 300);
+      }
+      
+      // Plan navigation click
+      planNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const planId = this.getAttribute('data-plan-id');
+          
+          // Skip if already on this plan
+          if (planId === currentPlanId) return;
+          
+          // Update active state
+          planNavItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Update plan content
+          currentPlanId = planId;
+          updatePlanContent(planId);
+          
+          // Scroll into view if needed
+          this.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        });
+      });
+      
+      // Similar plan click
+      document.querySelectorAll('.similar-plan').forEach(plan => {
+        plan.addEventListener('click', function() {
+          const planId = this.getAttribute('data-plan-id');
+          
+          // Skip if already on this plan
+          if (planId === currentPlanId) return;
+          
+          // Update active state in nav
+          planNavItems.forEach(i => {
+            if (i.getAttribute('data-plan-id') === planId) {
+              i.classList.add('active');
+              
+              // Scroll into view if needed
+              i.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+              });
+            } else {
+              i.classList.remove('active');
+            }
+          });
+          
+          // Update plan content
+          currentPlanId = planId;
+          updatePlanContent(planId);
+          
+          // Scroll to top
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Handle browser back/forward
+      window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.planId) {
+          currentPlanId = event.state.planId;
+          
+          // Update active state in nav
+          planNavItems.forEach(i => {
+            if (i.getAttribute('data-plan-id') === currentPlanId) {
+              i.classList.add('active');
+              
+              // Scroll into view if needed
+              i.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+              });
+            } else {
+              i.classList.remove('active');
+            }
+          });
+          
+          updatePlanContent(currentPlanId, { updateHistory: false });
+        }
+      });
+      
+      // Check URL for plan parameter on load
+      const urlParams = new URLSearchParams(window.location.search);
+      const planParam = urlParams.get('plan');
+      if (planParam && housePlans[planParam]) {
+        currentPlanId = planParam;
+        
+        // Update active state in nav
+        planNavItems.forEach(i => {
+          if (i.getAttribute('data-plan-id') === currentPlanId) {
+            i.classList.add('active');
+          } else {
+            i.classList.remove('active');
+          }
+        });
+      }
+      
+      // Sync gallery, description, and thumbnails to the active plan (fixes stale HTML vs. data)
+      updatePlanContent(currentPlanId, { updateHistory: false });
+      
+      // Initialize state for browser history
+      window.history.replaceState({planId: currentPlanId}, '', window.location);
+      
+      // Dropdown functionality
+      const dropdownToggles = document.querySelectorAll('.nav-link svg, .filter-button svg');
+      
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      
+      mobileMenuToggle.addEventListener('click', () => {
+        mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
+      });
+      
+      // Filter tags
+      const filterTags = document.getElementById('filter-tags');
+      const filterTagRemoves = document.querySelectorAll('.filter-tag-remove');
+      
+      filterTagRemoves.forEach(btn => {
+        btn.addEventListener('click', function() {
+          this.parentElement.remove();
+        });
+      });
+      
+      // Filter apply buttons
+      const filterApplyButtons = document.querySelectorAll('.filter-apply');
+      
+      filterApplyButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const dropdown = this.closest('.filter-dropdown');
+          const filterGroup = dropdown.closest('.filter-group');
+          const filterName = filterGroup.querySelector('.filter-button').textContent.trim().split('\n')[0];
+          
+          // Get checked options
+          const checkedOptions = dropdown.querySelectorAll('input[type="checkbox"]:checked');
+          
+          if (checkedOptions.length > 0) {
+            // Create filter tag
+            checkedOptions.forEach(option => {
+              const tag = document.createElement('div');
+              tag.className = 'filter-tag';
+              tag.innerHTML = `
+                ${filterName}: ${option.nextElementSibling.textContent}
+                <button class="filter-tag-remove">×</button>
+              `;
+              
+              // Add remove event listener
+              tag.querySelector('.filter-tag-remove').addEventListener('click', function() {
+                tag.remove();
+                option.checked = false;
+              });
+              
+              filterTags.appendChild(tag);
+            });
+            
+            // Close dropdown
+            dropdown.classList.remove('show');
+          }
+        });
+      });
+      
+      // Filter reset buttons
+      const filterResetButtons = document.querySelectorAll('.filter-reset');
+      
+      filterResetButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const dropdown = this.closest('.filter-dropdown');
+          const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
+          
+          // Uncheck all checkboxes
+          checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+          });
+          
+          // Remove related filter tags
+          const filterGroup = dropdown.closest('.filter-group');
+          const filterName = filterGroup.querySelector('.filter-button').textContent.trim().split('\n')[0];
+          
+          const tags = filterTags.querySelectorAll('.filter-tag');
+          tags.forEach(tag => {
+            if (tag.textContent.includes(filterName)) {
+              tag.remove();
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
