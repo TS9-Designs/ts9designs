@@ -1,0 +1,730 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TS9 Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Swiss Design System - Matching TS9 Designs */
+        :root {
+            --primary: #4da6e7;
+            --primary-dark: #1d4ed8;
+            --secondary: #e11d48;
+            --secondary-dark: #be123c;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --black: #0f172a;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 15px;
+            --radius-lg: 15px;
+            --radius-xl: 15px;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --transition: all 0.3s ease;
+            --container-width: 1200px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background: radial-gradient(circle at 8% 8%, #eef6ff 0%, #ffffff 48%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Added site navigation header */
+        .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(14px) saturate(165%);
+      -webkit-backdrop-filter: blur(14px) saturate(165%);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.95rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.86rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn-link {
+            text-decoration: none;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-800);
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-link:hover {
+            border-color: var(--primary);
+            color: var(--primary-dark);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--gray-700);
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-menu {
+            list-style: none;
+            padding: var(--spacing-lg);
+        }
+
+        .mobile-nav-menu li {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mobile-nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: var(--spacing-sm) 0;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-md);
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: -0.5px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            letter-spacing: -0.5px;
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h6 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--gray-700);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        ul, ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        li {
+            margin-bottom: var(--spacing-xs);
+            color: var(--gray-700);
+        }
+
+        .privacy-header {
+            background: linear-gradient(160deg, #f8fbff 0%, #ffffff 100%);
+            padding: var(--spacing-2xl) 0;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--gray-200) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .privacy-header .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .privacy-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background-color: rgba(77, 166, 231, 0.12);
+            color: var(--primary-dark);
+            padding: 0.42rem 0.8rem;
+            border: 1px solid rgba(77, 166, 231, 0.32);
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Content Section */
+        .privacy-content {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(226, 232, 240, 0.95);
+            border-radius: 18px;
+            padding: var(--spacing-2xl);
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.07);
+            margin-bottom: var(--spacing-xl);
+            transition: var(--transition);
+        }
+
+        .content-card:hover {
+            box-shadow: 0 24px 46px rgba(15, 23, 42, 0.11);
+            transform: translateY(-4px);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .content-card h3 {
+            margin-top: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: var(--spacing-2xl) 0;
+            border-radius: 20px;
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+            box-shadow: 0 16px 34px rgba(29, 78, 216, 0.28);
+        }
+
+        .contact-section h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .privacy-header {
+                padding: var(--spacing-2xl) 0;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .privacy-content {
+                padding: var(--spacing-2xl) 0;
+            }
+
+            .content-card {
+                padding: var(--spacing-lg);
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+    
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.footer-logo svg{width:24px;height:24px}
+.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
+.footer-social{display:flex;gap:.6rem}
+.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
+.social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
+.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
+.footer-link-item{margin-bottom:.6rem}
+.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-grid .footer-link:hover{color:#1d4ed8;background:none}
+.footer-newsletter{margin-top:1.5rem}
+.newsletter-form{display:flex;gap:.4rem}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.newsletter-input::placeholder{color:#94a3b8}
+.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:8px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:#1d4ed8}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
+.footer-legal{display:flex;gap:1rem}
+.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.legal-link:hover{color:#1d4ed8}
+@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+    <!-- Added site navigation header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                  <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
+                </a>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="/" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="/#services" class="nav-link">Services</a></li>
+                        <li><a href="/#pricing" class="nav-link">Pricing</a></li>
+                        <li><a href="/#portfolio" class="nav-link">Projects</a></li>
+                        <li><a href="residential.html" class="nav-link">Get Plans</a></li>
+                        <li><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
+                        <li><a href="permit-estimate.html" class="nav-link">Estimate</a></li>
+                        <li><a href="https://calendly.com/ts9designs/discovery" class="btn-link">Book A Call</a></li>
+                    </ul>
+                </nav>
+
+                <div class="mobile-menu-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-menu">
+                    <li><a href="/" class="mobile-nav-link">Home</a></li>
+                    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+                    <li><a href="/#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="/#pricing" class="mobile-nav-link">Pricing</a></li>
+                    <li><a href="/#portfolio" class="mobile-nav-link">Projects</a></li>
+                    <li><a href="residential.html" class="mobile-nav-link">Get Plans</a></li>
+                    <li><a href="case-studies/index.html" class="mobile-nav-link">Case Studies</a></li>
+                    <li><a href="permit-estimate.html" class="mobile-nav-link">Estimate</a></li>
+                    <li><a href="https://calendly.com/ts9designs/discovery" class="mobile-nav-link">Book A Call</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section class="privacy-header">
+        <div class="container">
+            <h6>Legal Information</h6>
+            <h1>Privacy Policy</h1>
+            <p class="privacy-subtitle">Your privacy matters to us. Here's how we protect and handle your information when you work with TS9 Designs.</p>
+            <span class="last-updated">Last Updated: January 2025</span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="privacy-content">
+        <div class="container">
+            
+            <div class="content-card">
+                <div class="section-icon">🛡️</div>
+                <h3>Our Commitment to Your Privacy</h3>
+                <p>At TS9 Designs, we understand that trust is the foundation of every great design partnership. When you share your project vision, building plans, or business information with us, we treat it with the same care and precision we bring to our building-design, MEP, structural, and fire protection solutions.</p>
+                <p>This privacy policy explains how we collect, use, and protect your information when you visit our website or work with our design team.</p>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">📋</div>
+                <h3>Information We Collect</h3>
+                <p>To deliver exceptional design services, we may collect:</p>
+                <ul>
+                    <li><strong>Project Information:</strong> Building specifications, site plans, design requirements, and project timelines</li>
+                    <li><strong>Contact Details:</strong> Name, email, phone number, and company information</li>
+                    <li><strong>Communication Records:</strong> Project discussions, design feedback, and consultation notes</li>
+                    <li><strong>Website Analytics:</strong> How you interact with our portfolio and service pages</li>
+                    <li><strong>Technical Data:</strong> IP address, browser type, and device information for website optimization</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">🎯</div>
+                <h3>How We Use Your Information</h3>
+                <p>Your information helps us deliver the design excellence you expect:</p>
+                <ul>
+                    <li><strong>Project Delivery:</strong> Creating building-design, MEP, structural, and fire protection solutions tailored to your needs</li>
+                    <li><strong>Communication:</strong> Keeping you updated on project progress and design milestones</li>
+                    <li><strong>Service Improvement:</strong> Enhancing our design processes and client experience</li>
+                    <li><strong>Legal Compliance:</strong> Meeting building codes, safety regulations, and professional standards</li>
+                    <li><strong>Portfolio Development:</strong> Showcasing completed projects (with your permission)</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">🔒</div>
+                <h3>How We Protect Your Information</h3>
+                <p>We implement industry-standard security measures to safeguard your data:</p>
+                <ul>
+                    <li><strong>Secure Storage:</strong> Encrypted databases and secure cloud storage for project files</li>
+                    <li><strong>Access Control:</strong> Limited access to authorized team members only</li>
+                    <li><strong>Professional Standards:</strong> Adherence to professional design, engineering, and confidentiality practices</li>
+                    <li><strong>Regular Updates:</strong> Ongoing security assessments and system updates</li>
+                    <li><strong>Secure Communication:</strong> Encrypted email and secure file sharing for sensitive project data</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">🤝</div>
+                <h3>Information Sharing</h3>
+                <p>We respect your privacy and only share information when necessary:</p>
+                <ul>
+                    <li><strong>Project Partners:</strong> With contractors, consultants, or authorities as required for project completion</li>
+                    <li><strong>Legal Requirements:</strong> When required by law, building codes, or regulatory authorities</li>
+                    <li><strong>Service Providers:</strong> With trusted vendors who help us deliver our services (under strict confidentiality agreements)</li>
+                    <li><strong>Business Transfers:</strong> In the unlikely event of a business sale or merger (with advance notice)</li>
+                </ul>
+                <p><strong>We never sell your personal information to third parties.</strong></p>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">⚙️</div>
+                <h3>Your Rights and Choices</h3>
+                <p>You have control over your information:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request copies of the information we have about you</li>
+                    <li><strong>Correction:</strong> Update or correct any inaccurate information</li>
+                    <li><strong>Deletion:</strong> Request removal of your information (subject to legal and contractual obligations)</li>
+                    <li><strong>Portability:</strong> Receive your project data in a standard format</li>
+                    <li><strong>Communication Preferences:</strong> Opt out of marketing communications while maintaining project updates</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">🍪</div>
+                <h3>Cookies and Website Analytics</h3>
+                <p>Our website uses cookies to enhance your browsing experience:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for website functionality and security</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our portfolio</li>
+                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                </ul>
+                <p>You can control cookie settings through your browser preferences.</p>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">📱</div>
+                <h3>Data Retention</h3>
+                <p>We retain your information based on:</p>
+                <ul>
+                    <li><strong>Active Projects:</strong> Throughout the project lifecycle and warranty period</li>
+                    <li><strong>Completed Projects:</strong> For 7 years to meet professional liability requirements</li>
+                    <li><strong>Marketing Communications:</strong> Until you opt out or request deletion</li>
+                    <li><strong>Legal Requirements:</strong> As required by applicable laws and regulations</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <div class="section-icon">🔄</div>
+                <h3>Policy Updates</h3>
+                <p>As our design services evolve and privacy laws change, we may update this policy. We'll notify you of significant changes through:</p>
+                <ul>
+                    <li>Email notifications to active clients</li>
+                    <li>Website announcements</li>
+                    <li>Project communication updates</li>
+                </ul>
+                <p>Continued use of our services after updates indicates acceptance of the revised policy.</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="container">
+                    <h3>Questions About Your Privacy?</h3>
+                    <p>Our team is here to address any privacy concerns or questions about how we handle your information.</p>
+                    <div class="contact-info">
+                        <a href="mailto:info@ts9designs.com" class="contact-item">
+                            <span>📧</span>
+                            <span>info@ts9designs.com</span>
+                        </a>
+                        <a href="tel:+2154367333" class="contact-item">
+                            <span>📞</span>
+                            <span>215-436-7333</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about-column">
+          <a href="/" class="footer-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            TS9Designs
+          </a>
+          <p class="footer-about">
+            TS9 Designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/TS9Designs" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/ts9designs/" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://linkedin.com/company/ts9designs" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.646h3.554v1.348c-.009.015-.021.029-.03.042h.03v-.042c.418-.645 1.162-1.571 2.828-1.571 2.065 0 3.615 1.348 3.615 4.253v5.616zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.951.77-1.704 1.963-1.704 1.192 0 1.915.753 1.948 1.704 0 .946-.756 1.704-1.996 1.704zm-1.6 11.597h3.119V9.671H3.737v10.781zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/case-studies/index.html" class="footer-link">Case Studies</a></li>
+            <li class="footer-link-item"><a href="/permit-estimate.html" class="footer-link">Get an Estimate</a></li>
+            <li class="footer-link-item"><a href="/blogs.html" class="footer-link">Blog</a></li>
+            <li class="footer-link-item"><a href="/#faqs" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a></li>
+            <li class="footer-link-item"><a href="tel:+12154367333" class="footer-link">(215) 436-7333</a></li>
+          </ul>
+          <div class="footer-newsletter">
+            <h4 class="footer-heading">Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">Copyright &copy; TSABA Corp. All Rights Reserved. Services requiring licensure are performed in accordance with applicable jurisdiction requirements.</div>
+        <div class="footer-legal">
+          <a href="/privacypolicy.html" class="legal-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Mobile menu -->
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
