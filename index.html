@@ -1,0 +1,4210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="TS9 Designs - Building Design Services, MEP, Structural and Fire Design Solutions">
+  <meta name="author" content="Martin Wangata">
+  
+  <title>TS9 Designs</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
+  <link rel="canonical" href="https://ts9designs.com/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://ts9designs.com/#organization","name":"TS9Designs","url":"https://ts9designs.com/","logo":"https://ts9designs.com/assets/images/logo-v3.webp","email":"info@ts9designs.com","telephone":"+1-215-436-7333","sameAs":["https://www.instagram.com/ts9designs/","https://web.facebook.com/TS9Designs","https://linkedin.com/company/ts9designs"]},
+    {"@type":"WebSite","@id":"https://ts9designs.com/#website","url":"https://ts9designs.com/","name":"TS9Designs","publisher":{"@id":"https://ts9designs.com/#organization"}},
+    {"@type":"ProfessionalService","name":"TS9Designs","url":"https://ts9designs.com/","description":"Engineering and building-design firm providing MEP, structural, fire protection, drafting, and permit-documentation services for residential and commercial projects.","areaServed":"US","priceRange":"$0.45/sq ft and up"}
+  ]}
+  </script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files (non-critical: only styles scroll-triggered animations, loaded without blocking first paint) -->
+  <link rel="stylesheet" href="assets/css/animated.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="assets/css/animated.css"></noscript>
+
+  <!-- Analytics Scripts -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "offy18fm86");
+  </script>
+  
+  <!-- Mailchimp Code -->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}
+    (document,"script","https://chimpstatic.com/mcjs-connected/js/users/917b146be904b4721308c650a/538b9484670cd508dfdf2b5de.js");
+    </script>
+  
+  <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '716800377403198');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=716800377403198&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Meta Pixel Code -->
+  
+  <style>
+    /* Modern Swiss Design System */
+    :root {
+      --primary: #4da6e7;
+      --primary-dark: #1d4ed8;
+      --secondary: #e11d48;
+      --secondary-dark: #be123c;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --black: #0f172a;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --radius-sm: 4px;
+      --radius-md: 15px;
+      --radius-lg: 15px;
+      --radius-xl: 15px;
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --spacing-3xl: 4rem;
+      --spacing-xxl: 5rem; /* Added for more spacing */
+      --transition: all 0.3s ease;
+      --container-width: 1200px;
+      --header-height: 80px;
+      --mobile-header-height: 70px;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      background-color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: var(--spacing-md);
+      color: var(--dark);
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    h5 {
+      font-size: 1.25rem;
+    }
+
+    h6 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    p {
+      margin-bottom: var(--spacing-md);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: var(--radius-xl);
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 10px rgba(77, 166, 231, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(77, 166, 231, 0.4);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--white);
+      box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-lg {
+      padding: var(--spacing-md) var(--spacing-xl);
+      font-size: 1.125rem;
+    }
+
+    /* Header Styles */
+    .site-header {
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo { display: inline-flex; align-items: center; }
+    .logo img { height: 38px; width: auto; display: block; }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .top-nav a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    .top-nav a:hover { color: var(--primary); }
+    .btn-link { text-decoration:none; border:1px solid var(--gray-200); color:var(--gray-800); padding:0.6rem 1rem; border-radius:12px; font-weight:600; transition:0.2s ease; }
+    .btn-link:hover { border-color: var(--primary); color: var(--primary-dark); }
+    .mobile-nav-toggle { display:none; width:40px; height:40px; border:1px solid var(--gray-200); border-radius:10px; background:#fff; align-items:center; justify-content:center; gap:4px; flex-direction:column; cursor:pointer; }
+    .mobile-nav-toggle span { width:18px; height:2px; background:var(--gray-700); border-radius:2px; transition:0.2s ease; }
+    .mobile-nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .mobile-nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .mobile-nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 1200px) {
+      .top-nav {
+        gap: 0.6rem;
+      }
+
+      .top-nav a {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Main Banner Styles */
+    .main-banner {
+      padding-top: 0.7rem;
+      padding-bottom: var(--spacing-xl);
+      background-color: var(--gray-50);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(77, 166, 231, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+      z-index: 0;
+    }
+
+    .header-text {
+      position: relative;
+      z-index: 1;
+      padding: 0.25rem 0.6rem 0.25rem 0;
+    }
+
+    .header-text h6 {
+      margin-bottom: var(--spacing-sm);
+      display: inline-block;
+      background-color: rgba(77, 166, 231, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-xl);
+    }
+
+    .header-text h1 {
+      margin-bottom: 0.85rem;
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .header-text p {
+      font-size: 1.04rem;
+      color: var(--gray-700);
+      margin-bottom: 0.95rem;
+    }
+
+    .quote-button-wrapper {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .quote-button-wrapper .btn {
+      min-width: 195px;
+      padding: 0.85rem 1.35rem;
+      border-radius: 18px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(59, 130, 246, 0.18);
+      white-space: nowrap;
+    }
+
+    .quote-button-wrapper .btn-primary {
+      background: linear-gradient(145deg, #63b2ed 0%, #4da6e7 50%, #3494dd 100%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: #ffffff;
+    }
+
+    .quote-button-wrapper .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .quote-button-wrapper .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 38px rgba(52, 148, 221, 0.26);
+    }
+
+    .quote-button-wrapper .btn-primary:hover::after {
+      left: 130%;
+    }
+
+    .quote-button-wrapper .btn-primary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(52, 148, 221, 0.22);
+    }
+
+    .quote-button-wrapper .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--gray-800);
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .quote-button-wrapper .btn-hero-secondary:hover {
+      color: var(--gray-900);
+      border-color: rgba(77, 166, 231, 0.45);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+      transform: translateY(-3px);
+    }
+
+    .quote-button-wrapper .btn-hero-secondary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      margin-top: 0.7rem;
+    }
+
+    .hero-point {
+      font-size: 0.76rem;
+      color: var(--gray-700);
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      padding: 0.3rem 0.52rem;
+      border-radius: 999px;
+    }
+
+    .wow {
+      animation: none !important;
+      visibility: visible !important;
+    }
+
+    /* Slideshow Styles */
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-media::before {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      background: linear-gradient(135deg, rgba(77, 166, 231, 0.35), rgba(52, 148, 221, 0.08) 60%, transparent 75%);
+      border-radius: 40px;
+      filter: blur(6px);
+      z-index: 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.4);
+      height: 400px;
+      z-index: 1;
+    }
+
+    .hero-stat-badge {
+      position: absolute;
+      left: -1.25rem;
+      bottom: -1.25rem;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 18px;
+      padding: 0.7rem 1.1rem 0.7rem 0.75rem;
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.18);
+    }
+
+    .hero-stat-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .hero-stat-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .hero-stat-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .hero-stat-text strong {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--gray-900);
+    }
+
+    .hero-stat-text span {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    .hero-stamp-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-stamp-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .slides {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      overflow: hidden;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Photos keep their full, uncropped composition (object-fit: contain)
+       instead of being cover-cropped to fill the frame. A blurred copy of
+       the same photo fills the space behind it so there's no dead letterbox. */
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(32px) saturate(1.5) brightness(0.6);
+      transform: scale(1.25);
+    }
+
+    .slide-fg {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.4));
+      transform: scale(1.02);
+      transition: transform 1.2s ease;
+    }
+
+    .slide.active .slide-fg {
+      transform: scale(1.05);
+    }
+
+    .slideshow-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0) 45%, rgba(15, 23, 42, 0.12) 100%);
+      pointer-events: none;
+    }
+
+    .slideshow-controls {
+      position: absolute;
+      bottom: var(--spacing-md);
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .slide-indicators {
+      display: flex;
+      gap: 8px;
+      padding: 0.42rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.32);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .indicator {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .indicator.active {
+      background-color: var(--white);
+      transform: scale(1.24);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+    }
+
+    @media (min-width: 992px) {
+      .main-banner .row {
+        align-items: center;
+      }
+
+      .main-banner .header-text {
+        margin-right: 0.75rem;
+      }
+    }
+
+    /* Section Styles */
+    .section {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .section-heading h6 {
+      display: inline-block;
+      margin-bottom: var(--spacing-sm);
+      background-color: rgba(77, 166, 231, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-xl);
+    }
+
+    .section-heading h4 {
+      margin-bottom: var(--spacing-md);
+      font-weight: 700;
+    }
+
+    .section-heading .line-dec {
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+      margin: 0 auto var(--spacing-md);
+    }
+
+    /* Portfolio Grid — uniform cards. Every photo keeps its full
+       composition (object-fit: contain) on a blurred fill of the same
+       photo, so the grid stays even without cropping anyone's shot. */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+
+    .portfolio-item {
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid var(--gray-100);
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .portfolio-item:hover .item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item .thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: var(--gray-50);
+    }
+
+    .portfolio-item .thumb .thumb-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(22px) saturate(1.4) brightness(0.75);
+      transform: scale(1.2);
+    }
+
+    .portfolio-item .thumb .thumb-fg {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.28));
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-item:hover .thumb .thumb-fg {
+      transform: scale(1.04);
+    }
+
+    .item-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: rgba(30, 41, 59, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .view-project {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: 2px solid var(--white);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .view-project:hover {
+      background-color: var(--white);
+      color: var(--dark);
+    }
+
+    .portfolio-item .content {
+      padding: var(--spacing-lg);
+    }
+
+    .portfolio-item h4 {
+      font-size: 1.125rem;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .portfolio-item span {
+      font-size: 0.875rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .portfolio-actions {
+      margin-top: var(--spacing-md);
+    }
+
+    .portfolio-actions .btn-link {
+      font-size: 0.82rem;
+    }
+
+    /* Sample Drawings — full-bleed "light table" viewer */
+    .drawings-section {
+      position: relative;
+      background-color: var(--gray-900);
+      padding: var(--spacing-2xl) 0 calc(var(--spacing-2xl) * 1.4);
+      overflow: hidden;
+    }
+
+    .drawings-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(77,166,231,0.08) 0px, rgba(77,166,231,0.08) 1px, transparent 1px, transparent 64px),
+        repeating-linear-gradient(90deg, rgba(77,166,231,0.08) 0px, rgba(77,166,231,0.08) 1px, transparent 1px, transparent 64px);
+      -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 45%, transparent 100%);
+      mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 45%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .drawings-heading h6 {
+      background-color: rgba(77, 166, 231, 0.16);
+      color: var(--primary);
+    }
+
+    .drawings-heading h4 {
+      color: var(--white);
+    }
+
+    .drawings-heading p {
+      color: var(--gray-400);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .drawing-viewer {
+      position: relative;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+    }
+
+    .drawing-stage-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .stage-nav {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--gray-300);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .stage-nav:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      transform: scale(1.06);
+    }
+
+    .stage-nav:disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .drawing-stage {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      height: min(58vh, 620px);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px -15px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
+    .drawing-stage img {
+      max-width: 92%;
+      max-height: 88%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.85s cubic-bezier(.65,0,.35,1);
+    }
+
+    .drawing-stage.revealing img {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .stage-expand,
+    .stage-counter {
+      position: absolute;
+      z-index: 3;
+    }
+
+    .stage-expand {
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-200);
+      background: rgba(255,255,255,0.92);
+      color: var(--gray-700);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .stage-expand:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .stage-counter {
+      top: var(--spacing-sm);
+      left: var(--spacing-sm);
+      background: rgba(15,23,42,0.72);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-xl);
+    }
+
+    .drawing-caption {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      padding: 0 calc(46px + var(--spacing-md));
+    }
+
+    .drawing-caption h4 {
+      color: var(--white);
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .drawing-caption span {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .stage-expand-link {
+      flex-shrink: 0;
+      color: var(--gray-300);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: var(--transition);
+      background: none;
+      cursor: pointer;
+    }
+
+    .stage-expand-link:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .drawing-filmstrip {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin: var(--spacing-xl) 0 0;
+      padding: 0.4rem calc(46px + var(--spacing-md)) 0.6rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.25) transparent;
+    }
+
+    .filmstrip-item {
+      flex-shrink: 0;
+      width: 108px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.55;
+      transition: var(--transition);
+    }
+
+    .filmstrip-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: contain;
+      background: var(--white);
+    }
+
+    .filmstrip-item:hover {
+      opacity: 0.85;
+    }
+
+    .filmstrip-item.active {
+      border-color: var(--primary);
+      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(77,166,231,0.22);
+    }
+
+    @media (max-width: 900px) {
+      .drawing-stage { height: 46vh; }
+      .stage-nav { width: 38px; height: 38px; font-size: 1.2rem; }
+      .drawing-caption,
+      .drawing-filmstrip {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+      }
+      .drawing-caption { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    }
+
+    .drawing-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      padding: var(--spacing-xl) var(--spacing-md);
+      overflow-y: auto;
+    }
+
+    .drawing-lightbox.active {
+      display: block;
+    }
+
+    .drawing-lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(5px);
+    }
+
+    .drawing-lightbox-content {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      animation: modalFadeIn 0.3s ease-out forwards;
+    }
+
+    .drawing-lightbox-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      clip-path: inset(0 100% 0 0);
+      transform: scale(1.02);
+      transition: clip-path 0.9s cubic-bezier(.65,0,.35,1), transform 0.9s cubic-bezier(.65,0,.35,1);
+    }
+
+    .drawing-lightbox-content.revealing img {
+      clip-path: inset(0 0 0 0);
+      transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .drawing-stage img, .drawing-lightbox-content img {
+        transition: none !important;
+        animation: none !important;
+        clip-path: inset(0 0 0 0) !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    .drawing-lightbox-caption {
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .drawing-lightbox-caption h4 {
+      margin-bottom: 2px;
+      font-size: 1.05rem;
+    }
+
+    .drawing-lightbox-caption span {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    .drawing-lightbox-close {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .drawing-lightbox-close:hover {
+      background-color: var(--white);
+      transform: rotate(90deg);
+    }
+
+    /* Project Modal */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      margin: 5vh auto;
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      animation: modalFadeIn 0.3s ease-out forwards;
+      overflow: hidden; /* Added for consistency */
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      background-color: var(--white);
+      transform: rotate(90deg);
+    }
+
+    .modal-content {
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    /* Project Content */
+    .project-content {
+      display: none;
+    }
+
+    .project-content.active {
+      display: block;
+    }
+
+    .project-header {
+      padding: var(--spacing-xl);
+      border-bottom: 1px solid var(--gray-200);
+      background-color: var(--gray-50);
+    }
+
+    .project-header h3 {
+      font-size: 1.75rem;
+      margin-bottom: var(--spacing-xs);
+      font-weight: 700;
+    }
+
+    .project-category {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 500;
+      display: inline-block;
+      margin-right: var(--spacing-md);
+    }
+
+    .project-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Project Slideshow - UPDATED */
+    .project-slideshow {
+      width: 100%;
+      padding: var(--spacing-md);
+    }
+
+    .slideshow-container.project {
+      height: 500px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .slideshow-controls.project {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      justify-content: space-between;
+      padding: 0 var(--spacing-md);
+      bottom: auto;
+      width: 100%;
+    }
+
+    .prev-slide, .next-slide {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--dark);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    }
+
+    .prev-slide:hover, .next-slide:hover {
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slideshow-indicators.project {
+      bottom: var(--spacing-md);
+    }
+
+    /* Project Description - UPDATED */
+    .project-description {
+      width: 100%;
+      padding: var(--spacing-xl);
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      margin: 0 var(--spacing-md) var(--spacing-md);
+    }
+
+    .project-description p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--gray-700);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .project-description h4 {
+      font-size: 1.25rem;
+      margin: var(--spacing-lg) 0 var(--spacing-md);
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    /* Project Details - ENHANCED */
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+      margin: var(--spacing-md) 0 var(--spacing-xl);
+      padding-bottom: var(--spacing-lg);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .meta-item {
+      background-color: var(--gray-50);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .meta-item i {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--gray-700);
+      margin-right: var(--spacing-xs);
+    }
+
+    .meta-value {
+      font-size: 0.875rem;
+      color: var(--gray-800);
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--spacing-md);
+      margin: var(--spacing-xl) 0;
+      background-color: var(--gray-50);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+    }
+
+    .detail-item {
+      padding: var(--spacing-md);
+      background-color: var(--white);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .detail-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .detail-item h5 {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .detail-item p {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0;
+      color: var(--dark);
+    }
+
+    .project-actions {
+      margin-top: var(--spacing-xl);
+      display: flex;
+      gap: var(--spacing-md);
+    }
+
+    .view-plans-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: var(--radius-xl);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .view-plans-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      color: var(--white);
+    }
+
+    /* Project Location - NEW */
+    .project-location {
+      display: inline-block;
+      margin-top: var(--spacing-xs);
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      background-color: var(--gray-100);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-xl);
+    }
+
+    .project-completion {
+      display: inline-block;
+      margin-left: var(--spacing-sm);
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      background-color: var(--gray-100);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-xl);
+    }
+
+    /* Services List - NEW */
+    .services-list {
+      margin: var(--spacing-lg) 0;
+      padding: 0;
+      list-style-position: inside;
+    }
+
+    .services-list li {
+      position: relative;
+      padding-left: var(--spacing-lg);
+      margin-bottom: var(--spacing-sm);
+      font-size: 0.95rem;
+      color: var(--gray-700);
+    }
+
+    .services-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+    }
+
+    .pricing-card {
+      background: linear-gradient(160deg, #ffffff 0%, #f9fbff 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(77, 166, 231, 0.2);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+      padding: calc(var(--spacing-xl) + 0.25rem);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(77, 166, 231, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.14);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .pricing-amount {
+      font-size: 2.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .pricing-unit {
+      font-size: 1rem;
+      color: var(--gray-600);
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: var(--spacing-lg) 0;
+    }
+
+    .pricing-features li {
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
+      font-weight: 500;
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      background: linear-gradient(145deg, #f8fbff 0%, #ffffff 100%);
+      padding: var(--spacing-xxl) 0;
+    }
+
+    .review-card {
+      background: linear-gradient(160deg, #ffffff 0%, #f9fbff 100%);
+      border-radius: 18px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      border: 1px solid rgba(77, 166, 231, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Added modern gradient overlay and enhanced hover effect */
+    .review-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(77, 166, 231, 0.14), transparent);
+      transition: left 0.5s ease;
+      pointer-events: none;
+    }
+
+    .review-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.16);
+      border-color: rgba(77, 166, 231, 0.35);
+    }
+
+    .review-card:hover::before {
+      left: 100%;
+    }
+
+    .review-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: var(--spacing-md);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: var(--spacing-xs);
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .reviewer-title {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* Enhanced star rating styling with better visual hierarchy */
+    .review-stars {
+      display: flex;
+      gap: 4px;
+      margin-top: var(--spacing-sm);
+    }
+
+    .star {
+      color: #fbbf24;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+      text-shadow: 0 1px 2px rgba(251, 191, 36, 0.2);
+    }
+
+    .review-card:hover .star {
+      transform: scale(1.1);
+    }
+
+    .review-content {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+      font-weight: 400;
+    }
+
+    .review-content p {
+      margin: 0;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .review-content p::before {
+      content: "“";
+      position: absolute;
+      left: 0;
+      top: -0.2rem;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Added styling for review source badge */
+    .review-source {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid #f0f0f0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+/* FAQs Section - Modern Accordion Style */
+.faqs-section {
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.faqs-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--gray-200) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-search {
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.faq-search-input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-left: 3rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  font-size: 1rem;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.faq-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(77, 166, 231, 0.1);
+}
+
+.faq-search-icon {
+  position: absolute;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+}
+
+.faq-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.faq-category {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-category:hover {
+  background-color: var(--gray-100);
+  border-color: var(--gray-300);
+}
+
+.faq-category.active {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.faq-item {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+.faq-item:nth-child(4) { animation-delay: 0.4s; }
+.faq-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: var(--white);
+  border: none;
+  text-align: left;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-question-btn:hover {
+  color: var(--primary);
+}
+
+.faq-question-btn:focus {
+  outline: none;
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+  margin-left: var(--spacing-md);
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--primary);
+  transition: var(--transition);
+}
+
+.faq-icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item.active .faq-icon {
+  background-color: var(--primary);
+}
+
+.faq-item.active .faq-icon::before,
+.faq-item.active .faq-icon::after {
+  background-color: var(--white);
+}
+
+.faq-item.active .faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 var(--spacing-xl);
+  border-top: 0 solid var(--gray-100);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--gray-100);
+}
+
+.faq-answer-content {
+  color: var(--gray-700);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.faq-more {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+}
+
+.faq-more-text {
+  font-size: 1.125rem;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-md);
+}
+
+.faq-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(77, 166, 231, 0.2);
+}
+
+.faq-contact-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(77, 166, 231, 0.3);
+  color: var(--white);
+}
+
+.faq-contact-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .faq-categories {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .faq-category {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.75rem;
+  }
+  
+  .faq-question-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-search-input {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    padding-left: 2.5rem;
+  }
+  
+  .faq-categories {
+    justify-content: center;
+  }
+  
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .faq-icon::before {
+    width: 10px;
+  }
+  
+  .faq-icon::after {
+    height: 10px;
+  }
+}
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .contact-info {
+      margin-bottom: var(--spacing-xl);
+      background: #fff;
+      border: 1px solid rgba(77, 166, 231, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      padding: var(--spacing-lg);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: var(--spacing-sm);
+      padding: 0.75rem;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      background: linear-gradient(140deg, rgba(77, 166, 231, 0.07), rgba(77, 166, 231, 0.02));
+      border-color: rgba(77, 166, 231, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(155deg, #67b6ef 0%, #4da6e7 56%, #318fd7 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 10px 20px rgba(77, 166, 231, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-icon::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.35) 48%, transparent 100%);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .contact-item:hover .contact-icon::after {
+      left: 140%;
+    }
+
+    .contact-icon svg {
+      width: 22px;
+      height: 22px;
+      color: #ffffff;
+    }
+
+    .contact-text {
+      font-size: 0.97rem;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .contact-text a {
+      color: var(--gray-800);
+      transition: var(--transition);
+    }
+
+    .contact-text a:hover {
+      color: var(--primary);
+    }
+
+    .contact-form {
+      background: linear-gradient(160deg, #ffffff 0%, #f9fbff 100%);
+      border-radius: 18px;
+      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.1);
+      border: 1px solid rgba(77, 166, 231, 0.16);
+      padding: var(--spacing-xl);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: var(--spacing-sm) var(--spacing-md);
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(77, 166, 231, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--gray-900);
+      color: var(--gray-300);
+      padding: var(--spacing-xl) 0;
+      border-top: 1px solid var(--gray-800);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--font-size-base);
+      letter-spacing: 0.5px;
+      transition: opacity var(--transition);
+    }
+
+    .footer-logo:hover {
+      opacity: 0.8;
+    }
+
+    .footer-logo svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Social links styling */
+    .footer-links {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: center;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--gray-400);
+      text-decoration: none;
+      border: 1px solid var(--gray-700);
+      border-radius: 50%;
+      transition: all var(--transition);
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+      border-color: var(--white);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-text {
+      display: none;
+    }
+    /* Quote Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-container {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      animation: modalFadeIn 0.3s ease-out forwards;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    .modal-header {
+      padding: var(--spacing-lg) var(--spacing-xl);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray-500);
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      color: var(--dark);
+    }
+
+    .modal-body {
+      padding: var(--spacing-xl);
+    }
+
+    /* Form Styles */
+    .form-row {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-sm);
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+
+    .consent-group {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-lg);
+    }
+
+    .consent-group input[type="checkbox"] {
+      margin-top: 3px;
+    }
+
+    .form-actions {
+      margin-top: var(--spacing-lg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .mobile-nav-toggle { display:flex; }
+      .top-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: min(320px, 86vw);
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(16px) saturate(160%);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        border-left: 1px solid var(--gray-200);
+        box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.2rem;
+        padding: 1rem;
+        overflow-y: auto;
+        transition: right 0.25s ease;
+        z-index: 120;
+      }
+      .top-nav.active { right: 0; }
+      .top-nav a:not(.btn-link), .top-nav .btn-link {
+        display: block;
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 0.7rem 0.55rem;
+        border-radius: 10px;
+      }
+      .top-nav .btn-link {
+        margin-top: 0.4rem;
+        text-align: center;
+      }
+      
+      .main-banner {
+        padding-top: 0.9rem;
+        padding-bottom: 0.95rem;
+      }
+      
+      .header-text h1 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+      
+      .slideshow-container {
+        height: 320px;
+        margin-top: var(--spacing-md);
+      }
+      
+      .header-text {
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+        padding: 0;
+      }
+      
+      .quote-button-wrapper {
+        text-align: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 0.6rem;
+      }
+
+      .quote-button-wrapper .btn {
+        min-width: 0;
+        width: auto;
+        max-width: none;
+        flex: 1 1 0;
+        padding: 0.78rem 0.7rem;
+        font-size: 0.93rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--spacing-md);
+      }
+
+      .slideshow-container.project {
+        height: 350px;
+      }
+      
+      .project-header {
+        padding: var(--spacing-md);
+      }
+      
+      .project-slideshow {
+        padding: var(--spacing-sm);
+      }
+      
+      .project-description {
+        padding: var(--spacing-md);
+        margin: 0 var(--spacing-sm) var(--spacing-sm);
+      }
+      
+      .project-details {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+      }
+      
+      .section {
+        padding: var(--spacing-2xl) 0;
+      }
+      
+      .section-heading {
+        margin-bottom: var(--spacing-xl);
+      }
+      
+      .review-card {
+        margin-bottom: var(--spacing-md);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .slideshow-container {
+        height: 250px;
+      }
+      
+      .header-text h1 {
+        font-size: 1.5rem;
+      }
+      
+      .header-text h6 {
+        font-size: 0.75rem;
+      }
+      
+      .header-text p {
+        font-size: 1rem;
+      }
+      
+      .modal-container {
+        width: 95%;
+        margin: 30px auto;
+      }
+      
+      .project-header {
+        padding: var(--spacing-sm);
+      }
+      
+      .project-header h3 {
+        font-size: 1.25rem;
+      }
+      
+      .slides {
+        height: 250px;
+      }
+      
+      .prev-slide, .next-slide {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+      
+      .slideshow-container.project {
+        height: 250px;
+      }
+      
+      .project-location {
+        display: block;
+        margin-top: var(--spacing-xs);
+        margin-bottom: var(--spacing-sm);
+      }
+      
+      .detail-item {
+        padding: var(--spacing-sm);
+      }
+      
+      .project-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+      
+      .view-plans-btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .btn-lg {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1rem;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .contact-icon {
+        margin-bottom: var(--spacing-sm);
+      }
+    }
+  
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.footer-logo svg{width:24px;height:24px}
+.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
+.footer-social{display:flex;gap:.6rem}
+.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
+.social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
+.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
+.footer-link-item{margin-bottom:.6rem}
+.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-grid .footer-link:hover{color:#1d4ed8;background:none}
+.footer-newsletter{margin-top:1.5rem}
+.newsletter-form{display:flex;gap:.4rem}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.newsletter-input::placeholder{color:#94a3b8}
+.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:8px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:#1d4ed8}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
+.footer-legal{display:flex;gap:1rem}
+.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.legal-link:hover{color:#1d4ed8}
+@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" width="31" height="38">
+      </a>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="top-nav" id="topNav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/#services">Services</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#portfolio">Projects</a>
+        <a href="/residential.html">Get Plans</a>
+        <a href="/case-studies/index.html">Case Studies</a>
+        <a href="/permit-estimate.html">Estimate</a>
+        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Banner Start -->
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="header-text">
+            <h1>Your Partner for Cutting-Edge Building Design Services, MEP, Structural and Fire Design Solutions</h1>
+            <p>TS9Designs delivers building design, structural, MEP, and fire protection design packages with permit-focused coordination.</p>
+            <div class="hero-points">
+              <span class="hero-point">Hotels, Restaurants</span>
+              <span class="hero-point">Apartments complexes</span>
+              <span class="hero-point">Gas Stations</span>
+              <span class="hero-point">Tenant Improvements</span>
+              <span class="hero-point">Industrial</span>
+            </div>
+            <div class="quote-button-wrapper">
+              <a href="/permit-estimate.html" class="btn btn-primary btn-lg">Get Estimate</a>
+              <a href="https://calendly.com/ts9designs/discovery" class="btn btn-lg btn-hero-secondary">Book A Call</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slideshow Container -->
+        <div class="col-lg-6">
+          <div class="slideshow-container">
+            <div class="slides">
+              <!--<div class="slide">-->
+              <!--  <img src="assets/images/RomaBar/romabar1.webp" alt="MEP design example">-->
+              <!--</div>-->
+              <!--<div class="slide">-->
+              <!--  <img src="assets/images/Bishop/frontview.webp" alt="Fire design solution">-->
+              <!--</div>-->
+              <div class="slide active">
+                <img class="slide-bg" src="assets/images/28.jpeg" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/28.jpeg" alt="MEP design example">
+              </div>
+              <div class="slide">
+                <img class="slide-bg" src="assets/images/27.jpeg" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/27.jpeg" alt="Daycare">
+              </div>
+              <div class="slide">
+                <img class="slide-bg" src="assets/images/Living-Room.webp" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/Living-Room.webp" alt="MEP design example">
+              </div>
+              <div class="slide">
+                <img class="slide-bg" src="assets/images/29.jpeg" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/29.jpeg" alt="MEP design example">
+              </div>
+              <div class="slide">
+                <img class="slide-bg" src="assets/images/32.jpeg" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/32.jpeg" alt="Multifamily new-construction rendering">
+              </div>
+              <div class="slide">
+                <img class="slide-bg" src="assets/images/Optometry/Optometry2.webp" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/Optometry/Optometry2.webp" alt="Eyes on Optometry">
+              </div>
+              <!--<div class="slide">-->
+              <!--  <img class="slide-bg" src="assets/images/DolceVilla/dolce4.webp" alt="" aria-hidden="true">-->
+              <!--  <img class="slide-fg" src="assets/images/DolceVilla/dolce4.webp" alt="Fire design solution">-->
+              <!--</div>-->
+              <!--<div class="slide">-->
+              <!--  <img class="slide-bg" src="assets/images/31.jpeg" alt="" aria-hidden="true">-->
+              <!--  <img class="slide-fg" src="assets/images/31.jpeg" alt="Pet Supplies">-->
+              <!--</div>-->
+            </div>
+            <!-- Slideshow controls -->
+            <div class="slideshow-controls">
+              <div class="slide-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Banner End -->
+
+<!-- Portfolio Section Start -->
+<div id="portfolio" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h6>Our Work</h6>
+      <h4>See Our Recent Projects</h4>
+      <div class="line-dec"></div>
+      <p>Explore our portfolio of building design, MEP, structural, and fire protection solutions</p>
+    </div>
+    
+    <div class="portfolio-grid">
+      <!-- Bishop Pond Project -->
+      <div class="portfolio-item" data-project="bishop-pond">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/Bishop/Living-Room.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/Bishop/Living-Room.webp" alt="Bishop Pond">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Bishop Pond</h4>
+          <span>New Construction</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/bishop-pond.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- 17058 S Robey Street Project -->
+      <div class="portfolio-item" data-project="robey-street">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/Daycare/daycare2.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/Daycare/daycare2.webp" alt="17058 S Robey Street DayCare">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>17058 S Robey Street</h4>
+          <span>Daycare Renovation</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/robey-street-daycare.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- Pet Supplies Plus Project -->
+      <div class="portfolio-item" data-project="pet-supplies">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/PetSupplies/pet-supplies.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Pet Supplies Plus</h4>
+          <span>Commercial</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/pet-supplies-plus-hamilton.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- La Dolce Vita Project -->
+      <div class="portfolio-item" data-project="dolce-vita">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/DolceVilla/dolce2.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>La Dolce Vita</h4>
+          <span>Restaurant</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/la-dolce-vita-dover.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- Eyes on J Optometry Project -->
+      <div class="portfolio-item" data-project="eyes-on-j">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/Optometry/Optometry.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/Optometry/Optometry.webp" alt="Eyes on J Optometry">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Eyes on J Optometry</h4>
+          <span>Medical Office</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/eyes-on-j-optometry.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- Conmigo Café Project -->
+      <div class="portfolio-item" data-project="conmigo-cafe">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/conmigo/conmigo.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/conmigo/conmigo.webp" alt="Conmigo Café">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Conmigo Café</h4>
+          <span>Coffee Shop</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/conmigo-cafe.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- Luccino's Pizza Project -->
+      <div class="portfolio-item" data-project="luccinos-pizza">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/Tropicana/Tropicana.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Luccino's Pizza</h4>
+          <span>Restaurant</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/luccinos-pizza-tropicana.html">See Case Study</a></div>
+        </div>
+      </div>
+      
+      <!-- Chef's Roma Kitchen Project -->
+      <div class="portfolio-item" data-project="chefs-roma">
+        <div class="thumb">
+          <img class="thumb-bg" src="assets/images/RomaBar/romabar.jpeg" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/RomaBar/romabar.jpeg" alt="Chef's Roma Kitchen">
+          <div class="item-overlay">
+            <div class="view-project">View Project</div>
+          </div>
+        </div>
+        <div class="content">
+          <h4>Chef's Roma Kitchen</h4>
+          <span>Restaurant</span>
+          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/chefs-roma-kitchen-henderson.html">See Case Study</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio Section End -->
+
+  <!-- Sample Drawings Section Start -->
+  <section id="drawings" class="drawings-section">
+    <div class="container">
+      <div class="section-heading drawings-heading">
+        <h6>From Our Drawing Sets</h6>
+        <h4>A Look at the <em>Construction Documents</em></h4>
+        <div class="line-dec"></div>
+        <p>Eleven sheets pulled straight from real permit-ready sets we've produced &mdash; building design, electrical, fire protection, and structural. Browse the set below, or open any sheet full-size.</p>
+      </div>
+    </div>
+
+    <div class="drawing-viewer">
+      <div class="drawing-stage-wrap">
+        <button type="button" class="stage-nav stage-prev" id="stagePrev" aria-label="Previous sheet">&#8249;</button>
+        <div class="drawing-stage" id="drawingStage">
+          <span class="stage-counter" id="stageCounter">1 / 11</span>
+          <button type="button" class="stage-expand" id="stageExpand" aria-label="View sheet full size">&#10021;</button>
+          <img id="stageImg" src="" alt="">
+        </div>
+        <button type="button" class="stage-nav stage-next" id="stageNext" aria-label="Next sheet">&#8250;</button>
+      </div>
+
+      <div class="drawing-caption">
+        <div>
+          <h4 id="stageTitle"></h4>
+          <span id="stageMeta"></span>
+        </div>
+        <button type="button" class="stage-expand-link" id="stageExpandLink">View full sheet &rarr;</button>
+      </div>
+
+      <div class="drawing-filmstrip" id="drawingFilmstrip" role="tablist" aria-label="Drawing sheets"></div>
+    </div>
+  </section>
+
+  <!-- Drawing Lightbox -->
+  <div id="drawingLightbox" class="drawing-lightbox">
+    <div class="drawing-lightbox-overlay"></div>
+    <div class="drawing-lightbox-content">
+      <button type="button" class="drawing-lightbox-close" aria-label="Close">&times;</button>
+      <img id="drawingLightboxImg" src="" alt="">
+      <div class="drawing-lightbox-caption">
+        <h4 id="drawingLightboxTitle"></h4>
+        <span id="drawingLightboxMeta"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var sheets = [
+        { title: 'First Floor Lighting Plan', meta: 'Electrical &middot; New-Construction Apartments', thumb: 'coffman-lighting-plan-thumb.webp', full: 'coffman-lighting-plan.webp' },
+        { title: 'Restaurant Floor Plans', meta: 'Building Design &middot; Restaurant Buildout', thumb: 'restaurant-floor-plans-thumb.webp', full: 'restaurant-floor-plans.webp' },
+        { title: 'Fire Alarm Riser Diagram', meta: 'Fire Protection &middot; Commercial High-Rise', thumb: 'fire-alarm-riser-diagram-thumb.webp', full: 'fire-alarm-riser-diagram.webp' },
+        { title: 'Foundation Plan', meta: 'Structural &middot; New Home Construction', thumb: 'foundation-plan-thumb.webp', full: 'foundation-plan.webp' },
+        { title: 'Proposed Roof Plan', meta: 'Building Design &middot; Residential New Construction', thumb: 'residential-roof-plan-thumb.webp', full: 'residential-roof-plan.webp' },
+        { title: 'Electrical Power &amp; Lighting Plan', meta: 'Electrical &middot; Retail Buildout', thumb: 'smokeshop-electrical-plan-thumb.webp', full: 'smokeshop-electrical-plan.webp' },
+        { title: 'Space Planning &amp; Sq. Footage Plan', meta: 'Building Design &middot; Medical Office', thumb: 'space-planning-sqft-thumb.webp', full: 'space-planning-sqft.webp' },
+        { title: 'Second Floor Lighting Plan', meta: 'Electrical &middot; Eyes on J Optometry', thumb: 'optometry-lighting-plan-thumb.webp', full: 'optometry-lighting-plan.webp' },
+        { title: 'Fire Alarm Floor Plan', meta: 'Fire Protection &middot; Commercial High-Rise', thumb: 'fire-alarm-floor-plan-thumb.webp', full: 'fire-alarm-floor-plan.webp' },
+        { title: 'Electrical Specifications', meta: 'Electrical &middot; Duplex New Construction', thumb: 'electrical-specifications-thumb.webp', full: 'electrical-specifications.webp' },
+        { title: 'Panel Schedule &amp; Power Riser', meta: 'Electrical &middot; Load Calculations', thumb: 'smokeshop-panel-schedule-thumb.webp', full: 'smokeshop-panel-schedule.webp' }
+      ];
+      var BASE = 'assets/images/drawings/';
+
+      var stage = document.getElementById('drawingStage');
+      var stageImg = document.getElementById('stageImg');
+      var stageTitle = document.getElementById('stageTitle');
+      var stageMeta = document.getElementById('stageMeta');
+      var stageCounter = document.getElementById('stageCounter');
+      var filmstrip = document.getElementById('drawingFilmstrip');
+      var prevBtn = document.getElementById('stagePrev');
+      var nextBtn = document.getElementById('stageNext');
+
+      var lightbox = document.getElementById('drawingLightbox');
+      var lightboxContent = lightbox.querySelector('.drawing-lightbox-content');
+      var lightboxImg = document.getElementById('drawingLightboxImg');
+      var lightboxTitle = document.getElementById('drawingLightboxTitle');
+      var lightboxMeta = document.getElementById('drawingLightboxMeta');
+
+      var current = 0;
+
+      sheets.forEach(function (sheet, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'filmstrip-item';
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', sheet.title.replace(/&amp;/g, '&').replace(/&middot;/g, '·'));
+        var img = document.createElement('img');
+        img.src = BASE + sheet.thumb;
+        img.alt = '';
+        btn.appendChild(img);
+        btn.addEventListener('click', function () { goTo(i); });
+        filmstrip.appendChild(btn);
+      });
+      var filmItems = filmstrip.querySelectorAll('.filmstrip-item');
+
+      function render(retrigger) {
+        var sheet = sheets[current];
+        stageImg.src = BASE + sheet.full;
+        stageImg.alt = sheet.title.replace(/&amp;/g, '&');
+        stageTitle.innerHTML = sheet.title;
+        stageMeta.innerHTML = sheet.meta;
+        stageCounter.textContent = (current + 1) + ' / ' + sheets.length;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === sheets.length - 1;
+
+        filmItems.forEach(function (item, i) {
+          item.classList.toggle('active', i === current);
+        });
+        var activeItem = filmItems[current];
+        if (retrigger && activeItem && activeItem.scrollIntoView) {
+          activeItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+
+        if (retrigger) {
+          stage.classList.remove('revealing');
+          void stage.offsetWidth;
+          stage.classList.add('revealing');
+        }
+      }
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(sheets.length - 1, index));
+        render(true);
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      function openLightbox() {
+        var sheet = sheets[current];
+        lightboxImg.src = BASE + sheet.full;
+        lightboxImg.alt = sheet.title.replace(/&amp;/g, '&');
+        lightboxTitle.innerHTML = sheet.title;
+        lightboxMeta.innerHTML = sheet.meta;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lightboxContent.classList.remove('revealing');
+        void lightboxContent.offsetWidth;
+        lightboxContent.classList.add('revealing');
+      }
+
+      document.getElementById('stageExpand').addEventListener('click', openLightbox);
+      document.getElementById('stageExpandLink').addEventListener('click', openLightbox);
+      stageImg.addEventListener('click', openLightbox);
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      lightbox.querySelector('.drawing-lightbox-close').addEventListener('click', closeLightbox);
+      lightbox.querySelector('.drawing-lightbox-overlay').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { closeLightbox(); return; }
+        if (!lightbox.classList.contains('active')) {
+          var section = document.getElementById('drawings');
+          var rect = section.getBoundingClientRect();
+          var inView = rect.top < window.innerHeight && rect.bottom > 0;
+          if (inView) {
+            if (e.key === 'ArrowLeft') goTo(current - 1);
+            if (e.key === 'ArrowRight') goTo(current + 1);
+          }
+        }
+      });
+
+      // Reveal the stage the first time the viewer scrolls into view.
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              render(true);
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.25 });
+        revealObserver.observe(stage);
+      }
+
+      render(false);
+    })();
+  </script>
+  <!-- Sample Drawings Section End -->
+
+  <!-- Pricing Section Start -->
+  <div id="pricing" class="section pricing-section">
+    <div class="container">
+      <div class="section-heading">
+        <h6>Pricing and Delivery Time</h6>
+        <h4>Permit-Ready Plans Starting at $0.45/sqft</h4>
+        <div class="line-dec"></div>
+        <p>Transparent baseline pricing with scope-based adjustments after plan review.</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="pricing-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            <h3>Permit-Ready Plan Package</h3>
+            <div class="pricing-amount">$0.45<span class="pricing-unit">/sq ft</span></div>
+            <p>Starting rate for larger projects, with fixed-price options for select scopes.</p>
+            <ul class="pricing-features">
+              <li>Fast 4-10 day turnaround on most scopes</li>
+              <li>Building design, structural, MEP and fire protection coordination</li>
+              <li>Permit-focused, code-aware documentation</li>
+              <li>Review call and revision path included</li>
+            </ul>
+            <a class="btn btn-primary" href="/permit-estimate.html">Request Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pricing Section End -->
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="project-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <button class="close-modal">&times;</button>
+      
+      <div class="modal-content">
+        <!-- Bishop Pond Project Content -->
+        <div class="project-content" id="bishop-pond-content">
+          <div class="project-header">
+            <h3>Bishop Pond</h3>
+            <span class="project-category">New Construction</span>
+            <div class="project-location">Indianapolis, Indiana</div>
+            <div class="project-completion">Completed: 2024</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/Bishop/Living-Room.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/Bishop/frontview.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Bishop/Bishop-Pond1.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/Bishop/Bishop-Pond2.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Bishop/Bishop-Pond3.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/Bishop/Large-outdoor-Deck.webp" alt="Bishop Pond">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Bishop/bishop-pond-bathro.webp" alt="Bishop Pond">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="bishop-pond">&#10094;</button>
+                <button class="next-slide" data-project="bishop-pond">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">12,500 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Full MEP Engineering</span>
+              </div>
+            </div>
+            
+            <p>TS9Designs proudly provided the full engineering plans for the Bishop Pond residential community in Indianapolis—a beautifully planned development combining modern living with classic Midwestern charm.</p>
+            
+            <p>Our team delivered comprehensive Mechanical, Electrical, and Plumbing (MEP) engineering designs tailored to meet the specific needs of this high-quality residential project. Every system was thoughtfully designed for efficiency, comfort, and long-term reliability, aligning with the builder's vision and local code requirements.</p>
+            
+            
+            <p>From concept to permit-ready plans, our engineering support helped bring this elegant neighborhood to life—another example of how TS9Designs powers great design through smart engineering.</p>
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 17058 S Robey Street Project Content -->
+        <div class="project-content" id="robey-street-content">
+          <div class="project-header">
+            <h3>17058 S Robey Street</h3>
+            <span class="project-category">Daycare Renovation</span>
+            <div class="project-location">Hazel Crest, Illinois</div>
+            <div class="project-completion">Completed: 2024</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/Daycare/daycare1.webp" alt="Daycare">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Daycare/daycare2.webp" alt="Daycare">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Daycare/daycare3.webp" alt="Daycare">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Daycare/daycare4.webp" alt="Daycare">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Daycare/daycare5.webp" alt="Daycare">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="robey-street">&#10094;</button>
+                <button class="next-slide" data-project="robey-street">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">3,200 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Renovation MEP</span>
+              </div>
+            </div>
+            
+            <p>TS9Designs provided full MEP engineering plans and ongoing construction support for this daycare and office space renovation for our client, Richard Andrews.</p>
+            
+            <p>By reusing much of the existing mechanical systems—found to be in excellent condition—we helped save Richard thousands in construction costs while still delivering code-compliant, efficient designs tailored to the needs of a childcare facility.</p>
+            
+            
+            <p>This project highlights our commitment to smart, cost-effective engineering that supports both function and budget.</p>
+            
+            <div class="project-actions">
+              <a href="assets/drawing-sets/18- Unit 62nd St and Coffman Ave - Full MEP Plans Rev A. .pdf" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pet Supplies Plus Project Content -->
+        <div class="project-content" id="pet-supplies-content">
+          <div class="project-header">
+            <h3>Pet Supplies Plus</h3>
+            <span class="project-category">Commercial</span>
+            <div class="project-location">Hamilton, New Jersey</div>
+            <div class="project-completion">Completed: 2025</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/PetSupplies/pet-supplies1.webp" alt="Pet Supplies Plus">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/PetSupplies/pet-supplies3.webp" alt="Pet Supplies Plus">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/PetSupplies/pet-supplies2.webp" alt="Pet Supplies Plus">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="pet-supplies">&#10094;</button>
+                <button class="next-slide" data-project="pet-supplies">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">7,800 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Full MEP Engineering</span>
+              </div>
+            </div>
+            
+            <p>TS9Designs provided the full engineering plans for the new Pet Supplies Plus location in Hamilton, New Jersey.</p>
+            
+            <p>For this project, we collaborated closely with the corporate team to ensure their brand standards and operational requirements were fully integrated into our drawings. From lighting layouts and electrical panel coordination to mechanical and plumbing systems, every element was tailored to meet their established design guidelines and ensure a seamless rollout.</p>
+            
+            
+            <p>Check them out in Hamilton, NJ—another example of how TS9Designs brings national brands to life at the local level!</p>
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- La Dolce Vita Project Content -->
+        <div class="project-content" id="dolce-vita-content">
+          <div class="project-header">
+            <h3>La Dolce Vita</h3>
+            <span class="project-category">Restaurant</span>
+            <div class="project-location">Dover, New Hampshire</div>
+            <div class="project-completion">Completed: 2025</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/DolceVilla/dolce1.webp" alt="La Dolce Vita">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/DolceVilla/dolce3.webp" alt="La Dolce Vita">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/DolceVilla/dolce4.webp" alt="La Dolce Vita">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/DolceVilla/dolce5.webp" alt="La Dolce Vita">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="dolce-vita">&#10094;</button>
+                <button class="next-slide" data-project="dolce-vita">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">4,200 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Building Design & MEP</span>
+              </div>
+            </div>
+
+            <p>TS9Designs provided building-design documentation and MEP engineering plans for La Dolce Vita, an elegant dining destination in Dover, New Hampshire.</p>
+
+            <p>Our scope included floor plans, space-planning layouts, exterior elevations, and related building-design documentation, capturing the restaurant's desired aesthetic while ensuring functionality and code compliance. From floor plans to façade detailing, we worked closely with ownership to bring their vision to life through thoughtful design.</p>
+            
+            
+            <p>We also delivered complete Mechanical, Electrical, and Plumbing (MEP) engineering solutions, tailored to support the kitchen, dining, and back-of-house operations efficiently.</p>
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Eyes on J Optometry Project Content -->
+        <div class="project-content" id="eyes-on-j-content">
+          <div class="project-header">
+            <h3>Eyes on J Optometry</h3>
+            <span class="project-category">Medical Office</span>
+            <div class="project-location">Sacramento, California</div>
+            <div class="project-completion">Completed: 2024</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/Optometry/Optometry.webp" alt="Eyes on J Optometry">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/Optometry/Optometry3.webp" alt="Eyes on J Optometry">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Optometry/Optometry1.webp" alt="Eyes on J Optometry">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/Optometry/Optometry2.webp" alt="Eyes on J Optometry">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="eyes-on-j">&#10094;</button>
+                <button class="next-slide" data-project="eyes-on-j">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">2,800 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">MEP Engineering</span>
+              </div>
+            </div>
+            
+            <p>TS9Designs had the pleasure of providing engineering plans for Eyes on J Optometry, a modern and welcoming eye care clinic located in Sacramento, California.</p>
+            
+            <p>We loved working with Dr. Sarah to bring her vision to life—focusing on delivering high-quality, efficient Mechanical, Electrical, and Plumbing (MEP) designs that support the clinic's functionality and patient experience. From lighting and HVAC to plumbing systems, every detail was tailored to fit the needs of a professional medical space while keeping comfort and efficiency top of mind.</p>
+            
+           
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Conmigo Café Project Content -->
+        <div class="project-content" id="conmigo-cafe-content">
+          <div class="project-header">
+            <h3>Conmigo Café</h3>
+            <span class="project-category">Coffee Shop</span>
+            <div class="project-location">Western Pennsylvania</div>
+            <div class="project-completion">Completed: 2025</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/conmigo/conmigo.webp" alt="Conmigo Café">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/conmigo/conmigo1.webp" alt="Conmigo Café">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/conmigo/conmigo2.webp" alt="Conmigo Café">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="conmigo-cafe">&#10094;</button>
+                <button class="next-slide" data-project="conmigo-cafe">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">1,850 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Building Design & MEP</span>
+              </div>
+            </div>
+
+            <p>TS9Designs provided building-design documentation and MEP engineering plans for Conmigo Café, a cozy and community-focused coffee shop located in Western Pennsylvania.</p>
+            
+            <p>From the very start, we worked closely with the café team to bring their warm, welcoming vision to life—delivering detailed floor plans, thoughtful exterior elevations, and efficient Mechanical, Electrical, and Plumbing (MEP) designs tailored to café operations. Our focus was on creating a space that feels just as good as it functions—blending aesthetics with code compliance and practical flow.</p>
+            
+            
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Luccino's Pizza Project Content -->
+        <div class="project-content" id="luccinos-pizza-content">
+          <div class="project-header">
+            <h3>Luccino's Pizza</h3>
+            <span class="project-category">Restaurant</span>
+            <div class="project-location">Las Vegas, Nevada</div>
+            <div class="project-completion">Completed: 2025</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Tropicana/Tropicana1.webp" alt="Luccino's Pizza">
+                </div>
+                <div class="slide active">
+                  <img src="assets/images/Tropicana/Tropicana2.webp" alt="Luccino's Pizza">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="luccinos-pizza">&#10094;</button>
+                <button class="next-slide" data-project="luccinos-pizza">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">3,600 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">Building Design Services & MEP</span>
+              </div>
+            </div>
+
+            <p>TS9Designs was proud to provide the full Building Design Services and Engineering plans for Luccino's Pizza, a vibrant new pizzeria located at 3035 East Tropicana in Las Vegas, Nevada.</p>
+
+            <p>Our team delivered detailed floor plans, code-compliant Mechanical, Electrical, and Plumbing (MEP) systems, and Building Design Services elevations that captured the energy and functionality needed for a fast-paced kitchen and inviting dine-in experience. Every detail—from kitchen layout to customer flow—was carefully designed to support efficiency, safety, and a great customer experience.</p>
+            
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Chef's Roma Kitchen Project Content -->
+        <div class="project-content" id="chefs-roma-content">
+          <div class="project-header">
+            <h3>Chef's Roma Kitchen</h3>
+            <span class="project-category">Restaurant</span>
+            <div class="project-location">Henderson, Nevada</div>
+            <div class="project-completion">Completed: 2024</div>
+          </div>
+          
+          <div class="project-slideshow">
+            <div class="slideshow-container project">
+              <div class="slides">
+                <div class="slide active">
+                  <img src="assets/images/RomaBar/romabar.jpeg" alt="Chef's Roma Kitchen">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/RomaBar/Romabar.webp" alt="Chef's Roma Kitchen">
+                </div>
+                <div class="slide">
+                  <img src="assets/images/RomaBar/romabar1.webp" alt="Chef's Roma Kitchen">
+                </div>
+              </div>
+              
+              <div class="slideshow-controls project">
+                <button class="prev-slide" data-project="chefs-roma">&#10094;</button>
+                <button class="next-slide" data-project="chefs-roma">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-description">
+            <div class="project-meta">
+              <div class="meta-item">
+                <span class="meta-label">Size:</span>
+                <span class="meta-value">5,200 sq ft</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Scope:</span>
+                <span class="meta-value">MEP & Building Design Services</span>
+              </div>
+            </div>
+            
+            <p>TS9Designs is proud to have provided comprehensive Mechanical, Electrical, and Plumbing (MEP) engineering and Building Design Services floor plan services for Chef's Roma Kitchen, a distinguished Italian restaurant located in Henderson, Nevada.</p>
+            
+            <p>Collaborating closely with the restaurant's ownership and design team, we developed detailed floor plans that optimize both customer experience and operational efficiency. Our MEP designs were meticulously crafted to support the restaurant's high-performance kitchen, ambient dining areas, and full-service bar, ensuring seamless integration with the establishment's aesthetic and functional goals.</p>
+            
+            
+            <p>Chef's Roma Kitchen is renowned for its warm ambiance and authentic Italian cuisine, offering patrons a memorable dining experience. Our involvement in this project underscores TS9Designs' commitment to delivering tailored engineering and Building Design Services solutions that bring our clients' visions to life.</p>
+            
+            <p>Explore more about the restaurant at <a href="https://chefsromakitchen.com" target="_blank">chefsromakitchen.com</a>.</p>
+            
+            <div class="project-actions">
+              <a href="#" class="view-plans-btn">View Full Plans</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews Section Start -->
+  <div id="reviews" class="section reviews-section">
+    <div class="container">
+      <div class="section-heading">
+        <h6>Reviews</h6>
+        <h4>Trusted by Owners, Builders, and Operators</h4>
+        <div class="line-dec"></div>
+        <p>Real feedback from clients who moved from concept to permit-ready execution with TS9Designs.</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="review-header">
+              <div class="reviewer-name">KeSean</div>
+              <div class="reviewer-title">Smoke Shop – Houston, TX</div>
+              <div class="review-stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>I hired TS9Designs for blueprints on a buildout project, and I'm extremely pleased. They paid great attention to detail, ensuring compliance with codes and regulations. The blueprints were delivered promptly, allowing for a smooth construction process. Their professionalism and expertise surpassed my expectations, highly recommended for anyone seeking detailed and timely blueprint services.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="review-header">
+              <div class="reviewer-name">Sarah</div>
+              <div class="reviewer-title">Medical Office – Sacramento, CA</div>
+              <div class="review-stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>Nadif was excellent to work with. The contract involved mechanical, electrical, and plumbing design for a commercial building. Communication, responsiveness, and professionalism are his strengths. Even when the project experienced delays and changes, Nadif was flexible and available to help bring the contract to completion. I would recommend Nadif to my colleagues and would work with him again on my next project. Thanks Nadif!</p>
+            </div>
+            <div class="review-source">Client Found on Upwork</div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+            <div class="review-header">
+              <div class="reviewer-name">Richard</div>
+              <div class="reviewer-title">DayCare - Chicago</div>
+              <div class="review-stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <p>Nadif was excellent to work with. The plans were exactly as I needed. They were done in a time and professional manner. The communication was excellent which was very important to me. I'd definitely use him again and recommend him to others.</p>
+            </div>
+            <div class="review-source">Client Found on Upwork</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Reviews Section End -->
+
+  <!-- FAQs Section Start -->
+  <div id="faqs" class="section faqs-section">
+    <div class="container">
+      <div class="section-heading">
+        <h6>Frequently Asked Questions</h6>
+        <h4>Everything You Need to Know</h4>
+        <div class="line-dec"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="faq-container wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="faq-search">
+              <span class="faq-search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </span>
+              <input type="text" class="faq-search-input" placeholder="Search for answers..." id="faqSearch">
+            </div>
+            
+            <div class="faq-categories">
+              <div class="faq-category active" data-category="all">All Questions</div>
+              <div class="faq-category" data-category="services">Services</div>
+              <div class="faq-category" data-category="process">Process</div>
+              <div class="faq-category" data-category="technical">Technical</div>
+            </div>
+            
+            <div class="faq-list">
+              <div class="faq-item" data-category="services">
+                <button class="faq-question-btn">
+                  <span>What services does TS9Designs offer?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    We specialize in providing Mechanical, Electrical, and Plumbing (MEP) and Structural plans for residential and commercial projects. Whether you're starting a new construction or renovating an existing space, we can help with comprehensive engineering plans.
+                  </div>
+                </div>
+              </div>
+              
+              <div class="faq-item" data-category="process">
+                <button class="faq-question-btn">
+                  <span>How do I get started with TS9Designs?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    Simply fill out our contact form on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.
+                  </div>
+                </div>
+              </div>
+              
+              <div class="faq-item" data-category="process">
+                <button class="faq-question-btn">
+                  <span>What information do you need to begin my project?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    To get started, we typically need basic information about your project, such as the size of the space, the scope of work (new construction, renovation, etc.), and any specific requirements or design preferences you may have. The more details you can provide, the better we can tailor our services to meet your needs.
+                  </div>
+                </div>
+              </div>
+              
+              <div class="faq-item" data-category="process">
+                <button class="faq-question-btn">
+                  <span>How long does it take to complete the engineering plans?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    The timeline for completing engineering plans typically takes 4-10 days to complete.
+                  </div>
+                </div>
+              </div>
+              
+              <div class="faq-item" data-category="technical">
+                <button class="faq-question-btn">
+                  <span>Are your engineering plans and compliant with local codes?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    Yes, all our engineering plans are created by professionals and comply with local building codes and regulations. We ensure that your project meets all necessary standards to pass inspections and obtain permits.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="faq-item" data-category="technical">
+                <button class="faq-question-btn">
+                  <span>Does TS9Designs coordinate projects requiring additional licensed professionals?</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    <b>TS9Designs</b> provides design, drafting, engineering, and project coordination services within the scope permitted by the applicable jurisdiction. When a project requires professional services outside TS9Designs' permitted scope, those services must be provided through appropriately licensed professionals or firms in accordance with applicable state requirements.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="faq-more">
+              <p class="faq-more-text">Still have questions?</p>
+              <a href="/contact.html" class="faq-contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.009-.94-.584 0-1.009.388-1.009.94z"/>
+                  Talk to TS9Designs
+                </svg>
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FAQs Section End -->
+
+  <!-- Contact Section Start -->
+  <div id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-heading">
+        <h6>Contact Us</h6>
+        <h4>Let’s Scope Your Project</h4>
+        <div class="line-dec"></div>
+        <p>Share your scope and timeline. We will reply with next steps and a practical path to permitting.</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="contact-info wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <a href="tel:215-436-7333">Call us: 215-436-7333</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <a href="mailto:info@ts9designs.com">info@ts9designs.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H6a1 1 0 0 1-1-1V10h14v10z"/>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <a href="https://calendly.com/ts9designs/discovery">Book a 15-min discovery call with us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-7">
+          <div class="contact-form wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
+            <form id="homepage-contact-form">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="homepage-contact-submit">Submit Message</button>
+              <p id="homepage-contact-status" role="status" aria-live="polite" style="margin-top:0.6rem; font-size:0.85rem;"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Section End -->
+
+         <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about-column">
+          <a href="/" class="footer-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            TS9Designs
+          </a>
+          <p class="footer-about">
+            TS9 Designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
+          </p>
+          <div class="footer-social">
+            <a href="https://web.facebook.com/TS9Designs" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://www.instagram.com/ts9designs/" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="https://linkedin.com/company/ts9designs" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.736 0-9.646h3.554v1.348c-.009.015-.021.029-.03.042h.03v-.042c.418-.645 1.162-1.571 2.828-1.571 2.065 0 3.615 1.348 3.615 4.253v5.616zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.951.77-1.704 1.963-1.704 1.192 0 1.915.753 1.948 1.704 0 .946-.756 1.704-1.996 1.704zm-1.6 11.597h3.119V9.671H3.737v10.781zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="/case-studies/index.html" class="footer-link">Case Studies</a></li>
+            <li class="footer-link-item"><a href="/permit-estimate.html" class="footer-link">Get an Estimate</a></li>
+            <li class="footer-link-item"><a href="/blogs.html" class="footer-link">Blog</a></li>
+            <li class="footer-link-item"><a href="/#faqs" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a></li>
+            <li class="footer-link-item"><a href="tel:+12154367333" class="footer-link">(215) 436-7333</a></li>
+          </ul>
+          <div class="footer-newsletter">
+            <h4 class="footer-heading">Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">Copyright &copy; TSABA Corp. All Rights Reserved. Services requiring licensure are performed in accordance with applicable jurisdiction requirements.</div>
+        <div class="footer-legal">
+          <a href="/privacypolicy.html" class="legal-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quote Modal -->
+  <div id="quoteModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Request a Quote</h3>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your phone number" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="sqft">Project Square Footage</label>
+              <input type="text" id="sqft" name="sqft" class="form-control" placeholder="Approximate sq. ft." required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Project Type</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="mep" name="projectType" value="MEP">
+                <label for="mep">MEP Design</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="fire" name="projectType" value="Fire">
+                <label for="fire">Fire Protection</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="consulting" name="projectType" value="Consulting">
+                <label for="consulting">Consulting</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" class="form-control" rows="3" placeholder="Tell us more about your project needs"></textarea>
+          </div>
+          
+          <div class="form-group consent-group">
+            <input type="checkbox" id="privacyConsent" name="privacyConsent" required>
+            <label for="privacyConsent">By checking this box you agree to receiving professional emails, SMS and newsletters from us. <a href="privacypolicy.html">Privacy Policy</a></label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitQuote">Submit Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/emailjs-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    (function () {
+      const form = document.getElementById('homepage-contact-form');
+      if (!form) return;
+      const submitBtn = document.getElementById('homepage-contact-submit');
+      const statusEl = document.getElementById('homepage-contact-status');
+      const emailJsConfig = {
+        publicKey: window.TS9_EMAILJS_PUBLIC_KEY || '',
+        serviceId: window.TS9_EMAILJS_SERVICE_ID || '',
+        templateId: window.TS9_EMAILJS_CONTACT_TEMPLATE_ID || ''
+      };
+      let emailJsReady = false;
+
+      function ensureEmailJsReady() {
+        if (
+          typeof window.emailjs === 'undefined' ||
+          !emailJsConfig.publicKey ||
+          !emailJsConfig.serviceId ||
+          !emailJsConfig.templateId
+        ) {
+          return false;
+        }
+        if (!emailJsReady) {
+          window.emailjs.init({ publicKey: emailJsConfig.publicKey });
+          emailJsReady = true;
+        }
+        return true;
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        statusEl.textContent = '';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+          if (!ensureEmailJsReady()) {
+            throw new Error('Messaging is not configured yet. Add TS9_EMAILJS_PUBLIC_KEY, TS9_EMAILJS_SERVICE_ID, and TS9_EMAILJS_CONTACT_TEMPLATE_ID in assets/js/emailjs-config.js.');
+          }
+          const formData = new FormData(form);
+          const params = {};
+          formData.forEach((value, key) => { params[key] = value; });
+          params.to_email = 'info@ts9designs.com';
+          params.form_type = 'homepage_contact';
+          params.source_page = window.location.href;
+
+          await window.emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, params);
+
+          form.reset();
+          statusEl.textContent = 'Message sent. Our team will follow up shortly.';
+          statusEl.style.color = '#15803d';
+        } catch (error) {
+          console.error('Homepage contact form send failed:', error);
+          statusEl.textContent = 'We could not send your message right now. Please email info@ts9designs.com directly.';
+          statusEl.style.color = '#b91c1c';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Message';
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.getElementById('mobileNavToggle');
+      const topNav = document.getElementById('topNav');
+      if (mobileNavToggle && topNav) {
+        mobileNavToggle.addEventListener('click', () => {
+          const active = topNav.classList.toggle('active');
+          mobileNavToggle.classList.toggle('active', active);
+          mobileNavToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+        });
+        topNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            topNav.classList.remove('active');
+            mobileNavToggle.classList.remove('active');
+            mobileNavToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+        document.addEventListener('click', (event) => {
+          if (!topNav.classList.contains('active')) return;
+          if (topNav.contains(event.target) || mobileNavToggle.contains(event.target)) return;
+          topNav.classList.remove('active');
+          mobileNavToggle.classList.remove('active');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+      
+      // Main Slideshow functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.main-banner .slide');
+      const indicators = document.querySelectorAll('.main-banner .indicator');
+      const slideCount = slides.length;
+      let slideInterval;
+      
+      // Function to advance to next slide
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        indicators[currentSlide].classList.remove('active');
+        
+        currentSlide = (currentSlide + 1) % slideCount;
+        
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+      }
+      
+      // Set up indicator click events
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          // Clear the slide interval to prevent conflicts
+          clearInterval(slideInterval);
+          
+          slides[currentSlide].classList.remove('active');
+          indicators[currentSlide].classList.remove('active');
+          
+          currentSlide = index;
+          
+          slides[currentSlide].classList.add('active');
+          indicators[currentSlide].classList.add('active');
+          
+          // Restart the slide interval
+          slideInterval = setInterval(nextSlide, 5000);
+        });
+      });
+      
+      // Start automatic slideshow
+      slideInterval = setInterval(nextSlide, 5000);
+      
+      // FAQ Accordion functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      const faqButtons = document.querySelectorAll('.faq-question-btn');
+      const faqSearch = document.getElementById('faqSearch');
+      const faqCategories = document.querySelectorAll('.faq-category');
+      
+      // Toggle FAQ item
+      faqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const faqItem = this.parentElement;
+          
+          // Close all other items
+          faqItems.forEach(item => {
+            if (item !== faqItem && item.classList.contains('active')) {
+              item.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          faqItem.classList.toggle('active');
+        });
+      });
+      
+      // FAQ Search functionality
+      if (faqSearch) {
+        faqSearch.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+          
+          faqItems.forEach(item => {
+            const questionNode = item.querySelector('.faq-question-btn span');
+            const answerNode = item.querySelector('.faq-answer-content');
+            const question = questionNode ? questionNode.textContent.toLowerCase() : '';
+            const answer = answerNode ? answerNode.textContent.toLowerCase() : '';
+            
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      }
+      
+      // FAQ Category filtering
+      faqCategories.forEach(category => {
+        category.addEventListener('click', function() {
+          // Remove active class from all categories
+          faqCategories.forEach(cat => cat.classList.remove('active'));
+          
+          // Add active class to clicked category
+          this.classList.add('active');
+          
+          const categoryFilter = this.getAttribute('data-category');
+          
+          // Filter FAQ items
+          faqItems.forEach(item => {
+            if (categoryFilter === 'all' || item.getAttribute('data-category') === categoryFilter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Quote modal functionality
+      const getQuoteBtn = document.getElementById('getQuoteBtn');
+      const quoteModal = document.getElementById('quoteModal');
+      const closeModal = document.getElementById('closeModal');
+      const modalOverlay = document.querySelector('.modal-overlay');
+      const quoteForm = document.getElementById('quoteForm');
+      
+      // Open modal
+      function openQuoteModal(e) {
+        e.preventDefault();
+        quoteModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+      
+      if (getQuoteBtn) {
+        getQuoteBtn.addEventListener('click', openQuoteModal);
+      }
+      // Close modal functions
+      function closeQuoteModal() {
+        quoteModal.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+      }
+      
+      if (closeModal) closeModal.addEventListener('click', closeQuoteModal);
+      if (modalOverlay) modalOverlay.addEventListener('click', closeQuoteModal);
+      
+      // Close modal with escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && quoteModal.style.display === 'block') {
+          closeQuoteModal();
+        }
+      });
+      
+      // Form submission
+      if (quoteForm) {
+        quoteForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Form validation
+          if (quoteForm.checkValidity()) {
+            alert('Thank you! Your quote request has been submitted. We will contact you shortly.');
+            quoteForm.reset();
+            closeQuoteModal();
+          }
+        });
+      }
+      
+      // Phone number formatting
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+          let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+          e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+      }
+      
+      // Portfolio item click handlers
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      const caseStudyLinks = document.querySelectorAll('.portfolio-item .portfolio-actions > a.btn-link');
+      const projectModal = document.getElementById('projectModal');
+      const projectModalOverlay = document.querySelector('#projectModal .modal-overlay');
+      const closeProjectModalBtn = document.querySelector('#projectModal .close-modal');
+      const projectContents = document.querySelectorAll('.project-content');
+      
+      // Current slide tracking for each project
+      const currentProjectSlides = {
+        'bishop-pond': 0,
+        'robey-street': 0,
+        'pet-supplies': 0,
+        'dolce-vita': 0,
+        'eyes-on-j': 0,
+        'conmigo-cafe': 0,
+        'luccinos-pizza': 0,
+        'chefs-roma': 0
+      };
+      
+      // Open modal when portfolio item is clicked
+      portfolioItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const projectId = this.getAttribute('data-project');
+          openProjectModal(projectId);
+        });
+      });
+
+      // Prevent case study links from opening modal
+      caseStudyLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      });
+      
+      // Close project modal functions
+      function closeProjectModal() {
+        projectModal.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable scrolling
+        
+        // Hide all project contents
+        projectContents.forEach(content => {
+          content.classList.remove('active');
+        });
+      }
+      
+      if (closeProjectModalBtn) closeProjectModalBtn.addEventListener('click', closeProjectModal);
+      if (projectModalOverlay) projectModalOverlay.addEventListener('click', closeProjectModal);
+      
+      // Close project modal with escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && projectModal.style.display === 'block') {
+          closeProjectModal();
+        }
+      });
+      
+      // Open modal with specific project
+      function openProjectModal(projectId) {
+        // Hide all project contents first
+        projectContents.forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Show the selected project content
+        const selectedContent = document.getElementById(`${projectId}-content`);
+        if (selectedContent) {
+          selectedContent.classList.add('active');
+        }
+        
+        // Display the modal
+        projectModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+      
+      // Slideshow navigation
+      const prevButtons = document.querySelectorAll('.prev-slide');
+      const nextButtons = document.querySelectorAll('.next-slide');
+      
+      // Previous slide button click
+      prevButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const projectId = this.getAttribute('data-project');
+          changeProjectSlide(projectId, -1);
+        });
+      });
+      
+      // Next slide button click
+      nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const projectId = this.getAttribute('data-project');
+          changeProjectSlide(projectId, 1);
+        });
+      });
+      
+      // Change slide function
+      function changeProjectSlide(projectId, direction) {
+        const slides = document.querySelectorAll(`#${projectId}-content .slide`);
+        if (slides.length <= 1) return; // Skip if only one slide
+        
+        // Hide current slide
+        slides[currentProjectSlides[projectId]].classList.remove('active');
+        
+        // Calculate new slide index
+        currentProjectSlides[projectId] = (currentProjectSlides[projectId] + direction + slides.length) % slides.length;
+        
+        // Show new slide
+        slides[currentProjectSlides[projectId]].classList.add('active');
+      }
+      
+      // Handle touch events for mobile slideshows
+      const projectSlideshows = document.querySelectorAll('.slideshow-container.project');
+      
+      projectSlideshows.forEach(slideshow => {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        slideshow.addEventListener('touchstart', function(e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        slideshow.addEventListener('touchend', function(e) {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe(slideshow);
+        }, false);
+        
+        function handleSwipe(slideshow) {
+          const projectId = slideshow.closest('.project-content').id.replace('-content', '');
+          const swipeThreshold = 50;
+          
+          if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next slide
+            changeProjectSlide(projectId, 1);
+          }
+          
+          if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous slide
+            changeProjectSlide(projectId, -1);
+          }
+        }
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerHeight = document.querySelector('.site-header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+
