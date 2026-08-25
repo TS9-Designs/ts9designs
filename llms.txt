@@ -1,0 +1,26 @@
+# TS9Designs
+
+> TS9Designs is an engineering and building-design firm providing MEP (mechanical, electrical, plumbing), structural, fire protection, drafting, permit-documentation, construction-plan, and design-coordination services for residential and commercial projects in select U.S. states. Services requiring professional licensure are performed in accordance with the requirements of the applicable jurisdiction.
+
+TS9Designs is not an architecture firm and does not represent itself as providing architectural services.
+
+## Key pages
+
+- [Homepage](https://ts9designs.com/): overview of services, pricing, and portfolio.
+- [About](https://ts9designs.com/about.html): firm background and licensure notice.
+- [Residential plans](https://ts9designs.com/residential.html): pre-designed and custom residential plan offerings.
+- [Commercial projects](https://ts9designs.com/commercial.html): commercial build-out and ground-up project examples.
+- [Permit-ready estimate calculator](https://ts9designs.com/permit-estimate.html): instant pricing-range estimate tool by project type, square footage, state, scope, and timeline.
+- [Case studies](https://ts9designs.com/case-studies/index.html): detailed project write-ups (MEP scope, challenges, outcomes) for real completed projects.
+- [Contact](https://ts9designs.com/contact.html): contact form and direct contact details.
+- [Privacy policy](https://ts9designs.com/privacypolicy.html)
+
+## Services
+
+Building Design & Drafting, Mechanical Engineering, Electrical Engineering, Plumbing Engineering, Structural Design, Fire Protection Design, Fire Alarm Plans, Permit Drawings, Construction Documents, Code Coordination, Energy Compliance, 3D Rendering.
+
+## Notes for automated tools / agents
+
+- Pricing shown on the permit-estimate page is a non-binding range; final pricing follows a project-specific review.
+- Project photography, drawing samples, and case-study copy on this site describe TS9Designs' own completed work.
+- Contact for licensing/scope questions: info@ts9designs.com.
