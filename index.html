@@ -958,6 +958,13 @@
       font-weight: 500;
     }
 
+    .drawing-caption-links {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-lg);
+    }
+
     .stage-expand-link {
       flex-shrink: 0;
       color: var(--gray-300);
@@ -2706,7 +2713,10 @@
           <h4 id="stageTitle"></h4>
           <span id="stageMeta"></span>
         </div>
-        <button type="button" class="stage-expand-link" id="stageExpandLink">View full sheet &rarr;</button>
+        <div class="drawing-caption-links">
+          <button type="button" class="stage-expand-link" id="stageExpandLink">View full sheet &rarr;</button>
+          <a class="stage-expand-link" id="stagePdfLink" href="" target="_blank" rel="noopener">View source PDF &#8599;</a>
+        </div>
       </div>
 
       <div class="drawing-filmstrip" id="drawingFilmstrip" role="tablist" aria-label="Drawing sheets"></div>
@@ -2727,18 +2737,23 @@
   </div>
   <script>
     (function () {
+      var PDF_BASE = 'assets/drawing-sets/';
+      var JOHNSTOWN_PDF = PDF_BASE + '508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf';
+      var RESIDENCE_PDF = PDF_BASE + 'LATEST%201%20STORY%20RESIDENCE%20%288_14%29%20UPDATED.pdf';
+      var VALLEJO_PDF = PDF_BASE + 'VALLEJO%20SHEETS%20REVISED%20%288.11.26%29.pdf';
+
       var sheets = [
-        { title: 'Basement&ndash;Third Floor Power Plans &amp; Single-Line Diagram', meta: 'Electrical &middot; Commercial Mixed-Use', thumb: 'johnstown-electrical-power-plan-thumb.webp', full: 'johnstown-electrical-power-plan.webp' },
-        { title: 'Fire Alarm Floor Plans', meta: 'Fire Protection &middot; Commercial Mixed-Use', thumb: 'johnstown-fire-alarm-plan-thumb.webp', full: 'johnstown-fire-alarm-plan.webp' },
-        { title: 'Water Supply System Plans', meta: 'Plumbing &middot; Commercial Mixed-Use', thumb: 'johnstown-water-supply-plan-thumb.webp', full: 'johnstown-water-supply-plan.webp' },
-        { title: 'Proposed First Floor Plan', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-floor-plan-thumb.webp', full: 'residence-floor-plan.webp' },
-        { title: 'Proposed Structural Elevations', meta: 'Structural &middot; Single-Story Residential', thumb: 'residence-elevations-thumb.webp', full: 'residence-elevations.webp' },
-        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-door-window-schedule-thumb.webp', full: 'residence-door-window-schedule.webp' },
-        { title: '3D Isometric Views', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-3d-isometric-thumb.webp', full: 'residence-3d-isometric.webp' },
-        { title: 'Proposed East &amp; West Elevations', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-elevations-thumb.webp', full: 'vallejo-elevations.webp' },
-        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-door-window-schedule-thumb.webp', full: 'vallejo-door-window-schedule.webp' },
-        { title: '3D Short Sectional Views', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-short-thumb.webp', full: 'vallejo-3d-sectional-short.webp' },
-        { title: '3D Long Sectional View', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-long-thumb.webp', full: 'vallejo-3d-sectional-long.webp' }
+        { title: 'Basement&ndash;Third Floor Power Plans &amp; Single-Line Diagram', meta: 'Electrical &middot; Commercial Mixed-Use', thumb: 'johnstown-electrical-power-plan-thumb.webp', full: 'johnstown-electrical-power-plan.webp', pdf: JOHNSTOWN_PDF },
+        { title: 'Fire Alarm Floor Plans', meta: 'Fire Protection &middot; Commercial Mixed-Use', thumb: 'johnstown-fire-alarm-plan-thumb.webp', full: 'johnstown-fire-alarm-plan.webp', pdf: JOHNSTOWN_PDF },
+        { title: 'Water Supply System Plans', meta: 'Plumbing &middot; Commercial Mixed-Use', thumb: 'johnstown-water-supply-plan-thumb.webp', full: 'johnstown-water-supply-plan.webp', pdf: JOHNSTOWN_PDF },
+        { title: 'Proposed First Floor Plan', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-floor-plan-thumb.webp', full: 'residence-floor-plan.webp', pdf: RESIDENCE_PDF },
+        { title: 'Proposed Structural Elevations', meta: 'Structural &middot; Single-Story Residential', thumb: 'residence-elevations-thumb.webp', full: 'residence-elevations.webp', pdf: RESIDENCE_PDF },
+        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-door-window-schedule-thumb.webp', full: 'residence-door-window-schedule.webp', pdf: RESIDENCE_PDF },
+        { title: '3D Isometric Views', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-3d-isometric-thumb.webp', full: 'residence-3d-isometric.webp', pdf: RESIDENCE_PDF },
+        { title: 'Proposed East &amp; West Elevations', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-elevations-thumb.webp', full: 'vallejo-elevations.webp', pdf: VALLEJO_PDF },
+        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-door-window-schedule-thumb.webp', full: 'vallejo-door-window-schedule.webp', pdf: VALLEJO_PDF },
+        { title: '3D Short Sectional Views', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-short-thumb.webp', full: 'vallejo-3d-sectional-short.webp', pdf: VALLEJO_PDF },
+        { title: '3D Long Sectional View', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-long-thumb.webp', full: 'vallejo-3d-sectional-long.webp', pdf: VALLEJO_PDF }
       ];
       var BASE = 'assets/images/drawings/';
 
@@ -2747,6 +2762,7 @@
       var stageTitle = document.getElementById('stageTitle');
       var stageMeta = document.getElementById('stageMeta');
       var stageCounter = document.getElementById('stageCounter');
+      var stagePdfLink = document.getElementById('stagePdfLink');
       var filmstrip = document.getElementById('drawingFilmstrip');
       var prevBtn = document.getElementById('stagePrev');
       var nextBtn = document.getElementById('stageNext');
@@ -2780,6 +2796,7 @@
         stageImg.alt = sheet.title.replace(/&amp;/g, '&');
         stageTitle.innerHTML = sheet.title;
         stageMeta.innerHTML = sheet.meta;
+        stagePdfLink.href = sheet.pdf;
         stageCounter.textContent = (current + 1) + ' / ' + sheets.length;
         prevBtn.disabled = current === 0;
         nextBtn.disabled = current === sheets.length - 1;
