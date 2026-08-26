@@ -1,4 +1,4 @@
-# TS9Designs Website
+# TS9Designs
 
 Website for TS9Designs, a Building Design company providing MEP (mechanical, electrical,
 plumbing), structural, and fire design services for residential and commercial projects.
