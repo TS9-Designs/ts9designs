@@ -825,148 +825,47 @@
       margin-right: auto;
     }
 
-    .drawing-viewer {
+    .drawing-projects {
       position: relative;
-      max-width: 1360px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 var(--spacing-lg);
-    }
-
-    .drawing-stage-wrap {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-    }
-
-    .stage-nav {
-      flex-shrink: 0;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      color: var(--gray-300);
-      font-size: 1.5rem;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .stage-nav:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: var(--white);
-      transform: scale(1.06);
-    }
-
-    .stage-nav:disabled {
-      opacity: 0.3;
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .drawing-stage {
-      position: relative;
-      flex: 1;
-      min-width: 0;
-      height: min(58vh, 620px);
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 30px 60px -15px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      cursor: zoom-in;
-    }
-
-    .drawing-stage img {
-      max-width: 92%;
-      max-height: 88%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      clip-path: inset(0 100% 0 0);
-      transition: clip-path 0.85s cubic-bezier(.65,0,.35,1);
-    }
-
-    .drawing-stage.revealing img {
-      clip-path: inset(0 0 0 0);
-    }
-
-    .stage-expand,
-    .stage-counter {
-      position: absolute;
-      z-index: 3;
-    }
-
-    .stage-expand {
-      top: var(--spacing-sm);
-      right: var(--spacing-sm);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--gray-200);
-      background: rgba(255,255,255,0.92);
-      color: var(--gray-700);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .stage-expand:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: var(--white);
-    }
-
-    .stage-counter {
-      top: var(--spacing-sm);
-      left: var(--spacing-sm);
-      background: rgba(15,23,42,0.72);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      padding: 0.3rem 0.6rem;
-      border-radius: var(--radius-xl);
-    }
-
-    .drawing-caption {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-lg);
-      padding: 0 calc(46px + var(--spacing-md));
-    }
-
-    .drawing-caption h4 {
-      color: var(--white);
-      font-size: 1.15rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .drawing-caption span {
-      color: var(--primary);
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .drawing-caption-links {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--spacing-lg);
     }
 
-    .stage-expand-link {
-      flex-shrink: 0;
+    .drawing-project-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .drawing-project-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(77,166,231,0.4);
+      transform: translateY(-4px);
+    }
+
+    .drawing-project-card h4 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .drawing-project-card span {
+      display: block;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .drawing-project-link {
+      display: inline-block;
       color: var(--gray-300);
       font-size: 0.85rem;
       font-weight: 600;
@@ -974,159 +873,18 @@
       border-bottom: 1px solid rgba(255,255,255,0.25);
       padding-bottom: 2px;
       transition: var(--transition);
-      background: none;
-      cursor: pointer;
     }
 
-    .stage-expand-link:hover {
+    .drawing-project-link:hover {
       color: var(--primary);
       border-color: var(--primary);
     }
 
-    .drawing-filmstrip {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin: var(--spacing-xl) 0 0;
-      padding: 0.4rem calc(46px + var(--spacing-md)) 0.6rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.25) transparent;
-    }
-
-    .filmstrip-item {
-      flex-shrink: 0;
-      width: 108px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 2px solid transparent;
-      background: rgba(255,255,255,0.05);
-      cursor: pointer;
-      padding: 0;
-      opacity: 0.55;
-      transition: var(--transition);
-    }
-
-    .filmstrip-item img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: contain;
-      background: var(--white);
-    }
-
-    .filmstrip-item:hover {
-      opacity: 0.85;
-    }
-
-    .filmstrip-item.active {
-      border-color: var(--primary);
-      opacity: 1;
-      box-shadow: 0 0 0 3px rgba(77,166,231,0.22);
-    }
-
     @media (max-width: 900px) {
-      .drawing-stage { height: 46vh; }
-      .stage-nav { width: 38px; height: 38px; font-size: 1.2rem; }
-      .drawing-caption,
-      .drawing-filmstrip {
-        padding-left: var(--spacing-sm);
-        padding-right: var(--spacing-sm);
+      .drawing-projects {
+        grid-template-columns: 1fr;
+        max-width: 480px;
       }
-      .drawing-caption { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-    }
-
-    .drawing-lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1100;
-      padding: var(--spacing-xl) var(--spacing-md);
-      overflow-y: auto;
-    }
-
-    .drawing-lightbox.active {
-      display: block;
-    }
-
-    .drawing-lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(5px);
-    }
-
-    .drawing-lightbox-content {
-      position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      background-color: var(--white);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      animation: modalFadeIn 0.3s ease-out forwards;
-    }
-
-    .drawing-lightbox-content img {
-      display: block;
-      width: 100%;
-      height: auto;
-      clip-path: inset(0 100% 0 0);
-      transform: scale(1.02);
-      transition: clip-path 0.9s cubic-bezier(.65,0,.35,1), transform 0.9s cubic-bezier(.65,0,.35,1);
-    }
-
-    .drawing-lightbox-content.revealing img {
-      clip-path: inset(0 0 0 0);
-      transform: scale(1);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .drawing-stage img, .drawing-lightbox-content img {
-        transition: none !important;
-        animation: none !important;
-        clip-path: inset(0 0 0 0) !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
-
-    .drawing-lightbox-caption {
-      padding: var(--spacing-md) var(--spacing-lg);
-      border-top: 1px solid var(--gray-200);
-    }
-
-    .drawing-lightbox-caption h4 {
-      margin-bottom: 2px;
-      font-size: 1.05rem;
-    }
-
-    .drawing-lightbox-caption span {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-    }
-
-    .drawing-lightbox-close {
-      position: absolute;
-      top: var(--spacing-md);
-      right: var(--spacing-md);
-      background: rgba(255, 255, 255, 0.9);
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .drawing-lightbox-close:hover {
-      background-color: var(--white);
-      transform: rotate(90deg);
     }
 
     /* Project Modal */
@@ -2693,190 +2451,28 @@
         <h6>From Our Drawing Sets</h6>
         <h4>A Look at the <em>Construction Documents</em></h4>
         <div class="line-dec"></div>
-        <p>Sheets pulled straight from real permit-ready sets we've produced &mdash; building design, electrical, fire protection, and structural. Browse the set below, or open any sheet full-size.</p>
-      </div>
-    </div>
-
-    <div class="drawing-viewer">
-      <div class="drawing-stage-wrap">
-        <button type="button" class="stage-nav stage-prev" id="stagePrev" aria-label="Previous sheet">&#8249;</button>
-        <div class="drawing-stage" id="drawingStage">
-          <span class="stage-counter" id="stageCounter">1 / 11</span>
-          <button type="button" class="stage-expand" id="stageExpand" aria-label="View sheet full size">&#10021;</button>
-          <img id="stageImg" src="" alt="">
-        </div>
-        <button type="button" class="stage-nav stage-next" id="stageNext" aria-label="Next sheet">&#8250;</button>
+        <p>Full permit-ready document sets from three completed projects &mdash; building design, electrical, fire protection, and structural.</p>
       </div>
 
-      <div class="drawing-caption">
-        <div>
-          <h4 id="stageTitle"></h4>
-          <span id="stageMeta"></span>
+      <div class="drawing-projects">
+        <div class="drawing-project-card">
+          <h4>508 Main Street, Johnstown</h4>
+          <span>MEP &amp; Fire Alarm &middot; Commercial Mixed-Use</span>
+          <a class="drawing-project-link" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
         </div>
-        <div class="drawing-caption-links">
-          <button type="button" class="stage-expand-link" id="stageExpandLink">View full sheet &rarr;</button>
-          <a class="stage-expand-link" id="stagePdfLink" href="" target="_blank" rel="noopener">View source PDF &#8599;</a>
+        <div class="drawing-project-card">
+          <h4>Single-Story Residential</h4>
+          <span>Building Design &amp; Structural</span>
+          <a class="drawing-project-link" href="assets/drawing-sets/LATEST%201%20STORY%20RESIDENCE%20%288_14%29%20UPDATED.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
+        </div>
+        <div class="drawing-project-card">
+          <h4>Vallejo Street, San Francisco</h4>
+          <span>Remodel, Addition &amp; New ADU</span>
+          <a class="drawing-project-link" href="assets/drawing-sets/VALLEJO%20SHEETS%20REVISED%20%288.11.26%29.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
         </div>
       </div>
-
-      <div class="drawing-filmstrip" id="drawingFilmstrip" role="tablist" aria-label="Drawing sheets"></div>
     </div>
   </section>
-
-  <!-- Drawing Lightbox -->
-  <div id="drawingLightbox" class="drawing-lightbox">
-    <div class="drawing-lightbox-overlay"></div>
-    <div class="drawing-lightbox-content">
-      <button type="button" class="drawing-lightbox-close" aria-label="Close">&times;</button>
-      <img id="drawingLightboxImg" src="" alt="">
-      <div class="drawing-lightbox-caption">
-        <h4 id="drawingLightboxTitle"></h4>
-        <span id="drawingLightboxMeta"></span>
-      </div>
-    </div>
-  </div>
-  <script>
-    (function () {
-      var PDF_BASE = 'assets/drawing-sets/';
-      var JOHNSTOWN_PDF = PDF_BASE + '508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf';
-      var RESIDENCE_PDF = PDF_BASE + 'LATEST%201%20STORY%20RESIDENCE%20%288_14%29%20UPDATED.pdf';
-      var VALLEJO_PDF = PDF_BASE + 'VALLEJO%20SHEETS%20REVISED%20%288.11.26%29.pdf';
-
-      var sheets = [
-        { title: 'Basement&ndash;Third Floor Power Plans &amp; Single-Line Diagram', meta: 'Electrical &middot; Commercial Mixed-Use', thumb: 'johnstown-electrical-power-plan-thumb.webp', full: 'johnstown-electrical-power-plan.webp', pdf: JOHNSTOWN_PDF },
-        { title: 'Fire Alarm Floor Plans', meta: 'Fire Protection &middot; Commercial Mixed-Use', thumb: 'johnstown-fire-alarm-plan-thumb.webp', full: 'johnstown-fire-alarm-plan.webp', pdf: JOHNSTOWN_PDF },
-        { title: 'Water Supply System Plans', meta: 'Plumbing &middot; Commercial Mixed-Use', thumb: 'johnstown-water-supply-plan-thumb.webp', full: 'johnstown-water-supply-plan.webp', pdf: JOHNSTOWN_PDF },
-        { title: 'Proposed First Floor Plan', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-floor-plan-thumb.webp', full: 'residence-floor-plan.webp', pdf: RESIDENCE_PDF },
-        { title: 'Proposed Structural Elevations', meta: 'Structural &middot; Single-Story Residential', thumb: 'residence-elevations-thumb.webp', full: 'residence-elevations.webp', pdf: RESIDENCE_PDF },
-        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-door-window-schedule-thumb.webp', full: 'residence-door-window-schedule.webp', pdf: RESIDENCE_PDF },
-        { title: '3D Isometric Views', meta: 'Building Design &middot; Single-Story Residential', thumb: 'residence-3d-isometric-thumb.webp', full: 'residence-3d-isometric.webp', pdf: RESIDENCE_PDF },
-        { title: 'Proposed East &amp; West Elevations', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-elevations-thumb.webp', full: 'vallejo-elevations.webp', pdf: VALLEJO_PDF },
-        { title: 'Door &amp; Window Schedule', meta: 'Building Design &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-door-window-schedule-thumb.webp', full: 'vallejo-door-window-schedule.webp', pdf: VALLEJO_PDF },
-        { title: '3D Short Sectional Views', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-short-thumb.webp', full: 'vallejo-3d-sectional-short.webp', pdf: VALLEJO_PDF },
-        { title: '3D Long Sectional View', meta: 'Structural &middot; Multifamily Remodel &amp; Addition', thumb: 'vallejo-3d-sectional-long-thumb.webp', full: 'vallejo-3d-sectional-long.webp', pdf: VALLEJO_PDF }
-      ];
-      var BASE = 'assets/images/drawings/';
-
-      var stage = document.getElementById('drawingStage');
-      var stageImg = document.getElementById('stageImg');
-      var stageTitle = document.getElementById('stageTitle');
-      var stageMeta = document.getElementById('stageMeta');
-      var stageCounter = document.getElementById('stageCounter');
-      var stagePdfLink = document.getElementById('stagePdfLink');
-      var filmstrip = document.getElementById('drawingFilmstrip');
-      var prevBtn = document.getElementById('stagePrev');
-      var nextBtn = document.getElementById('stageNext');
-
-      var lightbox = document.getElementById('drawingLightbox');
-      var lightboxContent = lightbox.querySelector('.drawing-lightbox-content');
-      var lightboxImg = document.getElementById('drawingLightboxImg');
-      var lightboxTitle = document.getElementById('drawingLightboxTitle');
-      var lightboxMeta = document.getElementById('drawingLightboxMeta');
-
-      var current = 0;
-
-      sheets.forEach(function (sheet, i) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'filmstrip-item';
-        btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-label', sheet.title.replace(/&amp;/g, '&').replace(/&middot;/g, '·'));
-        var img = document.createElement('img');
-        img.src = BASE + sheet.thumb;
-        img.alt = '';
-        btn.appendChild(img);
-        btn.addEventListener('click', function () { goTo(i); });
-        filmstrip.appendChild(btn);
-      });
-      var filmItems = filmstrip.querySelectorAll('.filmstrip-item');
-
-      function render(retrigger) {
-        var sheet = sheets[current];
-        stageImg.src = BASE + sheet.full;
-        stageImg.alt = sheet.title.replace(/&amp;/g, '&');
-        stageTitle.innerHTML = sheet.title;
-        stageMeta.innerHTML = sheet.meta;
-        stagePdfLink.href = sheet.pdf;
-        stageCounter.textContent = (current + 1) + ' / ' + sheets.length;
-        prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === sheets.length - 1;
-
-        filmItems.forEach(function (item, i) {
-          item.classList.toggle('active', i === current);
-        });
-        var activeItem = filmItems[current];
-        if (retrigger && activeItem && activeItem.scrollIntoView) {
-          activeItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        }
-
-        if (retrigger) {
-          stage.classList.remove('revealing');
-          void stage.offsetWidth;
-          stage.classList.add('revealing');
-        }
-      }
-
-      function goTo(index) {
-        current = Math.max(0, Math.min(sheets.length - 1, index));
-        render(true);
-      }
-
-      prevBtn.addEventListener('click', function () { goTo(current - 1); });
-      nextBtn.addEventListener('click', function () { goTo(current + 1); });
-
-      function openLightbox() {
-        var sheet = sheets[current];
-        lightboxImg.src = BASE + sheet.full;
-        lightboxImg.alt = sheet.title.replace(/&amp;/g, '&');
-        lightboxTitle.innerHTML = sheet.title;
-        lightboxMeta.innerHTML = sheet.meta;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        lightboxContent.classList.remove('revealing');
-        void lightboxContent.offsetWidth;
-        lightboxContent.classList.add('revealing');
-      }
-
-      document.getElementById('stageExpand').addEventListener('click', openLightbox);
-      document.getElementById('stageExpandLink').addEventListener('click', openLightbox);
-      stageImg.addEventListener('click', openLightbox);
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      lightbox.querySelector('.drawing-lightbox-close').addEventListener('click', closeLightbox);
-      lightbox.querySelector('.drawing-lightbox-overlay').addEventListener('click', closeLightbox);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { closeLightbox(); return; }
-        if (!lightbox.classList.contains('active')) {
-          var section = document.getElementById('drawings');
-          var rect = section.getBoundingClientRect();
-          var inView = rect.top < window.innerHeight && rect.bottom > 0;
-          if (inView) {
-            if (e.key === 'ArrowLeft') goTo(current - 1);
-            if (e.key === 'ArrowRight') goTo(current + 1);
-          }
-        }
-      });
-
-      // Reveal the stage the first time the viewer scrolls into view.
-      if ('IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              render(true);
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.25 });
-        revealObserver.observe(stage);
-      }
-
-      render(false);
-    })();
-  </script>
   <!-- Sample Drawings Section End -->
 
   <!-- Pricing Section Start -->
