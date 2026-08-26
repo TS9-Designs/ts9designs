@@ -678,14 +678,20 @@
        composition (object-fit: contain) on a blurred fill of the same
        photo, so the grid stays even without cropping anyone's shot. */
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: var(--spacing-xl);
       margin-top: var(--spacing-2xl);
     }
 
     .portfolio-item {
+      flex: 1 1 300px;
+      max-width: calc((100% - 2 * var(--spacing-xl)) / 3);
       background-color: var(--white);
+      /* see @media (max-width: 1024px) below: three 300px+ cards plus two
+         gaps no longer fit the container between 769-1024px, so the third
+         column has to drop before the 768px breakpoint's own 2-column rule */
       border-radius: var(--radius-md);
       overflow: hidden;
       box-shadow: var(--shadow-md);
@@ -2018,6 +2024,12 @@
       }
     }
 
+    @media (max-width: 1024px) {
+      .portfolio-item {
+        max-width: calc((100% - var(--spacing-xl)) / 2);
+      }
+    }
+
     @media (max-width: 768px) {
       .form-row {
         flex-direction: column;
@@ -2052,8 +2064,11 @@
       }
       
       .portfolio-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         gap: var(--spacing-md);
+      }
+
+      .portfolio-item {
+        max-width: calc((100% - var(--spacing-md)) / 2);
       }
 
       .slideshow-container.project {
@@ -2092,6 +2107,10 @@
     }
 
     @media (max-width: 576px) {
+      .portfolio-item {
+        max-width: 100%;
+      }
+
       .slideshow-container {
         height: 250px;
       }
