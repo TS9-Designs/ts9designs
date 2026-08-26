@@ -827,15 +827,18 @@
 
     .drawing-projects {
       position: relative;
-      max-width: 1100px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 0 var(--spacing-lg);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: var(--spacing-lg);
     }
 
     .drawing-project-card {
+      flex: 1 1 300px;
+      max-width: 340px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: var(--radius-lg);
@@ -881,9 +884,9 @@
     }
 
     @media (max-width: 900px) {
-      .drawing-projects {
-        grid-template-columns: 1fr;
-        max-width: 480px;
+      .drawing-project-card {
+        flex-basis: 100%;
+        max-width: 420px;
       }
     }
 
@@ -2451,7 +2454,7 @@
         <h6>From Our Drawing Sets</h6>
         <h4>A Look at the <em>Construction Documents</em></h4>
         <div class="line-dec"></div>
-        <p>Full permit-ready document sets from three completed projects &mdash; building design, electrical, fire protection, and structural.</p>
+        <p>Full permit-ready document sets from completed projects &mdash; building design, electrical, fire protection, and structural.</p>
       </div>
 
       <div class="drawing-projects">
@@ -2469,6 +2472,16 @@
           <h4>Vallejo Street, San Francisco</h4>
           <span>Remodel, Addition &amp; New ADU</span>
           <a class="drawing-project-link" href="assets/drawing-sets/VALLEJO%20SHEETS%20REVISED%20%288.11.26%29.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
+        </div>
+        <div class="drawing-project-card">
+          <h4>Jubilation Plant-Based Kitchen</h4>
+          <span>Full MEP &amp; Building Design &middot; Crofton, MD</span>
+          <a class="drawing-project-link" href="assets/drawing-sets/JUBILATION%20PLANT-BASED%20KITCHEN_07022026_SIGNED.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
+        </div>
+        <div class="drawing-project-card">
+          <h4>Tune-Up &mdash; The Manly Hair Salon</h4>
+          <span>Full MEP &amp; Building Design &middot; Knoxville, TN</span>
+          <a class="drawing-project-link" href="assets/drawing-sets/TUNE%20UP%20RENOVATION_07262026.pdf" target="_blank" rel="noopener">View Document &#8599;</a>
         </div>
       </div>
     </div>
