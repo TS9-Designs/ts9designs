@@ -1274,44 +1274,41 @@
 
     /* Reviews Section */
     .reviews-section {
-      background: linear-gradient(145deg, #f8fbff 0%, #ffffff 100%);
+      background: var(--gray-50);
       padding: var(--spacing-xxl) 0;
     }
 
-    .review-card {
-      background: linear-gradient(160deg, #ffffff 0%, #f9fbff 100%);
-      border-radius: 18px;
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
-      padding: var(--spacing-xl);
-      margin-bottom: var(--spacing-lg);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      height: 100%;
-      border: 1px solid rgba(77, 166, 231, 0.2);
+    .reviews-carousel {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .reviews-track {
       position: relative;
-      overflow: hidden;
+      flex: 1;
+      min-width: 0;
     }
 
-    /* Added modern gradient overlay and enhanced hover effect */
-    .review-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(77, 166, 231, 0.14), transparent);
-      transition: left 0.5s ease;
-      pointer-events: none;
+    .review-card {
+      display: none;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--gray-200);
     }
 
-    .review-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 28px 55px rgba(15, 23, 42, 0.16);
-      border-color: rgba(77, 166, 231, 0.35);
+    .review-card.active {
+      display: block;
+      animation: reviewFadeIn 0.4s ease;
     }
 
-    .review-card:hover::before {
-      left: 100%;
+    @keyframes reviewFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .review-header {
@@ -1319,39 +1316,31 @@
       flex-direction: column;
       margin-bottom: var(--spacing-md);
       padding-bottom: var(--spacing-md);
-      border-bottom: 2px solid #f0f0f0;
+      border-bottom: 1px solid var(--gray-100);
     }
 
     .reviewer-name {
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin-bottom: var(--spacing-xs);
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
       color: var(--dark);
-      letter-spacing: -0.5px;
     }
 
     .reviewer-title {
-      font-size: 0.875rem;
-      color: var(--gray-600);
+      font-size: 0.85rem;
+      color: var(--gray-500);
       font-weight: 500;
     }
 
-    /* Enhanced star rating styling with better visual hierarchy */
     .review-stars {
       display: flex;
-      gap: 4px;
+      gap: 3px;
       margin-top: var(--spacing-sm);
     }
 
     .star {
-      color: #fbbf24;
-      font-size: 1.1rem;
-      transition: transform 0.2s ease;
-      text-shadow: 0 1px 2px rgba(251, 191, 36, 0.2);
-    }
-
-    .review-card:hover .star {
-      transform: scale(1.1);
+      color: #f5b400;
+      font-size: 1rem;
     }
 
     .review-content {
@@ -1363,30 +1352,75 @@
 
     .review-content p {
       margin: 0;
-      position: relative;
-      padding-left: 1.2rem;
     }
 
-    .review-content p::before {
-      content: "“";
-      position: absolute;
-      left: 0;
-      top: -0.2rem;
-      font-size: 1.4rem;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    /* Added styling for review source badge */
     .review-source {
       font-size: 0.75rem;
-      color: var(--primary);
-      font-weight: 600;
+      color: var(--gray-500);
+      font-weight: 500;
       margin-top: var(--spacing-md);
       padding-top: var(--spacing-md);
-      border-top: 1px solid #f0f0f0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .reviews-arrow {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .reviews-arrow:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .reviews-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .reviews-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: var(--spacing-lg);
+    }
+
+    .reviews-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .reviews-indicator.active {
+      background: var(--primary);
+      width: 20px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 576px) {
+      .reviews-carousel {
+        gap: var(--spacing-sm);
+      }
+
+      .reviews-arrow {
+        width: 34px;
+        height: 34px;
+      }
     }
 
 /* FAQs Section - Modern Accordion Style */
@@ -1684,15 +1718,15 @@
 
     /* Contact Section */
     .contact-section {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      background: var(--gray-50);
     }
 
     .contact-info {
       margin-bottom: var(--spacing-xl);
-      background: #fff;
-      border: 1px solid rgba(77, 166, 231, 0.18);
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
       padding: var(--spacing-lg);
     }
 
@@ -1702,15 +1736,14 @@
       gap: 0.9rem;
       margin-bottom: var(--spacing-sm);
       padding: 0.75rem;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid transparent;
       transition: var(--transition);
     }
 
     .contact-item:hover {
-      background: linear-gradient(140deg, rgba(77, 166, 231, 0.07), rgba(77, 166, 231, 0.02));
-      border-color: rgba(77, 166, 231, 0.2);
-      transform: translateY(-1px);
+      background: var(--gray-50);
+      border-color: var(--gray-200);
     }
 
     .contact-item:last-child {
@@ -1718,40 +1751,20 @@
     }
 
     .contact-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(155deg, #67b6ef 0%, #4da6e7 56%, #318fd7 100%);
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      background: var(--gray-100);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 10px 20px rgba(77, 166, 231, 0.32);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-icon::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 70%;
-      height: 100%;
-      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.35) 48%, transparent 100%);
-      transition: left 0.6s ease;
-      pointer-events: none;
-    }
-
-    .contact-item:hover .contact-icon::after {
-      left: 140%;
     }
 
     .contact-icon svg {
-      width: 22px;
-      height: 22px;
-      color: #ffffff;
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
     }
 
     .contact-text {
@@ -1770,10 +1783,10 @@
     }
 
     .contact-form {
-      background: linear-gradient(160deg, #ffffff 0%, #f9fbff 100%);
-      border-radius: 18px;
-      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.1);
-      border: 1px solid rgba(77, 166, 231, 0.16);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      border: 1px solid var(--gray-200);
       padding: var(--spacing-xl);
     }
 
@@ -2101,9 +2114,6 @@
         margin-bottom: var(--spacing-xl);
       }
       
-      .review-card {
-        margin-bottom: var(--spacing-md);
-      }
     }
 
     @media (max-width: 576px) {
@@ -3029,9 +3039,13 @@
         <p>Real feedback from clients who moved from concept to permit-ready execution with TS9Designs.</p>
       </div>
       
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
+      <div class="reviews-carousel">
+        <button class="reviews-arrow reviews-arrow-prev" id="reviewsPrev" aria-label="Previous review">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="reviews-track">
+          <div class="review-card active">
             <div class="review-header">
               <div class="reviewer-name">KeSean</div>
               <div class="reviewer-title">Smoke Shop – Houston, TX</div>
@@ -3047,10 +3061,8 @@
               <p>I hired TS9Designs for blueprints on a buildout project, and I'm extremely pleased. They paid great attention to detail, ensuring compliance with codes and regulations. The blueprints were delivered promptly, allowing for a smooth construction process. Their professionalism and expertise surpassed my expectations, highly recommended for anyone seeking detailed and timely blueprint services.</p>
             </div>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+
+          <div class="review-card">
             <div class="review-header">
               <div class="reviewer-name">Sarah</div>
               <div class="reviewer-title">Medical Office – Sacramento, CA</div>
@@ -3067,10 +3079,8 @@
             </div>
             <div class="review-source">Client Found on Upwork</div>
           </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="review-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+
+          <div class="review-card">
             <div class="review-header">
               <div class="reviewer-name">Richard</div>
               <div class="reviewer-title">DayCare - Chicago</div>
@@ -3088,6 +3098,16 @@
             <div class="review-source">Client Found on Upwork</div>
           </div>
         </div>
+
+        <button class="reviews-arrow reviews-arrow-next" id="reviewsNext" aria-label="Next review">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="reviews-indicators" id="reviewsIndicators">
+        <button class="reviews-indicator active" data-index="0" aria-label="Show review 1"></button>
+        <button class="reviews-indicator" data-index="1" aria-label="Show review 2"></button>
+        <button class="reviews-indicator" data-index="2" aria-label="Show review 3"></button>
       </div>
     </div>
   </div>
@@ -3586,7 +3606,74 @@
       
       // Start automatic slideshow
       slideInterval = setInterval(nextSlide, 5000);
-      
+
+      // Reviews carousel functionality
+      const reviewCards = document.querySelectorAll('.review-card');
+      const reviewIndicators = document.querySelectorAll('.reviews-indicator');
+      const reviewsPrevBtn = document.getElementById('reviewsPrev');
+      const reviewsNextBtn = document.getElementById('reviewsNext');
+      const reviewsTrack = document.querySelector('.reviews-track');
+      let currentReview = 0;
+      let reviewInterval;
+
+      function showReview(index) {
+        reviewCards[currentReview].classList.remove('active');
+        reviewIndicators[currentReview].classList.remove('active');
+
+        currentReview = (index + reviewCards.length) % reviewCards.length;
+
+        reviewCards[currentReview].classList.add('active');
+        reviewIndicators[currentReview].classList.add('active');
+      }
+
+      function nextReview() {
+        showReview(currentReview + 1);
+      }
+
+      function restartReviewInterval() {
+        clearInterval(reviewInterval);
+        reviewInterval = setInterval(nextReview, 6000);
+      }
+
+      if (reviewCards.length > 1) {
+        reviewsNextBtn.addEventListener('click', () => {
+          nextReview();
+          restartReviewInterval();
+        });
+
+        reviewsPrevBtn.addEventListener('click', () => {
+          showReview(currentReview - 1);
+          restartReviewInterval();
+        });
+
+        reviewIndicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            showReview(index);
+            restartReviewInterval();
+          });
+        });
+
+        let reviewTouchStartX = 0;
+        let reviewTouchEndX = 0;
+
+        reviewsTrack.addEventListener('touchstart', (e) => {
+          reviewTouchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        reviewsTrack.addEventListener('touchend', (e) => {
+          reviewTouchEndX = e.changedTouches[0].screenX;
+          if (reviewTouchEndX < reviewTouchStartX - 50) {
+            nextReview();
+            restartReviewInterval();
+          } else if (reviewTouchEndX > reviewTouchStartX + 50) {
+            showReview(currentReview - 1);
+            restartReviewInterval();
+          }
+        }, false);
+
+        reviewInterval = setInterval(nextReview, 6000);
+      }
+
       // FAQ Accordion functionality
       const faqItems = document.querySelectorAll('.faq-item');
       const faqButtons = document.querySelectorAll('.faq-question-btn');
