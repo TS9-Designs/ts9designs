@@ -1500,7 +1500,7 @@
     // Handle cart checkout scenario
     function handleCartCheckout(cartData, total) {
       try {
-        const cart = JSON.parse(decodeURIComponent(cartData));
+        const cart = JSON.parse(cartData);
         
         // Update page content
         document.getElementById('page-title').textContent = 'Complete Your Order';
@@ -1524,7 +1524,9 @@
         let message = `I would like to complete my order for the following plans:\n\n`;
         cart.forEach(item => {
           message += `- ${item.name} (Qty: ${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}\n`;
-          if (item.customized) {
+          if (item.optionsSummary) {
+            message += `  Options: ${item.optionsSummary}\n`;
+          } else if (item.customized) {
             message += `  (Customized order)\n`;
           }
         });
@@ -1546,7 +1548,7 @@
       const customizations = urlParams.get('customizations');
       
       try {
-        const customizationData = customizations ? JSON.parse(decodeURIComponent(customizations)) : {};
+        const customizationData = customizations ? JSON.parse(customizations) : {};
         
         // Update page content
         document.getElementById('page-title').textContent = 'Complete Your Custom Order';
@@ -1607,11 +1609,14 @@
       
       cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
+        const customizationLine = item.optionsSummary
+          ? `<div class="order-item-customizations">${item.optionsSummary}</div>`
+          : (item.customized ? '<div class="order-item-customizations">Customized order</div>' : '');
         itemsHTML += `
           <div class="order-item">
             <div class="order-item-details">
               <div class="order-item-name">${item.name}</div>
-              ${item.customized ? '<div class="order-item-customizations">Customized order</div>' : ''}
+              ${customizationLine}
               <div class="order-item-customizations">Quantity: ${item.quantity}</div>
             </div>
             <div class="order-item-price">$${itemTotal.toFixed(2)}</div>
