@@ -88,10 +88,13 @@
       });
   });
 
-  document.getElementById('getQuoteBtn').addEventListener('click', function () {
-      document.getElementById('quotePopup').style.display = 'block';
-      document.getElementById('overlay').style.display = 'block';
-  });
+  var getQuoteBtn = document.getElementById('getQuoteBtn');
+  if (getQuoteBtn) {
+      getQuoteBtn.addEventListener('click', function () {
+          document.getElementById('quotePopup').style.display = 'block';
+          document.getElementById('overlay').style.display = 'block';
+      });
+  }
 
   (function ($) {
       "use strict";

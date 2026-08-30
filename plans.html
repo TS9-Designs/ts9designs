@@ -1,9 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <script src="assets/js/cookie-consent.js"></script>
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TS9Designs - TS9 Plans</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -183,16 +189,16 @@
     
     /* Header and Navigation */
     .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    
+
     .header-container {
       display: flex;
       align-items: center;
@@ -200,66 +206,80 @@
       min-height: 70px;
       gap: 1rem;
     }
-    
+
     .site-logo {
-      font-weight: 700;
-      font-size: var(--font-size-xl);
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
     }
-    
-    .site-logo svg {
-      margin-right: var(--space-2);
+
+    .site-logo img {
+      height: 32px;
+      width: auto;
+      display: block;
     }
-    
+
+    .logo-word {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: #0f172a;
+    }
+
     .main-nav {
       display: flex;
       align-items: center;
       margin-left: auto;
-      gap: 0.9rem;
+      gap: 1.35rem;
     }
-    
+
     .nav-list {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
       align-items: center;
-      gap: 0.9rem;
+      gap: 1.35rem;
     }
-    
+
     .nav-item {
       margin-left: 0;
       position: relative;
     }
-    
+
     .nav-link {
-      font-weight: 500;
-      font-size: 0.86rem;
-      color: var(--color-gray-500);
+      font-weight: 600;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #334155;
       position: relative;
       display: flex;
       align-items: center;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
-    
+
     .nav-link::after { display: none; }
-    .nav-link:hover,
-    .nav-link.active { color: var(--color-accent-dark); }
+    .nav-link:hover { color: #0f172a; }
+    .nav-link.active { color: #0f172a; border-bottom-color: #4da6e7; }
 
     .nav-list .nav-item:last-child .nav-link {
-      border: 1px solid var(--color-gray-200);
-      color: var(--color-black);
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      border: none;
+      border-radius: 4px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.55rem 1.1rem;
+      font-weight: 700;
     }
 
     .nav-list .nav-item:last-child .nav-link:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent-dark);
+      background: #d5a80f;
+      color: #0f172a;
     }
-    
+
     .nav-link svg {
       margin-left: var(--space-1);
     }
@@ -267,7 +287,7 @@
     .search-bar {
       display: none;
     }
-    
+
     /* Dropdown Menus */
     .dropdown {
       position: relative;
@@ -1425,11 +1445,11 @@
     
     @media (max-width: 768px) {
       .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -1592,26 +1612,27 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="/" class="site-logo">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 38px; width: auto;">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 32px; width: auto;">
+        <span class="logo-word">TS9Designs</span>
       </a>
-      
+
       <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
-      
+
       <nav class="main-nav">
         <ul class="nav-list">
           <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="/about.html" class="nav-link">About Us</a></li>
-          <li class="nav-item"><a href="/#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="/#portfolio" class="nav-link">Services</a></li>
           <li class="nav-item"><a href="/#pricing" class="nav-link">Pricing</a></li>
           <li class="nav-item"><a href="/#portfolio" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="/residential.html" class="nav-link active">Get Plans</a></li>
+          <li class="nav-item"><a href="/residential.html" class="nav-link">Get Plans</a></li>
           <li class="nav-item"><a href="/case-studies/index.html" class="nav-link">Case Studies</a></li>
           <li class="nav-item"><a href="/permit-estimate.html" class="nav-link">Estimate</a></li>
           <li class="nav-item"><a href="https://calendly.com/ts9designs/discovery" class="nav-link">Book A Call</a></li>
         </ul>
-        
+
         <div class="search-bar">
           <input type="text" class="search-input" placeholder="Search house plans...">
           <button class="search-button">
@@ -2261,11 +2282,11 @@
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">3D Rendering</a></li>
           </ul>
         </div>
 
