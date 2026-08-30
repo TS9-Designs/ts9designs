@@ -133,7 +133,7 @@
       font-family: var(--font-family);
       line-height: 1.6;
       color: var(--color-slate-900);
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 55%);
+      background: #ffffff;
       -webkit-font-smoothing: antialiased;
     }
     
@@ -372,6 +372,16 @@
       font-weight: 600;
       margin: 0;
       padding: 0;
+      border-radius: 999px;
+      transition: background-color 0.15s ease, color 0.15s ease, padding 0.15s ease;
+    }
+
+    .top-nav #cart-toggle .cart-count.has-items {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #ffffff;
+      padding: 0.05rem 0.45rem;
+      margin-left: 0.2rem;
     }
 
     .mobile-nav-toggle {
@@ -475,38 +485,16 @@
       border-radius: var(--border-radius-md);
     }
     
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(100%);
-      transition: transform var(--transition-fast);
-    }
-    
-    .btn:hover::after {
-      transform: translateY(0);
-    }
-    
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
     .btn-primary {
-      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+      background: var(--color-accent);
       color: var(--color-white);
       border: none;
       font-weight: 600;
       border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(29, 78, 216, 0.2);
     }
-    
+
     .btn-primary:hover {
-      filter: brightness(1.05);
-      box-shadow: 0 6px 18px rgba(29, 78, 216, 0.28);
+      background: var(--color-accent-dark);
     }
     
     .btn-outline {
@@ -652,6 +640,9 @@
     
     /* Project Card Styles */
     .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       background-color: var(--color-white);
       border: 1px solid var(--color-slate-border);
       border-radius: 14px;
@@ -672,6 +663,15 @@
       aspect-ratio: 16/9;
       overflow: hidden;
     }
+
+    .project-image.view-details-image {
+      cursor: pointer;
+    }
+
+    .project-image.view-details-image:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: -2px;
+    }
     
     .project-image img {
       width: 100%;
@@ -685,6 +685,9 @@
     }
     
     .project-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
       padding: var(--space-5);
     }
     
@@ -711,6 +714,7 @@
     .project-actions {
       display: flex;
       gap: var(--space-3);
+      margin-top: auto;
     }
     
     .project-actions .btn {
@@ -939,10 +943,11 @@
     }
 
     .customization-title {
-      font-size: var(--font-size-md);
+      font-size: var(--font-size-sm);
       font-weight: 400;
-      margin-bottom: var(--space-4);
-      color: var(--color-teal-900);
+      margin-top: var(--space-4);
+      margin-bottom: 0;
+      color: var(--color-slate-500);
     }
 
     /* MEP Addon */
@@ -1714,7 +1719,7 @@
       <div class="grid grid-3-col">
         <!-- Project 1 -->
         <article class="project-card">
-          <div class="project-image">
+          <div class="project-image view-details-image" data-plan="1" role="button" tabindex="0" aria-label="View details for 4-Bedroom Residential Home Plan – 2,462 Sq Ft">
             <img src="assets/images/676/676.webp" alt="4-Bedroom Residential Home Plan – 2,462 Sq Ft" loading="lazy">
           </div>
           <div class="project-content">
@@ -1730,7 +1735,7 @@
 
         <!-- Project 2 -->
         <article class="project-card">
-          <div class="project-image">
+          <div class="project-image view-details-image" data-plan="2" role="button" tabindex="0" aria-label="View details for Pre-Designed Residential Plan – 2,529 Sq Ft">
             <img src="assets/images/wentworth/wentworth.webp" alt="Wentworth Drive" loading="lazy">
           </div>
           <div class="project-content">
@@ -1746,7 +1751,7 @@
 
         <!-- Project 3 -->
         <article class="project-card">
-          <div class="project-image">
+          <div class="project-image view-details-image" data-plan="3" role="button" tabindex="0" aria-label="View details for Pre-Designed Residential Plan – 1,694 Sq Ft">
             <img src="assets/images/2Bed/2-bed.webp" alt="2-Bedroom Residential Plan" loading="lazy">
           </div>
           <div class="project-content">
@@ -1789,7 +1794,6 @@
             <button class="slideshow-dot active" aria-label="Image 1"></button>
             <button class="slideshow-dot" aria-label="Image 2"></button>
             <button class="slideshow-dot" aria-label="Image 3"></button>
-            <button class="slideshow-dot" aria-label="Image 4"></button>
           </div>
         </div>
 
@@ -1800,8 +1804,6 @@
             
             <!-- Customization Panel -->
             <div class="customization-panel">
-              <h3 class="text-muted">For Custom Plans, please contact us directly</h3>
-              <p class="customization-title"><a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a></p>
               <!-- MEP Add-on -->
               <div class="mep-addon">
                 <div class="mep-addon-info">
@@ -1811,6 +1813,7 @@
                 </div>
                 <button class="btn btn-outline" id="mep-toggle" data-active="false">Add MEP</button>
               </div>
+              <p class="customization-title">Need something beyond MEP? Email <a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a> and we'll help customize this plan.</p>
 
               <!-- Features Section -->
               <div class="features-section">

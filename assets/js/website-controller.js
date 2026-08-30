@@ -1,10 +1,12 @@
 // TS9 Designs Website Controller
+const TS9_CART_STORAGE_KEY = "ts9_residential_cart"
+
 class TS9WebsiteController {
   constructor() {
-    this.cart = []
+    this.cart = this.loadCart()
     this.currentPlan = null
     this.currentSlide = 0
-    this.totalSlides = 4
+    this.totalSlides = 3
     
     // Stripe payment links for each plan (base + MEP bundles)
     this.stripeLinks = {
@@ -30,7 +32,6 @@ class TS9WebsiteController {
           "assets/images/676/676-1.webp",
           "assets/images/676/676-2.webp",
           "assets/images/676/676-3.webp",
-          "assets/images/676/676-4.webp",
         ],
         highlights: [
           "Total Living Area: 2,462 sq ft",
@@ -59,9 +60,8 @@ class TS9WebsiteController {
           "Ready-to-permit, 4-bedroom residential home plan with clean, functional layout designed for maximum efficiency and code compliance.",
         images: [
           "assets/images/wentworth/wentworth.webp",
+          "assets/images/wentworth/wentworth-1.webp",
           "assets/images/wentworth/wentworth-2.webp",
-          "assets/images/wentworth/wentworth-3.webp",
-          "assets/images/wentworth/wentworth-4.webp",
         ],
         highlights: [
           "Total Living Area: 2,529 sq ft",
@@ -86,9 +86,8 @@ class TS9WebsiteController {
           "Beautifully crafted residential plan with optimized living space, ideal for families or investors seeking a functional, stylish, and permit-ready home.",
         images: [
           "assets/images/2Bed/2-bed.webp",
-          "assets/images/2Bed/2-bed-2.webp",
-          "assets/images/2Bed/2-bed-3.webp",
-          "assets/images/2Bed/2-bed-4.webp",
+          "assets/images/2Bed/2-bed1.webp",
+          "assets/images/2Bed/2-bed2.webp",
         ],
         highlights: [
           "Total Living Area: 1,694 sq ft",
@@ -114,12 +113,38 @@ class TS9WebsiteController {
     this.updateCartDisplay()
     this.setupMobileMenu()
   }
+  loadCart() {
+    try {
+      const stored = localStorage.getItem(TS9_CART_STORAGE_KEY)
+      const parsed = stored ? JSON.parse(stored) : []
+      return Array.isArray(parsed) ? parsed : []
+    } catch (e) {
+      return []
+    }
+  }
+  saveCart() {
+    try {
+      localStorage.setItem(TS9_CART_STORAGE_KEY, JSON.stringify(this.cart))
+    } catch (e) {}
+  }
   setupEventListeners() {
     // Modal event listeners
     document.querySelectorAll(".view-details-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const planId = e.target.getAttribute("data-plan")
         this.openModal(planId)
+      })
+    })
+    // Clicking (or keyboard-activating) the plan image also opens the details modal
+    document.querySelectorAll(".view-details-image").forEach((el) => {
+      el.addEventListener("click", () => {
+        this.openModal(el.getAttribute("data-plan"))
+      })
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          this.openModal(el.getAttribute("data-plan"))
+        }
       })
     })
     // Modal close listeners
@@ -190,20 +215,6 @@ class TS9WebsiteController {
     // Cart notification close
     document.querySelector(".cart-notification-close")?.addEventListener("click", () => {
       this.hideCartNotification()
-    })
-    // Search functionality
-    document.querySelector(".search-button")?.addEventListener("click", () => {
-      this.performSearch()
-    })
-    document.querySelector(".search-input")?.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        this.performSearch()
-      }
-    })
-    // Newsletter form
-    document.querySelector(".newsletter-form")?.addEventListener("submit", (e) => {
-      e.preventDefault()
-      this.subscribeNewsletter()
     })
     // Escape key to close modals
     document.addEventListener("keydown", (e) => {
@@ -497,18 +508,29 @@ class TS9WebsiteController {
       options.push({ name: "MEP Plans", value: "Complete MEP drawings", price: 350 })
       itemPrice += 350
     }
-    // Create cart item
-    const cartItem = {
-      id: Date.now(),
-      planId: this.currentPlan,
-      title: plan.title,
-      basePrice: plan.basePrice,
-      itemPrice: itemPrice,
-      quantity: quantity,
-      options: options,
-      image: plan.images[0],
+    // If an identical item (same plan + same options) is already in the
+    // cart, bump its quantity instead of adding a duplicate line item.
+    const optionsSignature = JSON.stringify(options.map((o) => o.name).sort())
+    const existingItem = this.cart.find(
+      (item) => item.planId === this.currentPlan && JSON.stringify(item.options.map((o) => o.name).sort()) === optionsSignature,
+    )
+    let cartItem
+    if (existingItem) {
+      existingItem.quantity += quantity
+      cartItem = existingItem
+    } else {
+      cartItem = {
+        id: Date.now(),
+        planId: this.currentPlan,
+        title: plan.title,
+        basePrice: plan.basePrice,
+        itemPrice: itemPrice,
+        quantity: quantity,
+        options: options,
+        image: plan.images[0],
+      }
+      this.cart.push(cartItem)
     }
-    this.cart.push(cartItem)
     this.updateCartDisplay()
     this.showCartNotification(cartItem)
     this.closeModal()
@@ -539,12 +561,14 @@ class TS9WebsiteController {
     }
   }
   updateCartDisplay() {
+    this.saveCart()
     const cartCount = document.getElementById("cart-count")
     const cartBody = document.getElementById("cart-panel-body")
     if (!cartCount || !cartBody) return
     // Update cart count
     const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0)
     cartCount.textContent = totalItems
+    cartCount.classList.toggle("has-items", totalItems > 0)
     // Update cart panel
     if (this.cart.length === 0) {
       cartBody.innerHTML = `
@@ -722,21 +746,17 @@ class TS9WebsiteController {
     this.handleCustomOrder()
   }
   handleCustomOrder() {
-    // Create order summary for contact page
-    const orderSummary = {
-      items: this.cart.map((item) => ({
-        title: item.title,
-        planId: item.planId,
-        quantity: item.quantity,
-        basePrice: item.basePrice,
-        itemPrice: item.itemPrice,
-        options: item.options,
-      })),
-      total: this.cart.reduce((sum, item) => sum + item.itemPrice * item.quantity, 0),
-      timestamp: new Date().toISOString(),
-    }
-    // Store order in localStorage for contact page
-    localStorage.setItem("pendingOrder", JSON.stringify(orderSummary))
+    // Build the cart payload in the shape contact.html's parseURLParameters()
+    // actually reads (name/price/quantity/customized/optionsSummary).
+    const cartForContact = this.cart.map((item) => ({
+      name: item.title,
+      price: item.itemPrice,
+      quantity: item.quantity,
+      customized: item.options.length > 0,
+      optionsSummary: item.options.map((opt) => `${opt.name}: ${opt.value}`).join(", "),
+    }))
+    const total = this.cart.reduce((sum, item) => sum + item.itemPrice * item.quantity, 0)
+
     // Show loading state
     const checkoutBtn = document.getElementById("checkout-btn")
     const originalText = checkoutBtn.innerHTML
@@ -747,33 +767,16 @@ class TS9WebsiteController {
       </div>
     `
     checkoutBtn.disabled = true
-    // Redirect to contact page
+    // Redirect to contact page with the order pre-filled
     setTimeout(() => {
-      window.location.href = "/contact.html?order=custom"
+      const params = new URLSearchParams({
+        cart: JSON.stringify(cartForContact),
+        total: total.toFixed(2),
+      })
+      this.cart = [] // Clear cart now that the order has been handed off
+      this.updateCartDisplay()
+      window.location.href = `/contact.html?${params.toString()}`
     }, 1500)
-  }
-  performSearch() {
-    const searchInput = document.querySelector(".search-input")
-    if (searchInput) {
-      const query = searchInput.value.trim()
-      if (query) {
-        // For demo purposes, just show an alert
-        // In a real implementation, this would filter the plans or redirect to search results
-        alert(`Searching for: "${query}"`)
-      }
-    }
-  }
-  subscribeNewsletter() {
-    const emailInput = document.querySelector(".newsletter-input")
-    if (emailInput) {
-      const email = emailInput.value.trim()
-      if (email) {
-        // For demo purposes, just show an alert
-        // In a real implementation, this would send the email to your newsletter service
-        alert(`Thank you for subscribing with email: ${email}`)
-        emailInput.value = ""
-      }
-    }
   }
 }
 // Initialize the controller when the DOM is loaded
