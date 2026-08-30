@@ -1,14 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <script src="assets/js/cookie-consent.js"></script>
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - TS9 Designs</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Modern Swiss Design System - Matching TS9 Designs */
         :root {
             --primary: #4da6e7;
+            --gold: #d5a80f;
             --primary-dark: #1d4ed8;
             --secondary: #e11d48;
             --secondary-dark: #be123c;
@@ -73,11 +80,11 @@
 
         /* Added site navigation header */
         .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.72);
-      background: rgba(255, 255, 255, 0.68);
-      backdrop-filter: blur(14px) saturate(165%);
-      -webkit-backdrop-filter: blur(14px) saturate(165%);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -93,49 +100,76 @@
         .logo {
             display: inline-flex;
             align-items: center;
+            gap: 0.6rem;
         }
 
         .logo img {
-            height: 38px;
+            height: 32px;
             width: auto;
             display: block;
+        }
+
+        .logo-word {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+            color: var(--dark);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 0.95rem;
+            gap: 1.35rem;
             align-items: center;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
         .nav-link {
-            color: var(--gray-500);
+            color: var(--gray-700);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.86rem;
+            font-weight: 600;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
             transition: var(--transition);
         }
 
         .nav-link:hover {
-            color: var(--primary);
+            color: var(--dark);
+        }
+
+        .nav-link.active {
+            color: var(--dark);
+            border-bottom-color: var(--primary);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 18px;
+            background: var(--gray-300);
+            flex-shrink: 0;
         }
 
         .btn-link {
             text-decoration: none;
-            border: 1px solid var(--gray-200);
-            color: var(--gray-800);
-            padding: 0.6rem 1rem;
-            border-radius: 12px;
-            font-size: 0.86rem;
-            font-weight: 600;
-            transition: 0.2s ease;
+            border: none;
+            border-radius: 4px;
+            background: var(--dark);
+            color: var(--white);
+            padding: 0.55rem 1.1rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.2s ease;
         }
 
         .btn-link:hover {
-            border-color: var(--primary);
-            color: var(--primary-dark);
+            background: var(--gold);
+            color: var(--dark);
         }
 
         .cta-button {
@@ -164,7 +198,7 @@
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
-            background-color: var(--gray-700);
+            background-color: var(--dark);
             transition: var(--transition);
         }
 
@@ -175,6 +209,7 @@
             left: 0;
             width: 100%;
             background-color: var(--white);
+            border-top: 2px solid var(--dark);
             border-bottom: 1px solid var(--gray-200);
             box-shadow: var(--shadow-lg);
         }
@@ -189,20 +224,31 @@
         }
 
         .mobile-nav-menu li {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
         }
 
         .mobile-nav-link {
             color: var(--gray-700);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             display: block;
-            padding: var(--spacing-sm) 0;
+            padding: 0.7rem 0.6rem;
+            border-radius: 4px;
             transition: var(--transition);
         }
 
         .mobile-nav-link:hover {
-            color: var(--primary);
+            background: var(--gray-100);
+            color: var(--dark);
+        }
+
+        .mobile-nav-menu .btn-link {
+            display: block;
+            text-align: center;
+            margin-top: var(--spacing-sm);
         }
 
         /* Typography */
@@ -460,18 +506,20 @@
             <div class="header-content">
                 <a href="/" class="logo">
                   <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
+                  <span class="logo-word">TS9Designs</span>
                 </a>
-                
+
                 <nav>
                     <ul class="nav-menu">
                         <li><a href="/" class="nav-link">Home</a></li>
                         <li><a href="about.html" class="nav-link">About Us</a></li>
-                        <li><a href="/#services" class="nav-link">Services</a></li>
+                        <li><a href="/#portfolio" class="nav-link">Services</a></li>
                         <li><a href="/#pricing" class="nav-link">Pricing</a></li>
                         <li><a href="/#portfolio" class="nav-link">Projects</a></li>
                         <li><a href="residential.html" class="nav-link">Get Plans</a></li>
                         <li><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
                         <li><a href="permit-estimate.html" class="nav-link">Estimate</a></li>
+                        <li><span class="nav-divider" aria-hidden="true"></span></li>
                         <li><a href="https://calendly.com/ts9designs/discovery" class="btn-link">Book A Call</a></li>
                     </ul>
                 </nav>
@@ -487,13 +535,13 @@
                 <ul class="mobile-nav-menu">
                     <li><a href="/" class="mobile-nav-link">Home</a></li>
                     <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-                    <li><a href="/#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="/#portfolio" class="mobile-nav-link">Services</a></li>
                     <li><a href="/#pricing" class="mobile-nav-link">Pricing</a></li>
                     <li><a href="/#portfolio" class="mobile-nav-link">Projects</a></li>
                     <li><a href="residential.html" class="mobile-nav-link">Get Plans</a></li>
                     <li><a href="case-studies/index.html" class="mobile-nav-link">Case Studies</a></li>
                     <li><a href="permit-estimate.html" class="mobile-nav-link">Estimate</a></li>
-                    <li><a href="https://calendly.com/ts9designs/discovery" class="mobile-nav-link">Book A Call</a></li>
+                    <li><a href="https://calendly.com/ts9designs/discovery" class="btn-link">Book A Call</a></li>
                 </ul>
             </div>
         </div>
@@ -666,11 +714,11 @@
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">3D Rendering</a></li>
           </ul>
         </div>
 

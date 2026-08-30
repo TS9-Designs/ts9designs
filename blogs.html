@@ -1,14 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNVQXNWTMC"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+<!-- Google tag (gtag.js) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-DNVQXNWTMC');
+      window.TS9_CONSENT.onDecision(function (granted) {
+        if (!granted) return;
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-DNVQXNWTMC';
+        document.head.appendChild(gtagScript);
+        gtag('js', new Date());
+        gtag('config', 'G-DNVQXNWTMC');
+      });
     </script>
 
     <meta charset="UTF-8">
@@ -20,7 +26,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
     <title>TS9 Designs</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,42 +72,148 @@
 .legal-link:hover{color:#1d4ed8}
 @media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
-  </style>
+  
+.site-header {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+.site-header .logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+.site-header .logo-word {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  color: #0f172a;
+}
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.top-nav a {
+  color: #334155;
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.top-nav a:hover { color: #0f172a; }
+.top-nav a.active { color: #0f172a; border-bottom-color: #4da6e7; }
+.nav-divider { width: 1px; height: 18px; background: #cbd5e1; flex-shrink: 0; }
+.site-header .btn-link {
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease;
+}
+.site-header .btn-link:hover { background: #d5a80f; color: #0f172a; }
+.mobile-nav-toggle { display:none; width:40px; height:40px; border:1px solid #e2e8f0; border-radius:10px; background:#fff; align-items:center; justify-content:center; gap:4px; flex-direction:column; cursor:pointer; }
+.mobile-nav-toggle span { width:18px; height:2px; background:#334155; border-radius:2px; transition:0.2s ease; }
+.mobile-nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.mobile-nav-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+@media (max-width: 1200px) {
+  .top-nav { gap: 0.85rem; }
+  .top-nav a { font-size: 0.7rem; }
+}
+@media (max-width: 992px) {
+  .mobile-nav-toggle { display:flex; }
+  .top-nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: min(320px, 86vw);
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    border-left: 2px solid #0f172a;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.2rem;
+    padding: 1rem;
+    overflow-y: auto;
+    transition: right 0.25s ease;
+    z-index: 120;
+  }
+  .top-nav.active { right: 0; }
+  .top-nav a:not(.btn-link), .top-nav .btn-link {
+    display: block;
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.7rem 0.55rem;
+    border-radius: 4px;
+    border-bottom: none;
+  }
+  .top-nav a.active {
+    background: #f1f5f9;
+    border-left: 3px solid #4da6e7;
+    padding-left: calc(0.55rem - 3px);
+  }
+  .top-nav .btn-link { margin-top: 0.4rem; text-align: center; }
+  .nav-divider { width: 100%; height: 1px; margin: 0.4rem 0; }
+}
+</style>
 </head>
 
 <body>
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="/" class="logo">
-              <img src="assets/images/logo-v3.png" alt="">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="about.html">About Us</a></li>
-              <li class="scroll-to-section"><a href="/">Services</a></li>
-              <li class="scroll-to-section"><a href="/">Pricing</a></li> 
-              <li class="scroll-to-section"><a href="/">Projects</a></li>
-              <li class=""><a href="blogs.html">Blog</a></li>
-              <li class="scroll-to-section"><a href="plans.html">Get plans</a></li>
-              <li class="scroll-to-section"><a href="/">Reviews</a></li>
-              <li class="scroll-to-section"><a href="/">Contact</a></li> 
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#top"></a></div></li> 
-            </ul>        
-            <a class="menu-trigger">
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
+        <span class="logo-word">TS9Designs</span>
+      </a>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="top-nav" id="topNav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/#portfolio">Services</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#portfolio">Projects</a>
+        <a href="/residential.html">Get Plans</a>
+        <a href="/case-studies/index.html">Case Studies</a>
+        <a href="/permit-estimate.html">Estimate</a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
+      </nav>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -154,11 +271,11 @@
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">3D Rendering</a></li>
           </ul>
         </div>
 
@@ -234,5 +351,26 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </noscript>     
 <!--End of JS Scripts -->
 
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileNavToggle = document.getElementById('mobileNavToggle');
+      const topNav = document.getElementById('topNav');
+      if (mobileNavToggle && topNav) {
+        mobileNavToggle.addEventListener('click', () => {
+          const active = topNav.classList.toggle('active');
+          mobileNavToggle.classList.toggle('active', active);
+          mobileNavToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
+        });
+        topNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            topNav.classList.remove('active');
+            mobileNavToggle.classList.remove('active');
+            mobileNavToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
