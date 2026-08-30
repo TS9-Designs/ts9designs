@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <script src="assets/js/cookie-consent.js"></script>
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Contact TS9Designs - Get Your Custom Home Plans Quote</title>
   <meta name="description" content="Contact TS9Designs for custom home plans, Building design plans, and permit-ready construction drawings. Get a quote for your project today.">
@@ -18,8 +19,9 @@
   <meta name="twitter:image" content="https://ts9designs.com/assets/images/30.jpeg">
   <link rel="canonical" href="https://ts9designs.com/contact.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.webp">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +29,8 @@
   
   <!-- Meta Pixel Code -->
     <script>
+    window.TS9_CONSENT.onDecision(function (granted) {
+      if (!granted) return;
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -37,10 +41,9 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '716800377403198');
     fbq('track', 'PageView');
+    
+    });
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=716800377403198&ev=PageView&noscript=1"
-    /></noscript>
 <!-- End Meta Pixel Code -->
   
   <style>
@@ -260,110 +263,103 @@
       color: var(--color-accent-dark);
     }
     
-    /* Header and Navigation - Same as residential.html */
+    /* Header and Navigation */
     .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    
+
     .header-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 70px;
     }
-    
+
     .site-logo {
-      font-weight: 700;
-      font-size: var(--font-size-xl);
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .logo-word {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: #0f172a;
     }
 
     .top-nav {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 1.35rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .top-nav a {
-      color: var(--color-gray-500);
+      color: #334155;
       text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 500;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     .top-nav a:hover {
-      color: var(--color-accent);
+      color: #0f172a;
     }
 
-    .btn-link {
+    .top-nav a.active {
+      color: #0f172a;
+      border-bottom-color: #4da6e7;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: #cbd5e1;
+      flex-shrink: 0;
+    }
+
+    .top-nav .btn-link {
       text-decoration: none;
-      border: 1px solid var(--color-gray-200);
-      color: var(--color-black);
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      border: none;
+      border-radius: 4px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: background-color 0.2s ease;
     }
 
-    .btn-link:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent-dark);
+    .top-nav .btn-link:hover {
+      background: #d5a80f;
+      color: #0f172a;
     }
-    
+
     .site-logo svg {
       margin-right: var(--space-2);
     }
-    
+
     .main-nav {
       display: flex;
       align-items: center;
     }
-    
-    .nav-list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .nav-item {
-      margin-left: var(--space-5);
-      position: relative;
-    }
-    
-    .nav-link {
-      font-weight: 500;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--color-accent);
-      transition: width var(--transition-normal);
-    }
-    
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-    
+
     /* Mobile Menu Toggle */
     .mobile-menu-toggle {
       display: none;
@@ -436,7 +432,6 @@
       width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
       z-index: var(--z-dropdown);
       opacity: 0;
       visibility: hidden;
@@ -449,30 +444,28 @@
     }
 
     @media (max-width: 768px) {
-      .top-nav a:not(.btn-link) {
-        display: none;
-      }
-
       .main-nav {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 320px;
+        width: min(320px, 86vw);
         height: 100vh;
-        background: var(--color-white);
+        background: #ffffff;
+        border-left: 2px solid #0f172a;
         padding: var(--space-8) var(--space-6) var(--space-6);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
         z-index: calc(var(--z-dropdown) + 1);
         transition: right var(--transition-slow);
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
       }
-      
+
       .main-nav.active {
         right: 0;
       }
-      
+
       .mobile-menu-header {
         display: flex;
         justify-content: space-between;
@@ -480,14 +473,15 @@
         margin-bottom: var(--space-6);
         padding-bottom: var(--space-4);
         border-bottom: 1px solid var(--color-gray-200);
+        width: 100%;
       }
-      
+
       .mobile-menu-logo {
         font-weight: 700;
         font-size: var(--font-size-lg);
         color: var(--color-black);
       }
-      
+
       .mobile-menu-close {
         background: none;
         border: none;
@@ -498,49 +492,33 @@
         border-radius: 50%;
         transition: background-color var(--transition-fast), color var(--transition-fast);
       }
-      
+
       .mobile-menu-close:hover {
         background-color: var(--color-gray-100);
         color: var(--color-black);
       }
-      
-      .main-nav .nav-list {
-        flex-direction: column;
+
+      .main-nav a:not(.btn-link),
+      .main-nav .btn-link {
+        display: block;
         width: 100%;
-        margin-bottom: var(--space-6);
-      }
-      
-      .main-nav .nav-item {
-        margin-left: 0;
-        margin-bottom: 0;
-        width: 100%;
-      }
-      
-      .main-nav .nav-link {
-        display: flex;
-        align-items: center;
         padding: var(--space-4) var(--space-3);
-        border-radius: var(--border-radius-md);
-        transition: background-color var(--transition-fast), transform var(--transition-fast);
-        font-size: var(--font-size-md);
-        position: relative;
-        overflow: hidden;
+        border-radius: 4px;
+        border-bottom: none;
       }
-      
-      .main-nav .nav-link:hover {
-        background-color: var(--color-gray-100);
-        transform: translateX(8px);
+
+      .main-nav a.active {
+        background-color: #f1f5f9;
+        border-left: 3px solid #4da6e7;
+        padding-left: calc(var(--space-3) - 3px);
       }
-      
-      .main-nav .nav-link.active {
-        background-color: rgba(77, 166, 231, 0.1);
-        color: var(--color-accent);
+
+      .nav-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0.4rem 0;
       }
-      
-      .main-nav .nav-link::after {
-        display: none;
-      }
-      
+
       .mobile-menu-toggle {
         display: block;
       }
@@ -979,25 +957,6 @@
     }
     
     @media (max-width: 768px) {
-      .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-      
-      .main-nav {
-        display: none;
-      }
-      
-      .mobile-menu-toggle {
-        display: block;
-      }
-      
       .grid-2-col {
         grid-template-columns: 1fr;
       }
@@ -1079,7 +1038,8 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="/" class="site-logo">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 38px; width: auto;">
+        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 32px; width: auto;">
+        <span class="logo-word">TS9Designs</span>
       </a>
 
       <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
@@ -1093,12 +1053,13 @@
       <nav class="top-nav main-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about.html">About Us</a>
-        <a href="/#services">Services</a>
+        <a href="/#portfolio">Services</a>
         <a href="/#pricing">Pricing</a>
         <a href="/#portfolio">Projects</a>
         <a href="/residential.html">Get Plans</a>
         <a href="/case-studies/index.html">Case Studies</a>
         <a href="/permit-estimate.html">Estimate</a>
+        <span class="nav-divider" aria-hidden="true"></span>
         <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
       </nav>
     </div>
@@ -1319,11 +1280,11 @@
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">3D Rendering</a></li>
           </ul>
         </div>
 
@@ -1390,13 +1351,41 @@
     }
 
     function toEmailJsParams(formData) {
-      const params = {};
-      formData.forEach((value, key) => {
-        params[key] = typeof value === "string" ? value : "";
-      });
-      params.to_email = "info@ts9designs.com";
-      params.form_type = "contact";
-      return params;
+      const get = (key) => {
+        const v = formData.get(key);
+        return typeof v === "string" ? v : "";
+      };
+      const fullName = [get("firstName"), get("lastName")].filter(Boolean).join(" ") || "Website Lead";
+      const email = get("email");
+      const phone = get("phone");
+      const projectType = get("projectType");
+      const location = get("location");
+      const timeline = get("timeline");
+      const budget = get("budget");
+      const message = get("message");
+
+      return {
+        from_name: fullName,
+        reply_to: email,
+        phone_number: phone,
+        project_type: projectType,
+        project_state: "",
+        project_city: location,
+        estimated_range: "",
+        subject: "New Contact Form Submission",
+        message: [
+          `Name: ${fullName}`,
+          `Email: ${email}`,
+          `Phone: ${phone}`,
+          `Project Type: ${projectType}`,
+          `Location: ${location}`,
+          `Timeline: ${timeline}`,
+          `Budget: ${budget}`,
+          `Details: ${message}`
+        ].join("\n"),
+        to_email: "info@ts9designs.com",
+        form_type: "contact"
+      };
     }
 
     // Initialize on page load
@@ -1457,7 +1446,7 @@
         document.body.classList.add('mobile-menu-open');
         
         // Add click listeners to nav links to close menu
-        document.querySelectorAll('.main-nav .nav-link').forEach(link => {
+        document.querySelectorAll('.main-nav a').forEach(link => {
           link.addEventListener('click', closeMobileMenu);
         });
       }
