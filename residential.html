@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <script src="assets/js/cookie-consent.js"></script>
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>TS9Designs - Residential Projects | Custom Home Plans & Building Designs</title>
   <meta name="description" content="Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.">
@@ -18,8 +19,9 @@
   <meta name="twitter:image" content="https://ts9designs.com/assets/images/676/676.webp">
   <link rel="canonical" href="https://ts9designs.com/residential.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/favicon.webp">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +29,8 @@
 
   <!-- Meta Pixel Code -->
     <script>
+    window.TS9_CONSENT.onDecision(function (granted) {
+      if (!granted) return;
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -37,10 +41,9 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '716800377403198');
     fbq('track', 'PageView');
+    
+    });
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=716800377403198&ev=PageView&noscript=1"
-    /></noscript>
   <!-- End Meta Pixel Code -->
   
   <style>
@@ -254,11 +257,11 @@
     
     /* Header and Navigation */
     .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -275,55 +278,87 @@
     .logo {
       display: inline-flex;
       align-items: center;
+      gap: 0.6rem;
     }
 
     .logo img {
-      height: 38px;
+      height: 32px;
       width: auto;
       display: block;
+    }
+
+    .logo-word {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: var(--color-slate-900);
     }
 
     .top-nav {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .top-nav > a {
-      color: var(--color-slate-500);
+      color: #334155;
       text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 500;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     .top-nav > a:hover {
-      color: var(--color-accent-dark);
+      color: var(--color-slate-900);
+    }
+
+    .top-nav > a.active {
+      color: var(--color-slate-900);
+      border-bottom-color: var(--color-accent);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: #cbd5e1;
+      flex-shrink: 0;
     }
 
     .top-nav .btn-link {
       text-decoration: none;
-      border: 1px solid var(--color-slate-border);
-      color: var(--color-slate-900);
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      border: none;
+      border-radius: 4px;
+      background: var(--color-slate-900);
+      color: var(--color-white);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: background-color 0.2s ease;
     }
 
     .top-nav .btn-link:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent-dark);
+      background: #d5a80f;
+      color: var(--color-slate-900);
     }
 
     .top-nav #cart-toggle {
-      color: var(--color-slate-500);
-      font-weight: 500;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .top-nav #cart-toggle:hover {
-      color: var(--color-accent-dark);
+      color: var(--color-slate-900);
     }
 
     .top-nav #cart-toggle .cart-count {
@@ -383,11 +418,8 @@
         right: -100%;
         width: min(320px, 86vw);
         height: calc(100vh - 70px);
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(16px) saturate(160%);
-        -webkit-backdrop-filter: blur(16px) saturate(160%);
-        border-left: 1px solid var(--color-slate-border);
-        box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12);
+        background: var(--color-white);
+        border-left: 2px solid var(--color-slate-900);
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
@@ -404,13 +436,24 @@
       .top-nav > .btn-link {
         display: block;
         width: 100%;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         padding: 0.7rem 0.55rem;
-        border-radius: 10px;
+        border-radius: 4px;
+        border-bottom: none;
+      }
+      .top-nav > a.active {
+        background: #f1f5f9;
+        border-left: 3px solid var(--color-accent);
+        padding-left: calc(0.55rem - 3px);
       }
       .top-nav > .btn-link {
         margin-top: 0.4rem;
         text-align: center;
+      }
+      .nav-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0.4rem 0;
       }
     }
     
@@ -1348,16 +1391,16 @@
     
     @media (max-width: 768px) {
       .site-header {
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(12px) saturate(160%);
-      -webkit-backdrop-filter: blur(12px) saturate(160%);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-      
+
       .grid-3-col {
         grid-template-columns: 1fr;
       }
@@ -1633,6 +1676,7 @@
     <div class="container header-inner">
       <a class="logo" href="/">
         <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
+        <span class="logo-word">TS9Designs</span>
       </a>
       <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
         <span></span><span></span><span></span>
@@ -1640,13 +1684,14 @@
       <nav class="top-nav" id="topNav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about.html">About Us</a>
-        <a href="/#services">Services</a>
+        <a href="/#portfolio">Services</a>
         <a href="/#pricing">Pricing</a>
         <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
+        <a href="/residential.html" class="active" aria-current="page">Get Plans</a>
         <a href="/case-studies/index.html">Case Studies</a>
         <a href="/permit-estimate.html">Estimate</a>
         <a href="#" id="cart-toggle" aria-label="Open shopping cart">Cart <span class="cart-count" id="cart-count">0</span></a>
+        <span class="nav-divider" aria-hidden="true"></span>
         <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
       </nav>
     </div>
@@ -1937,11 +1982,11 @@
         <div>
           <h4 class="footer-heading">Services</h4>
           <ul class="footer-links">
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Building Design &amp; Drafting</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Structural Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">MEP Engineering</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">Fire Protection</a></li>
-            <li class="footer-link-item"><a href="/#services" class="footer-link">3D Rendering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Building Design &amp; Drafting</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Structural Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">MEP Engineering</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">Fire Protection</a></li>
+            <li class="footer-link-item"><a href="/#portfolio" class="footer-link">3D Rendering</a></li>
           </ul>
         </div>
 

@@ -42,8 +42,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!ensureEmailJsReady()) {
           throw new Error('Newsletter signup is not configured yet. Add TS9_EMAILJS_NEWSLETTER_TEMPLATE_ID in assets/js/emailjs-config.js.');
         }
+        const email = emailInput.value.trim();
         await window.emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, {
-          email: emailInput.value.trim(),
+          from_name: 'Newsletter Signup',
+          reply_to: email,
+          phone_number: '',
+          project_type: 'Newsletter Signup',
+          project_state: '',
+          project_city: '',
+          estimated_range: '',
+          subject: 'New Newsletter Subscriber',
+          message: [
+            `Email: ${email}`,
+            `Source: ${window.location.href}`
+          ].join('\n'),
+          email: email,
           to_email: 'info@ts9designs.com',
           form_type: 'newsletter',
           source_page: window.location.href
