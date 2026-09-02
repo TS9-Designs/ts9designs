@@ -173,11 +173,12 @@
       font-size: 1.25rem;
     }
 
-    h6 {
+    .section-eyebrow {
       font-size: 0.875rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--primary);
+      color: var(--primary-dark);
       margin-bottom: var(--spacing-xs);
     }
 
@@ -210,16 +211,13 @@
     }
 
     .btn-primary {
-      background-color: var(--primary);
+      background-color: var(--dark);
       color: var(--white);
-      box-shadow: 0 4px 10px rgba(77, 166, 231, 0.3);
     }
 
     .btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(77, 166, 231, 0.4);
-      color: var(--white);
+      background-color: var(--gold);
+      color: var(--dark);
     }
 
     .btn-secondary {
@@ -404,14 +402,15 @@
     }
 
     .quote-button-wrapper .btn-primary {
-      background: var(--primary);
-      border: 1px solid var(--primary);
+      background: var(--dark);
+      border: 1px solid var(--dark);
       color: #ffffff;
     }
 
     .quote-button-wrapper .btn-primary:hover {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
     }
 
     .quote-button-wrapper .btn-hero-secondary {
@@ -552,7 +551,7 @@
       margin-bottom: var(--spacing-2xl);
     }
 
-    .section-heading h6 {
+    .section-heading .section-eyebrow {
       display: inline-block;
       margin-bottom: var(--spacing-sm);
       background-color: rgba(77, 166, 231, 0.1);
@@ -682,7 +681,7 @@
 
     .portfolio-item span {
       font-size: 0.875rem;
-      color: var(--primary);
+      color: var(--primary-dark);
       font-weight: 500;
     }
 
@@ -1277,17 +1276,27 @@
     }
 
     .reviews-indicator {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .reviews-indicator::before {
+      content: '';
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--gray-300);
-      border: none;
-      padding: 0;
-      cursor: pointer;
       transition: var(--transition);
     }
 
-    .reviews-indicator.active {
+    .reviews-indicator.active::before {
       background: var(--primary);
       width: 20px;
       border-radius: 4px;
@@ -2203,6 +2212,7 @@
     </div>
   </header>
 
+  <main>
   <!-- Main Banner Start -->
   <div class="main-banner" id="top">
     <div class="container">
@@ -2236,24 +2246,24 @@
               <!--  <img src="assets/images/Bishop/frontview.webp" alt="Fire design solution">-->
               <!--</div>-->
               <div class="slide active">
-                <img class="slide-bg" src="assets/images/28.jpeg" srcset="assets/images/28-sm.jpeg 750w, assets/images/28.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" src="assets/images/28.jpeg" srcset="assets/images/28-sm.jpeg 750w, assets/images/28.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
+                <img class="slide-bg" src="assets/images/28.webp" srcset="assets/images/28-sm.webp 750w, assets/images/28.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
+                <img class="slide-fg" src="assets/images/28.webp" srcset="assets/images/28-sm.webp 750w, assets/images/28.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
               </div>
               <div class="slide">
-                <img class="slide-bg" data-src="assets/images/27.jpeg" data-srcset="assets/images/27-sm.jpeg 750w, assets/images/27.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/27.jpeg" data-srcset="assets/images/27-sm.jpeg 750w, assets/images/27.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="Daycare">
+                <img class="slide-bg" data-src="assets/images/27.webp" data-srcset="assets/images/27-sm.webp 750w, assets/images/27.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
+                <img class="slide-fg" data-src="assets/images/27.webp" data-srcset="assets/images/27-sm.webp 750w, assets/images/27.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="Daycare">
               </div>
               <div class="slide">
                 <img class="slide-bg" data-src="assets/images/Living-Room.webp" data-srcset="assets/images/Living-Room-sm.webp 750w, assets/images/Living-Room.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
                 <img class="slide-fg" data-src="assets/images/Living-Room.webp" data-srcset="assets/images/Living-Room-sm.webp 750w, assets/images/Living-Room.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
               </div>
               <div class="slide">
-                <img class="slide-bg" data-src="assets/images/29.jpeg" data-srcset="assets/images/29-sm.jpeg 750w, assets/images/29.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/29.jpeg" data-srcset="assets/images/29-sm.jpeg 750w, assets/images/29.jpeg 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
+                <img class="slide-bg" data-src="assets/images/29.webp" data-srcset="assets/images/29-sm.webp 750w, assets/images/29.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
+                <img class="slide-fg" data-src="assets/images/29.webp" data-srcset="assets/images/29-sm.webp 750w, assets/images/29.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
               </div>
               <div class="slide">
-                <img class="slide-bg" data-src="assets/images/32.jpeg" data-srcset="assets/images/32-sm.jpeg 857w, assets/images/32.jpeg 986w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/32.jpeg" data-srcset="assets/images/32-sm.jpeg 857w, assets/images/32.jpeg 986w" sizes="(min-width: 992px) 600px, 100vw" alt="Multifamily new-construction rendering">
+                <img class="slide-bg" data-src="assets/images/32.webp" data-srcset="assets/images/32-sm.webp 857w, assets/images/32.webp 986w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
+                <img class="slide-fg" data-src="assets/images/32.webp" data-srcset="assets/images/32-sm.webp 857w, assets/images/32.webp 986w" sizes="(min-width: 992px) 600px, 100vw" alt="Multifamily new-construction rendering">
               </div>
               <div class="slide">
                 <img class="slide-bg" data-src="assets/images/Optometry/Optometry2.webp" data-srcset="assets/images/Optometry/Optometry2-sm.webp 750w, assets/images/Optometry/Optometry2.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
@@ -2264,8 +2274,8 @@
               <!--  <img class="slide-fg" src="assets/images/DolceVilla/dolce4.webp" alt="Fire design solution">-->
               <!--</div>-->
               <!--<div class="slide">-->
-              <!--  <img class="slide-bg" src="assets/images/31.jpeg" alt="" aria-hidden="true">-->
-              <!--  <img class="slide-fg" src="assets/images/31.jpeg" alt="Pet Supplies">-->
+              <!--  <img class="slide-bg" src="assets/images/31.webp" alt="" aria-hidden="true">-->
+              <!--  <img class="slide-fg" src="assets/images/31.webp" alt="Pet Supplies">-->
               <!--</div>-->
             </div>
             <!-- Slideshow controls -->
@@ -2290,7 +2300,7 @@
 <div id="portfolio" class="section">
   <div class="container">
     <div class="section-heading">
-      <h6>Our Work</h6>
+      <p class="section-eyebrow">Our Work</p>
       <h4>See Our Recent Projects</h4>
       <div class="line-dec"></div>
       <p>Explore our portfolio of building design, MEP, structural, and fire protection solutions</p>
@@ -2412,8 +2422,8 @@
       <!-- Chef's Roma Kitchen Project -->
       <div class="portfolio-item" data-project="chefs-roma">
         <div class="thumb">
-          <img class="thumb-bg" src="assets/images/RomaBar/romabar.jpeg" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/RomaBar/romabar.jpeg" alt="Chef's Roma Kitchen">
+          <img class="thumb-bg" src="assets/images/RomaBar/romabar.webp" alt="" aria-hidden="true">
+          <img class="thumb-fg" src="assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen">
           <div class="item-overlay">
             <div class="view-project">View Project</div>
           </div>
@@ -2433,7 +2443,7 @@
   <section id="drawings" class="drawings-section">
     <div class="container">
       <div class="section-heading drawings-heading">
-        <h6>From Our Drawing Sets</h6>
+        <p class="section-eyebrow">From Our Drawing Sets</p>
         <h4>A Look at the <em>Construction Documents</em></h4>
         <div class="line-dec"></div>
         <p>Full permit-ready document sets from completed projects &mdash; building design, electrical, fire protection, and structural.</p>
@@ -2474,7 +2484,7 @@
   <div id="pricing" class="section pricing-section">
     <div class="container">
       <div class="section-heading">
-        <h6>Pricing and Delivery Time</h6>
+        <p class="section-eyebrow">Pricing and Delivery Time</p>
         <h4>Permit-Ready Plans Starting at $0.45/sqft</h4>
         <div class="line-dec"></div>
         <p>Transparent baseline pricing with scope-based adjustments after plan review.</p>
@@ -2934,7 +2944,7 @@
             <div class="slideshow-container project">
               <div class="slides">
                 <div class="slide active">
-                  <img src="assets/images/RomaBar/romabar.jpeg" alt="Chef's Roma Kitchen" loading="lazy">
+                  <img src="assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen" loading="lazy">
                 </div>
                 <div class="slide">
                   <img src="assets/images/RomaBar/Romabar.webp" alt="Chef's Roma Kitchen" loading="lazy">
@@ -2985,7 +2995,7 @@
   <div id="reviews" class="section reviews-section">
     <div class="container">
       <div class="section-heading">
-        <h6>Reviews</h6>
+        <p class="section-eyebrow">Reviews</p>
         <h4>Trusted by Owners, Builders, and Operators</h4>
         <div class="line-dec"></div>
         <p>Real feedback from clients who moved from concept to permit-ready execution with TS9Designs.</p>
@@ -3069,7 +3079,7 @@
   <div id="faqs" class="section faqs-section">
     <div class="container">
       <div class="section-heading">
-        <h6>Frequently Asked Questions</h6>
+        <p class="section-eyebrow">Frequently Asked Questions</p>
         <h4>Everything You Need to Know</h4>
         <div class="line-dec"></div>
       </div>
@@ -3215,7 +3225,7 @@
               </li>
             </ul>
 
-            <h6 class="contact-info-heading">General Contact Info</h6>
+            <p class="contact-info-heading">General Contact Info</p>
 
             <div class="contact-item">
               <div class="contact-icon">
@@ -3280,6 +3290,7 @@
     </div>
   </div>
   <!-- Contact Section End -->
+  </main>
 
          <footer class="site-footer">
     <div class="container">
