@@ -268,7 +268,7 @@
 
     .nav-list .nav-item:last-child .nav-link {
       border: none;
-      border-radius: 4px;
+      border-radius:15px;
       background: #0f172a;
       color: #ffffff;
       padding: 0.55rem 1.1rem;
@@ -1023,6 +1023,7 @@
       position: relative;
       overflow: hidden;
       font-size: var(--font-size-md);
+      border-radius: 15px;
     }
     
     .btn::after {
@@ -1065,12 +1066,13 @@
     }
     
     .btn-accent {
-      background-color: var(--color-accent);
+      background-color: #0f172a;
       color: var(--color-white);
     }
-    
+
     .btn-accent:hover {
-      background-color: #e6352b; /* Darker accent */
+      background-color: #d5a80f;
+      color: #0f172a;
     }
     
     .btn-lg {
@@ -1559,7 +1561,7 @@
 .newsletter-form{display:flex;gap:.4rem}
 .newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
 .newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:8px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button{border:none;background:#4da6e7;color:#fff;border-radius:15px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
 .newsletter-button:hover{background:#1d4ed8}
 .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
 .footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
@@ -1971,7 +1973,7 @@
           <div class="gallery">
             <div class="geometric-accent accent-circle"></div>
             <div class="gallery-main">
-              <img src="assets/images/Bishop/frontview.jpg" alt="Bishop pond Plan" width="1200" height="675" id="main-gallery-image">
+              <img src="assets/images/Bishop/frontview.webp" alt="Bishop pond Plan" width="1200" height="675" id="main-gallery-image">
               <button class="gallery-nav gallery-prev" aria-label="Previous image">&#10094;</button>
               <button class="gallery-nav gallery-next" aria-label="Next image">&#10095;</button>
               <div class="gallery-counter">
@@ -1980,13 +1982,13 @@
             </div>
             <div class="gallery-thumbnails" id="gallery-thumbnails">
               <div class="gallery-thumbnail active" data-index="0">
-                <img src="assets/images/Bishop/frontview.jpg" alt="House plan thumbnail 1" width="150" height="150" loading="eager">
+                <img src="assets/images/Bishop/frontview.webp" alt="House plan thumbnail 1" width="150" height="150" loading="eager">
               </div>
               <div class="gallery-thumbnail" data-index="1">
-                <img src="assets/images/Bishop/bishop-pond-bathro.jpg" alt="House plan thumbnail 2" width="150" height="150" loading="lazy">
+                <img src="assets/images/Bishop/bishop-pond-bathro.webp" alt="House plan thumbnail 2" width="150" height="150" loading="lazy">
               </div>
               <div class="gallery-thumbnail" data-index="2">
-                <img src="assets/images/Bishop/Large-outdoor-Deck.jpg" alt="House plan thumbnail 3" width="150" height="150" loading="lazy">
+                <img src="assets/images/Bishop/Large-outdoor-Deck.webp" alt="House plan thumbnail 3" width="150" height="150" loading="lazy">
               </div>
               <div class="gallery-thumbnail" data-index="3">
                 <img src="assets/images/Bishop/Living-Room.webp" alt="House plan thumbnail 4" width="150" height="150" loading="lazy">
@@ -2228,7 +2230,7 @@
                 
                 <div class="similar-plan" data-plan-id="coastal-cottage">
                   <div class="similar-plan-img">
-                    <img src="assets/images/conmigo.jpg" alt="Similar house plan 2" width="150" height="150" loading="lazy">
+                    <img src="assets/images/conmigo.webp" alt="Similar house plan 2" width="150" height="150" loading="lazy">
                   </div>
                   <div>
                     <h4 class="similar-plan-title">Cafe conmigo</h4>
@@ -2240,7 +2242,7 @@
                 
                 <div class="similar-plan" data-plan-id="prairie-style">
                   <div class="similar-plan-img">
-                    <img src="assets/images/dolce.jpg" alt="Similar house plan 3" width="150" height="150" loading="lazy">
+                    <img src="assets/images/dolce.webp" alt="Similar house plan 3" width="150" height="150" loading="lazy">
                   </div>
                   <div>
                     <h4 class="similar-plan-title">La Dolce Villa</h4>
@@ -2389,9 +2391,9 @@
             'Bedroom 4': '11\' x 10\''
           },
           images: [
-            'assets/images/Bishop/frontview.jpg',
-            'assets/images/Bishop/bishop-pond-bathro.jpg',
-            'assets/images/Bishop/Large-outdoor-Deck.jpg',
+            'assets/images/Bishop/frontview.webp',
+            'assets/images/Bishop/bishop-pond-bathro.webp',
+            'assets/images/Bishop/Large-outdoor-Deck.webp',
             'assets/images/Bishop/Living-Room.webp'
           ],
           floorPlans: {
@@ -2450,9 +2452,9 @@
             'Office/Flex': '12\' x 10\''
           },
           images: [
-            'assets/images/conmigo/conmigo2.jpg',
-            'assets/images/conmigo/conmigo1.jpg',
-            'assets/images/conmigo/conmigo.jpg',
+            'assets/images/conmigo/conmigo2.webp',
+            'assets/images/conmigo/conmigo1.webp',
+            'assets/images/conmigo/conmigo.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2510,11 +2512,11 @@
             'Loft': '10\' x 8\''
           },
           images: [
-            'assets/images/Daycare/daycare1.jpg',
-            'assets/images/Daycare/daycare2.jpg',
-            'assets/images/Daycare/daycare3.jpg',
-            'assets/images/Daycare/daycare4.jpg',
-            'assets/images/Daycare/daycare5.jpg',
+            'assets/images/Daycare/daycare1.webp',
+            'assets/images/Daycare/daycare2.webp',
+            'assets/images/Daycare/daycare3.webp',
+            'assets/images/Daycare/daycare4.webp',
+            'assets/images/Daycare/daycare5.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2572,11 +2574,11 @@
             'Bedroom 4/Office': '12\' x 10\''
           },
           images: [
-            'assets/images/DolceVilla/dolce1.jpg',
-            'assets/images/DolceVilla/dolce2.jpg',
-            'assets/images/DolceVilla/dolce3.jpg',
-            'assets/images/DolceVilla/dolce4.jpg',
-            'assets/images/DolceVilla/dolce5.jpg',
+            'assets/images/DolceVilla/dolce1.webp',
+            'assets/images/DolceVilla/dolce2.webp',
+            'assets/images/DolceVilla/dolce3.webp',
+            'assets/images/DolceVilla/dolce4.webp',
+            'assets/images/DolceVilla/dolce5.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2635,10 +2637,10 @@
           },
           images: [
             'assets/images/PetSupplies/pet-supplies.webp',
-            'assets/images/PetSupplies/pet-supplies.jpg',
-            'assets/images/PetSupplies/pet-supplies1.jpg',
-            'assets/images/PetSupplies/pet-supplies2.jpg',
-            'assets/images/PetSupplies/pet-supplies3.jpg',
+            'assets/images/PetSupplies/pet-supplies.webp',
+            'assets/images/PetSupplies/pet-supplies1.webp',
+            'assets/images/PetSupplies/pet-supplies2.webp',
+            'assets/images/PetSupplies/pet-supplies3.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2697,10 +2699,10 @@
             'Bedroom 4': '12\' x 12\''
           },
           images: [
-            'assets/images/Optometry/Optometry.jpg',
-            'assets/images/Optometry/Optometry1.jpg',
-            'assets/images/Optometry/Optometry2.jpg',
-            'assets/images/Optometry/Optometry3.jpg',
+            'assets/images/Optometry/Optometry.webp',
+            'assets/images/Optometry/Optometry1.webp',
+            'assets/images/Optometry/Optometry2.webp',
+            'assets/images/Optometry/Optometry3.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2763,7 +2765,7 @@
             'Bonus Room': '20\' x 16\''
           },
           images: [
-            'assets/images/RomaBar/romabar.jpeg',
+            'assets/images/RomaBar/romabar.webp',
             'assets/images/RomaBar/Romabar.jpg',
             'assets/images/RomaBar/romabar1.jpg',
           ],
@@ -2824,9 +2826,9 @@
             'Loft': '16\' x 12\''
           },
           images: [
-            'assets/images/Tropicana/Tropicana2.jpg',
-            'assets/images/Tropicana/Tropicana1.jpg',
-            'assets/images/Tropicana/Tropicana.jpg',
+            'assets/images/Tropicana/Tropicana2.webp',
+            'assets/images/Tropicana/Tropicana1.webp',
+            'assets/images/Tropicana/Tropicana.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
@@ -2885,7 +2887,7 @@
           images: [
             'assets/images/Uplift/Uplift2.png',
             'assets/images/Uplift/Uplift1.jpeg',
-            'assets/images/Uplift/Uplift3.jpeg',
+            'assets/images/Uplift/Uplift3.webp',
           ],
           floorPlans: {
             first: 'https://via.placeholder.com/800x800',
