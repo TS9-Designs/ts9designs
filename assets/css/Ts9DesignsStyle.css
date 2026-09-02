@@ -986,7 +986,7 @@ Banner Style
 
 .main-banner:after {
   content: '';
-  background-image: url(../images/slider-left-dec.jpg);
+  background-image: url(../images/slider-left-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -998,7 +998,7 @@ Banner Style
 
 .main-banner:before {
   content: '';
-  background-image: url(../images/slider-right-dec.jpg);
+  background-image: url(../images/slider-right-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
@@ -1316,7 +1316,7 @@ Services Style
 
 .services:after {
   content: '';
-  background-image: url(../images/services-left-dec.jpg);
+  background-image: url(../images/services-left-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -1328,7 +1328,7 @@ Services Style
 
 .services:before {
   content: '';
-  background-image: url(../images/services-right-dec.jpg);
+  background-image: url(../images/services-right-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
@@ -1491,7 +1491,7 @@ Free Quote
 */
 
 .free-quote {
-  background-image: url(../images/quote-bg-v3.jpg);
+  background-image: url(../images/quote-bg-v3.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1572,7 +1572,7 @@ Portfolio
 
 .our-portfolio:before {
   content: '';
-  background-image: url(../images/portfolio-right-dec.jpg);
+  background-image: url(../images/portfolio-right-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
@@ -1584,7 +1584,7 @@ Portfolio
 
 .our-portfolio:after {
   content: '';
-  background-image: url(../images/portfolio-left-dec.jpg);
+  background-image: url(../images/portfolio-left-dec.webp);
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -1985,7 +1985,7 @@ Footer Style
 */
 
 footer {
-  background-image: url(../images/footer-bg-v3.jpg);
+  background-image: url(../images/footer-bg-v3.webp);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
