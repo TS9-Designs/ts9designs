@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.">
   <meta name="twitter:image" content="https://ts9designs.com/assets/images/676/676.webp">
   <link rel="canonical" href="https://ts9designs.com/residential.html">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -429,8 +430,9 @@
         width: min(320px, 86vw);
         height: calc(100vh - 70px);
         background: var(--color-white);
-        border-left: 2px solid var(--color-slate-900);
+        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-start;
         justify-content: flex-start;
         gap: 0.2rem;
@@ -453,7 +455,7 @@
       }
       .top-nav > a.active {
         background: #f1f5f9;
-        border-left: 3px solid var(--color-accent);
+        border-left: 3px solid #d5a80f;
         padding-left: calc(0.55rem - 3px);
       }
       .top-nav > .btn-link {

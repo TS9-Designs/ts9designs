@@ -8,7 +8,8 @@
   <meta name="description" content="TS9 Designs is a full-service engineering and design firm providing Building Design Services, Structural, MEP, and Fire Protection services through licensed professionals in applicable jurisdictions.">
   <meta name="keywords" content="engineering firm, Building Design & Drafting, structural engineering, MEP design, fire protection, licensed professionals">
   <meta name="robots" content="index, follow">
-  
+  <link rel="stylesheet" href="/assets/css/site-header.css">
+
   <!-- Open Graph -->
   <meta property="og:title" content="About TS9Designs -  Engineering & Design Firm">
   <meta property="og:description" content="Full-service engineering and design firm with licensed professionals in applicable jurisdictions. Specializing in Building Design Services, Structural, MEP, and Fire Protection services.">
@@ -436,17 +437,18 @@
 
       .top-nav {
         position: fixed;
-        top: 0;
+        top: 70px;
         right: -100%;
         width: min(320px, 86vw);
-        height: 100vh;
+        height: calc(100vh - 70px);
         background: #ffffff;
-        border-left: 2px solid #0f172a;
-        padding: var(--space-8) var(--space-6) var(--space-6);
+        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
+        padding: var(--space-6) var(--space-5);
         z-index: calc(var(--z-dropdown) + 1);
-        transition: right var(--transition-slow);
+        transition: right 0.25s ease;
         overflow-y: auto;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-start;
         justify-content: flex-start;
         gap: 0.2rem;
@@ -468,7 +470,7 @@
 
       .top-nav a.active {
         background-color: #f1f5f9;
-        border-left: 3px solid #4da6e7;
+        border-left: 3px solid #d5a80f;
         padding-left: calc(var(--space-3) - 3px);
       }
 
@@ -1037,38 +1039,12 @@
 </style>
 </head>
 
-<body>
+<body data-nav-active="about">
   <!-- Loading bar -->
   <div class="loading-bar" id="loadingBar"></div>
 
-  <!-- Header Area Start -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
-        <span class="logo-word">TS9Designs</span>
-      </a>
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" id="mobileMenuToggle">
-        <div class="hamburger">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </div>
-      </button>
-      <nav class="top-nav main-nav" id="mainNav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active" aria-current="page">About Us</a>
-        <a href="index.html#portfolio">Services</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#portfolio">Projects</a>
-        <a href="residential.html">Get Plans</a>
-        <a href="case-studies/index.html">Case Studies</a>
-        <a href="permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-header-root"></div>
+  <script src="/assets/js/load-header.js"></script>
 
   <!-- Main Content -->
   <main>

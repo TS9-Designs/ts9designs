@@ -153,8 +153,9 @@
     width: min(320px, 86vw);
     height: calc(100vh - 70px);
     background: #ffffff;
-    border-left: 2px solid #0f172a;
+    box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0.2rem;
@@ -181,7 +182,7 @@
 
   .top-nav a.active {
     background: #f1f5f9;
-    border-left: 3px solid #4da6e7;
+    border-left: 3px solid #d5a80f;
     padding-left: calc(0.55rem - 3px);
   }
 

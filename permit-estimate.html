@@ -13,6 +13,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
   <link rel="canonical" href="https://ts9designs.com/permit-estimate.html">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TS9Designs">
   <meta property="og:url" content="https://ts9designs.com/permit-estimate.html">
@@ -1265,8 +1266,9 @@
         width: min(320px, 86vw);
         height: calc(100vh - 70px);
         background: var(--white);
-        border-left: 2px solid var(--text);
+        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-start;
         justify-content: flex-start;
         gap: .2rem;
@@ -1286,7 +1288,7 @@
       }
       .top-nav a.active {
         background: #f1f5f9;
-        border-left: 3px solid var(--primary);
+        border-left: 3px solid var(--gold);
         padding-left: calc(.55rem - 3px);
       }
       .top-nav .btn-link { margin-top:.4rem; text-align:center; }
@@ -1344,30 +1346,9 @@
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
-        <span class="logo-word">TS9Designs</span>
-      </a>
-      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html">Case Studies</a>
-        <a href="/permit-estimate.html" class="active" aria-current="page">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+<body data-nav-active="estimate">
+  <div id="site-header-root"></div>
+  <script src="/assets/js/load-header.js"></script>
 
   <main>
     <section class="hero">
