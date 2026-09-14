@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const forms = document.querySelectorAll('.newsletter-form');
+function TS9_initNewsletterForms() {
+  const forms = document.querySelectorAll('.newsletter-form:not([data-newsletter-bound])');
   if (!forms.length) return;
 
   const emailJsConfig = {
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   forms.forEach((form) => {
+    form.setAttribute('data-newsletter-bound', 'true');
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       const emailInput = form.querySelector('input[type="email"]');
@@ -73,4 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', TS9_initNewsletterForms);
+window.TS9_initNewsletterForms = TS9_initNewsletterForms;
