@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="Contact TS9Designs for custom home plans, Building design plans, and permit-ready construction drawings. Get a quote for your project today.">
   <meta name="twitter:image" content="https://ts9designs.com/assets/images/30.webp">
   <link rel="canonical" href="https://ts9designs.com/contact.html">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -425,39 +426,22 @@
       transform: rotate(-45deg);
     }
 
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: var(--z-dropdown);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity var(--transition-normal), visibility var(--transition-normal);
-    }
-
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     @media (max-width: 768px) {
       .main-nav {
         position: fixed;
-        top: 0;
+        top: 70px;
         right: -100%;
         width: min(320px, 86vw);
-        height: 100vh;
+        height: calc(100vh - 70px);
         background: #ffffff;
-        border-left: 2px solid #0f172a;
-        padding: var(--space-8) var(--space-6) var(--space-6);
+        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
+        padding: var(--space-6) var(--space-5);
         z-index: calc(var(--z-dropdown) + 1);
-        transition: right var(--transition-slow);
+        transition: right 0.25s ease;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-start;
         gap: 0.2rem;
       }
@@ -509,7 +493,7 @@
 
       .main-nav a.active {
         background-color: #f1f5f9;
-        border-left: 3px solid #4da6e7;
+        border-left: 3px solid #d5a80f;
         padding-left: calc(var(--space-3) - 3px);
       }
 
@@ -529,12 +513,6 @@
       overflow: hidden;
     }
 
-    @media (min-width: 769px) {
-      .mobile-menu-overlay {
-        display: none;
-      }
-    }
-    
     /* Buttons */
     .btn {
       display: inline-flex;
@@ -1035,36 +1013,8 @@
 </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-container">
-      <a href="/" class="site-logo">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 32px; width: auto;">
-        <span class="logo-word">TS9Designs</span>
-      </a>
-
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <div class="hamburger">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </div>
-      </button>
-
-      <nav class="top-nav main-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-header-root"></div>
+  <script src="/assets/js/load-header.js"></script>
 
   <!-- Main Content -->
   <main class="contact-section">
@@ -1402,12 +1352,10 @@
       if (!toggle || !mainNav) {
         return;
       }
-      
+
       toggle.addEventListener('click', function() {
-        const overlay = document.querySelector('.mobile-menu-overlay') || createMobileMenuOverlay();
-        const body = document.body;
         const isActive = mainNav.classList.contains('active');
-        
+
         if (isActive) {
           closeMobileMenu();
         } else {
@@ -1415,17 +1363,7 @@
         }
       });
 
-      function createMobileMenuOverlay() {
-        const overlay = document.createElement('div');
-        overlay.className = 'mobile-menu-overlay';
-        overlay.addEventListener('click', closeMobileMenu);
-        document.body.appendChild(overlay);
-        return overlay;
-      }
-
       function openMobileMenu() {
-        const overlay = document.querySelector('.mobile-menu-overlay') || createMobileMenuOverlay();
-        
         // Add mobile menu header if it doesn't exist
         if (!mainNav.querySelector('.mobile-menu-header')) {
           const header = document.createElement('div');
@@ -1435,16 +1373,15 @@
             <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
           `;
           mainNav.insertBefore(header, mainNav.firstChild);
-          
+
           // Add close button event listener
           header.querySelector('.mobile-menu-close').addEventListener('click', closeMobileMenu);
         }
-        
+
         mainNav.classList.add('active');
-        overlay.classList.add('active');
         toggle.classList.add('active');
         document.body.classList.add('mobile-menu-open');
-        
+
         // Add click listeners to nav links to close menu
         document.querySelectorAll('.main-nav a').forEach(link => {
           link.addEventListener('click', closeMobileMenu);
@@ -1452,10 +1389,7 @@
       }
 
       function closeMobileMenu() {
-        const overlay = document.querySelector('.mobile-menu-overlay');
-        
         mainNav.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
         toggle.classList.remove('active');
         document.body.classList.remove('mobile-menu-open');
       }

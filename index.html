@@ -9,6 +9,7 @@
   
   <title>TS9Designs - Building Design, MEP, Structural & Fire Engineering</title>
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="canonical" href="https://ts9designs.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TS9Designs">
@@ -1962,8 +1963,9 @@
         width: min(320px, 86vw);
         height: calc(100vh - 70px);
         background: var(--white);
-        border-left: 2px solid var(--dark);
+        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-start;
         justify-content: flex-start;
         gap: 0.2rem;
@@ -1983,7 +1985,7 @@
       }
       .top-nav a.active {
         background: var(--gray-100);
-        border-left: 3px solid var(--primary);
+        border-left: 3px solid var(--gold);
         padding-left: calc(0.55rem - 3px);
       }
       .top-nav .btn-link {
@@ -2197,30 +2199,9 @@
 </style>
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" width="26" height="32">
-        <span class="logo-word">TS9Designs</span>
-      </a>
-      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/" class="active" aria-current="page">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+<body data-nav-active="home">
+  <div id="site-header-root"></div>
+  <script src="/assets/js/load-header.js"></script>
 
   <main>
   <!-- Main Banner Start -->

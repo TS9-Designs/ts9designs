@@ -43,27 +43,8 @@
 </style>
   <link rel="stylesheet" href="/assets/css/site-header.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="/"><img src="/assets/images/logo-v3.webp" alt="TS9 Designs Logo" decoding="async"><span class="logo-word">TS9Designs</span></a>
-      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html" class="active" aria-current="page">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+<body data-nav-active="case-studies">
+  <div id="site-header-root"></div>
 <main class="container">
   <section class="hero"><p class="eyebrow">Case Study</p><h1>La Dolce Vita: Building Design Services and MEP Engineering for a 4,200 SF Dover Restaurant</h1><p class="meta">Dover, New Hampshire | Restaurant | Building Design Services + MEP | Completed 2025</p></section>
   <img class="hero-image" src="/assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita restaurant project">
@@ -129,6 +110,6 @@
   </footer>
 <script src="/assets/js/emailjs-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="/assets/js/newsletter.js"></script><script src="/assets/js/site-header.js"></script>
+  <script src="/assets/js/newsletter.js"></script><script src="/assets/js/load-header.js"></script>
 </body>
 </html>
