@@ -45,27 +45,8 @@
 </style>
   <link rel="stylesheet" href="/assets/css/site-header.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="/"><img src="/assets/images/logo-v3.webp" alt="TS9 Designs Logo" decoding="async"><span class="logo-word">TS9Designs</span></a>
-      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html" class="active" aria-current="page">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+<body data-nav-active="case-studies">
+  <div id="site-header-root"></div>
   <main class="container">
     <section class="hero"><p class="eyebrow">Case Study</p><h1>17058 S Robey Street: Code-Driven MEP Renovation for a Hazel Crest Daycare</h1><p class="meta">Hazel Crest, Illinois | Daycare Renovation | 3,200 sq ft | Completed 2024</p></section>
     <img class="hero-image" src="/assets/images/Daycare/daycare2.webp" alt="17058 S Robey Street daycare project">
@@ -132,6 +113,6 @@
   <script src="/assets/js/emailjs-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="/assets/js/newsletter.js"></script>
-  <script src="/assets/js/site-header.js"></script>
+  <script src="/assets/js/load-header.js"></script>
 </body>
 </html>

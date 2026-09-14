@@ -36,27 +36,8 @@
 .footer-copyright{margin:0;color:#64748b;font-size:.78rem;max-width:640px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
 </style><link rel="stylesheet" href="/assets/css/site-header.css"></head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="/"><img src="/assets/images/logo-v3.webp" alt="TS9 Designs Logo" decoding="async"><span class="logo-word">TS9Designs</span></a>
-      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#portfolio">Projects</a>
-        <a href="/residential.html">Get Plans</a>
-        <a href="/case-studies/index.html" class="active" aria-current="page">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://calendly.com/ts9designs/discovery">Book A Call</a>
-      </nav>
-    </div>
-  </header>
+<body data-nav-active="case-studies">
+  <div id="site-header-root"></div>
 <main class="container"><section class="hero"><p class="eyebrow">Case Study</p><h1>Conmigo Cafe: Integrated building design and MEP Planning for a 1,850 SF Coffee Shop</h1><p class="meta">Western Pennsylvania | Coffee Shop | Building Design Services + MEP | Completed 2025</p></section><img class="hero-image" src="/assets/images/conmigo/conmigo.webp" alt="Conmigo Cafe project"><section class="grid"><article class="card"><p>TS9Designs delivered both Building Design Services plans and MEP plans for Conmigo Cafe, a compact but systems-dense hospitality project. The design needed to balance atmosphere, workflow, and code compliance in a relatively small footprint.</p><p>Engineering strategy focused on bar-equipment power planning, targeted ventilation, water-use practicality, and coordination between front-of-house experience and back-of-house performance.</p></article><aside class="card"><h3>Snapshot</h3><ul><li>Location: Western Pennsylvania</li><li>Size: 1,850 sq ft</li><li>Type: Coffee Shop</li><li>Scope: Building Design + MEP</li><li>Completion: 2025</li></ul></aside></section><article class="card content"><h2>The Challenge</h2><p>Cafe projects combine high equipment density with limited mechanical and electrical room for distribution. Espresso, refrigeration, dishwashing, and hot-water needs can exceed expectations for the square footage, creating infrastructure stress if loads are underestimated.</p><p>The project also required customer-facing ambiance without sacrificing operational throughput, making coordination between Building Design intent and MEP planning essential from early design stages.</p><h2>Design Strategy</h2><h3>Mechanical</h3><p>TS9Designs established ventilation and thermal assumptions for both customer and bar zones, then coordinated equipment-driven exhaust needs with practical air distribution and comfort targets.</p><h3>Electrical</h3><p>Connected-load planning captured bar equipment, refrigeration, lighting, and support systems. Panel schedules and branch-circuit mapping were structured for reliability under peak service periods and future flexibility.</p><h3>Plumbing</h3><p>Fixture-unit and hot-water assumptions were built around real cafe sanitation and service cycles. Waste and vent routing were designed for maintainable back-of-house operations in a constrained layout.</p><h3>Coordination and QA</h3><p>Because TS9Designs delivered building stecture and MEP together, equipment locations, pathways, and clearances were resolved early. QA checks validated consistency across plans, schedules, and calculation notes.</p><h2>Permitting and Code Approach</h2><p>The permit package emphasized reviewer-friendly clarity, with direct code references and practical schedule documentation to reduce interpretation friction during review and construction.</p><h2>Construction Documentation Deliverables</h2><ul><li>Integrated Design Services and MEP permit set</li><li>Ventilation and thermal strategy documentation</li><li>Electrical load and panel schedules</li><li>Plumbing fixture and routing notes</li><li>Lighting and controls coordination</li><li>Construction coordination details and notes</li></ul><h2>Outcomes</h2><p>Conmigo Cafe moved forward with a coordinated design set tailored to both user experience and operational performance. The project demonstrates how compact hospitality spaces benefit from full-scope coordination rather than siloed design.</p><p>The final result supports smoother construction, stronger day-one functionality, and clearer long-term maintainability.</p><h2>Educational Best Practices</h2><ul><li>Do not underestimate coffee-shop electrical demand.</li><li>Coordinate front-of-house mood with back-of-house performance.</li><li>Size hot-water systems around service and sanitation peaks.</li><li>Map branch circuits to actual equipment workflows.</li><li>Use integrated building design/MEP coordination in compact footprints.</li></ul><div class="cta">Need a permit-ready cafe package that performs as well as it looks? TS9Designs provides integrated Building Design and MEP planning for hospitality projects.</div></article></main>
 <section class="related-case-studies container" aria-labelledby="related-case-studies-heading"><div class="related-inner"><h2 id="related-case-studies-heading" class="related-heading">More case studies</h2><p class="related-lead">Explore additional MEP coordination work by TS9Designs.</p><div class="related-grid"><a class="related-btn" href="/case-studies/index.html">All case studies</a><a class="related-btn" href="/case-studies/coffman-apts-indianapolis.html">Coffman Apts</a><a class="related-btn" href="/case-studies/eyes-on-j-optometry.html">Eyes on J Optometry</a><a class="related-btn" href="/case-studies/luccinos-pizza-tropicana.html">Luccino's Pizza</a></div></div></section>
   <footer class="site-footer">
@@ -94,5 +75,5 @@
   </footer>
 <script src="/assets/js/emailjs-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="/assets/js/newsletter.js"></script><script src="/assets/js/site-header.js"></script>
+  <script src="/assets/js/newsletter.js"></script><script src="/assets/js/load-header.js"></script>
 </body></html>
