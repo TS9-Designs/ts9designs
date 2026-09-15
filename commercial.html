@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
   <script src="/assets/js/meta-pixel.js"></script>
 <style>
     /* Swiss Design System */
@@ -200,107 +201,6 @@
       padding: var(--space-9) 0;
     }
     
-    /* Header and Navigation */
-    .site-header {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70px;
-      gap: 1rem;
-    }
-
-    .site-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-    }
-
-    .site-logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-    }
-
-    .logo-word {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.01em;
-      color: #0f172a;
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      gap: 1.35rem;
-    }
-
-    .nav-list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      gap: 1.35rem;
-    }
-
-    .nav-item {
-      margin-left: 0;
-      position: relative;
-    }
-
-    .nav-link {
-      font-weight: 600;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #334155;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-bottom: 4px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .nav-link::after { display: none; }
-    .nav-link:hover { color: #0f172a; }
-    .nav-link.active { color: #0f172a; border-bottom-color: #4da6e7; }
-
-    .nav-list .nav-item:last-child .nav-link {
-      border: none;
-      border-radius:15px;
-      background: #0f172a;
-      color: #ffffff;
-      padding: 0.55rem 1.1rem;
-      font-weight: 700;
-    }
-
-    .nav-list .nav-item:last-child .nav-link:hover {
-      background: #d5a80f;
-      color: #0f172a;
-    }
-
-    .nav-link svg {
-      margin-left: var(--space-1);
-    }
-
-    .search-bar {
-      display: none;
-    }
-
     /* Dropdown Menus */
     .dropdown {
       position: relative;
@@ -398,50 +298,6 @@
     
     .mega-menu-link:hover {
       color: var(--color-accent);
-    }
-    
-    /* Mobile Menu Toggle */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      padding: var(--space-2);
-    }
-    
-    /* Search Bar */
-    .search-bar {
-      display: flex;
-      align-items: center;
-      margin-left: var(--space-5);
-    }
-    
-    .search-input {
-      border: var(--border-width) solid var(--color-gray-300);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-2) var(--space-3);
-      font-family: var(--font-family);
-      font-size: var(--font-size-sm);
-      width: 200px;
-      transition: border-color var(--transition-fast), width var(--transition-normal);
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: var(--color-black);
-      width: 250px;
-    }
-    
-    .search-button {
-      background: none;
-      border: none;
-      padding: var(--space-2);
-      margin-left: var(--space-1);
-      color: var(--color-gray-500);
-      transition: color var(--transition-fast);
-    }
-    
-    .search-button:hover {
-      color: var(--color-black);
     }
     
     /* Filter Bar */
@@ -1000,25 +856,6 @@
     }
     
     @media (max-width: 768px) {
-      .site-header {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-      
-      .main-nav {
-        display: none;
-      }
-      
-      .mobile-menu-toggle {
-        display: block;
-      }
-      
       .grid-3-col {
         grid-template-columns: 1fr;
       }
@@ -1110,39 +947,8 @@
   </div>
 
   <!-- Header -->
-  <header class="site-header">
-    <div class="container header-container">
-      <a href="/" class="site-logo">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo" style="height: 32px; width: auto;">
-        <span class="logo-word">TS9Designs</span>
-      </a>
-
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="/about.html" class="nav-link">About Us</a></li>
-          <li class="nav-item"><a href="/#portfolio" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="/#pricing" class="nav-link">Pricing</a></li>
-          <li class="nav-item"><a href="/#portfolio" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="/residential.html" class="nav-link">Get Plans</a></li>
-          <li class="nav-item"><a href="/case-studies/index.html" class="nav-link">Case Studies</a></li>
-          <li class="nav-item"><a href="/permit-estimate.html" class="nav-link">Estimate</a></li>
-          <li class="nav-item"><a href="https://calendly.com/ts9designs/discovery" class="nav-link">Book A Call</a></li>
-        </ul>
-
-        <div class="search-bar">
-          <input type="text" class="search-input" placeholder="Search house plans...">
-          <button class="search-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </button>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <div id="site-header-root"></div>
+  <script src="/assets/js/load-header.js"></script>
   
   <!-- Filter Bar -->
   <div class="filter-bar">
@@ -1460,45 +1266,6 @@
             tag.remove();
           }
         });
-      });
-      
-      // Mobile menu toggle
-      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-      const mainNav = document.querySelector('.main-nav');
-      
-      mobileMenuToggle.addEventListener('click', function() {
-        if (mainNav.style.display === 'flex') {
-          mainNav.style.display = 'none';
-        } else {
-          mainNav.style.display = 'flex';
-          mainNav.style.flexDirection = 'column';
-          mainNav.style.position = 'absolute';
-          mainNav.style.top = '100%';
-          mainNav.style.left = '0';
-          mainNav.style.right = '0';
-          mainNav.style.backgroundColor = 'var(--color-white)';
-          mainNav.style.padding = 'var(--space-4)';
-          mainNav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-        }
-      });
-      
-      // Handle window resize for mobile menu
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-          mainNav.style.display = 'flex';
-          mainNav.style.flexDirection = '';
-          mainNav.style.position = '';
-          mainNav.style.top = '';
-          mainNav.style.left = '';
-          mainNav.style.right = '';
-          mainNav.style.backgroundColor = '';
-          mainNav.style.padding = '';
-          mainNav.style.boxShadow = '';
-        } else {
-          if (!mobileMenuToggle.classList.contains('active')) {
-            mainNav.style.display = 'none';
-          }
-        }
       });
     });
   </script>
