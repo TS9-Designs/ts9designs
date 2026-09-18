@@ -38,4 +38,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://ts9designs.com/sitemap.xml
+Sitemap: https://www.ts9designs.com/sitemap.xml
