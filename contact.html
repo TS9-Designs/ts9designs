@@ -1452,6 +1452,15 @@
       }
     }
 
+    // Escape untrusted text before it's interpolated into innerHTML. Cart/plan
+    // data below comes from URL query parameters (see parseURLParameters),
+    // which are attacker-controllable in a shared link — never trust them raw.
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[ch]));
+    }
+
     // Display order summary for cart
     function displayOrderSummary(cart, total) {
       const orderSummary = document.getElementById('order-summary');
@@ -1462,14 +1471,14 @@
       cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
         const customizationLine = item.optionsSummary
-          ? `<div class="order-item-customizations">${item.optionsSummary}</div>`
+          ? `<div class="order-item-customizations">${escapeHtml(item.optionsSummary)}</div>`
           : (item.customized ? '<div class="order-item-customizations">Customized order</div>' : '');
         itemsHTML += `
           <div class="order-item">
             <div class="order-item-details">
-              <div class="order-item-name">${item.name}</div>
+              <div class="order-item-name">${escapeHtml(item.name)}</div>
               ${customizationLine}
-              <div class="order-item-customizations">Quantity: ${item.quantity}</div>
+              <div class="order-item-customizations">Quantity: ${escapeHtml(item.quantity)}</div>
             </div>
             <div class="order-item-price">$${itemTotal.toFixed(2)}</div>
           </div>
@@ -1495,15 +1504,15 @@
       let itemsHTML = `
         <div class="order-item">
           <div class="order-item-details">
-            <div class="order-item-name">${planName}</div>
-            <div class="order-item-customizations">Quantity: ${quantity}</div>
+            <div class="order-item-name">${escapeHtml(planName)}</div>
+            <div class="order-item-customizations">Quantity: ${escapeHtml(quantity)}</div>
             <div class="order-item-customizations">Base Price: $${parseFloat(basePrice).toFixed(2)}</div>
       `;
-      
+
       if (Object.keys(customizations).length > 0) {
         itemsHTML += `<div class="order-item-customizations">Customizations:</div>`;
         Object.entries(customizations).forEach(([key, value]) => {
-          itemsHTML += `<div class="order-item-customizations">• ${key}: ${value.option} (+$${value.price.toFixed(2)})</div>`;
+          itemsHTML += `<div class="order-item-customizations">• ${escapeHtml(key)}: ${escapeHtml(value.option)} (+$${Number(value.price).toFixed(2)})</div>`;
         });
       }
       
@@ -1573,7 +1582,7 @@
         } catch (error) {
           console.error('Form submission error:', error);
           errorMessage.classList.add('show');
-          errorMessage.innerHTML = `<strong>Error:</strong> ${error.message || 'There was a problem sending your message. Please try again or contact us directly.'}`;
+          errorMessage.innerHTML = `<strong>Error:</strong> ${escapeHtml(error.message || 'There was a problem sending your message. Please try again or contact us directly.')}`;
           errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } finally {
           // Reset button state
