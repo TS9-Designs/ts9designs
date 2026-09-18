@@ -6,14 +6,14 @@ TS9Designs is not an architecture firm and does not represent itself as providin
 
 ## Key pages
 
-- [Homepage](https://ts9designs.com/): overview of services, pricing, and portfolio.
-- [About](https://ts9designs.com/about.html): firm background and licensure notice.
-- [Residential plans](https://ts9designs.com/residential.html): pre-designed and custom residential plan offerings.
-- [Commercial projects](https://ts9designs.com/commercial.html): commercial build-out and ground-up project examples.
-- [Permit-ready estimate calculator](https://ts9designs.com/permit-estimate.html): instant pricing-range estimate tool by project type, square footage, state, scope, and timeline.
-- [Case studies](https://ts9designs.com/case-studies/index.html): detailed project write-ups (MEP scope, challenges, outcomes) for real completed projects.
-- [Contact](https://ts9designs.com/contact.html): contact form and direct contact details.
-- [Privacy policy](https://ts9designs.com/privacypolicy.html)
+- [Homepage](https://www.ts9designs.com/): overview of services, pricing, and portfolio.
+- [About](https://www.ts9designs.com/about.html): firm background and licensure notice.
+- [Residential plans](https://www.ts9designs.com/residential.html): pre-designed and custom residential plan offerings.
+- [Commercial projects](https://www.ts9designs.com/commercial.html): commercial build-out and ground-up project examples.
+- [Permit-ready estimate calculator](https://www.ts9designs.com/permit-estimate.html): instant pricing-range estimate tool by project type, square footage, state, scope, and timeline.
+- [Case studies](https://www.ts9designs.com/case-studies/index.html): detailed project write-ups (MEP scope, challenges, outcomes) for real completed projects.
+- [Contact](https://www.ts9designs.com/contact.html): contact form and direct contact details.
+- [Privacy policy](https://www.ts9designs.com/privacypolicy.html)
 
 ## Services
 
