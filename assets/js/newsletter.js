@@ -27,10 +27,22 @@ function TS9_initNewsletterForms() {
 
   forms.forEach((form) => {
     form.setAttribute('data-newsletter-bound', 'true');
+    form.dataset.renderedAt = Date.now();
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       const emailInput = form.querySelector('input[type="email"]');
       if (!emailInput) return;
+
+      // Bot check: honeypot field filled, or submitted implausibly fast.
+      // Fake a normal success so bots don't learn to adapt.
+      const honeypot = form.querySelector('.hp-field');
+      const filledTooFast = Date.now() - Number(form.dataset.renderedAt || 0) < 1500;
+      if ((honeypot && honeypot.value) || filledTooFast) {
+        alert('You are subscribed. Thanks for signing up!');
+        form.reset();
+        return;
+      }
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.textContent : '';
