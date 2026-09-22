@@ -34,20 +34,15 @@ function firstName(name) {
 
 // Icon badge — self-hosted PNGs for the real Facebook/Instagram marks
 // (hotlinking a third-party icon CDN is fragile for something sent in
-// outbound email forever). Text monogram for "Website" since there's no
-// single universal glyph for that the way there is for the two platforms.
+// outbound email forever).
 function socialIconBadge(href, label, imgUrl) {
   return `<a href="${href}" style="display:inline-block;width:28px;height:28px;margin:0 4px;" aria-label="${escapeHtml(label)}"><img src="${imgUrl}" width="28" height="28" alt="${escapeHtml(label)}" style="display:block;border-radius:50%;"></a>`;
-}
-function socialBadge(href, label, glyph) {
-  return `<a href="${href}" style="display:inline-block;width:28px;height:28px;line-height:28px;border-radius:50%;background:${BRAND.cardBg};color:${BRAND.dark};text-decoration:none;font-size:11px;font-weight:700;text-align:center;margin:0 4px;" aria-label="${escapeHtml(label)}">${glyph}</a>`;
 }
 
 function footerBlock(complianceNote) {
   const social = [
     socialIconBadge(COMPANY.facebook, "Facebook", COMPANY.facebookIcon),
-    socialIconBadge(COMPANY.instagram, "Instagram", COMPANY.instagramIcon),
-    socialBadge(COMPANY.website, "Website", "W")
+    socialIconBadge(COMPANY.instagram, "Instagram", COMPANY.instagramIcon)
   ].join("");
   return `
     <tr><td style="padding:20px 36px;background:${BRAND.cardBg};text-align:center;">
@@ -217,6 +212,10 @@ export function renderEstimateAutoReply(fields) {
   const bodyHtml = `
     <p style="margin:0;font-size:14px;line-height:1.6;color:${BRAND.text};text-align:center;">We've received your estimate request and will follow up shortly.</p>
     ${rangeBox(fields.estimateLow, fields.estimateHigh)}
+    <p style="margin:10px 0 0;font-size:12px;line-height:1.6;color:${BRAND.muted};text-align:center;">This range is preliminary, based on the details you shared — final pricing is confirmed after review.</p>
+    <div style="margin:20px 0 0;padding:16px 20px;background:${BRAND.cardBg};border-radius:12px;text-align:center;">
+      <p style="margin:0;font-size:13px;line-height:1.6;color:${BRAND.text};">Have floor plans, site photos, or reference images? Just reply to this email and attach them — it helps us scope your project faster.</p>
+    </div>
     <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:${BRAND.muted};text-align:center;">A lead designer will be in touch soon to confirm scope and next steps.</p>
   `;
   return {
