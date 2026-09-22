@@ -784,6 +784,7 @@
 
           <!-- Contact Form -->
           <form class="contact-form" id="contact-form">
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <!-- Success/Error Messages -->
             <div class="message success" id="success-message">
               <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
@@ -943,67 +944,25 @@
   <!-- Footer -->
 <div id="site-footer-root"></div>
 <script src="assets/js/newsletter.js"></script>
-  <script src="assets/js/emailjs-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/mailer-config.js"></script>
+  <script src="assets/js/ts9-mailer.js"></script>
   <script>
-    const emailJsConfig = {
-      publicKey: window.TS9_EMAILJS_PUBLIC_KEY || "",
-      serviceId: window.TS9_EMAILJS_SERVICE_ID || "",
-      templateId: window.TS9_EMAILJS_CONTACT_TEMPLATE_ID || ""
-    };
-    let emailJsReady = false;
-
-    function ensureEmailJsReady() {
-      if (
-        typeof window.emailjs === "undefined" ||
-        !emailJsConfig.publicKey ||
-        !emailJsConfig.serviceId ||
-        !emailJsConfig.templateId
-      ) {
-        return false;
-      }
-      if (!emailJsReady) {
-        window.emailjs.init({ publicKey: emailJsConfig.publicKey });
-        emailJsReady = true;
-      }
-      return true;
-    }
-
-    function toEmailJsParams(formData) {
+    function toContactFields(formData) {
       const get = (key) => {
         const v = formData.get(key);
         return typeof v === "string" ? v : "";
       };
       const fullName = [get("firstName"), get("lastName")].filter(Boolean).join(" ") || "Website Lead";
-      const email = get("email");
-      const phone = get("phone");
-      const projectType = get("projectType");
-      const location = get("location");
-      const timeline = get("timeline");
-      const budget = get("budget");
-      const message = get("message");
 
       return {
-        from_name: fullName,
-        reply_to: email,
-        phone_number: phone,
-        project_type: projectType,
-        project_state: "",
-        project_city: location,
-        estimated_range: "",
-        subject: "New Contact Form Submission",
-        message: [
-          `Name: ${fullName}`,
-          `Email: ${email}`,
-          `Phone: ${phone}`,
-          `Project Type: ${projectType}`,
-          `Location: ${location}`,
-          `Timeline: ${timeline}`,
-          `Budget: ${budget}`,
-          `Details: ${message}`
-        ].join("\n"),
-        to_email: "info@ts9designs.com",
-        form_type: "contact"
+        name: fullName,
+        email: get("email"),
+        phone: get("phone"),
+        projectType: get("projectType"),
+        location: get("location"),
+        timeline: get("timeline"),
+        budget: get("budget"),
+        message: get("message")
       };
     }
 
@@ -1230,31 +1189,35 @@
       const submitLoading = document.getElementById('submit-loading');
       const successMessage = document.getElementById('success-message');
       const errorMessage = document.getElementById('error-message');
-      
+      const renderedAt = Date.now();
+
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
+
+        const honeypot = form.querySelector('.hp-field');
+        if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
+          successMessage.classList.add('show');
+          form.reset();
+          return;
+        }
+
         // Show loading state
         submitText.style.display = 'none';
         submitLoading.style.display = 'flex';
         submitBtn.disabled = true;
-        
+
         // Hide previous messages
         successMessage.classList.remove('show');
         errorMessage.classList.remove('show');
-        
+
         try {
           const formData = new FormData(form);
 
-          if (!ensureEmailJsReady()) {
-            throw new Error('EmailJS is not configured yet. Add TS9_EMAILJS_PUBLIC_KEY, TS9_EMAILJS_SERVICE_ID, and TS9_EMAILJS_CONTACT_TEMPLATE_ID in your page config.');
-          }
-          await window.emailjs.send(
-            emailJsConfig.serviceId,
-            emailJsConfig.templateId,
-            toEmailJsParams(formData)
-          );
-          
+          await window.TS9_sendMail('contact', toContactFields(formData), {
+            honeypot: honeypot ? honeypot.value : '',
+            renderedAt: renderedAt
+          });
+
           // Show success message
           successMessage.classList.add('show');
           form.reset();
