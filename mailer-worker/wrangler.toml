@@ -5,7 +5,7 @@ compatibility_date = "2024-11-01"
 [vars]
 ALLOWED_ORIGINS = "https://www.ts9designs.com,https://ts9designs.com"
 NOTIFY_EMAIL = "info@ts9designs.com"
-FROM_EMAIL = "TS9Designs Website <notifications@ts9designs.com>"
+FROM_EMAIL = "TS9Designs <info@ts9designs.com>"
 ESTIMATE_CC_EMAIL = "nadif@ts9designs.com"
 
 # Secret (never in this file): set with
