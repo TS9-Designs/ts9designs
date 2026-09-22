@@ -1473,8 +1473,8 @@
 
 <div id="site-footer-root" data-footer-variant="compact"></div>
 <script src="assets/js/newsletter.js"></script>
-  <script src="assets/js/emailjs-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/mailer-config.js"></script>
+  <script src="assets/js/ts9-mailer.js"></script>
   <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
   <script>
     // Service states (per business scope) — full US list not shown
@@ -1535,6 +1535,7 @@
     const fieldsForPricing = ["projectType", "squareFootage", "state", "projectCity", "scope", "timeline"];
     const messageNode = document.getElementById("formMessage");
     const submitBtn = document.getElementById("submitBtn");
+    const estimateFormRenderedAt = Date.now();
     const toastStack = document.getElementById("toastStack");
     const mobileNavToggle = document.getElementById("mobileNavToggle");
     const topNav = document.getElementById("topNav");
@@ -1546,66 +1547,27 @@
       "not-sure": "Not Sure (Need Recommendation)"
     };
     const availableScopeCards = ["full-set", "mep-only"];
-    const emailJsConfig = {
-      publicKey: window.TS9_EMAILJS_PUBLIC_KEY || "cvQPyDef_aRF81Ya1",
-      serviceId: window.TS9_EMAILJS_SERVICE_ID || "service_rhhe3l3",
-      templateId: window.TS9_EMAILJS_PERMIT_TEMPLATE_ID || "template_63b7m05"
-    };
-    let emailJsReady = false;
     let wizardController = null;
 
-    function canUseEmailJs() {
-      return typeof window.emailjs !== "undefined" &&
-        emailJsConfig.publicKey &&
-        emailJsConfig.serviceId &&
-        emailJsConfig.templateId;
-    }
-
-    function ensureEmailJsReady() {
-      if (!canUseEmailJs()) return false;
-      if (!emailJsReady) {
-        window.emailjs.init({ publicKey: emailJsConfig.publicKey });
-        emailJsReady = true;
-      }
-      return true;
-    }
-
-    function toEmailJsParams(formData) {
-      const params = {};
+    function toEstimateFields(formData) {
+      const raw = {};
       formData.forEach((value, key) => {
         if (key === "hp_company_url") return;
-        params[key] = typeof value === "string" ? value : "";
+        raw[key] = typeof value === "string" ? value : "";
       });
-      const projectTypeLabel = selectOptionLabel(projectTypeSelect, params.projectType || "");
-      const scopeLabel = selectOptionLabel(scopeSelect, params.scope || "");
-      const timelineLabel = selectOptionLabel(document.getElementById("timeline"), params.timeline || "");
-
-      // Common EmailJS template fields (helps avoid 400 when template expects default names)
-      params.from_name = params.name || "Website Lead";
-      params.reply_to = params.email || "";
-      params.phone_number = params.phone || "";
-      params.project_type = projectTypeLabel || params.projectType || "";
-      params.project_state = params.state || "";
-      params.project_city = params.city || "";
-      params.estimated_range = `$${params.estimateLow || ""} - $${params.estimateHigh || ""}`;
-      params.subject = "Permit-Ready Estimate Request";
-      params.message = [
-        "Permit-Ready Estimate Request",
-        `Name: ${params.name || ""}`,
-        `Email: ${params.email || ""}`,
-        `Phone: ${params.phone || ""}`,
-        `Project Type: ${projectTypeLabel || params.projectType || ""}`,
-        `Square Footage: ${params.squareFootage || ""}`,
-        `State: ${params.state || ""}`,
-        `City / Metro: ${params.city || ""}`,
-        `Scope: ${scopeLabel || params.scope || ""}`,
-        `Timeline: ${timelineLabel || params.timeline || ""}`,
-        `Estimate Range: $${params.estimateLow || ""} - $${params.estimateHigh || ""}`,
-        `Source: ${params.sourcePage || ""}`,
-      ].join("\n");
-      params.to_email = "info@ts9designs.com";
-      params.form_type = "permit_estimate";
-      return params;
+      return {
+        name: raw.name || "",
+        email: raw.email || "",
+        phone: raw.phone || "",
+        projectType: selectOptionLabel(projectTypeSelect, raw.projectType || "") || raw.projectType || "",
+        squareFootage: raw.squareFootage || "",
+        state: raw.state || "",
+        city: raw.city || "",
+        scope: selectOptionLabel(scopeSelect, raw.scope || "") || raw.scope || "",
+        timeline: selectOptionLabel(document.getElementById("timeline"), raw.timeline || "") || raw.timeline || "",
+        estimateLow: raw.estimateLow || "",
+        estimateHigh: raw.estimateHigh || ""
+      };
     }
 
     function bindSelectionCards() {
@@ -2068,21 +2030,26 @@
         return;
       }
 
+      const honeypot = document.getElementById("hp_company_url");
+      if ((honeypot && honeypot.value) || Date.now() - estimateFormRenderedAt < 1500) {
+        clearEstimateForm();
+        setMessage(
+          "success",
+          "Estimate request received. Our team has your details and a lead designer will follow up shortly."
+        );
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending...";
       setMessage("", "");
 
       try {
         const payload = new FormData(form);
-        if (!ensureEmailJsReady()) {
-          throw new Error("EmailJS is not configured yet. Add TS9_EMAILJS_PUBLIC_KEY, TS9_EMAILJS_SERVICE_ID, and TS9_EMAILJS_PERMIT_TEMPLATE_ID in your page config.");
-        }
-
-        await window.emailjs.send(
-          emailJsConfig.serviceId,
-          emailJsConfig.templateId,
-          toEmailJsParams(payload)
-        );
+        await window.TS9_sendMail("estimate", toEstimateFields(payload), {
+          honeypot: honeypot ? honeypot.value : "",
+          renderedAt: estimateFormRenderedAt
+        });
 
         clearEstimateForm();
         setMessage(
@@ -2092,7 +2059,7 @@
       } catch (error) {
         const payload = new FormData(form);
         const mailtoLink = openEstimateMailto(payload, "Permit-Ready Estimate Request", true);
-        console.error("EmailJS send failed:", error);
+        console.error("Mailer send failed:", error);
         setMessage(
           "error",
           `We could not submit through the site right now. Use this email draft to send your request: <a href="${mailtoLink}">open draft</a>.`,
