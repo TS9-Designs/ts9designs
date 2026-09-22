@@ -6,12 +6,16 @@ compatibility_date = "2024-11-01"
 ALLOWED_ORIGINS = "https://www.ts9designs.com,https://ts9designs.com"
 NOTIFY_EMAIL = "info@ts9designs.com"
 FROM_EMAIL = "TS9Designs Website <notifications@ts9designs.com>"
+ESTIMATE_CC_EMAIL = "nadif@ts9designs.com"
 
 # Secret (never in this file): set with
 #   wrangler secret put RESEND_API_KEY
 
-# Optional: create a KV namespace and uncomment to enable per-IP rate
-# limiting (wrangler kv namespace create RATE_LIMIT_KV).
-# [[kv_namespaces]]
-# binding = "RATE_LIMIT_KV"
-# id = "<namespace-id>"
+# Per-IP rate limiting (see src/index.js) — without this, the endpoint's
+# Origin check can be trivially bypassed by any non-browser client (CORS is
+# enforced by browsers, not servers), and fields.email is attacker-
+# controlled, so this is the real backstop against using the confirmation
+# emails to spam arbitrary third parties.
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "4c1c4f764e134db199f9fbe9fa7b2168"
