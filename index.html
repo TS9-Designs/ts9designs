@@ -3101,6 +3101,7 @@
         <div class="col-lg-7">
           <div class="contact-form wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
             <form id="homepage-contact-form">
+              <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="form-group">
                 <label for="contact-name">Name</label>
                 <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
@@ -3205,8 +3206,8 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
-  <script src="assets/js/emailjs-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/mailer-config.js"></script>
+  <script src="assets/js/ts9-mailer.js"></script>
   <script src="assets/js/newsletter.js"></script>
 
   <script>
@@ -3215,64 +3216,37 @@
       if (!form) return;
       const submitBtn = document.getElementById('homepage-contact-submit');
       const statusEl = document.getElementById('homepage-contact-status');
-      const emailJsConfig = {
-        publicKey: window.TS9_EMAILJS_PUBLIC_KEY || '',
-        serviceId: window.TS9_EMAILJS_SERVICE_ID || '',
-        templateId: window.TS9_EMAILJS_CONTACT_TEMPLATE_ID || ''
-      };
-      let emailJsReady = false;
-
-      function ensureEmailJsReady() {
-        if (
-          typeof window.emailjs === 'undefined' ||
-          !emailJsConfig.publicKey ||
-          !emailJsConfig.serviceId ||
-          !emailJsConfig.templateId
-        ) {
-          return false;
-        }
-        if (!emailJsReady) {
-          window.emailjs.init({ publicKey: emailJsConfig.publicKey });
-          emailJsReady = true;
-        }
-        return true;
-      }
+      const renderedAt = Date.now();
 
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         statusEl.textContent = '';
+
+        const honeypot = form.querySelector('.hp-field');
+        if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
+          form.reset();
+          statusEl.textContent = 'Message sent. Our team will follow up shortly.';
+          statusEl.style.color = '#15803d';
+          return;
+        }
+
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
         try {
-          if (!ensureEmailJsReady()) {
-            throw new Error('Messaging is not configured yet. Add TS9_EMAILJS_PUBLIC_KEY, TS9_EMAILJS_SERVICE_ID, and TS9_EMAILJS_CONTACT_TEMPLATE_ID in assets/js/emailjs-config.js.');
-          }
           const formData = new FormData(form);
           const name = formData.get('name') || '';
           const email = formData.get('email') || '';
           const message = formData.get('message') || '';
 
-          const params = {
-            from_name: name || 'Website Lead',
-            reply_to: email,
-            phone_number: '',
-            project_type: 'General Inquiry',
-            project_state: '',
-            project_city: '',
-            estimated_range: '',
-            subject: 'New Website Contact Form Message',
-            message: [
-              `Name: ${name}`,
-              `Email: ${email}`,
-              `Message: ${message}`,
-              `Source: ${window.location.href}`
-            ].join('\n'),
-            to_email: 'info@ts9designs.com',
-            form_type: 'homepage_contact'
-          };
-
-          await window.emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, params);
+          await window.TS9_sendMail('contact', {
+            name: name,
+            email: email,
+            message: message
+          }, {
+            honeypot: honeypot ? honeypot.value : '',
+            renderedAt: renderedAt
+          });
 
           form.reset();
           statusEl.textContent = 'Message sent. Our team will follow up shortly.';
