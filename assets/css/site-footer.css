@@ -8,6 +8,16 @@
   background: #f8fafc;
 }
 
+/* Honeypot: off-screen (not display:none) so most bots that skip hidden
+   fields still fill it, but real users never see or tab into it. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Full variant */
 .site-footer--full {
   color: #0f172a;
