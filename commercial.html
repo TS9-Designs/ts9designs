@@ -977,7 +977,7 @@
             <p class="project-location">Hamilton, New Jersey</p>
             <p class="project-description">Full engineering plans for a new retail location, following corporate design standards.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=mountain-cabin" class="btn btn-outline">View Details</a>
+              <a href="case-studies/pet-supplies-plus-hamilton.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/pet-supplies-plus.pdf">View Full Plans</a>
             </div>
           </div>
@@ -993,7 +993,7 @@
             <p class="project-location">Western Pennsylvania</p>
             <p class="project-description">Building design and engineering plans for a cozy community-focused coffee shop.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=modern-ranch" class="btn btn-outline">View Details</a>
+              <a href="case-studies/conmigo-cafe.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/cafe-conmigo.pdf">View Full Plans</a>
             </div>
           </div>
@@ -1009,7 +1009,7 @@
             <p class="project-location">Dover, New Hampshire</p>
             <p class="project-description">Building design and MEP engineering for an elegant dining destination.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=contemporary-urban" class="btn btn-outline">View Details</a>
+              <a href="case-studies/la-dolce-vita-dover.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/la-dolce-villa.pdf">View Full Plans</a>
             </div>
           </div>
@@ -1025,7 +1025,7 @@
             <p class="project-location">Sacramento, California</p>
             <p class="project-description">MEP engineering for a modern eye care clinic with focus on patient comfort.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=tudor-revival" class="btn btn-outline">View Details</a>
+              <a href="case-studies/eyes-on-j-optometry.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/optometry.pdf">View Full Plans</a>
             </div>
           </div>
@@ -1041,7 +1041,7 @@
             <p class="project-location">Henderson, Nevada</p>
             <p class="project-description">Full building design and MEP plans for a vibrant hospitality space.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=mediterranean-villa" class="btn btn-outline">View Details</a>
+              <a href="case-studies/chefs-roma-kitchen-henderson.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/roma-bar.pdf">View Full Plans</a>
             </div>
           </div>
@@ -1057,7 +1057,7 @@
             <p class="project-location">Las Vegas, Nevada</p>
             <p class="project-description">Building design and engineering plans for a new pizzeria location.</p>
             <div class="project-actions">
-              <a href="plans.html?plan=prairie-style" class="btn btn-outline">View Details</a>
+              <a href="case-studies/luccinos-pizza-tropicana.html" class="btn btn-outline">View Details</a>
               <a href="#" class="btn btn-primary pdf-preview" data-pdf="assets/pdfs/luccinos-pizza.pdf">View Full Plans</a>
             </div>
           </div>
@@ -1142,7 +1142,7 @@
             } else if (residentialChecked && !commercialChecked) {
               window.location.href = 'residential.html';
             } else if (commercialChecked && residentialChecked) {
-              window.location.href = 'plans.html'; // Both selected, go to main plans page
+              window.location.href = 'case-studies/index.html'; // Both selected, go to the full case-study portfolio
             }
           }
         });
@@ -1158,7 +1158,7 @@
           
           // If removing a project type tag, redirect to main plans page
           if (tagText === 'Commercial Project' || tagText === 'Residential Project') {
-            window.location.href = 'plans.html';
+            window.location.href = 'case-studies/index.html';
           } else {
             tag.remove();
           }
