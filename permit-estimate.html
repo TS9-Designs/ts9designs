@@ -1789,7 +1789,7 @@
       const timeline = document.getElementById("timeline").value;
       const normalizedScope = scope === "not-sure" ? "full-set" : scope;
 
-      if (!projectType || !squareFootage || !state || !scope || !timeline) {
+      if (!projectType || !squareFootage || !state) {
         return {
           low: 0, high: 0, baseLow: 0, baseHigh: 0,
           stateFactor: 1, marketFactor: 1, permitFactor: 1, coordinationFactor: 1, reviewFactor: 1, scopeFactor: 1, timelineFactor: 1
