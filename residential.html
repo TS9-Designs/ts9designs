@@ -707,7 +707,119 @@
     .project-actions .btn {
       flex: 1;
     }
-    
+
+    /* Built Highlight */
+    .built-highlight {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--space-6);
+      align-items: stretch;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-slate-border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+      margin: var(--space-6) 0 var(--space-8);
+    }
+
+    .built-highlight__media {
+      min-height: 280px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .built-highlight__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .built-highlight__media img:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: -2px;
+    }
+
+    .built-highlight__media img:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .built-highlight__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-6) var(--space-6) var(--space-6) 0;
+    }
+
+    .built-highlight__eyebrow {
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-2);
+    }
+
+    .built-highlight__body h2 {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-2);
+    }
+
+    .built-highlight__meta {
+      color: var(--color-slate-500);
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--space-4);
+    }
+
+    .built-highlight__stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .built-highlight__stats .stat-chip {
+      display: inline-block;
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--color-slate-900);
+      background-color: #f1f5f9;
+      border: 1px solid var(--color-slate-border);
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+    }
+
+    .built-highlight__body p {
+      color: var(--color-slate-600);
+      margin-bottom: var(--space-5);
+    }
+
+    .built-highlight .btn {
+      align-self: flex-start;
+    }
+
+    @media (max-width: 860px) {
+      .built-highlight {
+        grid-template-columns: 1fr;
+      }
+      .built-highlight__media {
+        min-height: 220px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+      .built-highlight__media img:first-child {
+        grid-column: 1 / 3;
+        grid-row: auto;
+        aspect-ratio: 16/9;
+      }
+      .built-highlight__body {
+        padding: var(--space-5);
+      }
+    }
+
     /* Modal Styles */
     .modal {
       display: none;
@@ -1701,6 +1813,27 @@
       <h1>Residential Projects</h1>
       <p class="text-muted">Explore our collection of residential projects, featuring pre-designed home plans ranging from 1,694 to 2,529 sq ft. All plans are customizable and come with permit-ready construction drawings tailored to meet local building codes across the U.S.</p>
 
+      <!-- Recently Built Highlight -->
+      <section class="built-highlight">
+        <div class="built-highlight__media" id="built-highlight-media">
+          <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed TS9Designs home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="0" aria-label="View larger photos of 1097 W Cary Dr">
+          <img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="5" aria-label="View larger photos of 1097 W Cary Dr">
+          <img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="4" aria-label="View larger photos of 1097 W Cary Dr">
+        </div>
+        <div class="built-highlight__body">
+          <p class="built-highlight__eyebrow">Recently Built</p>
+          <h2>From Plan to Finished Home</h2>
+          <p class="built-highlight__meta">1097 W Cary Dr &middot; Citrus Springs, FL</p>
+          <div class="built-highlight__stats">
+            <span class="stat-chip">4 Bedrooms</span>
+            <span class="stat-chip">3 Bathrooms</span>
+            <span class="stat-chip">2-Car Garage</span>
+          </div>
+          <p>One of our pre-designed residential plans, taken from drawings to a fully permitted, move-in-ready home. Now on the market&mdash;see the finished build.</p>
+          <a class="btn btn-primary" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow</a>
+        </div>
+      </section>
+
       <!-- Project Grid -->
       <div class="grid grid-3-col">
         <!-- Project 1 -->
@@ -1755,6 +1888,57 @@
   </main>
 
   <!-- Modal and cart -->
+  <!-- Built Highlight Lightbox -->
+  <div class="modal" id="built-highlight-modal" aria-hidden="true" role="dialog" aria-labelledby="built-highlight-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="built-highlight-modal-title">1097 W Cary Dr &middot; Citrus Springs, FL</h2>
+        <button class="modal-close" id="built-highlight-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="slideshow-container" id="built-highlight-slideshow">
+          <div class="slideshow-slide active">
+            <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed TS9Designs home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-1">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-1.webp" alt="Front view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-2">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-2.webp" alt="Aerial view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-3">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-3.webp" alt="Kitchen and great room of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-4">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-5">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-6">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-6.webp" alt="Primary bathroom dual vanity at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-7">
+          </div>
+          <div class="slideshow-slide">
+            <img src="assets/images/cary-dr/cary-dr-7.webp" alt="Bedroom hallway at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-8">
+          </div>
+          <button class="slideshow-prev" id="built-highlight-prev" aria-label="Previous image">&#10094;</button>
+          <button class="slideshow-next" id="built-highlight-next" aria-label="Next image">&#10095;</button>
+          <div class="slideshow-dots" id="built-highlight-dots">
+            <button class="slideshow-dot active" aria-label="Image 1"></button>
+            <button class="slideshow-dot" aria-label="Image 2"></button>
+            <button class="slideshow-dot" aria-label="Image 3"></button>
+            <button class="slideshow-dot" aria-label="Image 4"></button>
+            <button class="slideshow-dot" aria-label="Image 5"></button>
+            <button class="slideshow-dot" aria-label="Image 6"></button>
+            <button class="slideshow-dot" aria-label="Image 7"></button>
+            <button class="slideshow-dot" aria-label="Image 8"></button>
+          </div>
+        </div>
+        <a class="btn btn-primary" id="built-highlight-zillow-link" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Details Modal -->
   <div class="modal" id="details-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
     <div class="modal-content">
@@ -1952,6 +2136,54 @@
   <script src="assets/js/ts9-mailer.js"></script>
   <script src="assets/js/newsletter.js"></script>
   <script src="assets/js/website-controller.js"></script>
+  <script>
+    (function () {
+      var modal = document.getElementById("built-highlight-modal");
+      if (!modal) return;
+      var slides = modal.querySelectorAll(".slideshow-slide");
+      var dots = modal.querySelectorAll(".slideshow-dot");
+      var current = 0;
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function (slide, i) { slide.classList.toggle("active", i === current); });
+        dots.forEach(function (dot, i) { dot.classList.toggle("active", i === current); });
+      }
+
+      function openModal(index) {
+        showSlide(index || 0);
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("#built-highlight-media img").forEach(function (img) {
+        img.addEventListener("click", function () { openModal(parseInt(img.getAttribute("data-index"), 10) || 0); });
+        img.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(parseInt(img.getAttribute("data-index"), 10) || 0); }
+        });
+      });
+
+      document.getElementById("built-highlight-close").addEventListener("click", closeModal);
+      document.getElementById("built-highlight-prev").addEventListener("click", function () { showSlide(current - 1); });
+      document.getElementById("built-highlight-next").addEventListener("click", function () { showSlide(current + 1); });
+      dots.forEach(function (dot, i) { dot.addEventListener("click", function () { showSlide(i); }); });
+
+      modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
+      document.addEventListener("keydown", function (e) {
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowLeft") showSlide(current - 1);
+        if (e.key === "ArrowRight") showSlide(current + 1);
+      });
+    })();
+  </script>
   <script src="/assets/js/load-footer.js"></script>
 </body>
 </html>
