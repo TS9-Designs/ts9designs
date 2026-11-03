@@ -306,6 +306,10 @@
       border-bottom: 1px solid var(--color-gray-300);
     }
 
+    @media (max-width: 899px) {
+      .consult-card { padding-right: 0; }
+    }
+
     @media (min-width: 900px) {
       .consult-card { padding-left: var(--space-5); }
       .consult-card:first-child { padding-left: 0; }
@@ -368,6 +372,7 @@
 
     /* Contact Form Styles */
     .contact-form {
+      scroll-margin-top: 96px;
       background: var(--color-white);
       border: var(--border-width) solid var(--color-gray-200);
       border-radius: var(--border-radius-md);
@@ -495,8 +500,13 @@
     .contact-info {
       padding-top: var(--space-2);
       align-self: start;
-      position: sticky;
-      top: 96px;
+    }
+
+    @media (min-width: 992px) {
+      .contact-info {
+        position: sticky;
+        top: 96px;
+      }
     }
 
     .next-steps {
@@ -697,7 +707,7 @@
 
       <section class="consult-section" id="consultations" aria-labelledby="consult-title">
         <h2 id="consult-title">Schedule a Consultation</h2>
-        <p class="consult-intro">Whether you're starting a new construction project, renovating an existing space, or seeking professional engineering guidance, TS9Designs offers convenient consultation options to fit your needs.</p>
+        <p class="consult-intro">Whether you're starting a new construction project, renovating an existing space, or seeking professional engineering or building design guidance, TS9Designs offers convenient consultation options to fit your needs.</p>
 
         <div class="consult-grid">
           <article class="consult-card">
@@ -717,7 +727,7 @@
             <h3>Engineering Consultation &mdash; 30 Minutes</h3>
             <p class="consult-price">$99</p>
             <ul class="consult-includes">
-              <li>Preliminary engineering guidance</li>
+              <li>Preliminary engineering and building design guidance</li>
               <li>Discussion of applicable building code requirements</li>
               <li>MEP, structural, and fire protection design considerations, as applicable</li>
               <li>Permitting and plan review concerns</li>
@@ -732,7 +742,7 @@
             <ul class="consult-includes">
               <li>Up to 30 minutes of preliminary document review before the appointment</li>
               <li>60-minute consultation</li>
-              <li>Discussion of potential design and coordination issues</li>
+              <li>Building design review: design and coordination issues</li>
               <li>Preliminary code compliance observations</li>
               <li>Recommendations for corrections and next steps</li>
             </ul>
@@ -792,22 +802,22 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name *</label>
-                <input type="text" id="first-name" name="firstName" required>
+                <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
               </div>
               <div class="form-group">
                 <label for="last-name">Last Name *</label>
-                <input type="text" id="last-name" name="lastName" required>
+                <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" autocomplete="email" required>
               </div>
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
               </div>
             </div>
 
@@ -932,9 +942,9 @@
 
   <!-- Footer -->
 <div id="site-footer-root"></div>
-<script src="assets/js/newsletter.js"></script>
-  <script src="assets/js/mailer-config.js"></script>
-  <script src="assets/js/ts9-mailer.js"></script>
+<script src="/assets/js/newsletter.js"></script>
+  <script src="/assets/js/mailer-config.js"></script>
+  <script src="/assets/js/ts9-mailer.js"></script>
   <script>
     function toContactFields(formData) {
       const get = (key) => {
@@ -943,14 +953,20 @@
       };
       const fullName = [get("firstName"), get("lastName")].filter(Boolean).join(" ") || "Website Lead";
 
+      // Send the visible option text ("Architectural Design"), not the slug.
+      const label = (id) => {
+        const el = document.getElementById(id);
+        return el && el.value ? el.options[el.selectedIndex].text : "";
+      };
+
       return {
         name: fullName,
         email: get("email"),
         phone: get("phone"),
-        projectType: get("projectType"),
+        projectType: label("project-type"),
         location: get("location"),
-        timeline: get("timeline"),
-        budget: get("budget"),
+        timeline: label("timeline"),
+        budget: label("budget"),
         message: get("message")
       };
     }
@@ -1160,12 +1176,6 @@
       
       orderItems.innerHTML = itemsHTML;
       orderSummary.style.display = 'block';
-    }
-
-    function isStaticLocalPreview() {
-      const host = window.location.hostname;
-      const port = window.location.port;
-      return (host === '127.0.0.1' || host === 'localhost') && port === '5500';
     }
 
     // Initialize form functionality
