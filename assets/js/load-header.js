@@ -2,8 +2,8 @@
  * Mounts the shared site header/nav "component" (assets/partials/header.html)
  * into <div id="site-header-root"></div>. The host page declares which nav
  * item is current via <body data-nav-active="home|about|services|pricing|
- * projects|plans|case-studies|estimate"> (omit the attribute for pages with
- * no matching nav item, e.g. contact.html).
+ * projects|plans|case-studies|estimate|contact"> (omit the attribute for pages
+ * with no matching nav item).
  */
 (function () {
   const root = document.getElementById('site-header-root');

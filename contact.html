@@ -74,8 +74,8 @@
       
       /* Grid */
       --grid-columns: 12;
-      --container-width: 1440px;
-      --container-padding: var(--space-4);
+      --container-width: 1120px;
+      --container-padding: var(--space-5);
       
       /* Transitions */
       --transition-fast: 150ms ease;
@@ -174,6 +174,10 @@
       margin: 0 auto;
       padding: 0 var(--container-padding);
     }
+
+    @media (min-width: 768px) {
+      :root { --container-padding: var(--space-6); }
+    }
     
     .grid {
       display: grid;
@@ -192,60 +196,21 @@
     
     .contact-section {
       padding: var(--space-8) 0 var(--space-9);
-      min-height: calc(100vh - 200px);
     }
 
     .contact-hero {
       margin-bottom: var(--space-7);
-      padding: var(--space-6);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: 22px;
-      background: var(--color-gray-50);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-    }
-
-    .contact-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: var(--space-3);
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(77, 166, 231, 0.3);
-      background: rgba(77, 166, 231, 0.08);
-      color: var(--color-accent-dark);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
     }
 
     .contact-hero h1 {
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--space-2);
     }
 
     .contact-hero .text-muted {
-      max-width: 760px;
-      font-size: 1.02rem;
+      max-width: 640px;
       margin-bottom: 0;
     }
 
-    .breadcrumb {
-      margin-bottom: var(--space-4);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--color-gray-500);
-      font-size: 0.85rem;
-    }
-
-    .breadcrumb a {
-      color: var(--color-gray-500);
-    }
-
-    .breadcrumb a:hover {
-      color: var(--color-accent-dark);
-    }
-    
     /* Buttons */
     .btn {
       display: inline-flex;
@@ -293,22 +258,120 @@
     }
     
     .btn-accent {
-      background-color: #0f172a;
+      background-color: var(--color-black);
       color: var(--color-white);
     }
 
     .btn-accent:hover {
-      background-color: #d5a80f;
-      color: #0f172a;
+      background-color: var(--color-gray-700);
+      color: var(--color-white);
     }
-    
+
+    /* Schedule a Consultation — minimal / Swiss */
+    .consult-section {
+      margin-bottom: var(--space-7);
+      padding: var(--space-6) 0 0;
+      border-top: 2px solid var(--color-black);
+    }
+
+    .consult-section h2 {
+      margin-bottom: var(--space-2);
+    }
+
+    .consult-intro {
+      max-width: 640px;
+      margin-bottom: var(--space-6);
+      color: var(--color-gray-600);
+    }
+
+    .consult-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--color-gray-300);
+    }
+
+    @media (min-width: 900px) {
+      .consult-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .consult-card + .consult-card {
+        border-left: 1px solid var(--color-gray-300);
+      }
+    }
+
+    .consult-card {
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-5) var(--space-5) var(--space-5) 0;
+      border-bottom: 1px solid var(--color-gray-300);
+    }
+
+    @media (min-width: 900px) {
+      .consult-card { padding-left: var(--space-5); }
+      .consult-card:first-child { padding-left: 0; }
+    }
+
+    .consult-card h3 {
+      margin: 0 0 var(--space-4);
+      font-size: var(--font-size-lg);
+    }
+
+    .consult-price {
+      margin: 0 0 var(--space-4);
+      font-size: 2.5rem;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--color-black);
+    }
+
+    .consult-includes {
+      margin: 0 0 var(--space-4);
+      padding: 0;
+      list-style: none;
+    }
+
+    .consult-includes li {
+      padding: var(--space-2) 0;
+      border-top: 1px solid var(--color-gray-200);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-700);
+    }
+
+    .consult-note {
+      margin: auto 0 var(--space-4);
+      font-size: var(--font-size-xs);
+      color: var(--color-gray-500);
+    }
+
+    .consult-cta {
+      width: 100%;
+    }
+
+    .policy-card {
+      margin-top: var(--space-5);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+    }
+
+    .policy-card h4 {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-black);
+      margin-bottom: var(--space-1);
+    }
+
+    .policy-card p {
+      margin: 0 0 var(--space-1);
+    }
+
     /* Contact Form Styles */
     .contact-form {
       background: var(--color-white);
       border: var(--border-width) solid var(--color-gray-200);
-      border-radius: 20px;
-      padding: var(--space-8);
-      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.08);
+      border-radius: var(--border-radius-md);
+      padding: var(--space-7);
     }
     
     .form-group {
@@ -333,7 +396,7 @@
       font-family: var(--font-family);
       font-size: var(--font-size-md);
       transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
-      background-color: #fcfdff;
+      background-color: var(--color-white);
     }
     
     .form-group input:focus,
@@ -341,8 +404,7 @@
     .form-group select:focus {
       outline: none;
       border-color: var(--color-accent);
-      box-shadow: 0 0 0 4px rgba(77, 166, 231, 0.14);
-      transform: translateY(-1px);
+      box-shadow: 0 0 0 3px rgba(77, 166, 231, 0.18);
     }
     
     .form-group textarea {
@@ -431,18 +493,66 @@
     
     /* Contact Info Styles */
     .contact-info {
-      background: #0f172a;
-      color: var(--color-white);
-      border-radius: 20px;
-      padding: var(--space-8);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
+      padding-top: var(--space-2);
       align-self: start;
+      position: sticky;
+      top: 96px;
+    }
+
+    .next-steps {
+      margin: 0 0 var(--space-7);
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .next-steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-gray-200);
+      color: var(--color-gray-600);
+    }
+
+    .next-steps li::before {
+      content: counter(step);
+      flex: none;
+      width: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .next-steps strong {
+      color: var(--color-black);
+    }
+
+    .form-lead {
+      margin-bottom: var(--space-5);
+      color: var(--color-gray-500);
+    }
+
+    .form-step {
+      margin: 0 0 var(--space-3);
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--color-gray-200);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-gray-500);
+    }
+
+    .form-footnote {
+      margin: var(--space-3) 0 0;
+      text-align: center;
+      font-size: var(--font-size-xs);
+      color: var(--color-gray-500);
     }
     
     .contact-info h3 {
-      color: var(--color-white);
-      margin-bottom: var(--space-6);
+      margin-bottom: var(--space-5);
     }
     
     .contact-item {
@@ -450,7 +560,7 @@
       align-items: flex-start;
       margin-bottom: var(--space-5);
       padding-bottom: var(--space-4);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      border-bottom: 1px solid var(--color-gray-200);
     }
     
     .contact-item:last-child {
@@ -463,27 +573,18 @@
       margin-right: var(--space-3);
       margin-top: 2px;
       flex-shrink: 0;
-      color: var(--color-accent);
+      color: var(--color-gray-500);
     }
     
     .contact-item-content h4 {
+      font-size: var(--font-size-sm);
       font-weight: 600;
       margin-bottom: var(--space-1);
-      color: var(--color-white);
     }
     
     .contact-item-content p {
       margin-bottom: 0;
-      color: var(--color-gray-300);
-    }
-    
-    .contact-item-content a {
-      color: var(--color-accent);
-      transition: color var(--transition-fast);
-    }
-    
-    .contact-item-content a:hover {
-      color: var(--color-white);
+      color: var(--color-gray-600);
     }
     
     /* Success/Error Messages */
@@ -532,110 +633,6 @@
       100% { transform: rotate(360deg); }
     }
     
-    /* Footer - Same as residential.html */
-    .site-footer {
-      background-color: var(--color-gray-800);
-      color: var(--color-white);
-      padding: var(--space-9) 0 var(--space-6);
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--space-6);
-      margin-bottom: var(--space-8);
-    }
-    
-    .footer-logo {
-      font-weight: 700;
-      font-size: var(--font-size-xl);
-      display: flex;
-      align-items: center;
-      color: var(--color-white);
-      margin-bottom: var(--space-4);
-    }
-    
-    .footer-logo svg {
-      margin-right: var(--space-2);
-    }
-    
-    .footer-about {
-      color: var(--color-gray-300);
-      margin-bottom: var(--space-4);
-    }
-    
-    .footer-social {
-      display: flex;
-      gap: var(--space-3);
-    }
-    
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background-color: var(--color-gray-700);
-      border-radius: 50%;
-      color: var(--color-white);
-      transition: background-color var(--transition-fast);
-    }
-    
-    .social-link:hover {
-      background-color: var(--color-accent);
-    }
-    
-    .footer-heading {
-      font-size: var(--font-size-md);
-      font-weight: 600;
-      margin-bottom: var(--space-4);
-      color: var(--color-white);
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-link-item {
-      margin-bottom: var(--space-2);
-    }
-    
-    .footer-link {
-      color: var(--color-gray-300);
-      transition: color var(--transition-fast);
-    }
-    
-    .footer-link:hover {
-      color: var(--color-white);
-    }
-    
-    .footer-newsletter {
-      margin-top: var(--space-4);
-    }
-    
-    .newsletter-form {
-      display: flex;
-      margin-top: var(--space-2);
-    }
-    
-    .newsletter-input {
-      flex: 1;
-      padding: var(--space-2) var(--space-3);
-      border: none;
-      border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
-      font-family: var(--font-family);
-      font-size: var(--font-size-sm);
-    }
-    
-    .newsletter-button {
-      background-color: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-      padding: var(--space-2) var(--space-3);
-      font-weight: 500;
-    }
-    
     /* Utilities */
     .text-accent {
       color: var(--color-accent);
@@ -658,17 +655,6 @@
     }
     
     /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-      
-      .footer-about-column {
-        grid-column: span 3;
-        margin-bottom: var(--space-6);
-      }
-    }
-    
     @media (max-width: 768px) {
       .grid-2-col {
         grid-template-columns: 1fr;
@@ -678,34 +664,12 @@
         padding: var(--space-6) 0;
       }
 
-      .contact-hero {
-        padding: var(--space-5);
-        border-radius: 16px;
-      }
-      
       .contact-form {
         padding: var(--space-6);
-      }
-      
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-6) var(--space-4);
-      }
-      
-      .footer-about-column {
-        grid-column: span 2;
       }
     }
     
     @media (max-width: 480px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-about-column {
-        grid-column: span 1;
-      }
-      
       h1 {
         font-size: var(--font-size-3xl);
       }
@@ -714,39 +678,11 @@
         padding: var(--space-4);
       }
       
-      .contact-info {
-        padding: var(--space-6);
-      }
     }
   
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
-.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
-.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
-.footer-social{display:flex;gap:.6rem}
-.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
-.social-link:hover{background:#4da6e7;color:#fff}
-.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
-.footer-links{list-style:none;margin:0;padding:0}
-.footer-link-item{margin-bottom:.6rem}
-.footer-link{color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
-.footer-link:hover{color:#1d4ed8}
-.footer-newsletter{margin-top:1.5rem}
-.newsletter-form{display:flex;gap:.4rem}
-.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
-.newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
-.newsletter-button:hover{background:#1e3a8a}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
-.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
-.footer-legal{display:flex;gap:1rem}
-.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
-.legal-link:hover{color:#1d4ed8}
-@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body data-nav-active="contact">
   <div id="site-header-root"></div>
   <script src="/assets/js/load-header.js"></script>
 
@@ -754,14 +690,70 @@
   <main class="contact-section">
     <div class="container">
       <section class="contact-hero" aria-label="Contact introduction">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span>/</span>
-          <span>Contact</span>
-        </nav>
-        <span class="contact-eyebrow">Book A Call</span>
         <h1 id="page-title">Contact TS9Designs</h1>
-        <p class="text-muted" id="page-description">Get in touch with our team for custom home plans, building design, engineering plans, and permit-ready construction drawings.</p>
+        <p class="text-muted" id="page-description">Book a call or send us your project details.</p>
+        <a class="btn btn-primary" href="#contact-form" style="margin-top: var(--space-5);">Request a Quote</a>
+      </section>
+
+      <section class="consult-section" id="consultations" aria-labelledby="consult-title">
+        <h2 id="consult-title">Schedule a Consultation</h2>
+        <p class="consult-intro">Whether you're starting a new construction project, renovating an existing space, or seeking professional engineering guidance, TS9Designs offers convenient consultation options to fit your needs.</p>
+
+        <div class="consult-grid">
+          <article class="consult-card">
+            <h3>Free Project Discovery Call &mdash; 15 Minutes</h3>
+            <p class="consult-price">FREE</p>
+            <ul class="consult-includes">
+              <li>Initial project discussion</li>
+              <li>Identification of required services</li>
+              <li>Preliminary timeline discussion</li>
+              <li>Explanation of our design process</li>
+              <li>Next steps for receiving a proposal</li>
+            </ul>
+            <p class="consult-note">This appointment is intended for new project inquiries. Technical engineering advice, detailed code analysis, and drawing reviews are not included.</p>
+            <a class="btn btn-accent consult-cta" href="https://cal.com/nadif-bracey/discoverycall" target="_blank" rel="noopener">Book Free Call</a>
+          </article>
+          <article class="consult-card">
+            <h3>Engineering Consultation &mdash; 30 Minutes</h3>
+            <p class="consult-price">$99</p>
+            <ul class="consult-includes">
+              <li>Preliminary engineering guidance</li>
+              <li>Discussion of applicable building code requirements</li>
+              <li>MEP, structural, and fire protection design considerations, as applicable</li>
+              <li>Permitting and plan review concerns</li>
+              <li>Recommendations for next steps</li>
+            </ul>
+            <p class="consult-note">This is a consultation service and does not include engineering drawings, calculations, written reports, or professional seals. Advice requiring jurisdiction-specific professional licensure will be handled by an appropriately licensed professional.</p>
+            <a class="btn btn-accent consult-cta" href="https://cal.com/nadif-bracey/engineeringconsultation" target="_blank" rel="noopener">Book Consultation</a>
+          </article>
+          <article class="consult-card">
+            <h3>Drawing Review Consultation &mdash; 60 Minutes</h3>
+            <p class="consult-price">$199</p>
+            <ul class="consult-includes">
+              <li>Up to 30 minutes of preliminary document review before the appointment</li>
+              <li>60-minute consultation</li>
+              <li>Discussion of potential design and coordination issues</li>
+              <li>Preliminary code compliance observations</li>
+              <li>Recommendations for corrections and next steps</li>
+            </ul>
+            <p class="consult-note">This appointment does not include revised drawings, calculations, written engineering reports, formal code compliance certification, or signed and sealed documents. These services require a separate proposal.</p>
+            <a class="btn btn-accent consult-cta" href="https://cal.com/nadif-bracey/60min" target="_blank" rel="noopener">Book Drawing Review</a>
+          </article>
+        </div>
+
+        <div class="policy-card">
+          <h4>Consultation Fee Credit</h4>
+          <p>If you hire TS9Designs for a qualifying design or engineering project within 30 days of your paid consultation, 100% of your consultation fee will be credited toward your project contract.</p>
+          <p>The credit is applied after the design agreement is signed and the required deposit is received.</p>
+          <p>Consultation credits may only be applied once and have no cash value.</p>
+        </div>
+
+        <div class="policy-card">
+          <h4>Cancellation &amp; Rescheduling</h4>
+          <p>Appointments may be rescheduled once at no additional charge when requested at least 24 hours before the scheduled start time.</p>
+          <p>Cancellations made at least 24 hours in advance are eligible for a full refund. Cancellations within 24 hours and missed appointments are nonrefundable.</p>
+          <p>If TS9Designs must cancel an appointment, the client may choose a full refund or rescheduling.</p>
+        </div>
       </section>
 
       <div class="grid grid-2-col">
@@ -787,16 +779,16 @@
             <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <!-- Success/Error Messages -->
             <div class="message success" id="success-message">
-              <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+              <strong>Sent.</strong> We'll reply within 24 hours.
             </div>
             <div class="message error" id="error-message">
-              <strong>Error:</strong> There was a problem sending your message. Please try again or contact us directly.
+              <strong>Error:</strong> Message not sent. Please try again or email us.
             </div>
 
-            <h2 id="form-title">Get Your Quote</h2>
-            <p class="text-muted" id="form-description">Fill out the form below and we'll get back to you with a detailed quote for your project.</p>
+            <h2 id="form-title">Request a Quote</h2>
+            <p class="form-lead" id="form-description">For design projects. No consultation purchase required.</p>
 
-            <!-- Contact Information -->
+            <p class="form-step">Your details</p>
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name *</label>
@@ -810,42 +802,54 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="email">Email Address *</label>
+                <label for="email">Email *</label>
                 <input type="email" id="email" name="email" required>
               </div>
               <div class="form-group">
-                <label for="phone">Phone Number</label>
+                <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone">
               </div>
             </div>
 
-            <!-- Project Information -->
-            <div class="form-group">
-              <label for="project-type">Project Type *</label>
-              <select id="project-type" name="projectType" required>
-                <option value="">Select a project type</option>
-                <option value="residential-new">New Residential Construction</option>
-                <option value="residential-renovation">Residential Renovation</option>
-                <option value="commercial-new">New Commercial Construction</option>
-                <option value="commercial-renovation">Commercial Renovation</option>
-                <option value="pre-designed-plan">Pre-Designed Plan Purchase</option>
-                <option value="custom-design">Custom Design Services</option>
-                <option value="mep-services">MEP Engineering Services</option>
-                <option value="structural-engineering">Structural Engineering</option>
-                <option value="permit-assistance">Permit Assistance</option>
-                <option value="other">Other</option>
-              </select>
+            <p class="form-step">Your project</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="project-type">Service *</label>
+                <select id="project-type" name="projectType" required>
+                  <option value="">Select a service</option>
+                  <optgroup label="Design">
+                    <option value="architectural-design">Architectural Design</option>
+                    <option value="building-design">Building Design</option>
+                    <option value="custom-design">Custom Design Services</option>
+                    <option value="pre-designed-plan">Pre-Designed Plan Purchase</option>
+                  </optgroup>
+                  <optgroup label="Engineering">
+                    <option value="structural-engineering">Structural Engineering</option>
+                    <option value="mep-services">MEP Engineering</option>
+                    <option value="fire-protection">Fire Protection Engineering</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="residential-new">New Residential Construction</option>
+                    <option value="residential-renovation">Residential Renovation</option>
+                    <option value="commercial-new">New Commercial Construction</option>
+                    <option value="commercial-renovation">Commercial Renovation</option>
+                    <option value="permit-assistance">Permit Assistance</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="other">Other</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="location">Location *</label>
+                <input type="text" id="location" name="location" required placeholder="City, State">
+              </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="location">Project Location (City, State) *</label>
-                <input type="text" id="location" name="location" required placeholder="e.g., Miami, FL">
-              </div>
-              <div class="form-group">
-                <label for="timeline">Desired Timeline</label>
+                <label for="timeline">Timeline</label>
                 <select id="timeline" name="timeline">
-                  <option value="">Select timeline</option>
+                  <option value="">Select</option>
                   <option value="asap">ASAP</option>
                   <option value="1-2-weeks">1-2 weeks</option>
                   <option value="1-month">Within 1 month</option>
@@ -853,26 +857,25 @@
                   <option value="flexible">Flexible</option>
                 </select>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label for="budget">Estimated Budget Range</label>
-              <select id="budget" name="budget">
-                <option value="">Select budget range</option>
-                <option value="under-1k">Under $1,000</option>
-                <option value="1k-5k">$1,000 - $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-25k">$10,000 - $25,000</option>
-                <option value="25k-50k">$25,000 - $50,000</option>
-                <option value="50k-plus">$50,000+</option>
-                <option value="not-sure">Not sure</option>
-              </select>
+              <div class="form-group">
+                <label for="budget">Budget</label>
+                <select id="budget" name="budget">
+                  <option value="">Select</option>
+                  <option value="under-1k">Under $1,000</option>
+                  <option value="1k-5k">$1,000 - $5,000</option>
+                  <option value="5k-10k">$5,000 - $10,000</option>
+                  <option value="10k-25k">$10,000 - $25,000</option>
+                  <option value="25k-50k">$25,000 - $50,000</option>
+                  <option value="50k-plus">$50,000+</option>
+                  <option value="not-sure">Not sure</option>
+                </select>
+              </div>
             </div>
 
             <!-- Project Details -->
             <div class="form-group">
-              <label for="message">Project Details *</label>
-              <textarea id="message" name="message" required placeholder="Please describe your project in detail. Include square footage, number of bedrooms/bathrooms, special requirements, and any other relevant information."></textarea>
+              <label for="message">Details *</label>
+              <textarea id="message" name="message" required placeholder="Square footage, bedrooms/baths, special requirements, existing plans"></textarea>
             </div>
 
             <!-- Hidden fields for order data -->
@@ -882,19 +885,26 @@
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-accent" id="submit-btn" style="width: 100%;">
-              <span id="submit-text">Send Message</span>
+              <span id="submit-text">Request a Quote</span>
               <div class="loading" id="submit-loading" style="display: none;">
                 <div class="spinner"></div>
                 <span>Sending...</span>
               </div>
             </button>
+            <p class="form-footnote">We reply within 24 hours.</p>
           </form>
         </div>
 
         <!-- Contact Information -->
-        <div class="contact-info">
-          <h3>Get in Touch</h3>
-          
+        <aside class="contact-info">
+          <h3>What happens next</h3>
+          <ol class="next-steps">
+            <li><strong>Send your project details</strong></li>
+            <li><strong>We review them</strong></li>
+            <li><strong>You get a proposal</strong> or a free discovery call</li>
+          </ol>
+
+          <h3>Contact</h3>
           <div class="contact-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -912,31 +922,10 @@
             </svg>
             <div class="contact-item-content">
               <h4>Phone</h4>
-              <p><a href="tel:+1215-436-7333">(215) 436-7333</a></p>
+              <p><a href="tel:+12154367333">(215) 436-7333</a></p>
             </div>
           </div>
-
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12,6 12,12 16,14"></polyline>
-            </svg>
-            <div class="contact-item-content">
-              <h4>Response Time</h4>
-              <p>Within 24 hours</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 11H5a2 2 0 0 0-2 2v3c0 1.1.9 2 2 2h4m6-6h4a2 2 0 0 1 2 2v3c0 1.1-.9 2-2 2h-4m-6 0V9a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2"></path>
-            </svg>
-            <div class="contact-item-content">
-              <h4>Services</h4>
-              <p>Building Design & Drafting, Structural Engineering, MEP, Fire Protection, 3D Rendering</p>
-            </div>
-          </div>
-        </div>
+        </aside>
       </div>
     </div>
   </main>
@@ -1001,10 +990,9 @@
         
         // Update page content
         document.getElementById('page-title').textContent = 'Complete Your Order';
-        document.getElementById('page-description').textContent = 'Please provide your details below to complete your custom order. We\'ll review your requirements and get back to you with next steps.';
+        document.getElementById('page-description').textContent = 'Send your details and we\'ll follow up with next steps.';
         document.getElementById('form-title').textContent = 'Complete Your Order';
-        document.getElementById('form-description').textContent = 'Please provide your contact information and project details below.';
-        
+                
         // Show order summary
         displayOrderSummary(cart, total);
         
@@ -1049,10 +1037,9 @@
         
         // Update page content
         document.getElementById('page-title').textContent = 'Complete Your Custom Order';
-        document.getElementById('page-description').textContent = 'Please provide your details below to complete your customized plan order.';
+        document.getElementById('page-description').textContent = 'Send your details to finalize your plan.';
         document.getElementById('form-title').textContent = 'Complete Your Custom Order';
-        document.getElementById('form-description').textContent = 'Please provide your contact information and we\'ll finalize your customized plan.';
-        
+                
         // Show order summary for single plan
         displaySinglePlanSummary(planName, basePrice, totalPrice, quantity, customizationData);
         
