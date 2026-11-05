@@ -36,6 +36,6 @@ User-agent: CCBot
 Allow: /
 
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 Sitemap: https://www.ts9designs.com/sitemap.xml
