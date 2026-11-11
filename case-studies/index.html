@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <script src="../assets/js/cookie-consent.js"></script>
@@ -28,7 +28,7 @@
   <style>
     :root { --primary:#4da6e7; --primary-dark:#1d4ed8; --text:#0f172a; --muted:#64748b; --border:#e2e8f0; --bg:#f8fafc; --white:#fff; }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:"Montserrat",sans-serif; background:linear-gradient(180deg,#f8fbff 0%,#ffffff 50%); color:var(--text); line-height:1.5; }
+    body { margin:0; font-family:"Montserrat",sans-serif; background:#ffffff; color:var(--text); line-height:1.5; }
     .container { width:min(1120px,calc(100% - 2rem)); margin:0 auto; }
     /* Card / featured buttons (header "Book A Call" uses assets/css/site-header.css) */
     .btn-link {
@@ -62,7 +62,7 @@
 
     .featured { display:grid; grid-template-columns:1.1fr .9fr; gap:1.2rem; margin:1.5rem 0 2rem; }
     .panel { background:var(--white); border:1px solid var(--border); border-radius:14px; box-shadow:0 8px 28px rgba(15,23,42,.06); overflow:hidden; }
-    .featured-image img { width:100%; height:100%; object-fit:cover; min-height:320px; display:block; }
+    .featured-image img { width:100%; height:100%; object-fit:contain; background:#f3f1ea; min-height:320px; display:block; }
     .featured-copy { padding:1.1rem; }
     .eyebrow { margin:0; font-size:.75rem; color:var(--primary-dark); text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
     .featured-copy h2 { margin:.45rem 0 .5rem; font-size:1.45rem; line-height:1.25; }
@@ -92,9 +92,19 @@
     }
     .library-card .btn-link--read-more { letter-spacing:.01em; }
 
+    @media (min-width:900px){ .cards{ grid-template-columns:repeat(3,1fr); } }
     @media (max-width:980px){ .featured { grid-template-columns:1fr; } .featured-image img{ min-height:240px; } }
     @media (max-width:760px){
-      .hero{ padding-top:2.2rem; }
+      .hero{ padding-top:1.6rem; padding-bottom:.6rem; }
+      .hero h1{ font-size:1.7rem; }
+      .featured{ margin:1rem 0 1.5rem; gap:.9rem; }
+      .featured-image img{ min-height:0; height:auto; aspect-ratio:16/9; }
+      .featured-copy{ padding:1rem; }
+      .featured-copy h2{ font-size:1.2rem; }
+      .featured-copy .btn-link{ display:flex; width:100%; min-height:44px; }
+      .cards{ grid-template-columns:1fr; gap:.85rem; }
+      .library-card .thumb{ aspect-ratio:16/9; }
+      .library-card .btn-link{ min-height:44px; }
     }
   
 .site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;padding:1.4rem 0 2rem;margin-top:1rem}
@@ -127,19 +137,19 @@
 
     <section class="featured">
       <article class="panel featured-image">
-        <img src="/assets/images/676/676.webp" alt="Coffman Apts — featured residential case study by TS9Designs">
+        <img src="/assets/images/Church/desert-shore-church.webp" alt="Desert Shore Community Baptist Church — featured case study by TS9Designs">
       </article>
       <article class="panel featured-copy">
         <p class="eyebrow">Featured Project</p>
-        <h2>Coffman Apts<br>Engineering the Invisible Systems Behind Multi-Unit Living</h2>
-        <p class="meta">Indianapolis, Indiana | Full MEP Design</p>
+        <h2>Desert Shore Community Baptist Church<br>A 25,416 sq ft church, approved in plan review</h2>
+        <p class="meta">Bullhead City, Arizona | MEP, Fire Alarm and Structural</p>
         <div class="stats">
-          <span class="stat-chip">New multi-unit residential</span>
-          <span class="stat-chip">22-sheet MEP package</span>
-          <span class="stat-chip">Mechanical + Electrical + Plumbing</span>
+          <span class="stat-chip">25,416 sq ft</span>
+          <span class="stat-chip">1,200 A electrical service</span>
+          <span class="stat-chip">Plan review approved</span>
         </div>
-        <p>A full MEP package for new multi-unit residential construction, engineered for coordinated permitting, practical field execution, and long-term apartment performance.</p>
-        <a class="btn-link btn-link--read-more" href="/case-studies/coffman-apts-indianapolis.html" aria-label="Read more about Coffman Apts"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <p>MEP, fire alarm/life safety and structural engineering for a church in Bullhead City, Arizona. Electrical service, gas piping, site lighting and the fire alarm to HVAC interface were coordinated in one set that cleared plan review.</p>
+        <a class="btn-link btn-link--read-more" href="/case-studies/church-arizona.html" aria-label="Read more about Desert Shore Community Baptist Church"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </article>
     </section>
 
@@ -147,12 +157,66 @@
       <h3>Case Study Library</h3>
       <div class="cards">
         <article class="card library-card">
-          <img class="thumb thumb--contain" src="/assets/images/Church/desert-shore-church-sm.webp" alt="Desert Shore Community Baptist Church project by TS9Designs" loading="lazy">
+          <img class="thumb" src="/assets/images/conmigo/conmigo.webp" alt="Conmigo Cafe project by TS9Designs" loading="lazy">
           <div class="card-body">
-            <p class="card-title">Desert Shore Community Baptist Church</p>
-            <p class="card-meta">Bullhead City, AZ · Church</p>
-            <div class="stats"><span class="stat-chip">MEP + Fire Alarm + Structural</span><span class="stat-chip">25,416 sq ft</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/church-arizona.html" aria-label="Read more about Desert Shore Community Baptist Church"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <p class="card-title">Conmigo Cafe</p>
+            <p class="card-meta">Western PA · Coffee Shop</p>
+            <div class="stats"><span class="stat-chip">2025</span><span class="stat-chip">Building Design + MEP</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/conmigo-cafe.html" aria-label="Read more about Conmigo Cafe"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita Dover project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">La Dolce Vita Dover</p>
+            <p class="card-meta">Dover, NH · Restaurant</p>
+            <div class="stats"><span class="stat-chip">2025</span><span class="stat-chip">Building Design + MEP</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/la-dolce-vita-dover.html" aria-label="Read more about La Dolce Vita Dover"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza Tropicana project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">Luccino's Pizza Tropicana</p>
+            <p class="card-meta">Las Vegas, NV · Restaurant</p>
+            <div class="stats"><span class="stat-chip">2025</span><span class="stat-chip">Building Design + MEP</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/luccinos-pizza-tropicana.html" aria-label="Read more about Luccino's Pizza Tropicana"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus Hamilton project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">Pet Supplies Plus Hamilton</p>
+            <p class="card-meta">Hamilton, NJ · Commercial Retail</p>
+            <div class="stats"><span class="stat-chip">2025</span><span class="stat-chip">Full MEP Engineering</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/pet-supplies-plus-hamilton.html" aria-label="Read more about Pet Supplies Plus Hamilton"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen Henderson project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">Chef's Roma Kitchen Henderson</p>
+            <p class="card-meta">Henderson, NV · Restaurant</p>
+            <div class="stats"><span class="stat-chip">2024</span><span class="stat-chip">MEP + Permit Drawings</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/chefs-roma-kitchen-henderson.html" aria-label="Read more about Chef's Roma Kitchen Henderson"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/Optometry/Optometry.webp" alt="Eyes on J Optometry project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">Eyes on J Optometry</p>
+            <p class="card-meta">Sacramento, CA · Medical Office</p>
+            <div class="stats"><span class="stat-chip">2024</span><span class="stat-chip">MEP Engineering</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/eyes-on-j-optometry.html" aria-label="Read more about Eyes on J Optometry"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+        <article class="card library-card">
+          <img class="thumb" src="/assets/images/Daycare/daycare2.webp" alt="17058 S Robey Street Daycare project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">17058 S Robey Street Daycare</p>
+            <p class="card-meta">Hazel Crest, IL · Daycare Renovation</p>
+            <div class="stats"><span class="stat-chip">2024</span><span class="stat-chip">3,200 sq ft</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/robey-street-daycare.html" aria-label="Read more about 17058 S Robey Street Daycare"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
         </article>
         <article class="card library-card">
@@ -165,66 +229,12 @@
           </div>
         </article>
         <article class="card library-card">
-          <img class="thumb" src="/assets/images/Daycare/daycare2.webp" alt="17058 S Robey Street Daycare project by TS9Designs" loading="lazy">
+          <img class="thumb" src="/assets/images/676/676.webp" alt="Coffman Apts project by TS9Designs" loading="lazy">
           <div class="card-body">
-            <p class="card-title">17058 S Robey Street Daycare</p>
-            <p class="card-meta">Hazel Crest, IL · Daycare Renovation</p>
-            <div class="stats"><span class="stat-chip">3,200 sq ft</span><span class="stat-chip">2024</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/robey-street-daycare.html" aria-label="Read more about 17058 S Robey Street Daycare"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus Hamilton project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">Pet Supplies Plus Hamilton</p>
-            <p class="card-meta">Hamilton, NJ · Commercial Retail</p>
-            <div class="stats"><span class="stat-chip">Full MEP Engineering</span><span class="stat-chip">2025</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/pet-supplies-plus-hamilton.html" aria-label="Read more about Pet Supplies Plus Hamilton"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita Dover project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">La Dolce Vita Dover</p>
-            <p class="card-meta">Dover, NH · Restaurant</p>
-            <div class="stats"><span class="stat-chip">Building Design + MEP</span><span class="stat-chip">2025</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/la-dolce-vita-dover.html" aria-label="Read more about La Dolce Vita Dover"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/Optometry/Optometry.webp" alt="Eyes on J Optometry project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">Eyes on J Optometry</p>
-            <p class="card-meta">Sacramento, CA · Medical Office</p>
-            <div class="stats"><span class="stat-chip">MEP Engineering</span><span class="stat-chip">2024</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/eyes-on-j-optometry.html" aria-label="Read more about Eyes on J Optometry"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/conmigo/conmigo.webp" alt="Conmigo Cafe project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">Conmigo Cafe</p>
-            <p class="card-meta">Western PA · Coffee Shop</p>
-            <div class="stats"><span class="stat-chip">Building Design + MEP</span><span class="stat-chip">2025</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/conmigo-cafe.html" aria-label="Read more about Conmigo Cafe"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza Tropicana project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">Luccino's Pizza Tropicana</p>
-            <p class="card-meta">Las Vegas, NV · Restaurant</p>
-            <div class="stats"><span class="stat-chip">Building Design + MEP</span><span class="stat-chip">2025</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/luccinos-pizza-tropicana.html" aria-label="Read more about Luccino's Pizza Tropicana"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          </div>
-        </article>
-        <article class="card library-card">
-          <img class="thumb" src="/assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen Henderson project by TS9Designs" loading="lazy">
-          <div class="card-body">
-            <p class="card-title">Chef's Roma Kitchen Henderson</p>
-            <p class="card-meta">Henderson, NV · Restaurant</p>
-            <div class="stats"><span class="stat-chip">MEP + Permit Drawings</span><span class="stat-chip">2024</span></div>
-            <a class="btn-link btn-link--read-more" href="/case-studies/chefs-roma-kitchen-henderson.html" aria-label="Read more about Chef's Roma Kitchen Henderson"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <p class="card-title">Coffman Apts</p>
+            <p class="card-meta">Indianapolis, IN · Multi-Unit Residential</p>
+            <div class="stats"><span class="stat-chip">Full MEP Engineering</span><span class="stat-chip">22 sheets</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/coffman-apts-indianapolis.html" aria-label="Read more about Coffman Apts"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
         </article>
       </div>
