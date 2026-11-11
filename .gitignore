@@ -11,3 +11,6 @@ Thumbs.db
 # Server logs (never source, may contain sensitive paths/stack traces)
 error_log
 *.log
+
+# Claude Code local session files
+.claude/
