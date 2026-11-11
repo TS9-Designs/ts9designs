@@ -80,6 +80,7 @@
     .card { border:1px solid var(--border); border-radius:12px; background:#fff; overflow:hidden; }
     .library-card { display:flex; flex-direction:column; min-height:100%; }
     .library-card .thumb { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; background:#f1f5f9; }
+    .library-card .thumb--contain { object-fit:contain; background:#f3f1ea; }
     .card-body { padding:.85rem; display:flex; flex-direction:column; gap:.5rem; flex:1; }
     .card-title { margin:0; font-size:.95rem; font-weight:600; }
     .card-meta { margin:0; font-size:.78rem; color:var(--muted); line-height:1.4; }
@@ -145,6 +146,15 @@
     <section class="list">
       <h3>Case Study Library</h3>
       <div class="cards">
+        <article class="card library-card">
+          <img class="thumb thumb--contain" src="/assets/images/Church/desert-shore-church-sm.webp" alt="Desert Shore Community Baptist Church project by TS9Designs" loading="lazy">
+          <div class="card-body">
+            <p class="card-title">Desert Shore Community Baptist Church</p>
+            <p class="card-meta">Bullhead City, AZ · Church</p>
+            <div class="stats"><span class="stat-chip">MEP + Fire Alarm + Structural</span><span class="stat-chip">25,416 sq ft</span></div>
+            <a class="btn-link btn-link--read-more" href="/case-studies/church-arizona.html" aria-label="Read more about Desert Shore Community Baptist Church"><span class="read-more__label">Read more</span><span class="read-more__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
         <article class="card library-card">
           <img class="thumb" src="/assets/images/Bishop/Living-Room.webp" alt="Bishop Pond project by TS9Designs" loading="lazy">
           <div class="card-body">
