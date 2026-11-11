@@ -454,12 +454,15 @@ class TS9WebsiteController {
       if (price > 0 && optionPricesContainer) {
         const optionName = select.previousElementSibling.textContent.replace(":", "")
         const optionText = selectedOption.textContent.replace(/\s*$$\+\$\d+$$/, "")
-        optionPricesContainer.innerHTML += `
-          <div class="price-row">
-            <span>${optionName}: ${optionText}</span>
-            <span>+$${price}.00</span>
-          </div>
-        `
+        const priceRow = document.createElement("div")
+        priceRow.className = "price-row"
+        const optionLabel = document.createElement("span")
+        optionLabel.textContent = `${optionName}: ${optionText}`
+        const optionValue = document.createElement("span")
+        optionValue.textContent = `+$${price}.00`
+        priceRow.appendChild(optionLabel)
+        priceRow.appendChild(optionValue)
+        optionPricesContainer.appendChild(priceRow)
       }
       total += price
     })
@@ -468,12 +471,15 @@ class TS9WebsiteController {
     if (mepToggle && mepToggle.getAttribute("data-active") === "true") {
       total += 350
       if (optionPricesContainer) {
-        optionPricesContainer.innerHTML += `
-          <div class="price-row">
-            <span>MEP Plans Add-on</span>
-            <span>+$350.00</span>
-          </div>
-        `
+        const mepRow = document.createElement("div")
+        mepRow.className = "price-row"
+        const mepLabel = document.createElement("span")
+        mepLabel.textContent = "MEP Plans Add-on"
+        const mepValue = document.createElement("span")
+        mepValue.textContent = "+$350.00"
+        mepRow.appendChild(mepLabel)
+        mepRow.appendChild(mepValue)
+        optionPricesContainer.appendChild(mepRow)
       }
     }
     // Apply quantity
