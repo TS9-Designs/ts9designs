@@ -1,4 +1,4 @@
-// TS9 Designs Website Controller
+// ts9designs Website Controller
 const TS9_CART_STORAGE_KEY = "ts9_residential_cart"
 
 class TS9WebsiteController {

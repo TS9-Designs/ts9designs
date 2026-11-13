@@ -1,4 +1,4 @@
-# TS9Designs Website — Progress Summary
+# ts9designs Website — Progress Summary
 
 _Last updated: 2026-08-25_
 
@@ -71,4 +71,4 @@ All work below has been made to the **local files only**. Nothing has been pushe
 3. **Deploy and re-test**: once live, re-run PageSpeed Insights to confirm the performance gains, and spot-check the pages in a real browser (this session's testing was all via local Python server + automated checks — worth a manual pass on the real domain).
 4. **Chase down the injected popup** causing the "Agentic Browsing" ARIA issue — it's not in this codebase, so it's likely a host/platform-level script.
 5. **Decide on the sitemap.xml** — the live one is server-generated and references the old page set (e.g. it doesn't yet reflect the MedVet removal or reorganized PDF paths); regenerate/resubmit after deploying.
-6. Minor: `README.md` still mentions the legacy `TS9 Designs - Website Source Code/` folder as "archived" — that folder was fully deleted in the cleanup, so the README is slightly stale.
+6. Minor: `README.md` still mentions the legacy `ts9designs - Website Source Code/` folder as "archived" — that folder was fully deleted in the cleanup, so the README is slightly stale.

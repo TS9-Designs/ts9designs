@@ -13,7 +13,7 @@ const BRAND = {
 };
 
 const COMPANY = {
-  addressLine: "TS9Designs, 2031 E Lehigh Ave 23B, Philadelphia, PA 19125, USA",
+  addressLine: "ts9designs, 2031 E Lehigh Ave 23B, Philadelphia, PA 19125, USA",
   facebook: "https://www.facebook.com/ts9designs",
   instagram: "https://www.instagram.com/ts9designs",
   website: "https://www.ts9designs.com",
@@ -48,7 +48,7 @@ function footerBlock(complianceNote) {
     <tr><td style="padding:20px 36px;background:${BRAND.cardBg};text-align:center;">
       <div style="margin-bottom:14px;">${social}</div>
       <p style="margin:0 0 6px;color:${BRAND.muted};font-size:11px;">info@ts9designs.com &middot; (215) 436-7333</p>
-      <p style="margin:0 0 6px;color:${BRAND.muted};font-size:11px;">&copy; ${new Date().getFullYear()} TS9Designs. All rights reserved.</p>
+      <p style="margin:0 0 6px;color:${BRAND.muted};font-size:11px;">&copy; ${new Date().getFullYear()} ts9designs. All rights reserved.</p>
       ${complianceNote ? `<p style="margin:0 0 6px;color:${BRAND.muted};font-size:11px;">${complianceNote}</p>` : ""}
       <p style="margin:0;color:${BRAND.muted};font-size:11px;">${escapeHtml(COMPANY.addressLine)}</p>
     </td></tr>`;
@@ -71,8 +71,8 @@ function wrapEmail({ preheader, header, bodyHtml, footerNote, complianceNote }) 
         <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,0.06);">
           <tr><td style="height:4px;line-height:4px;font-size:0;background:${BRAND.gold};">&nbsp;</td></tr>
           <tr><td style="padding:36px 36px 8px;text-align:center;">
-            <img src="${BRAND.logoUrl}" width="22" height="22" alt="TS9Designs" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:4px;">
-            <span style="font-size:13px;font-weight:700;letter-spacing:0.04em;color:${BRAND.dark};vertical-align:middle;">TS9Designs</span>
+            <img src="${BRAND.logoUrl}" width="22" height="22" alt="ts9designs" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:4px;">
+            <span style="font-size:14px;letter-spacing:-0.02em;vertical-align:middle;"><span style="font-weight:800;color:${BRAND.dark};">ts9</span><span style="font-weight:400;color:#a9840a;">designs</span></span>
             ${header}
           </td></tr>
           <tr><td style="padding:24px 36px 8px;">
@@ -169,7 +169,7 @@ export function renderLeadConfirm(fields) {
     </div>` : ""}
   `;
   return {
-    subject: "We got your message — TS9Designs",
+    subject: "We got your message — ts9designs",
     html: wrapEmail({
       preheader: "We received your message",
       header: `<h1 style="margin:18px 0 0;font-size:22px;color:${BRAND.dark};font-weight:700;">Thanks, ${escapeHtml(firstName(fields.name))}!</h1>`,
@@ -219,7 +219,7 @@ export function renderEstimateAutoReply(fields) {
     <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:${BRAND.muted};text-align:center;">A lead designer will be in touch soon to confirm scope and next steps.</p>
   `;
   return {
-    subject: "We got your TS9Designs estimate request",
+    subject: "We got your ts9designs estimate request",
     html: wrapEmail({
       preheader: "We received your estimate request",
       header: `<h1 style="margin:18px 0 0;font-size:22px;color:${BRAND.dark};font-weight:700;">Thanks, ${escapeHtml(firstName(fields.name))}!</h1>`,
@@ -248,13 +248,13 @@ export function renderNewsletterEmail(fields, sourcePage) {
 export function renderNewsletterConfirm(fields) {
   const unsubscribeHref = `mailto:info@ts9designs.com?subject=${encodeURIComponent("Unsubscribe: " + (fields.email || ""))}`;
   const bodyHtml = `
-    <p style="margin:0;font-size:14px;line-height:1.6;color:${BRAND.text};text-align:center;">You're subscribed to updates from TS9Designs — project spotlights, permitting tips, and the occasional announcement.</p>
+    <p style="margin:0;font-size:14px;line-height:1.6;color:${BRAND.text};text-align:center;">You're subscribed to updates from ts9designs — project spotlights, permitting tips, and the occasional announcement.</p>
     <p style="margin:14px 0 0;font-size:12px;line-height:1.6;color:${BRAND.muted};text-align:center;">No spam. <a href="${unsubscribeHref}" style="color:${BRAND.muted};text-decoration:underline;">Unsubscribe any time</a>.</p>
   `;
   return {
-    subject: "You're subscribed — TS9Designs",
+    subject: "You're subscribed — ts9designs",
     html: wrapEmail({
-      preheader: "You're subscribed to TS9Designs updates",
+      preheader: "You're subscribed to ts9designs updates",
       header: `<h1 style="margin:18px 0 0;font-size:22px;color:${BRAND.dark};font-weight:700;">You're in!</h1>`,
       bodyHtml,
       complianceNote: "You're receiving this because you subscribed via our website."

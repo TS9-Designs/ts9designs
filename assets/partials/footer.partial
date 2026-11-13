@@ -7,10 +7,10 @@
             <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          TS9Designs
+          <span class="wm-static"><span class="wm-static-a">ts9</span><span class="wm-static-b">designs</span></span>
         </a>
         <p class="footer-about">
-          TS9 Designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
+          ts9designs is an engineering and building-design firm providing structural, MEP, fire protection, drafting, permit-documentation, and 3D rendering services. We specialize in stamped and sealed drawings for both residential and commercial projects, with fast turnaround and city approval support.
         </p>
         <div class="footer-social">
           <a href="https://web.facebook.com/TS9Designs" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>

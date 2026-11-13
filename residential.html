@@ -4,17 +4,17 @@
   <script src="assets/js/cookie-consent.js"></script>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Custom Home Plans & Building Designs | TS9Designs</title>
+  <title>Custom Home Plans & Building Designs | ts9designs</title>
   <meta name="description" content="Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.">
   <meta name="keywords" content="home plans, residential building design plans, Florida permits">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="TS9Designs - Residential Projects | Custom Home Plans">
+  <meta property="og:title" content="ts9designs - Residential Projects | Custom Home Plans">
   <meta property="og:description" content="Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.">
   <meta property="og:image" content="https://www.ts9designs.com/assets/images/676/676.webp">
   <meta property="og:url" content="https://www.ts9designs.com/residential.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TS9Designs - Residential Projects | Custom Home Plans">
+  <meta name="twitter:title" content="ts9designs - Residential Projects | Custom Home Plans">
   <meta name="twitter:description" content="Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.">
   <meta name="twitter:image" content="https://www.ts9designs.com/assets/images/676/676.webp">
   <link rel="canonical" href="https://www.ts9designs.com/residential.html">
@@ -271,11 +271,53 @@
       display: block;
     }
 
+    /* Wordmark: "ts9" stays put while the rest types through the services
+       (mep, structural, fire, hvac) and settles on "designs". See wordmark.js. */
     .logo-word {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.01em;
-      color: var(--color-slate-900);
+      --wm-ink: #0f172a;
+      --wm-gold: #d5a80f;
+      --wm-gold-deep: #a9840a;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      font-weight: 800;
+      font-size: 1.15rem;
+      line-height: 1;
+      letter-spacing: -0.035em;
+      text-transform: none;
+      color: var(--wm-ink);
+    }
+
+    .logo-word .wm-tail {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo-word .wm-slot {
+      color: var(--wm-gold-deep);
+      font-weight: 500;
+    }
+
+    /* the typing caret: only shown while the words are cycling */
+    .logo-word .wm-caret {
+      width: 2px;
+      height: 0.95em;
+      margin-left: 2px;
+      background: var(--wm-gold);
+      opacity: 0;
+    }
+
+    .logo-word.is-typing .wm-caret {
+      opacity: 1;
+      animation: wm-blink 0.9s steps(1) infinite;
+    }
+
+    @keyframes wm-blink {
+      50% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo-word.is-typing .wm-caret { animation: none; }
     }
 
     .top-nav {
@@ -1779,9 +1821,9 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="/">
-        <img src="assets/images/logo-v3.webp" alt="TS9 Designs Logo">
-        <span class="logo-word">TS9Designs</span>
+      <a class="logo" href="/" aria-label="ts9designs home">
+        <img src="assets/images/logo-v3.webp" alt="ts9designs Logo">
+        <span class="logo-word" data-wordmark-cycle><span class="wm-fixed">ts9</span><span class="wm-tail" aria-hidden="true"><span class="wm-slot">designs</span><span class="wm-caret"></span></span></span>
       </a>
       <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
         <span></span><span></span><span></span>
@@ -1817,7 +1859,7 @@
       <!-- Recently Built Highlight -->
       <section class="built-highlight">
         <div class="built-highlight__media" id="built-highlight-media">
-          <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed TS9Designs home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="0" aria-label="View larger photos of 1097 W Cary Dr">
+          <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="0" aria-label="View larger photos of 1097 W Cary Dr">
           <img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="5" aria-label="View larger photos of 1097 W Cary Dr">
           <img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="4" aria-label="View larger photos of 1097 W Cary Dr">
         </div>
@@ -1899,7 +1941,7 @@
       <div class="modal-body">
         <div class="slideshow-container" id="built-highlight-slideshow">
           <div class="slideshow-slide active">
-            <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed TS9Designs home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-1">
+            <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-1">
           </div>
           <div class="slideshow-slide">
             <img src="assets/images/cary-dr/cary-dr-1.webp" alt="Front view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-2">
@@ -2185,6 +2227,7 @@
       });
     })();
   </script>
+  <script src="/assets/js/wordmark.js" defer></script>
   <script src="/assets/js/load-footer.js"></script>
 </body>
 </html>

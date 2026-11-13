@@ -44,11 +44,53 @@
   display: block;
 }
 
+/* Wordmark: "ts9" stays put while the rest types through the services
+   (mep, structural, fire, hvac) and settles on "designs". See wordmark.js. */
 .site-header .logo-word {
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
-  color: #0f172a;
+  --wm-ink: #0f172a;
+  --wm-gold: #d5a80f;
+  --wm-gold-deep: #a9840a;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  color: var(--wm-ink);
+}
+
+.site-header .logo-word .wm-tail {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header .logo-word .wm-slot {
+  color: var(--wm-gold-deep);
+  font-weight: 500;
+}
+
+/* the typing caret: only shown while the words are cycling */
+.site-header .logo-word .wm-caret {
+  width: 2px;
+  height: 0.95em;
+  margin-left: 2px;
+  background: var(--wm-gold);
+  opacity: 0;
+}
+
+.site-header .logo-word.is-typing .wm-caret {
+  opacity: 1;
+  animation: wm-blink 0.9s steps(1) infinite;
+}
+
+@keyframes wm-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .logo-word.is-typing .wm-caret { animation: none; }
 }
 
 .top-nav {
