@@ -69,3 +69,8 @@
 .site-footer--compact .footer-copyright { margin: 0; color: #64748b; font-size: .78rem; max-width: 640px; }
 
 @media (max-width: 900px) { .site-footer--compact .footer-grid { grid-template-columns: 1fr; } }
+
+/* Footer wordmark: same two-tone split as the header ("ts9" navy, "designs" gold) */
+.wm-static { white-space: nowrap; letter-spacing: -0.035em; text-transform: none; }
+.wm-static-a { font-weight: 800; color: #0f172a; }
+.wm-static-b { font-weight: 500; color: #a9840a; }
