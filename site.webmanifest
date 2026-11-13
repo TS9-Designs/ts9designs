@@ -1,6 +1,6 @@
 {
-  "name": "TS9Designs",
-  "short_name": "TS9Designs",
+  "name": "ts9designs",
+  "short_name": "ts9designs",
   "icons": [
     { "src": "/favicon-16x16.png", "sizes": "16x16", "type": "image/png" },
     { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
