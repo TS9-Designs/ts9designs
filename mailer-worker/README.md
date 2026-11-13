@@ -1,4 +1,4 @@
-# TS9Designs Mailer
+# ts9designs Mailer
 
 Cloudflare Worker that sends form emails via [Resend](https://resend.com), replacing EmailJS. Handles the newsletter, contact, and permit-estimate forms on the main site (`assets/js/ts9-mailer.js` calls it).
 
