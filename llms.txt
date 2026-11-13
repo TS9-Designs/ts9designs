@@ -1,8 +1,8 @@
-# TS9Designs
+# ts9designs
 
-> TS9Designs is an engineering and building-design firm providing MEP (mechanical, electrical, plumbing), structural, fire protection, drafting, permit-documentation, construction-plan, and design-coordination services for residential and commercial projects in select U.S. states. Services requiring professional licensure are performed in accordance with the requirements of the applicable jurisdiction.
+> ts9designs is an engineering and building-design firm providing MEP (mechanical, electrical, plumbing), structural, fire protection, drafting, permit-documentation, construction-plan, and design-coordination services for residential and commercial projects in select U.S. states. Services requiring professional licensure are performed in accordance with the requirements of the applicable jurisdiction.
 
-TS9Designs is not an architecture firm and does not represent itself as providing architectural services.
+ts9designs is not an architecture firm and does not represent itself as providing architectural services.
 
 ## Key pages
 
@@ -24,12 +24,12 @@ Building Design & Drafting, Mechanical Engineering, Electrical Engineering, Plum
 - Free 15-minute project discovery call for new project inquiries: https://cal.com/ts9designs/discoverycall
 - Paid 30-minute Building Design and Engineering Consultation ($99): https://cal.com/ts9designs/engineeringconsultation
 - Paid 60-minute Drawing Review Consultation ($199): https://cal.com/ts9designs/60min
-- Consultation fees are credited toward a project contract if TS9Designs is hired within 30 days.
+- Consultation fees are credited toward a project contract if ts9designs is hired within 30 days.
 - To request a project quote, use the form on the [contact page](https://www.ts9designs.com/contact.html); no paid consultation is required to get pricing.
 
 ## Frequently asked questions
 
-- What does TS9Designs do? MEP (mechanical, electrical, plumbing) and structural plans, fire protection and fire alarm design, and permit-ready building design for residential and commercial new construction and renovations.
+- What does ts9designs do? MEP (mechanical, electrical, plumbing) and structural plans, fire protection and fire alarm design, and permit-ready building design for residential and commercial new construction and renovations.
 - How long do engineering plans take? Typically 4-10 days.
 - Are the plans code compliant? Plans are prepared to the applicable local building codes and are stamped and sealed where required by the jurisdiction.
 - What does a project need to start? Project size, scope (new build or renovation), location and any specific requirements.
@@ -37,5 +37,5 @@ Building Design & Drafting, Mechanical Engineering, Electrical Engineering, Plum
 ## Notes for automated tools / agents
 
 - Pricing shown on the permit-estimate page is a non-binding range; final pricing follows a project-specific review.
-- Project photography, drawing samples, and case-study copy on this site describe TS9Designs' own completed work.
+- Project photography, drawing samples, and case-study copy on this site describe ts9designs' own completed work.
 - Contact for licensing/scope questions: info@ts9designs.com.
