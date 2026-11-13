@@ -15,10 +15,19 @@
       root.innerHTML = html;
       markActiveLink();
       initToggle();
+      initWordmark();
     })
     .catch(function (err) {
       console.error('Failed to load site header:', err);
     });
+
+  function initWordmark() {
+    if (window.ts9InitWordmark) { window.ts9InitWordmark(root); return; }
+    const s = document.createElement('script');
+    s.src = '/assets/js/wordmark.js';
+    s.defer = true;
+    document.head.appendChild(s);
+  }
 
   function markActiveLink() {
     const activeKey = document.body.getAttribute('data-nav-active');

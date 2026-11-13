@@ -72,7 +72,7 @@ function wrapEmail({ preheader, header, bodyHtml, footerNote, complianceNote }) 
           <tr><td style="height:4px;line-height:4px;font-size:0;background:${BRAND.gold};">&nbsp;</td></tr>
           <tr><td style="padding:36px 36px 8px;text-align:center;">
             <img src="${BRAND.logoUrl}" width="22" height="22" alt="ts9designs" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:4px;">
-            <span style="font-size:13px;font-weight:700;letter-spacing:0.04em;color:${BRAND.dark};vertical-align:middle;">ts9designs</span>
+            <span style="font-size:14px;letter-spacing:-0.02em;vertical-align:middle;"><span style="font-weight:800;color:${BRAND.dark};">ts9</span><span style="font-weight:400;color:#a9840a;">designs</span></span>
             ${header}
           </td></tr>
           <tr><td style="padding:24px 36px 8px;">
