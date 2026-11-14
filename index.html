@@ -1260,260 +1260,255 @@
       }
     }
 
-/* FAQs Section - Modern Accordion Style */
+/* FAQs Section: heading column (sticky on desktop) beside a ruled list
+   grouped by topic. Quiet by design: navy text, hairlines, one deep-gold
+   caption, no fills. Answers stay open if JavaScript doesn't run. */
 .faqs-section {
-  background: var(--gray-50);
-  position: relative;
+  background: var(--white);
+  padding: var(--space-12) 0;
 }
 
-.faq-container {
-  max-width: 900px;
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  gap: var(--space-12);
+  max-width: 1080px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  align-items: start;
 }
 
-.faq-search {
-  margin-bottom: var(--spacing-xl);
-  position: relative;
+.faq-side {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
 }
 
-.faq-search-input {
-  width: 100%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  padding-left: var(--space-8);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl);
+.faq-caption {
+  margin: 0 0 var(--space-3);
+  color: var(--brand-gold-text);
   font-size: var(--font-size-md);
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  font-weight: 600;
 }
 
-.faq-search-input:focus {
-  outline: none;
-  border-color: var(--brand-gold-text);
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
+.faq-title {
+  margin: 0;
+  color: var(--brand-navy);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
-.faq-search-icon {
-  position: absolute;
-  left: var(--spacing-lg);
-  top: 50%;
-  transform: translateY(-50%);
+.faq-contact {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--gray-200);
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+}
+
+.faq-contact-label {
+  margin: 0 0 var(--space-2);
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-contact-plain {
+  color: var(--gray-600);
+  font-variant-numeric: tabular-nums;
+}
+
+.faq-contact-plain:hover {
+  color: var(--brand-navy);
+}
+
+.faq-arrow-links {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  margin-top: var(--space-4);
+}
+
+.faq-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-arrow-link:hover {
+  color: var(--brand-navy);
+}
+
+.faq-arrow-link span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.faq-arrow-link:hover span {
+  transform: translateX(3px);
+}
+
+.faq-group-label {
+  margin: var(--space-7) 0 var(--space-1);
   color: var(--gray-500);
-}
-
-.faq-categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
-}
-
-.faq-category {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl);
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--gray-700);
-  cursor: pointer;
-  transition: var(--transition);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.faq-category:hover {
-  background-color: var(--gray-100);
-  border-color: var(--gray-300);
-}
-
-.faq-category.active {
-  background-color: var(--primary-dark);
-  color: var(--white);
-  border-color: var(--primary-dark);
-}
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+.faq-group-label:first-child {
+  margin-top: 0;
 }
 
 .faq-item {
-  background-color: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-top: 1px solid var(--gray-200);
 }
 
-.faq-question-btn {
+.faq-group-label + .faq-item {
+  border-top-color: var(--gray-300);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.faq-q {
   width: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  background-color: var(--white);
-  border: none;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  background: transparent;
+  border: 0;
   text-align: left;
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--gray-800);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--brand-navy);
   cursor: pointer;
-  transition: var(--transition);
 }
 
-.faq-question-btn:hover {
-  color: var(--brand-gold-text);
-}
-
-.faq-question-btn:focus {
-  outline: none;
-}
-
-.faq-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  flex-shrink: 0;
-  margin-left: var(--spacing-md);
-}
-
-.faq-icon::before,
-.faq-icon::after {
-  content: '';
-  position: absolute;
-  background-color: var(--primary);
-  transition: var(--transition);
-}
-
-.faq-icon::before {
-  width: 12px;
-  height: 2px;
-}
-
-.faq-icon::after {
-  width: 2px;
-  height: 12px;
-}
-
-.faq-item.active .faq-icon {
-  background-color: var(--primary);
-}
-
-.faq-item.active .faq-icon::before,
-.faq-item.active .faq-icon::after {
-  background-color: var(--white);
-}
-
-.faq-item.active .faq-icon::after {
-  transform: rotate(90deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 var(--spacing-xl);
-  border-top: 0 solid var(--gray-100);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  border-top: 1px solid var(--gray-100);
-}
-
-.faq-answer-content {
-  color: var(--gray-700);
-  font-size: var(--font-size-md);
-  line-height: 1.6;
-}
-
-.faq-more {
-  margin-top: var(--spacing-2xl);
-  text-align: center;
-}
-
-.faq-more-text {
-  font-size: var(--font-size-lg);
-  color: var(--gray-700);
-  margin-bottom: var(--spacing-md);
-}
-
-.faq-contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
-  background-color: var(--primary-dark);
-  color: var(--white);
-  border-radius: var(--radius-xl);
+.faq-q[aria-expanded="true"] {
   font-weight: 600;
-  transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
 }
 
-.faq-contact-btn:hover {
-  background-color: var(--brand-navy-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
-  color: var(--white);
+.faq-chev {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--gray-500);
+  transition: transform 0.25s ease, color 0.2s ease;
 }
 
-.faq-contact-btn svg {
-  width: 18px;
-  height: 18px;
+.faq-q:hover .faq-chev {
+  color: var(--brand-navy);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .faq-categories {
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-lg);
+.faq-q[aria-expanded="true"] .faq-chev {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.faq-a > div {
+  overflow: hidden;
+}
+
+.faq-a p {
+  margin: 0;
+  padding: 0 var(--space-7) var(--space-5) 0;
+  max-width: 62ch;
+  color: var(--gray-600);
+  line-height: 1.75;
+  transition: opacity 0.25s ease 0.08s;
+}
+
+.faq-a b {
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-a a {
+  color: var(--brand-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gray-300);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.faq-a a:hover {
+  text-decoration-color: var(--brand-navy);
+}
+
+/* collapsing only happens once the script has set things up */
+.faq-list.is-enhanced .faq-q[aria-expanded="false"] + .faq-a {
+  grid-template-rows: 0fr;
+}
+
+.faq-list.is-enhanced .faq-q[aria-expanded="false"] + .faq-a p {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.faq-q:focus-visible,
+.faq-arrow-link:focus-visible,
+.faq-contact-plain:focus-visible,
+.faq-a a:focus-visible {
+  outline: 2px solid var(--brand-navy);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .faqs-section {
+    padding: var(--space-9) 0;
   }
-  
-  .faq-category {
-    padding: var(--spacing-xs) var(--spacing-md);
-    font-size: var(--font-size-xs);
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
-  
-  .faq-question-btn {
-    padding: var(--spacing-md) var(--spacing-lg);
+
+  .faq-side {
+    position: static;
+    display: contents;
+  }
+
+  .faq-head { order: 0; }
+  .faq-list { order: 1; }
+  .faq-contact { order: 2; margin-top: 0; }
+
+  .faq-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .faq-q {
     font-size: var(--font-size-md);
+    padding: var(--space-4) 0;
+    gap: var(--space-4);
   }
-  
-  .faq-item.active .faq-answer {
-    padding: var(--spacing-md) var(--spacing-lg);
+
+  .faq-a p {
+    padding-right: 0;
   }
 }
 
-@media (max-width: 576px) {
-  .faq-search-input {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    padding-left: var(--space-7);
-  }
-  
-  .faq-categories {
-    justify-content: center;
-  }
-  
-  .faq-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .faq-icon::before {
-    width: 10px;
-  }
-  
-  .faq-icon::after {
-    height: 10px;
+@media (prefers-reduced-motion: reduce) {
+  .faq-a,
+  .faq-a p,
+  .faq-chev,
+  .faq-arrow-link span {
+    transition: none;
   }
 }
 
@@ -2919,117 +2914,83 @@
   <!-- FAQs Section Start -->
   <div id="faqs" class="section faqs-section">
     <div class="container">
-      <div class="section-heading">
-        <p class="section-eyebrow">Frequently Asked Questions</p>
-        <h4>Everything You Need to Know</h4>
-        <div class="line-dec"></div>
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="faq-container wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-            <div class="faq-search">
-              <span class="faq-search-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-              </span>
-              <input type="text" class="faq-search-input" placeholder="Search for answers..." id="faqSearch">
-            </div>
-            
-            <div class="faq-categories">
-              <div class="faq-category active" data-category="all">All Questions</div>
-              <div class="faq-category" data-category="services">Services</div>
-              <div class="faq-category" data-category="process">Process</div>
-              <div class="faq-category" data-category="technical">Technical</div>
-            </div>
-            
-            <div class="faq-list">
-              <div class="faq-item" data-category="services">
-                <button class="faq-question-btn">
-                  <span>What services does ts9designs offer?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    We specialize in providing Mechanical, Electrical, and Plumbing (MEP) and Structural plans for residential and commercial projects. Whether you're starting a new construction or renovating an existing space, we can help with comprehensive engineering plans.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>How do I get started with ts9designs?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    Simply fill out our contact form on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>What information do you need to begin my project?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    To get started, we typically need basic information about your project, such as the size of the space, the scope of work (new construction, renovation, etc.), and any specific requirements or design preferences you may have. The more details you can provide, the better we can tailor our services to meet your needs.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>How long does it take to complete the engineering plans?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    The timeline for completing engineering plans typically takes 4-10 days to complete.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="technical">
-                <button class="faq-question-btn">
-                  <span>Are your engineering plans compliant with local codes?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    Yes, all our engineering plans are created by professionals and comply with local building codes and regulations. We ensure that your project meets all necessary standards to pass inspections and obtain permits.
-                  </div>
-                </div>
-              </div>
-
-              <div class="faq-item" data-category="technical">
-                <button class="faq-question-btn">
-                  <span>Does ts9designs coordinate projects requiring additional licensed professionals?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    <b>ts9designs</b> provides design, drafting, engineering, and project coordination services within the scope permitted by the applicable jurisdiction. When a project requires professional services outside ts9designs' permitted scope, those services must be provided through appropriately licensed professionals or firms in accordance with applicable state requirements.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="faq-more">
-              <p class="faq-more-text">Still have questions?</p>
-              <a href="/contact.html" class="faq-contact-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.009-.94-.584 0-1.009.388-1.009.94z"/>
-                  Talk to ts9designs
-                </svg>
-                Contact Us
-              </a>
+      <div class="faq-layout">
+        <div class="faq-side">
+          <div class="faq-head">
+            <p class="faq-caption">Frequently Asked Questions</p>
+            <h2 class="faq-title">Everything You Need to Know</h2>
+          </div>
+          <div class="faq-contact">
+            <p class="faq-contact-label">Still have questions?</p>
+            <a class="faq-contact-plain" href="mailto:info@ts9designs.com">info@ts9designs.com</a>
+            <a class="faq-contact-plain" href="tel:+12154367333">(215) 436-7333</a>
+            <div class="faq-arrow-links">
+              <a class="faq-arrow-link" href="/contact.html">Contact Us <span aria-hidden="true">&rarr;</span></a>
+              <a class="faq-arrow-link" href="https://cal.com/ts9designs/discoverycall">Book A Call <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
+        </div>
+
+        <div class="faq-list">
+          <p class="faq-group-label">Services</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
+                <span>What services does ts9designs offer?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <div><p>We specialize in providing Mechanical, Electrical, and Plumbing (MEP) and Structural plans for residential and commercial projects. Whether you're starting a new construction or renovating an existing space, we can help with comprehensive engineering plans.</p></div>
+              </div>
+            </div>
+
+          <p class="faq-group-label">Process</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                <span>How do I get started with ts9designs?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                <div><p>Simply fill out our <a href="/contact.html">contact form</a> on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                <span>What information do you need to begin my project?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                <div><p>To get started, we typically need basic information about your project, such as the size of the space, the scope of work (new construction, renovation, etc.), and any specific requirements or design preferences you may have. The more details you can provide, the better we can tailor our services to meet your needs.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+                <span>How long does it take to complete the engineering plans?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                <div><p>The timeline for completing engineering plans typically takes 4-10 days to complete.</p></div>
+              </div>
+            </div>
+
+          <p class="faq-group-label">Technical</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+                <span>Are your engineering plans compliant with local codes?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                <div><p>Yes, all our engineering plans are created by professionals and comply with local building codes and regulations. We ensure that your project meets all necessary standards to pass inspections and obtain permits.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
+                <span>Does ts9designs coordinate projects requiring additional licensed professionals?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                <div><p><b>ts9designs</b> provides design, drafting, engineering, and project coordination services within the scope permitted by the applicable jurisdiction. When a project requires professional services outside ts9designs' permitted scope, those services must be provided through appropriately licensed professionals or firms in accordance with applicable state requirements.</p></div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -3369,70 +3330,30 @@
       // Start automatic slideshow
       if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
 
-      // FAQ Accordion functionality
-      const faqItems = document.querySelectorAll('.faq-item');
-      const faqButtons = document.querySelectorAll('.faq-question-btn');
-      const faqSearch = document.getElementById('faqSearch');
-      const faqCategories = document.querySelectorAll('.faq-category');
-      
-      // Toggle FAQ item
-      faqButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const faqItem = this.parentElement;
-          
-          // Close all other items
-          faqItems.forEach(item => {
-            if (item !== faqItem && item.classList.contains('active')) {
-              item.classList.remove('active');
-            }
-          });
-          
-          // Toggle current item
-          faqItem.classList.toggle('active');
-        });
-      });
-      
-      // FAQ Search functionality
-      if (faqSearch) {
-        faqSearch.addEventListener('input', function() {
-          const searchTerm = this.value.toLowerCase();
-          
-          faqItems.forEach(item => {
-            const questionNode = item.querySelector('.faq-question-btn span');
-            const answerNode = item.querySelector('.faq-answer-content');
-            const question = questionNode ? questionNode.textContent.toLowerCase() : '';
-            const answer = answerNode ? answerNode.textContent.toLowerCase() : '';
-            
-            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
+      // FAQ: open and close answers; arrow keys move between questions.
+      // Answers stay visible unless this runs (see .is-enhanced in the CSS).
+      const faqList = document.querySelector('.faq-list');
+      if (faqList) {
+        const faqQuestions = [...faqList.querySelectorAll('.faq-q')];
+        const setFaq = (btn, open) => {
+          btn.setAttribute('aria-expanded', String(open));
+          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+          if (panel) panel.inert = !open;
+        };
+        faqQuestions.forEach(btn => {
+          setFaq(btn, btn.getAttribute('aria-expanded') === 'true');
+          btn.addEventListener('click', () => setFaq(btn, btn.getAttribute('aria-expanded') !== 'true'));
+          btn.addEventListener('keydown', e => {
+            const i = faqQuestions.indexOf(btn);
+            const last = faqQuestions.length - 1;
+            const target = { ArrowDown: i === last ? 0 : i + 1, ArrowUp: i === 0 ? last : i - 1, Home: 0, End: last }[e.key];
+            if (target === undefined) return;
+            e.preventDefault();
+            faqQuestions[target].focus();
           });
         });
+        faqList.classList.add('is-enhanced');
       }
-      
-      // FAQ Category filtering
-      faqCategories.forEach(category => {
-        category.addEventListener('click', function() {
-          // Remove active class from all categories
-          faqCategories.forEach(cat => cat.classList.remove('active'));
-          
-          // Add active class to clicked category
-          this.classList.add('active');
-          
-          const categoryFilter = this.getAttribute('data-category');
-          
-          // Filter FAQ items
-          faqItems.forEach(item => {
-            if (categoryFilter === 'all' || item.getAttribute('data-category') === categoryFilter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
 
       // Quote modal functionality
       const getQuoteBtn = document.getElementById('getQuoteBtn');
