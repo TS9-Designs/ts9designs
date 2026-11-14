@@ -8,6 +8,7 @@
   <meta name="description" content="ts9designs is a full-service engineering and design firm providing Building Design Services, Structural, MEP, and Fire Protection services through licensed professionals in applicable jurisdictions.">
   <meta name="keywords" content="engineering firm, Building Design & Drafting, structural engineering, MEP design, fire protection, licensed professionals">
   <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="stylesheet" href="/assets/css/site-footer.css">
 
@@ -59,7 +60,7 @@
       --color-black: #000000;
       --color-white: #ffffff;
       --color-accent: #4da6e7;
-      --color-accent-dark: #3a93d4;
+      --color-accent-dark: #1d4ed8;
       --color-accent-light: #6bb6f0;
       --color-gold: #d5a80f;
       --color-gray-50: #fafafa;
@@ -75,30 +76,8 @@
       
       /* Typography */
       --font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-size-xs: 0.75rem;
-      --font-size-sm: 0.875rem;
-      --font-size-md: 1rem;
-      --font-size-lg: 1.125rem;
-      --font-size-xl: 1.25rem;
-      --font-size-2xl: 1.5rem;
-      --font-size-3xl: 1.875rem;
-      --font-size-4xl: 2.25rem;
-      --font-size-5xl: 3rem;
-      --font-size-6xl: 3.75rem;
       
-      /* Spacing */
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.5rem;
-      --space-6: 2rem;
-      --space-7: 2.5rem;
-      --space-8: 3rem;
-      --space-9: 4rem;
-      --space-10: 5rem;
-      --space-12: 6rem;
-      --space-16: 8rem;
+      /* Type and spacing scales live in /assets/css/tokens.css */
       
       /* Grid */
       --container-width: 1200px;
@@ -139,7 +118,7 @@
     }
 
     html {
-      font-size: 16px;
+      font-size: var(--font-size-md);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       scroll-behavior: smooth;
@@ -175,7 +154,7 @@
     }
 
     a:hover {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
     }
 
     button {
@@ -287,7 +266,7 @@
     }
 
     .hero-subtitle {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       font-weight: 600;
       font-size: var(--font-size-sm);
       margin-bottom: var(--space-4);
@@ -296,7 +275,7 @@
     }
 
     .hero-description {
-      font-size: 1.05rem;
+      font-size: var(--font-size-md);
       color: var(--color-gray-600);
       margin-bottom: var(--space-5);
       font-weight: 400;
@@ -324,7 +303,7 @@
     }
 
     .story-eyebrow {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       font-weight: 600;
       font-size: var(--font-size-sm);
       text-transform: uppercase;
@@ -339,11 +318,11 @@
     }
 
     .story-headline-accent {
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
     }
 
     .story-lead {
-      font-size: 1.1rem;
+      font-size: var(--font-size-lg);
       color: var(--color-gray-600);
     }
 
@@ -368,7 +347,7 @@
     }
 
     .story-block p {
-      font-size: 1.1rem;
+      font-size: var(--font-size-lg);
       color: var(--color-gray-700);
       line-height: 1.75;
     }
@@ -405,7 +384,7 @@
 
     .process-lead {
       color: rgba(255, 255, 255, 0.7);
-      font-size: 1.05rem;
+      font-size: var(--font-size-md);
     }
 
     .process-step {
@@ -440,20 +419,20 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: var(--font-size-sm);
       color: var(--color-accent-light);
       z-index: 1;
     }
 
     .process-step-body h4 {
       color: var(--color-white);
-      font-size: 1.1rem;
+      font-size: var(--font-size-lg);
       margin-bottom: var(--space-2);
     }
 
     .process-step-body p {
       color: rgba(255, 255, 255, 0.65);
-      font-size: 0.95rem;
+      font-size: var(--font-size-md);
       line-height: 1.6;
       margin-bottom: 0;
     }
@@ -485,7 +464,7 @@
     .stat-number {
       font-size: var(--font-size-2xl);
       font-weight: 700;
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       white-space: nowrap;
     }
 
@@ -518,7 +497,7 @@
     .value-marker {
       font-size: var(--font-size-sm);
       font-weight: 700;
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
       letter-spacing: 0.05em;
       margin-bottom: var(--space-4);
     }
@@ -609,7 +588,7 @@
 
     .btn-white {
       background-color: var(--color-white);
-      color: var(--color-accent);
+      color: var(--color-accent-dark);
     }
 
     .btn-white:hover {
@@ -783,29 +762,29 @@
       animation: pulse 0.6s ease-in-out;
     }
 
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
-.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-6)}
+.footer-logo{display:inline-flex;align-items:center;gap:var(--space-2);color:#0f172a;text-decoration:none;font-weight:700;font-size:var(--font-size-lg);margin-bottom:var(--space-4)}
 .footer-logo svg{width:24px;height:24px}
-.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
-.footer-social{display:flex;gap:.6rem}
+.footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
+.footer-social{display:flex;gap:var(--space-2)}
 .social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
 .social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
-.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
 .footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
-.footer-link-item{margin-bottom:.6rem}
-.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-link-item{margin-bottom:var(--space-2)}
+.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
 .footer-grid .footer-link:hover{color:#1d4ed8;background:none}
-.footer-newsletter{margin-top:1.5rem}
-.newsletter-form{display:flex;gap:.4rem}
-.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.footer-newsletter{margin-top:var(--space-5)}
+.newsletter-form{display:flex;gap:var(--space-2)}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
 .newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
 .newsletter-button:hover{background:#1e3a8a}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
-.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
-.footer-legal{display:flex;gap:1rem}
-.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
+.footer-legal{display:flex;gap:var(--space-4)}
+.legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
 .legal-link:hover{color:#1d4ed8}
 @media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
@@ -1109,7 +1088,7 @@
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
               target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                 block: 'start'
               });
             }
