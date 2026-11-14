@@ -13,6 +13,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
   <link rel="canonical" href="https://www.ts9designs.com/permit-estimate.html">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="stylesheet" href="/assets/css/site-footer.css">
   <meta property="og:type" content="website">
@@ -60,13 +61,13 @@
     }
 
     .hero {
-      padding: 3.5rem 0 1.5rem;
+      padding: var(--space-9) 0 var(--space-5);
     }
 
     .hero h1 {
       font-size: clamp(1.8rem, 2.8vw, 2.9rem);
       line-height: 1.2;
-      margin: 0 0 0.85rem;
+      margin: 0 0 var(--space-3);
       letter-spacing: -0.02em;
     }
 
@@ -74,14 +75,14 @@
       max-width: 700px;
       margin: 0;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: var(--font-size-md);
     }
 
     .estimate-layout {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.5rem;
-      padding-bottom: 1.5rem;
+      gap: var(--space-5);
+      padding-bottom: var(--space-5);
     }
 
     .card {
@@ -92,20 +93,20 @@
     }
 
     .form-card {
-      padding: 1.55rem;
+      padding: var(--space-5);
       box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
     }
 
     .result-card {
-      padding: 1.3rem;
+      padding: var(--space-5);
       position: sticky;
       top: 90px;
       height: fit-content;
     }
 
     .section-title {
-      font-size: 0.9rem;
-      margin: 0 0 0.55rem;
+      font-size: var(--font-size-sm);
+      margin: 0 0 var(--space-2);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -113,32 +114,32 @@
     }
 
     .step-intro {
-      margin: 0 0 1rem;
+      margin: 0 0 var(--space-4);
       color: #64748b;
-      font-size: 0.83rem;
+      font-size: var(--font-size-sm);
       line-height: 1.45;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
+      gap: var(--space-4);
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
+      gap: var(--space-4);
     }
 
     .field {
-      margin-bottom: 0.9rem;
+      margin-bottom: var(--space-4);
     }
 
     .step-section {
       border-top: 1px solid #e5e7eb;
-      padding-top: 1rem;
-      margin-top: 1rem;
+      padding-top: var(--space-4);
+      margin-top: var(--space-4);
     }
 
     .step-section:first-of-type {
@@ -152,12 +153,12 @@
     }
 
     .wizard-progress {
-      margin-bottom: 1.1rem;
+      margin-bottom: var(--space-4);
     }
 
     .wizard-progress-text {
-      margin: 0 0 0.5rem;
-      font-size: 0.8rem;
+      margin: 0 0 var(--space-2);
+      font-size: var(--font-size-xs);
       font-weight: 600;
       color: #64748b;
       letter-spacing: 0.02em;
@@ -181,17 +182,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.75rem;
-      margin-top: 1.4rem;
-      padding-top: 1.1rem;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+      padding-top: var(--space-4);
       border-top: 1px solid #e5e7eb;
     }
 
     .wizard-btn {
       border-radius:15px;
-      padding: 0.7rem 1.3rem;
+      padding: var(--space-3) var(--space-5);
       font-weight: 600;
-      font-size: 0.92rem;
+      font-size: var(--font-size-sm);
       cursor: pointer;
       transition: 0.15s ease;
     }
@@ -225,8 +226,8 @@
     .field-step {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.62rem;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
     }
 
     .step-badge {
@@ -235,7 +236,7 @@
       border-radius: 6px;
       display: grid;
       place-items: center;
-      font-size: 0.74rem;
+      font-size: var(--font-size-xs);
       font-weight: 700;
       color: #1d4ed8;
       background: #f7f7f7;
@@ -245,7 +246,7 @@
 
     .field-step label,
     .field-step-text {
-      font-size: 0.88rem;
+      font-size: var(--font-size-sm);
       font-weight: 700;
       letter-spacing: 0.01em;
       color: #0f172a;
@@ -253,9 +254,9 @@
 
     .field label {
       display: block;
-      font-size: 0.84rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
-      margin-bottom: 0.45rem;
+      margin-bottom: var(--space-2);
     }
 
     .field input,
@@ -263,8 +264,8 @@
       width: 100%;
       border: 1px solid var(--border);
       border-radius: 12px;
-      font-size: 0.95rem;
-      padding: 0.74rem 0.78rem;
+      font-size: var(--font-size-md);
+      padding: var(--space-3) var(--space-3);
       outline: none;
       background: #fff;
       transition: 0.2s ease;
@@ -281,7 +282,7 @@
     }
 
     .sqft-input-wrap input {
-      padding-right: 3.25rem;
+      padding-right: var(--space-8);
     }
 
     .sqft-unit {
@@ -290,19 +291,19 @@
       right: 0.72rem;
       transform: translateY(-50%);
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
       pointer-events: none;
     }
 
     .selection-grid {
       display: grid;
-      gap: 0.62rem;
-      margin-top: 0.25rem;
+      gap: var(--space-2);
+      margin-top: var(--space-1);
     }
 
     .swiss-card-grid {
-      gap: 0.7rem;
+      gap: var(--space-3);
     }
 
     .selection-grid.cols-3 {
@@ -318,7 +319,7 @@
       border: 1px solid var(--border);
       background: #fff;
       border-radius: 10px;
-      padding: 0.9rem 0.85rem;
+      padding: var(--space-4) var(--space-3);
       min-height: 78px;
       text-align: left;
       cursor: pointer;
@@ -371,7 +372,7 @@
     }
 
     .option-title {
-      font-size: 0.84rem;
+      font-size: var(--font-size-sm);
       font-weight: 700;
       color: #0f172a;
       line-height: 1.25;
@@ -379,7 +380,7 @@
 
     .option-desc {
       margin-top: 0.2rem;
-      font-size: 0.73rem;
+      font-size: var(--font-size-xs);
       color: var(--muted);
       line-height: 1.35;
     }
@@ -393,12 +394,12 @@
       align-items: center;
       gap: 0.2rem;
       width: fit-content;
-      margin-bottom: 0.26rem;
-      font-size: 0.62rem;
+      margin-bottom: var(--space-1);
+      font-size: var(--font-size-xs);
       letter-spacing: 0.04em;
       text-transform: uppercase;
       border-radius: 999px;
-      padding: 0.14rem 0.38rem;
+      padding: 0.14rem var(--space-2);
       font-weight: 700;
       background: #e6e6e6;
       color: #1d4ed8;
@@ -406,18 +407,18 @@
 
     .option-card.tall {
       min-height: 132px;
-      padding: 0.95rem 0.88rem;
+      padding: var(--space-4) var(--space-4);
       justify-content: flex-start;
       align-items: stretch;
-      gap: 0.4rem;
+      gap: var(--space-2);
     }
 
     .option-card--scope .option-title {
-      font-size: 0.9rem;
+      font-size: var(--font-size-sm);
     }
 
     .option-card--scope .option-desc {
-      font-size: 0.76rem;
+      font-size: var(--font-size-xs);
       line-height: 1.4;
     }
 
@@ -500,7 +501,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
-      gap: 0.72rem;
+      gap: var(--space-3);
       min-height: 82px;
       text-align: left;
     }
@@ -525,21 +526,21 @@
       min-height: 92px;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 0.55rem;
-      padding: 1rem 0.95rem;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-4);
     }
 
     .option-card--timeline .option-title {
-      font-size: 0.86rem;
+      font-size: var(--font-size-sm);
     }
 
     .option-card--timeline-wide {
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
+      gap: var(--space-3);
       min-height: 76px;
-      padding: 0.95rem 1rem;
+      padding: var(--space-4) var(--space-4);
     }
 
     .option-card--timeline-wide .option-title {
@@ -547,11 +548,11 @@
     }
 
     .selection-grid.scope-cards {
-      gap: 0.85rem;
+      gap: var(--space-3);
     }
 
     .selection-grid.timeline-cards {
-      gap: 0.88rem;
+      gap: var(--space-4);
     }
 
     .field--timeline-below {
@@ -561,8 +562,8 @@
     }
 
     .assist-note {
-      margin: 0.4rem 0 0;
-      font-size: 0.77rem;
+      margin: var(--space-2) 0 0;
+      font-size: var(--font-size-xs);
       color: var(--muted);
     }
 
@@ -581,9 +582,9 @@
     }
 
     .hint {
-      margin-top: 0.35rem;
+      margin-top: var(--space-1);
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: var(--font-size-xs);
       line-height: 1.45;
     }
 
@@ -598,7 +599,7 @@
     }
 
     .field--contact .field-step-text {
-      font-size: 0.84rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
       color: var(--text);
     }
@@ -606,8 +607,8 @@
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem 0.9rem;
-      margin-top: 0.35rem;
+      gap: var(--space-3) var(--space-4);
+      margin-top: var(--space-1);
     }
 
     .contact-grid__full {
@@ -616,9 +617,9 @@
 
     .contact-grid label {
       display: block;
-      font-size: 0.82rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
-      margin-bottom: 0.4rem;
+      margin-bottom: var(--space-2);
       color: var(--text);
     }
 
@@ -626,8 +627,8 @@
       width: 100%;
       border: 1px solid var(--border);
       border-radius: 12px;
-      font-size: 0.95rem;
-      padding: 0.74rem 0.78rem;
+      font-size: var(--font-size-md);
+      padding: var(--space-3) var(--space-3);
       outline: none;
       background: #fff;
       transition: 0.2s ease;
@@ -641,8 +642,8 @@
     .checklist-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.45rem 0.8rem;
-      padding: 0.7rem 0.8rem;
+      gap: var(--space-2) var(--space-3);
+      padding: var(--space-3) var(--space-3);
       border: 1px solid var(--border);
       border-radius: 12px;
       background: #fff;
@@ -651,8 +652,8 @@
     .checklist-grid label {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      font-size: 0.86rem;
+      gap: var(--space-2);
+      font-size: var(--font-size-sm);
       font-weight: 500;
       margin: 0;
     }
@@ -667,21 +668,21 @@
       background: #0f172a;
       color: #fff;
       border-radius: 16px;
-      padding: 1rem;
-      margin-bottom: 1rem;
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
     }
 
     .estimate-label {
       margin: 0;
-      font-size: 0.83rem;
+      font-size: var(--font-size-sm);
       opacity: 0.9;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .estimate-sublabel {
-      margin: 0.35rem 0 0;
-      font-size: 0.78rem;
+      margin: var(--space-1) 0 0;
+      font-size: var(--font-size-xs);
       font-weight: 500;
       color: rgba(219, 234, 254, 0.88);
       letter-spacing: 0.01em;
@@ -689,15 +690,15 @@
     }
 
     .estimate-value {
-      margin: 0.32rem 0 0;
+      margin: var(--space-1) 0 0;
       font-size: clamp(1.45rem, 2vw, 2rem);
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
     .disclaimer {
-      margin: 0.7rem 0 0;
-      font-size: 0.83rem;
+      margin: var(--space-3) 0 0;
+      font-size: var(--font-size-sm);
       color: #e6e6e6;
       line-height: 1.45;
     }
@@ -714,9 +715,9 @@
     .price-breakdown li {
       display: flex;
       justify-content: space-between;
-      gap: 0.7rem;
-      font-size: 0.89rem;
-      padding: 0.7rem 0.8rem;
+      gap: var(--space-3);
+      font-size: var(--font-size-sm);
+      padding: var(--space-3) var(--space-3);
       border-bottom: 1px solid var(--border);
     }
 
@@ -729,8 +730,8 @@
     }
 
     .scope-hint {
-      margin: 0.45rem 0 0;
-      font-size: 0.78rem;
+      margin: var(--space-2) 0 0;
+      font-size: var(--font-size-xs);
       color: var(--muted);
     }
 
@@ -738,14 +739,14 @@
       width: 100%;
       border: 0;
       border-radius:15px;
-      padding: 0.9rem;
+      padding: var(--space-4);
       background: var(--text);
       color: #fff;
       font-weight: 600;
-      font-size: 0.98rem;
+      font-size: var(--font-size-md);
       cursor: pointer;
       transition: 0.2s ease;
-      margin-top: 0.8rem;
+      margin-top: var(--space-3);
     }
 
     .submit-btn:hover {
@@ -755,10 +756,10 @@
 
     .message {
       display: none;
-      margin-top: 0.8rem;
-      padding: 0.85rem 0.9rem;
+      margin-top: var(--space-3);
+      padding: var(--space-3) var(--space-4);
       border-radius: 12px;
-      font-size: 0.87rem;
+      font-size: var(--font-size-sm);
       line-height: 1.45;
       border: 1px solid transparent;
     }
@@ -788,7 +789,7 @@
       border: 1px dashed #d1d1d1;
       background: #f7f7f7;
       border-radius: 14px;
-      padding: 1rem;
+      padding: var(--space-4);
       transition: 0.22s ease;
       cursor: pointer;
     }
@@ -803,16 +804,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.8rem;
-      margin-bottom: 0.45rem;
+      gap: var(--space-3);
+      margin-bottom: var(--space-2);
     }
 
-    .file-drop-title { margin: 0; font-size: 0.9rem; font-weight: 600; color: #0f172a; }
-    .file-drop-sub { margin: 0; font-size: 0.78rem; color: var(--muted); }
+    .file-drop-title { margin: 0; font-size: var(--font-size-sm); font-weight: 600; color: #0f172a; }
+    .file-drop-sub { margin: 0; font-size: var(--font-size-xs); color: var(--muted); }
     .file-browse-btn {
       border: 1px solid #bfdbfe;
       border-radius:15px;
-      padding: 0.48rem 0.7rem;
+      padding: var(--space-2) var(--space-3);
       background: #fff;
       color: #1d4ed8;
       font-weight: 600;
@@ -820,24 +821,24 @@
       transition: 0.2s ease;
     }
     .file-browse-btn:hover { background: #f7f7f7; border-color: #d1d1d1; }
-    .file-meta { margin: 0.35rem 0 0; font-size: 0.76rem; color: var(--muted); }
-    .file-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
+    .file-meta { margin: var(--space-1) 0 0; font-size: var(--font-size-xs); color: var(--muted); }
+    .file-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
     .file-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      padding: 0.35rem 0.5rem;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-2);
       border-radius: 999px;
       border: 1px solid #e6e6e6;
       background: #fff;
       color: #334155;
-      font-size: 0.74rem;
+      font-size: var(--font-size-xs);
     }
     .file-chip button {
       border: 0;
       background: transparent;
       color: #64748b;
-      font-size: 0.9rem;
+      font-size: var(--font-size-sm);
       line-height: 1;
       cursor: pointer;
       padding: 0;
@@ -852,7 +853,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 0.65rem;
+      gap: var(--space-3);
       pointer-events: none;
     }
 
@@ -884,21 +885,21 @@
     .toast-inner {
       display: flex;
       align-items: flex-start;
-      gap: 0.35rem;
-      padding: 0.85rem 0.45rem 0.85rem 0.95rem;
+      gap: var(--space-1);
+      padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4);
     }
 
     .toast-body {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 0.65rem;
+      gap: var(--space-3);
       align-items: flex-start;
       flex: 1;
       min-width: 0;
     }
 
-    .toast-title { margin: 0 0 0.22rem; font-size: 0.9rem; font-weight: 700; color: #0f172a; }
-    .toast-text { margin: 0; font-size: 0.83rem; line-height: 1.45; color: #475569; }
+    .toast-title { margin: 0 0 0.22rem; font-size: var(--font-size-sm); font-weight: 700; color: #0f172a; }
+    .toast-text { margin: 0; font-size: var(--font-size-sm); line-height: 1.45; color: #475569; }
 
     .toast-close {
       flex-shrink: 0;
@@ -909,7 +910,7 @@
       border-radius: 8px;
       background: transparent;
       color: #94a3b8;
-      font-size: 1.35rem;
+      font-size: var(--font-size-xl);
       line-height: 1;
       cursor: pointer;
       display: grid;
@@ -951,7 +952,7 @@
     }
 
     .toast-icon--symbol {
-      font-size: 0.95rem;
+      font-size: var(--font-size-md);
     }
 
     .toast.info .toast-icon--symbol {
@@ -1016,7 +1017,7 @@
     }
 
     .licensure-section {
-      padding: 0 0 3rem;
+      padding: 0 0 var(--space-8);
     }
 
     .licensure-card {
@@ -1024,19 +1025,19 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
-      padding: 1.25rem;
+      padding: var(--space-5);
     }
 
     .licensure-card h2 {
-      margin: 0 0 0.7rem;
-      font-size: 1.15rem;
+      margin: 0 0 var(--space-3);
+      font-size: var(--font-size-lg);
       letter-spacing: -0.01em;
     }
 
     .licensure-card p {
-      margin: 0 0 0.8rem;
+      margin: 0 0 var(--space-3);
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: var(--font-size-sm);
       line-height: 1.55;
     }
 
@@ -1045,7 +1046,7 @@
     }
 
     .trust-signals {
-      padding: 2.25rem 0 2.75rem;
+      padding: var(--space-7) 0 var(--space-8);
       background: #f8fafc;
     }
 
@@ -1054,7 +1055,7 @@
       font-size: clamp(1.05rem, 2.2vw, 1.32rem);
       font-weight: 600;
       color: var(--text);
-      margin: 0 auto 1.35rem;
+      margin: 0 auto var(--space-5);
       max-width: 40rem;
       line-height: 1.35;
       letter-spacing: -0.02em;
@@ -1069,7 +1070,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 1.25rem 2.75rem;
+      gap: var(--space-5) var(--space-8);
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -1078,14 +1079,14 @@
     .trust-signals__item {
       display: flex;
       align-items: center;
-      gap: 0.72rem;
+      gap: var(--space-3);
       max-width: min(380px, 100%);
       text-align: left;
     }
 
     .trust-signals__text {
       margin: 0;
-      font-size: 0.84rem;
+      font-size: var(--font-size-sm);
       font-weight: 500;
       color: #334155;
       line-height: 1.4;
@@ -1135,28 +1136,28 @@
     .site-footer {
       border-top: 1px solid var(--border);
       background: #f8fafc;
-      padding: 1.4rem 0 2rem;
-      margin-top: 1rem;
+      padding: var(--space-5) 0 var(--space-6);
+      margin-top: var(--space-4);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 1rem;
+      gap: var(--space-4);
       align-items: start;
     }
 
-    .footer-title { margin: 0 0 .45rem; font-size: .92rem; font-weight: 700; }
-    .footer-text, .footer-link { color: var(--muted); font-size: .86rem; text-decoration: none; }
+    .footer-title { margin: 0 0 var(--space-2); font-size: var(--font-size-sm); font-weight: 700; }
+    .footer-text, .footer-link { color: var(--muted); font-size: var(--font-size-sm); text-decoration: none; }
     .footer-link:hover { color: var(--primary-dark); }
-    .newsletter-form { display:flex; gap:.45rem; }
-    .newsletter-input { flex:1; border:1px solid var(--border); border-radius:10px; padding:.55rem .65rem; font-size:.86rem; }
-    .newsletter-button { border:1px solid var(--border); background:#fff; border-radius:15px; padding:.55rem .7rem; font-size:.82rem; font-weight:600; cursor: pointer; }
-    .footer-social { display: flex; gap: .5rem; margin-top: .65rem; }
+    .newsletter-form { display:flex; gap:var(--space-2); }
+    .newsletter-input { flex:1; border:1px solid var(--border); border-radius:10px; padding:var(--space-2) var(--space-3); font-size:var(--font-size-sm); }
+    .newsletter-button { border:1px solid var(--border); background:#fff; border-radius:15px; padding:var(--space-2) var(--space-3); font-size:var(--font-size-sm); font-weight:600; cursor: pointer; }
+    .footer-social { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
     .social-link { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--border); color: var(--muted); transition: .2s ease; }
     .social-link:hover { background: var(--primary); color: #fff; }
-    .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .footer-copyright { margin: 0; color: var(--muted); font-size: .78rem; max-width: 640px; }
+    .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border); }
+    .footer-copyright { margin: 0; color: var(--muted); font-size: var(--font-size-xs); max-width: 640px; }
 
 
     @media (max-width: 980px) {
@@ -1191,24 +1192,24 @@
       }
 
       .hero {
-        padding-top: 2.2rem;
+        padding-top: var(--space-6);
       }
     }
   
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;padding:1.4rem 0 2rem;margin-top:1rem}
-.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1rem;align-items:start}
-.footer-title{margin:0 0 .45rem;font-size:.92rem;font-weight:700;color:#0f172a}
-.footer-text,.footer-link{color:#64748b;font-size:.86rem;text-decoration:none}
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;padding:var(--space-5) 0 var(--space-6);margin-top:var(--space-4)}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--space-4);align-items:start}
+.footer-title{margin:0 0 var(--space-2);font-size:var(--font-size-sm);font-weight:700;color:#0f172a}
+.footer-text,.footer-link{color:#64748b;font-size:var(--font-size-sm);text-decoration:none}
 .footer-link:hover{color:#1d4ed8}
-.footer-social{display:flex;gap:.5rem;margin-top:.65rem}
+.footer-social{display:flex;gap:var(--space-2);margin-top:var(--space-3)}
 .social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
 .social-link:hover{background:#4da6e7;color:#fff}
-.newsletter-form{display:flex;gap:.45rem}
-.newsletter-input{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:.55rem .65rem;font-size:.86rem;font-family:inherit}
-.newsletter-button{border:1px solid #e2e8f0;background:#fff;border-radius:15px;padding:.55rem .7rem;font-size:.82rem;font-weight:600;cursor:pointer}
+.newsletter-form{display:flex;gap:var(--space-2)}
+.newsletter-input{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-family:inherit}
+.newsletter-button{border:1px solid #e2e8f0;background:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer}
 .newsletter-button:hover{border-color:#4da6e7;color:#1d4ed8}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid #e2e8f0}
-.footer-copyright{margin:0;color:#64748b;font-size:.78rem;max-width:640px}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2) var(--space-4);margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid #e2e8f0}
+.footer-copyright{margin:0;color:#64748b;font-size:var(--font-size-xs);max-width:640px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.ts9designs.com/permit-estimate.html#webpage","url":"https://www.ts9designs.com/permit-estimate.html","name":"Permit-Ready Plan Estimate","description":"Get a ts9designs permit-ready plan estimate in supported states. Enter project details to see your range from TS9 pricing guidelines.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"Permit-Ready Plan Estimate","item":"https://www.ts9designs.com/permit-estimate.html"}]}]}</script>
@@ -2114,7 +2115,7 @@
 
         const rect = form.getBoundingClientRect();
         if (rect.top < 80) {
-          window.scrollTo({ top: window.scrollY + rect.top - 96, behavior: "smooth" });
+          window.scrollTo({ top: window.scrollY + rect.top - 96, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
         }
       }
 
