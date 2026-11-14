@@ -1400,6 +1400,15 @@
   color: var(--brand-navy);
 }
 
+/* Arrows are drawn icons: Montserrat has no arrow glyphs, so text arrows
+   fell back to mismatched system fonts (or emoji on Apple devices). */
+.faq-arrow-link svg,
+.drawings-view svg {
+  display: block;
+  width: 0.875em;
+  height: 0.875em;
+}
+
 .faq-arrow-link span {
   display: inline-block;
   transition: transform 0.2s ease;
@@ -2562,7 +2571,7 @@
             <dt>Scope</dt><dd>MEP &amp; Fire Alarm</dd>
           </dl>
           <div class="drawings-actions">
-            <a class="drawings-view" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener">View Plan <span aria-hidden="true">&#8599;</span></a>
+            <a class="drawings-view" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener">View Plan <span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3.5 12.5 12.5 3.5M5 3.5h7.5V11"/></svg></span></a>
             <span class="drawings-file">PDF &middot; 14 MB &middot; 24 sheets</span>
           </div>
         </div>
@@ -3153,8 +3162,8 @@
             <a class="faq-contact-plain" href="mailto:info@ts9designs.com">info@ts9designs.com</a>
             <a class="faq-contact-plain" href="tel:+12154367333">(215) 436-7333</a>
             <div class="faq-arrow-links">
-              <a class="faq-arrow-link" href="#contact">Contact Us <span aria-hidden="true">&rarr;</span></a>
-              <a class="faq-arrow-link" href="https://cal.com/ts9designs/discoverycall">Book A Call <span aria-hidden="true">&rarr;</span></a>
+              <a class="faq-arrow-link" href="#contact">Contact Us <span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+              <a class="faq-arrow-link" href="https://cal.com/ts9designs/discoverycall">Book A Call <span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
             </div>
           </div>
         </div>
