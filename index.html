@@ -587,104 +587,164 @@
       font-size: var(--font-size-sm);
     }
 
-    /* Sample Drawings — full-bleed "light table" viewer */
+    /* Sample Drawings: heading and a short ruled list of facts beside the
+       real cover sheet of the set, shown like a print on a table. Clicking
+       the sheet or "View Plan" opens the full PDF. */
     .drawings-section {
-      position: relative;
-      background-color: var(--gray-900);
-      padding: var(--spacing-2xl) 0 calc(var(--spacing-2xl) * 1.4);
-      overflow: hidden;
+      background: var(--white);
+      padding: var(--space-12) 0;
     }
 
-    .drawings-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.04) 0px, rgba(15, 23, 42, 0.04) 1px, transparent 1px, transparent 64px),
-        repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.04) 0px, rgba(15, 23, 42, 0.04) 1px, transparent 1px, transparent 64px);
-      -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 45%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 65% at 50% 15%, #000 45%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .drawings-heading h6 {
-      background-color: rgba(213, 168, 15, 0.12);
-      color: var(--brand-gold);
-    }
-
-    .drawings-heading h4 {
-      color: var(--white);
-    }
-
-    .drawings-heading p {
-      color: var(--gray-400);
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .drawing-projects {
-      position: relative;
-      max-width: 1140px;
+    .drawings-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+      gap: var(--space-9);
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 var(--spacing-lg);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--spacing-lg);
+      align-items: center;
     }
 
-    .drawing-project-card {
-      flex: 1 1 300px;
-      max-width: 340px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-xl) var(--spacing-lg);
-      text-align: center;
-      transition: var(--transition);
+    .drawings-caption {
+      margin: 0 0 var(--space-3);
+      color: var(--brand-gold-text);
+      font-size: var(--font-size-md);
+      font-weight: 600;
     }
 
-    .drawing-project-card:hover {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(213, 168, 15, 0.35);
-      transform: translateY(-4px);
+    .drawings-title {
+      margin: 0;
+      color: var(--brand-navy);
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
     }
 
-    .drawing-project-card h4 {
-      color: var(--white);
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--space-2);
+    .drawings-title em {
+      font-style: normal;
+      color: var(--gray-500);
     }
 
-    .drawing-project-card span {
-      display: block;
-      color: var(--brand-gold);
-      font-size: var(--font-size-sm);
-      font-weight: 500;
-      margin-bottom: var(--spacing-lg);
+    .drawings-sub {
+      margin: var(--space-4) 0 0;
+      color: var(--gray-600);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      max-width: 46ch;
     }
 
-    .drawing-project-link {
-      display: inline-block;
-      color: var(--gray-300);
+    .drawings-facts {
+      margin: var(--space-6) 0 0;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      max-width: 440px;
+    }
+
+    .drawings-facts dt,
+    .drawings-facts dd {
+      margin: 0;
+      padding: 10px 0;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .drawings-facts dt {
+      padding-right: var(--space-5);
+      color: var(--gray-500);
       font-size: var(--font-size-sm);
       font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-      padding-bottom: 2px;
-      transition: var(--transition);
     }
 
-    .drawing-project-link:hover {
-      color: var(--brand-gold);
-      border-color: var(--primary);
+    .drawings-facts dd {
+      color: var(--brand-navy);
+      font-weight: 500;
+    }
+
+    .drawings-facts dt:last-of-type,
+    .drawings-facts dd:last-of-type {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .drawings-actions {
+      margin-top: var(--space-5);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px var(--space-4);
+      align-items: baseline;
+    }
+
+    .drawings-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--brand-navy);
+      font-weight: 600;
+    }
+
+    .drawings-view:hover {
+      color: var(--brand-navy);
+    }
+
+    .drawings-view span {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .drawings-view:hover span {
+      transform: translate(2px, -2px);
+    }
+
+    .drawings-file {
+      color: var(--gray-500);
+      font-size: var(--font-size-sm);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .drawings-sheet-link {
+      display: block;
+      border-radius: 4px;
+    }
+
+    .drawings-sheet {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 32px -12px rgba(15, 23, 42, 0.22);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .drawings-sheet-link:hover .drawings-sheet {
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 18px 40px -12px rgba(15, 23, 42, 0.3);
+    }
+
+    .drawings-view:focus-visible,
+    .drawings-sheet-link:focus-visible {
+      outline: 2px solid var(--brand-navy);
+      outline-offset: 4px;
     }
 
     @media (max-width: 900px) {
-      .drawing-project-card {
-        flex-basis: 100%;
-        max-width: 420px;
+      .drawings-section {
+        padding: var(--space-9) 0;
+      }
+
+      .drawings-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+
+      .drawings-title {
+        font-size: var(--font-size-3xl);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .drawings-view span,
+      .drawings-sheet {
+        transition: none;
       }
     }
 
@@ -1003,8 +1063,6 @@
     .pricing-section {
       background: var(--brand-navy);
       color: var(--white);
-      /* the drawing-sets band above is the same navy; a gold hairline separates them */
-      border-top: 1px solid rgba(213, 168, 15, 0.3);
     }
 
     .pricing-section .section-heading .section-eyebrow {
@@ -2493,19 +2551,24 @@
   <!-- Sample Drawings Section Start -->
   <section id="drawings" class="drawings-section">
     <div class="container">
-      <div class="section-heading drawings-heading">
-        <p class="section-eyebrow">From Our Drawing Sets</p>
-        <h4>A Look at the <em>Construction Documents</em></h4>
-        <div class="line-dec"></div>
-        <p>Full permit-ready document sets from completed projects &mdash; building design, electrical, fire protection, and structural.</p>
-      </div>
-
-      <div class="drawing-projects">
-        <div class="drawing-project-card">
-          <h4>508 Main Street, Johnstown</h4>
-          <span>MEP &amp; Fire Alarm &middot; Commercial Mixed-Use</span>
-          <a class="drawing-project-link" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener">View Plan &#8599;</a>
+      <div class="drawings-layout">
+        <div>
+          <p class="drawings-caption">From Our Drawing Sets</p>
+          <h2 class="drawings-title">A Look at the <em>Construction Documents</em></h2>
+          <p class="drawings-sub">Full permit-ready document sets from completed projects &mdash; building design, electrical, fire protection, and structural.</p>
+          <dl class="drawings-facts">
+            <dt>Project</dt><dd>508 Main Street, Johnstown</dd>
+            <dt>Use</dt><dd>Commercial Mixed-Use</dd>
+            <dt>Scope</dt><dd>MEP &amp; Fire Alarm</dd>
+          </dl>
+          <div class="drawings-actions">
+            <a class="drawings-view" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener">View Plan <span aria-hidden="true">&#8599;</span></a>
+            <span class="drawings-file">PDF &middot; 14 MB &middot; 24 sheets</span>
+          </div>
         </div>
+        <a class="drawings-sheet-link" href="assets/drawing-sets/508%20Main%20St%2C%20Johnstown%20-%20SOUL-24%20-MEP%20%26%20Fire%20Alarm%20Plans.pdf" target="_blank" rel="noopener" aria-label="Open the 508 Main Street drawing set (PDF, 14 MB, opens in a new tab)">
+          <img class="drawings-sheet" src="assets/images/drawing-sets/508-main-st-cover.jpg" width="1200" height="847" loading="lazy" decoding="async" alt="Cover sheet of the 508 Main Street, Johnstown drawing set, with the index to drawings, scope of work and applicable codes">
+        </a>
       </div>
     </div>
   </section>
