@@ -9,6 +9,7 @@
   
   <title>ts9designs - Building Design, MEP, Structural & Fire Engineering</title>
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site-header.css">
   <link rel="stylesheet" href="/assets/css/site-footer.css">
   <link rel="canonical" href="https://www.ts9designs.com/">
@@ -140,29 +141,29 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: var(--font-size-5xl);
       letter-spacing: -0.5px;
     }
 
     h2 {
-      font-size: 2.25rem;
+      font-size: var(--font-size-4xl);
       letter-spacing: -0.5px;
     }
 
     h3 {
-      font-size: 1.75rem;
+      font-size: var(--font-size-3xl);
     }
 
     h4 {
-      font-size: 1.5rem;
+      font-size: var(--font-size-2xl);
     }
 
     h5 {
-      font-size: 1.25rem;
+      font-size: var(--font-size-xl);
     }
 
     .section-eyebrow {
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -195,7 +196,7 @@
       transition: var(--transition);
       text-decoration: none;
       border: none;
-      font-size: 1rem;
+      font-size: var(--font-size-md);
     }
 
     .btn-primary {
@@ -234,15 +235,15 @@
 
     .btn-lg {
       padding: var(--spacing-md) var(--spacing-xl);
-      font-size: 1.125rem;
+      font-size: var(--font-size-lg);
     }
 
-    .btn-link { text-decoration:none; border:1px solid var(--gray-200); color:var(--gray-800); padding:0.6rem 1rem; border-radius:15px; font-weight:600; transition:0.2s ease; }
+    .btn-link { text-decoration:none; border:1px solid var(--gray-200); color:var(--gray-800); padding:var(--space-2) var(--space-4); border-radius:15px; font-weight:600; transition:0.2s ease; }
     .btn-link:hover { border-color: var(--primary); color: var(--primary-dark); }
 
     /* Main Banner Styles */
     .main-banner {
-      padding-top: 0.7rem;
+      padding-top: var(--space-3);
       padding-bottom: var(--spacing-xl);
       background-color: #faf6ee;
       position: relative;
@@ -252,42 +253,42 @@
     .header-text {
       position: relative;
       z-index: 1;
-      padding: 0.25rem 0.6rem 0.25rem 0;
+      padding: var(--space-1) var(--space-2) var(--space-1) 0;
     }
 
     .header-text h6 {
       margin-bottom: var(--spacing-sm);
       display: inline-block;
       background-color: rgba(15, 23, 42, 0.05);
-      padding: 0.25rem 0.75rem;
+      padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-xl);
     }
 
     .header-text h1 {
       font-size: clamp(1.7rem, 2.6vw, 2.35rem);
-      margin-bottom: 0.7rem;
+      margin-bottom: var(--space-3);
       font-weight: 600;
       line-height: 1.22;
       letter-spacing: 0.01em;
     }
 
     .header-text p {
-      font-size: 0.98rem;
+      font-size: var(--font-size-md);
       color: var(--gray-700);
-      margin-bottom: 0.7rem;
+      margin-bottom: var(--space-3);
     }
 
     .quote-button-wrapper {
-      margin-top: 0.65rem;
+      margin-top: var(--space-3);
       display: flex;
       flex-wrap: nowrap;
-      gap: 0.75rem;
+      gap: var(--space-3);
       align-items: center;
     }
 
     .quote-button-wrapper .btn {
       min-width: 195px;
-      padding: 0.85rem 1.35rem;
+      padding: var(--space-3) var(--space-5);
       border-radius: 15px;
       font-weight: 600;
       letter-spacing: 0.2px;
@@ -321,16 +322,16 @@
     .hero-points {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.5rem;
+      gap: var(--space-1);
+      margin-top: var(--space-2);
     }
 
     .hero-point {
-      font-size: 0.7rem;
+      font-size: var(--font-size-xs);
       color: var(--gray-700);
       border: 1px solid var(--gray-200);
       background: var(--white);
-      padding: 0.25rem 0.48rem;
+      padding: var(--space-1) var(--space-2);
       border-radius: 999px;
     }
 
@@ -403,8 +404,8 @@
 
     .slide-indicators {
       display: flex;
-      gap: 8px;
-      padding: 0.42rem 0.7rem;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.85);
     }
@@ -430,7 +431,7 @@
       }
 
       .main-banner .header-text {
-        margin-right: 0.75rem;
+        margin-right: var(--space-3);
       }
     }
 
@@ -448,7 +449,7 @@
       display: inline-block;
       margin-bottom: var(--spacing-sm);
       background-color: rgba(15, 23, 42, 0.05);
-      padding: 0.25rem 0.75rem;
+      padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-xl);
     }
 
@@ -549,7 +550,7 @@
     .view-project {
       color: var(--white);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       text-transform: uppercase;
       letter-spacing: 1px;
       padding: var(--spacing-sm) var(--spacing-md);
@@ -568,12 +569,12 @@
     }
 
     .portfolio-item h4 {
-      font-size: 1.125rem;
+      font-size: var(--font-size-lg);
       margin-bottom: var(--spacing-xs);
     }
 
     .portfolio-item span {
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--primary-dark);
       font-weight: 500;
     }
@@ -583,7 +584,7 @@
     }
 
     .portfolio-actions .btn-link {
-      font-size: 0.82rem;
+      font-size: var(--font-size-sm);
     }
 
     /* Sample Drawings — full-bleed "light table" viewer */
@@ -652,14 +653,14 @@
 
     .drawing-project-card h4 {
       color: var(--white);
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--space-2);
     }
 
     .drawing-project-card span {
       display: block;
       color: var(--primary);
-      font-size: 0.85rem;
+      font-size: var(--font-size-sm);
       font-weight: 500;
       margin-bottom: var(--spacing-lg);
     }
@@ -667,7 +668,7 @@
     .drawing-project-link {
       display: inline-block;
       color: var(--gray-300);
-      font-size: 0.85rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
       text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.25);
@@ -732,7 +733,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: var(--font-size-xl);
       line-height: 1;
       cursor: pointer;
       z-index: 10;
@@ -769,13 +770,13 @@
     }
 
     .project-header h3 {
-      font-size: 1.75rem;
+      font-size: var(--font-size-3xl);
       margin-bottom: var(--spacing-xs);
       font-weight: 700;
     }
 
     .project-category {
-      font-size: 1rem;
+      font-size: var(--font-size-md);
       color: var(--primary);
       font-weight: 500;
       display: inline-block;
@@ -816,7 +817,7 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      font-size: 18px;
+      font-size: var(--font-size-lg);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -844,14 +845,14 @@
     }
 
     .project-description p {
-      font-size: 1rem;
+      font-size: var(--font-size-md);
       line-height: 1.6;
       color: var(--gray-700);
       margin-bottom: var(--spacing-md);
     }
 
     .project-description h4 {
-      font-size: 1.25rem;
+      font-size: var(--font-size-xl);
       margin: var(--spacing-lg) 0 var(--spacing-md);
       font-weight: 700;
       color: var(--dark);
@@ -878,18 +879,18 @@
 
     .meta-item i {
       color: var(--primary);
-      font-size: 1rem;
+      font-size: var(--font-size-md);
     }
 
     .meta-label {
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-700);
       margin-right: var(--spacing-xs);
     }
 
     .meta-value {
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-800);
     }
 
@@ -917,13 +918,13 @@
     }
 
     .detail-item h5 {
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-600);
       margin-bottom: var(--spacing-xs);
     }
 
     .detail-item p {
-      font-size: 1rem;
+      font-size: var(--font-size-md);
       font-weight: 500;
       margin-bottom: 0;
       color: var(--dark);
@@ -941,7 +942,7 @@
       color: var(--white);
       padding: var(--spacing-sm) var(--spacing-lg);
       border-radius: var(--radius-xl);
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       font-weight: 600;
       text-decoration: none;
       transition: var(--transition);
@@ -957,20 +958,20 @@
     .project-location {
       display: inline-block;
       margin-top: var(--spacing-xs);
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-600);
       background-color: var(--gray-100);
-      padding: 0.25rem 0.75rem;
+      padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-xl);
     }
 
     .project-completion {
       display: inline-block;
       margin-left: var(--spacing-sm);
-      font-size: 0.875rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-600);
       background-color: var(--gray-100);
-      padding: 0.25rem 0.75rem;
+      padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-xl);
     }
 
@@ -985,7 +986,7 @@
       position: relative;
       padding-left: var(--spacing-lg);
       margin-bottom: var(--spacing-sm);
-      font-size: 0.95rem;
+      font-size: var(--font-size-md);
       color: var(--gray-700);
     }
 
@@ -1012,19 +1013,19 @@
     }
 
     .pricing-card h3 {
-      font-size: 1.5rem;
+      font-size: var(--font-size-2xl);
       margin-bottom: var(--spacing-md);
     }
 
     .pricing-amount {
-      font-size: 2.9rem;
+      font-size: var(--font-size-5xl);
       font-weight: 700;
       color: var(--primary-dark);
       margin-bottom: var(--spacing-md);
     }
 
     .pricing-unit {
-      font-size: 1rem;
+      font-size: var(--font-size-md);
       color: var(--gray-600);
     }
 
@@ -1094,13 +1095,13 @@
 
     .reviewer-name {
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: var(--font-size-md);
       margin-bottom: 2px;
       color: var(--dark);
     }
 
     .reviewer-title {
-      font-size: 0.85rem;
+      font-size: var(--font-size-sm);
       color: var(--gray-500);
       font-weight: 500;
     }
@@ -1113,11 +1114,11 @@
 
     .star {
       color: #f5b400;
-      font-size: 1rem;
+      font-size: var(--font-size-md);
     }
 
     .review-content {
-      font-size: 0.95rem;
+      font-size: var(--font-size-md);
       line-height: 1.7;
       color: var(--gray-700);
       font-weight: 400;
@@ -1128,7 +1129,7 @@
     }
 
     .review-source {
-      font-size: 0.75rem;
+      font-size: var(--font-size-xs);
       color: var(--gray-500);
       font-weight: 500;
       margin-top: var(--spacing-md);
@@ -1164,7 +1165,7 @@
     .reviews-indicators {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: var(--space-2);
       margin-top: var(--spacing-lg);
     }
 
@@ -1227,10 +1228,10 @@
 .faq-search-input {
   width: 100%;
   padding: var(--spacing-md) var(--spacing-lg);
-  padding-left: 3rem;
+  padding-left: var(--space-8);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-xl);
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   background-color: var(--white);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
@@ -1262,7 +1263,7 @@
   background-color: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-xl);
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--gray-700);
   cursor: pointer;
@@ -1302,7 +1303,7 @@
   background-color: var(--white);
   border: none;
   text-align: left;
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--gray-800);
   cursor: pointer;
@@ -1377,7 +1378,7 @@
 
 .faq-answer-content {
   color: var(--gray-700);
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   line-height: 1.6;
 }
 
@@ -1387,7 +1388,7 @@
 }
 
 .faq-more-text {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   color: var(--gray-700);
   margin-bottom: var(--spacing-md);
 }
@@ -1426,12 +1427,12 @@
   
   .faq-category {
     padding: var(--spacing-xs) var(--spacing-md);
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
   }
   
   .faq-question-btn {
     padding: var(--spacing-md) var(--spacing-lg);
-    font-size: 1rem;
+    font-size: var(--font-size-md);
   }
   
   .faq-item.active .faq-answer {
@@ -1442,7 +1443,7 @@
 @media (max-width: 576px) {
   .faq-search-input {
     padding: var(--spacing-sm) var(--spacing-lg);
-    padding-left: 2.5rem;
+    padding-left: var(--space-7);
   }
   
   .faq-categories {
@@ -1498,13 +1499,13 @@
 
     .contact-eyebrow {
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: var(--font-size-xs);
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--primary);
       background-color: rgba(15, 23, 42, 0.05);
-      padding: 0.25rem 0.75rem;
+      padding: var(--space-1) var(--space-3);
       border-radius: var(--radius-xl);
       margin-bottom: var(--spacing-md);
     }
@@ -1526,16 +1527,16 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: var(--space-3);
     }
 
     .contact-checklist li {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: var(--space-3);
       color: var(--gray-800);
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: var(--font-size-md);
     }
 
     .contact-checklist svg {
@@ -1555,7 +1556,7 @@
 
     .contact-info-heading {
       color: var(--gray-500);
-      font-size: 0.8rem;
+      font-size: var(--font-size-xs);
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 700;
@@ -1565,9 +1566,9 @@
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: var(--space-4);
       margin-bottom: var(--spacing-sm);
-      padding: 0.75rem;
+      padding: var(--space-3);
       border-radius: 12px;
       border: 1px solid transparent;
       transition: var(--transition);
@@ -1600,7 +1601,7 @@
     }
 
     .contact-text {
-      font-size: 0.97rem;
+      font-size: var(--font-size-md);
       line-height: 1.45;
       font-weight: 500;
     }
@@ -1637,7 +1638,7 @@
       padding: var(--spacing-sm) var(--spacing-md);
       border: 1px solid var(--gray-300);
       border-radius: var(--radius-md);
-      font-size: 1rem;
+      font-size: var(--font-size-md);
       transition: var(--transition);
     }
 
@@ -1654,7 +1655,7 @@
 
     .contact-form .form-group label {
       color: var(--gray-500);
-      font-size: 0.75rem;
+      font-size: var(--font-size-xs);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1753,7 +1754,7 @@
       position: relative;
       width: 90%;
       max-width: 700px;
-      margin: 50px auto;
+      margin: var(--space-8) auto;
       background-color: var(--white);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-lg);
@@ -1773,7 +1774,7 @@
 
     .modal-header h3 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: var(--font-size-2xl);
       font-weight: 600;
       color: var(--dark);
     }
@@ -1781,7 +1782,7 @@
     .close-modal {
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: var(--font-size-2xl);
       cursor: pointer;
       color: var(--gray-500);
       transition: var(--transition);
@@ -1832,8 +1833,8 @@
     }
 
     .form-hint {
-      margin: 14px 0 0;
-      font-size: 0.85rem;
+      margin: var(--space-4) 0 0;
+      font-size: var(--font-size-sm);
       line-height: 1.5;
       color: #64748b;
     }
@@ -1845,12 +1846,12 @@
     /* Responsive Design */
     @media (max-width: 992px) {
       .main-banner {
-        padding-top: 0.9rem;
-        padding-bottom: 0.95rem;
+        padding-top: var(--space-4);
+        padding-bottom: var(--space-4);
       }
       
       .header-text h1 {
-        font-size: 1.75rem;
+        font-size: var(--font-size-3xl);
       }
     }
 
@@ -1881,7 +1882,7 @@
         text-align: center;
         justify-content: center;
         flex-wrap: nowrap;
-        gap: 0.6rem;
+        gap: var(--space-2);
       }
 
       .quote-button-wrapper .btn {
@@ -1889,8 +1890,8 @@
         width: auto;
         max-width: none;
         flex: 1 1 0;
-        padding: 0.78rem 0.7rem;
-        font-size: 0.93rem;
+        padding: var(--space-3) var(--space-3);
+        font-size: var(--font-size-sm);
       }
       
       .portfolio-grid {
@@ -1943,20 +1944,20 @@
       }
       
       .header-text h1 {
-        font-size: 1.5rem;
+        font-size: var(--font-size-2xl);
       }
       
       .header-text h6 {
-        font-size: 0.75rem;
+        font-size: var(--font-size-xs);
       }
       
       .header-text p {
-        font-size: 1rem;
+        font-size: var(--font-size-md);
       }
       
       .modal-container {
         width: 95%;
-        margin: 30px auto;
+        margin: var(--space-6) auto;
       }
       
       .project-header {
@@ -1964,7 +1965,7 @@
       }
       
       .project-header h3 {
-        font-size: 1.25rem;
+        font-size: var(--font-size-xl);
       }
       
       .slides {
@@ -1974,7 +1975,7 @@
       .prev-slide, .next-slide {
         width: 35px;
         height: 35px;
-        font-size: 16px;
+        font-size: var(--font-size-md);
       }
       
       .slideshow-container.project {
@@ -2003,7 +2004,7 @@
       
       .btn-lg {
         padding: var(--spacing-sm) var(--spacing-lg);
-        font-size: 1rem;
+        font-size: var(--font-size-md);
       }
       
       .contact-item {
@@ -2016,29 +2017,29 @@
       }
     }
   
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:3rem 0 1.5rem;margin-top:2rem}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
-.footer-logo{display:inline-flex;align-items:center;gap:.5rem;color:#0f172a;text-decoration:none;font-weight:700;font-size:1.15rem;margin-bottom:1rem}
+.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-6)}
+.footer-logo{display:inline-flex;align-items:center;gap:var(--space-2);color:#0f172a;text-decoration:none;font-weight:700;font-size:var(--font-size-lg);margin-bottom:var(--space-4)}
 .footer-logo svg{width:24px;height:24px}
-.footer-about{color:#64748b;font-size:.88rem;line-height:1.6;margin-bottom:1rem}
-.footer-social{display:flex;gap:.6rem}
+.footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
+.footer-social{display:flex;gap:var(--space-2)}
 .social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
 .social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
-.footer-heading{color:#0f172a;font-size:.95rem;font-weight:700;margin-bottom:1rem}
+.footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
 .footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
-.footer-link-item{margin-bottom:.6rem}
-.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:.86rem;text-decoration:none;transition:color .2s ease}
+.footer-link-item{margin-bottom:var(--space-2)}
+.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
 .footer-grid .footer-link:hover{color:#1d4ed8;background:none}
-.footer-newsletter{margin-top:1.5rem}
-.newsletter-form{display:flex;gap:.4rem}
-.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:.55rem .65rem;font-size:.84rem;background:#fff;color:#0f172a;font-family:inherit}
+.footer-newsletter{margin-top:var(--space-5)}
+.newsletter-form{display:flex;gap:var(--space-2)}
+.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
 .newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:.55rem .8rem;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
 .newsletter-button:hover{background:#1e3a8a}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;padding-top:1.5rem;border-top:1px solid #e2e8f0}
-.footer-copyright{color:#64748b;font-size:.78rem;max-width:640px}
-.footer-legal{display:flex;gap:1rem}
-.legal-link{color:#64748b;font-size:.78rem;text-decoration:none}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
+.footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
+.footer-legal{display:flex;gap:var(--space-4)}
+.legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
 .legal-link:hover{color:#1d4ed8}
 @media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
@@ -3099,7 +3100,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary" id="homepage-contact-submit">Submit Message</button>
-              <p id="homepage-contact-status" role="status" aria-live="polite" style="margin-top:0.6rem; font-size:0.85rem;"></p>
+              <p id="homepage-contact-status" role="status" aria-live="polite" style="margin-top:0.6rem; font-size:var(--font-size-sm);"></p>
             </form>
           </div>
         </div>
@@ -3279,6 +3280,10 @@
         });
       }
       
+      // Visitors who ask for reduced motion don't get auto-advancing
+      // carousels; the arrows, dots and swipe still work.
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
       // Main Slideshow functionality
       let currentSlide = 0;
       const slides = document.querySelectorAll('.main-banner .slide');
@@ -3334,12 +3339,12 @@
           indicators[currentSlide].classList.add('active');
           
           // Restart the slide interval
-          slideInterval = setInterval(nextSlide, 5000);
+          if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
         });
       });
       
       // Start automatic slideshow
-      slideInterval = setInterval(nextSlide, 5000);
+      if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
 
       // Reviews carousel functionality
       const reviewCards = document.querySelectorAll('.review-card');
@@ -3366,7 +3371,7 @@
 
       function restartReviewInterval() {
         clearInterval(reviewInterval);
-        reviewInterval = setInterval(nextReview, 6000);
+        if (!reduceMotion) reviewInterval = setInterval(nextReview, 6000);
       }
 
       if (reviewCards.length > 1) {
@@ -3405,7 +3410,7 @@
           }
         }, false);
 
-        reviewInterval = setInterval(nextReview, 6000);
+        if (!reduceMotion) reviewInterval = setInterval(nextReview, 6000);
       }
 
       // FAQ Accordion functionality
@@ -3685,7 +3690,7 @@
             
             window.scrollTo({
               top: targetPosition,
-              behavior: 'smooth'
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
             });
             
           }

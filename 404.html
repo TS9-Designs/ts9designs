@@ -12,7 +12,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site-header.css">
+    <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site-header.css">
     <link rel="stylesheet" href="/assets/css/site-footer.css">
     <style>
         /* Modern Swiss Design System - Matching ts9designs */
@@ -103,7 +104,7 @@
         }
 
         .not-found-content h1 {
-            font-size: 2rem;
+            font-size: var(--font-size-3xl);
             font-weight: 600;
             color: var(--dark);
             margin-bottom: var(--spacing-md);
@@ -111,7 +112,7 @@
         }
 
         .not-found-content p {
-            font-size: 1.1rem;
+            font-size: var(--font-size-lg);
             color: var(--gray-600);
             margin-bottom: var(--spacing-xl);
         }
@@ -127,11 +128,11 @@
         .btn-primary-404, .btn-outline-404 {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.6rem;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-5);
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: var(--font-size-md);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -164,7 +165,7 @@
         }
 
         .helpful-links-label {
-            font-size: 0.78rem;
+            font-size: var(--font-size-xs);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -176,17 +177,17 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.6rem;
+            gap: var(--space-2);
         }
 
         .helpful-link {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: var(--space-2) var(--space-4);
             border: 1px solid var(--gray-200);
             border-radius: 999px;
             color: var(--gray-700);
             text-decoration: none;
-            font-size: 0.86rem;
+            font-size: var(--font-size-sm);
             font-weight: 500;
             transition: var(--transition);
         }
@@ -198,8 +199,8 @@
 
         @media (max-width: 600px) {
             .error-code { font-size: 4.5rem; }
-            .not-found-content h1 { font-size: 1.5rem; }
-            .not-found-content p { font-size: 1rem; }
+            .not-found-content h1 { font-size: var(--font-size-2xl); }
+            .not-found-content p { font-size: var(--font-size-md); }
         }
 
     </style>
