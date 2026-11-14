@@ -2,6 +2,17 @@
    Pages should use these variables instead of raw sizes, so the
    whole site draws from one type scale and one spacing scale. */
 :root {
+  /* Brand colors, taken from the logo (navy + gold).
+     Gold is only 2.2:1 on white, so it is for fills, lines, icons and
+     stars, never text on a light background. Small accent text on
+     light backgrounds uses --brand-gold-text (5.3:1 on white). */
+  --brand-navy: #0f172a;        /* buttons, headings, dark bands; 17.9:1 on white */
+  --brand-navy-hover: #1e293b;
+  --brand-gold: #d5a80f;        /* highlights; 8.0:1 on navy */
+  --brand-gold-text: #86670a;   /* eyebrows, labels, hover text on light backgrounds */
+  --brand-gold-tint: #fbf6e6;   /* soft panels */
+  --brand-gold-line: #ecdfb5;   /* borders on gold-tinted panels */
+
   /* Type scale (1rem = 16px) */
   --font-size-xs: 0.75rem;   /* 12px */
   --font-size-sm: 0.875rem;  /* 14px */

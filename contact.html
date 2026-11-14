@@ -37,8 +37,8 @@
       /* Color palette */
       --color-black: #000000;
       --color-white: #ffffff;
-      --color-accent: #4da6e7; /* Ts9 main color */
-      --color-accent-dark: #1d4ed8;
+      --color-accent: var(--brand-gold); /* Ts9 main color */
+      --color-accent-dark: var(--brand-navy);
       --color-gray-100: #f7f7f7;
       --color-gray-200: #e6e6e6;
       --color-gray-300: #d1d1d1;
@@ -111,7 +111,7 @@
     }
     
     a:hover {
-      color: var(--color-accent-dark);
+      color: var(--brand-gold-text);
     }
     
     button {
@@ -391,7 +391,7 @@
     .form-group textarea:focus,
     .form-group select:focus {
       outline: none;
-      border-color: var(--color-accent);
+      border-color: var(--brand-gold-text);
       box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
     }
     
@@ -423,7 +423,7 @@
     
     .order-summary h3 {
       margin-bottom: var(--space-4);
-      color: var(--color-accent-dark);
+      color: var(--brand-navy);
       display: flex;
       align-items: center;
     }
@@ -463,7 +463,7 @@
     
     .order-item-price {
       font-weight: 600;
-      color: var(--color-accent-dark);
+      color: var(--brand-navy);
       text-align: right;
       margin-left: var(--space-4);
     }
@@ -471,7 +471,7 @@
     .order-total {
       font-weight: 600;
       font-size: var(--font-size-lg);
-      color: var(--color-accent-dark);
+      color: var(--brand-navy);
       border-top: 2px solid var(--color-accent);
       padding-top: var(--space-3);
       margin-top: var(--space-3);
@@ -514,7 +514,7 @@
       flex: none;
       width: 1.5rem;
       font-weight: 700;
-      color: var(--color-accent-dark);
+      color: var(--brand-navy);
     }
 
     .next-steps strong {
@@ -628,7 +628,7 @@
     
     /* Utilities */
     .text-accent {
-      color: var(--color-accent-dark);
+      color: var(--brand-navy);
     }
     
     .text-muted {

@@ -18,9 +18,9 @@
     <style>
         /* Modern Swiss Design System - Matching ts9designs */
         :root {
-            --primary: #4da6e7;
+            --primary: var(--brand-gold);
             --gold: #d5a80f;
-            --primary-dark: #1d4ed8;
+            --primary-dark: var(--brand-navy);
             --dark: #1e293b;
             --light: #f8fafc;
             --white: #ffffff;
@@ -98,7 +98,7 @@
             font-size: 6rem;
             font-weight: 700;
             line-height: 1;
-            color: var(--primary-dark);
+            color: var(--brand-gold-text);
             letter-spacing: -2px;
             margin-bottom: var(--spacing-md);
         }
@@ -194,7 +194,7 @@
 
         .helpful-link:hover {
             border-color: var(--primary-dark);
-            color: var(--primary-dark);
+            color: var(--brand-gold-text);
         }
 
         @media (max-width: 600px) {
