@@ -1,6 +1,12 @@
 (function ($) {
   "use strict";
 
+  // Reduced-motion visitors: jQuery animations (the scroll-to-section
+  // jumps below) complete instantly instead of animating.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    $.fx.off = true;
+  }
+
   // Header Type = Fixed
   $(window).scroll(function () {
       var scroll = $(window).scrollTop();
