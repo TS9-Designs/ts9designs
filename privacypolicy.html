@@ -28,9 +28,9 @@
     <style>
         /* Modern Swiss Design System - Matching ts9designs */
         :root {
-            --primary: #4da6e7;
+            --primary: var(--brand-gold);
             --gold: #d5a80f;
-            --primary-dark: #1d4ed8;
+            --primary-dark: var(--brand-navy);
             --secondary: #e11d48;
             --secondary-dark: #be123c;
             --dark: #1e293b;
@@ -118,7 +118,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--primary-dark);
+            color: var(--brand-gold-text);
             margin-bottom: var(--spacing-xs);
         }
 
@@ -128,13 +128,13 @@
         }
 
         a {
-            color: var(--primary);
+            color: var(--brand-navy);
             text-decoration: none;
             transition: var(--transition);
         }
 
         a:hover {
-            color: var(--primary-dark);
+            color: var(--brand-gold-text);
         }
 
         ul, ol {
@@ -166,7 +166,7 @@
         .last-updated {
             display: inline-block;
             background-color: rgba(15, 23, 42, 0.05);
-            color: var(--primary-dark);
+            color: var(--brand-gold-text);
             padding: var(--space-2) var(--space-3);
             border: 1px solid rgba(15, 23, 42, 0.18);
             border-radius: 999px;
@@ -284,23 +284,23 @@
 .footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
 .footer-social{display:flex;gap:var(--space-2)}
 .social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
-.social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
+.social-link:hover{background: var(--brand-gold);color: var(--brand-navy);border-color:var(--brand-gold)}
 .footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
 .footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
 .footer-link-item{margin-bottom:var(--space-2)}
 .footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
-.footer-grid .footer-link:hover{color:#1d4ed8;background:none}
+.footer-grid .footer-link:hover{color: var(--brand-gold-text);background:none}
 .footer-newsletter{margin-top:var(--space-5)}
 .newsletter-form{display:flex;gap:var(--space-2)}
 .newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
 .newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
-.newsletter-button:hover{background:#1e3a8a}
+.newsletter-button{border:none;background:var(--brand-navy);color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:var(--brand-navy-hover)}
 .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
 .footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
 .footer-legal{display:flex;gap:var(--space-4)}
 .legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
-.legal-link:hover{color:#1d4ed8}
+.legal-link:hover{color: var(--brand-gold-text)}
 @media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 </style>

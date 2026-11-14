@@ -31,9 +31,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #4da6e7;
+      --primary: var(--brand-gold);
       --gold: #d5a80f;
-      --primary-dark: #1d4ed8;
+      --primary-dark: var(--brand-navy);
       --text: #0f172a;
       --muted: #64748b;
       --border: #e2e8f0;
@@ -213,7 +213,7 @@
     }
 
     .wizard-btn--next {
-      background: var(--primary);
+      background: var(--brand-navy);
       border: 0;
       color: #fff;
       margin-left: auto;
@@ -238,9 +238,9 @@
       place-items: center;
       font-size: var(--font-size-xs);
       font-weight: 700;
-      color: #1d4ed8;
+      color: var(--brand-navy);
       background: #f7f7f7;
-      border: 1px solid #bfdbfe;
+      border: 1px solid var(--brand-gold-line);
       flex-shrink: 0;
     }
 
@@ -273,7 +273,7 @@
 
     .field input:focus,
     .field select:focus {
-      border-color: var(--primary);
+      border-color: var(--brand-gold-text);
       box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.12);
     }
 
@@ -402,7 +402,7 @@
       padding: 0.14rem var(--space-2);
       font-weight: 700;
       background: #e6e6e6;
-      color: #1d4ed8;
+      color: var(--brand-navy);
     }
 
     .option-card.tall {
@@ -460,7 +460,7 @@
     .option-card.active .option-icon {
       background: #f4f8fc;
       border-color: rgba(15, 23, 42, 0.18);
-      color: #1e40af;
+      color: var(--brand-navy);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
     }
 
@@ -635,7 +635,7 @@
     }
 
     .contact-grid input:focus {
-      border-color: var(--primary);
+      border-color: var(--brand-gold-text);
       box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.12);
     }
 
@@ -779,7 +779,7 @@
     }
 
     .message a {
-      color: var(--primary-dark);
+      color: var(--brand-navy);
       font-weight: 600;
       word-break: break-word;
     }
@@ -796,7 +796,7 @@
 
     .file-dropzone:hover,
     .file-dropzone.dragover {
-      border-color: #60a5fa;
+      border-color: var(--brand-gold);
       background: #eef5ff;
     }
 
@@ -811,11 +811,11 @@
     .file-drop-title { margin: 0; font-size: var(--font-size-sm); font-weight: 600; color: #0f172a; }
     .file-drop-sub { margin: 0; font-size: var(--font-size-xs); color: var(--muted); }
     .file-browse-btn {
-      border: 1px solid #bfdbfe;
+      border: 1px solid var(--brand-gold-line);
       border-radius:15px;
       padding: var(--space-2) var(--space-3);
       background: #fff;
-      color: #1d4ed8;
+      color: var(--brand-navy);
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s ease;
@@ -924,7 +924,7 @@
     }
 
     .toast-close:focus-visible {
-      outline: 2px solid var(--primary);
+      outline: 2px solid var(--brand-gold-text);
       outline-offset: 2px;
     }
 
@@ -957,7 +957,7 @@
 
     .toast.info .toast-icon--symbol {
       background: #e6e6e6;
-      color: #1d4ed8;
+      color: var(--brand-navy);
     }
 
     .toast.error .toast-icon--symbol {
@@ -1108,7 +1108,7 @@
       border-radius: 50%;
       background: #f7f7f7;
       border: 1px solid rgba(15, 23, 42, 0.18);
-      color: var(--primary-dark);
+      color: var(--brand-navy);
     }
 
     .trust-signals__icon--line svg {
@@ -1149,13 +1149,13 @@
 
     .footer-title { margin: 0 0 var(--space-2); font-size: var(--font-size-sm); font-weight: 700; }
     .footer-text, .footer-link { color: var(--muted); font-size: var(--font-size-sm); text-decoration: none; }
-    .footer-link:hover { color: var(--primary-dark); }
+    .footer-link:hover { color: var(--brand-gold-text); }
     .newsletter-form { display:flex; gap:var(--space-2); }
     .newsletter-input { flex:1; border:1px solid var(--border); border-radius:10px; padding:var(--space-2) var(--space-3); font-size:var(--font-size-sm); }
     .newsletter-button { border:1px solid var(--border); background:#fff; border-radius:15px; padding:var(--space-2) var(--space-3); font-size:var(--font-size-sm); font-weight:600; cursor: pointer; }
     .footer-social { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
     .social-link { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--border); color: var(--muted); transition: .2s ease; }
-    .social-link:hover { background: var(--primary); color: #fff; }
+    .social-link:hover { background: var(--brand-gold); color: var(--brand-navy); }
     .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border); }
     .footer-copyright { margin: 0; color: var(--muted); font-size: var(--font-size-xs); max-width: 640px; }
 
@@ -1200,14 +1200,14 @@
 .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--space-4);align-items:start}
 .footer-title{margin:0 0 var(--space-2);font-size:var(--font-size-sm);font-weight:700;color:#0f172a}
 .footer-text,.footer-link{color:#64748b;font-size:var(--font-size-sm);text-decoration:none}
-.footer-link:hover{color:#1d4ed8}
+.footer-link:hover{color: var(--brand-gold-text)}
 .footer-social{display:flex;gap:var(--space-2);margin-top:var(--space-3)}
 .social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
-.social-link:hover{background:#4da6e7;color:#fff}
+.social-link:hover{background: var(--brand-gold);color: var(--brand-navy)}
 .newsletter-form{display:flex;gap:var(--space-2)}
 .newsletter-input{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-family:inherit}
 .newsletter-button{border:1px solid #e2e8f0;background:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer}
-.newsletter-button:hover{border-color:#4da6e7;color:#1d4ed8}
+.newsletter-button:hover{border-color:var(--brand-gold);color: var(--brand-gold-text)}
 .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2) var(--space-4);margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid #e2e8f0}
 .footer-copyright{margin:0;color:#64748b;font-size:var(--font-size-xs);max-width:640px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
