@@ -64,8 +64,8 @@
 <style>
     /* Modern Swiss Design System */
     :root {
-      --primary: #4da6e7;
-      --primary-dark: #1d4ed8;
+      --primary: var(--brand-gold);
+      --primary-dark: var(--brand-navy);
       --secondary: #e11d48;
       --secondary-dark: #be123c;
       --gold: #d5a80f;
@@ -167,7 +167,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--primary-dark);
+      color: var(--brand-gold-text);
       margin-bottom: var(--spacing-xs);
     }
 
@@ -176,13 +176,13 @@
     }
 
     a {
-      color: var(--primary);
+      color: var(--brand-navy);
       text-decoration: none;
       transition: var(--transition);
     }
 
     a:hover {
-      color: var(--primary-dark);
+      color: var(--brand-gold-text);
     }
 
     /* Button Styles */
@@ -224,12 +224,12 @@
 
     .btn-outline {
       background-color: transparent;
-      color: var(--primary);
+      color: var(--brand-navy);
       border: 2px solid var(--primary);
     }
 
     .btn-outline:hover {
-      background-color: var(--primary);
+      background-color: var(--brand-navy);
       color: var(--white);
     }
 
@@ -239,7 +239,7 @@
     }
 
     .btn-link { text-decoration:none; border:1px solid var(--gray-200); color:var(--gray-800); padding:var(--space-2) var(--space-4); border-radius:15px; font-weight:600; transition:0.2s ease; }
-    .btn-link:hover { border-color: var(--primary); color: var(--primary-dark); }
+    .btn-link:hover { border-color: var(--primary); color: var(--brand-gold-text); }
 
     /* Main Banner Styles */
     .main-banner {
@@ -575,7 +575,7 @@
 
     .portfolio-item span {
       font-size: var(--font-size-sm);
-      color: var(--primary-dark);
+      color: var(--brand-navy);
       font-weight: 500;
     }
 
@@ -608,8 +608,8 @@
     }
 
     .drawings-heading h6 {
-      background-color: rgba(15, 23, 42, 0.05);
-      color: var(--primary);
+      background-color: rgba(213, 168, 15, 0.12);
+      color: var(--brand-gold);
     }
 
     .drawings-heading h4 {
@@ -647,7 +647,7 @@
 
     .drawing-project-card:hover {
       background: rgba(255,255,255,0.07);
-      border-color: rgba(15, 23, 42, 0.18);
+      border-color: rgba(213, 168, 15, 0.35);
       transform: translateY(-4px);
     }
 
@@ -659,7 +659,7 @@
 
     .drawing-project-card span {
       display: block;
-      color: var(--primary);
+      color: var(--brand-gold);
       font-size: var(--font-size-sm);
       font-weight: 500;
       margin-bottom: var(--spacing-lg);
@@ -677,7 +677,7 @@
     }
 
     .drawing-project-link:hover {
-      color: var(--primary);
+      color: var(--brand-gold);
       border-color: var(--primary);
     }
 
@@ -777,7 +777,7 @@
 
     .project-category {
       font-size: var(--font-size-md);
-      color: var(--primary);
+      color: var(--brand-gold-text);
       font-weight: 500;
       display: inline-block;
       margin-right: var(--spacing-md);
@@ -878,7 +878,7 @@
     }
 
     .meta-item i {
-      color: var(--primary);
+      color: var(--brand-gold-text);
       font-size: var(--font-size-md);
     }
 
@@ -938,7 +938,7 @@
 
     .view-plans-btn {
       display: inline-block;
-      background-color: var(--primary);
+      background-color: var(--brand-navy);
       color: var(--white);
       padding: var(--spacing-sm) var(--spacing-lg);
       border-radius: var(--radius-xl);
@@ -994,56 +994,141 @@
       content: "✓";
       position: absolute;
       left: 0;
-      color: var(--primary);
+      color: var(--brand-gold-text);
       font-weight: bold;
     }
 
-    /* Pricing Section */
+    /* Pricing Section: navy band with the price in gold (logo colors).
+       Gold on navy is 8:1; the gold button carries navy text (8:1). */
     .pricing-section {
-      background: var(--white);
+      background: var(--brand-navy);
+      color: var(--white);
+      /* the drawing-sets band above is the same navy; a gold hairline separates them */
+      border-top: 1px solid rgba(213, 168, 15, 0.3);
     }
 
-    .pricing-card {
-      background: var(--white);
-      border-radius: 20px;
-      border: 1px solid var(--gray-200);
-      padding: calc(var(--spacing-xl) + 0.25rem);
-      text-align: center;
-      position: relative;
+    .pricing-section .section-heading .section-eyebrow {
+      background-color: rgba(213, 168, 15, 0.14);
+      color: var(--brand-gold);
     }
 
-    .pricing-card h3 {
-      font-size: var(--font-size-2xl);
-      margin-bottom: var(--spacing-md);
+    .pricing-section .section-heading h4 {
+      color: var(--white);
+    }
+
+    .pricing-section .section-heading p {
+      color: #b6c2d3;
+    }
+
+    .pricing-band {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .pricing-summary h3 {
+      color: var(--white);
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--space-3);
     }
 
     .pricing-amount {
-      font-size: var(--font-size-5xl);
+      font-size: var(--font-size-6xl);
       font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: var(--spacing-md);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      color: var(--brand-gold);
+      margin-bottom: var(--space-4);
     }
 
     .pricing-unit {
       font-size: var(--font-size-md);
-      color: var(--gray-600);
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-left: var(--space-1);
+      color: #b6c2d3;
+    }
+
+    .pricing-summary p {
+      color: #b6c2d3;
+      margin-bottom: var(--space-5);
+    }
+
+    .pricing-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .pricing-btn-gold {
+      background-color: var(--brand-gold);
+      color: var(--brand-navy);
+    }
+
+    .pricing-btn-gold:hover {
+      background-color: #e3b92a;
+      color: var(--brand-navy);
+    }
+
+    .pricing-btn-ghost {
+      background-color: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .pricing-btn-ghost:hover {
+      border-color: var(--brand-gold);
+      color: var(--brand-gold);
+    }
+
+    .pricing-btn-gold:focus-visible,
+    .pricing-btn-ghost:focus-visible {
+      outline: 2px solid var(--brand-gold);
+      outline-offset: 3px;
     }
 
     .pricing-features {
       list-style: none;
+      margin: 0;
       padding: 0;
-      margin: var(--spacing-lg) 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(213, 168, 15, 0.25);
+      border: 1px solid rgba(213, 168, 15, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     .pricing-features li {
-      padding: var(--spacing-sm) 0;
-      border-bottom: 1px solid var(--gray-200);
-      color: var(--gray-700);
+      background: var(--brand-navy);
+      padding: var(--space-5);
+      color: var(--white);
       font-weight: 500;
+      line-height: 1.5;
     }
 
-    .pricing-features li:last-child {
-      border-bottom: none;
+    @media (max-width: 768px) {
+      .pricing-band {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+
+      .pricing-features {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-amount {
+        font-size: var(--font-size-5xl);
+      }
+
+      .pricing-actions .btn {
+        flex: 1 1 100%;
+      }
     }
 
     /* Reviews Section */
@@ -1079,8 +1164,8 @@
       gap: var(--space-5);
       padding: var(--space-7);
       border-radius: 18px;
-      border: 1px solid #dce8f5;
-      background: linear-gradient(140deg, #eef5fc 0%, #f6f9fd 60%, #fbf8ee 100%);
+      border: 1px solid var(--brand-gold-line);
+      background: linear-gradient(140deg, var(--brand-gold-tint) 0%, #fdfaf2 60%, #ffffff 100%);
     }
 
     .review-card {
@@ -1175,421 +1260,604 @@
       }
     }
 
-/* FAQs Section - Modern Accordion Style */
+/* FAQs Section: heading column (sticky on desktop) beside a ruled list
+   grouped by topic. Quiet by design: navy text, hairlines, one deep-gold
+   caption, no fills. Answers stay open if JavaScript doesn't run. */
 .faqs-section {
-  background: var(--gray-50);
-  position: relative;
+  background: var(--white);
+  padding: var(--space-12) 0;
 }
 
-.faq-container {
-  max-width: 900px;
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  gap: var(--space-12);
+  max-width: 1080px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  align-items: start;
 }
 
-.faq-search {
-  margin-bottom: var(--spacing-xl);
-  position: relative;
+.faq-side {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
 }
 
-.faq-search-input {
-  width: 100%;
-  padding: var(--spacing-md) var(--spacing-lg);
-  padding-left: var(--space-8);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl);
+.faq-caption {
+  margin: 0 0 var(--space-3);
+  color: var(--brand-gold-text);
   font-size: var(--font-size-md);
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  font-weight: 600;
 }
 
-.faq-search-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
+.faq-title {
+  margin: 0;
+  color: var(--brand-navy);
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
-.faq-search-icon {
-  position: absolute;
-  left: var(--spacing-lg);
-  top: 50%;
-  transform: translateY(-50%);
+.faq-contact {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--gray-200);
+  display: grid;
+  gap: var(--space-1);
+  justify-items: start;
+}
+
+.faq-contact-label {
+  margin: 0 0 var(--space-2);
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-contact-plain {
+  color: var(--gray-600);
+  font-variant-numeric: tabular-nums;
+}
+
+.faq-contact-plain:hover {
+  color: var(--brand-navy);
+}
+
+.faq-arrow-links {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  margin-top: var(--space-4);
+}
+
+.faq-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-arrow-link:hover {
+  color: var(--brand-navy);
+}
+
+.faq-arrow-link span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.faq-arrow-link:hover span {
+  transform: translateX(3px);
+}
+
+.faq-group-label {
+  margin: var(--space-7) 0 var(--space-1);
   color: var(--gray-500);
-}
-
-.faq-categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
-}
-
-.faq-category {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-xl);
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--gray-700);
-  cursor: pointer;
-  transition: var(--transition);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.faq-category:hover {
-  background-color: var(--gray-100);
-  border-color: var(--gray-300);
-}
-
-.faq-category.active {
-  background-color: var(--primary-dark);
-  color: var(--white);
-  border-color: var(--primary-dark);
-}
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+.faq-group-label:first-child {
+  margin-top: 0;
 }
 
 .faq-item {
-  background-color: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-top: 1px solid var(--gray-200);
 }
 
-.faq-question-btn {
+.faq-group-label + .faq-item {
+  border-top-color: var(--gray-300);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.faq-q {
   width: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  background-color: var(--white);
-  border: none;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  background: transparent;
+  border: 0;
   text-align: left;
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--gray-800);
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--brand-navy);
   cursor: pointer;
-  transition: var(--transition);
 }
 
-.faq-question-btn:hover {
-  color: var(--primary);
-}
-
-.faq-question-btn:focus {
-  outline: none;
-}
-
-.faq-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: var(--gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  flex-shrink: 0;
-  margin-left: var(--spacing-md);
-}
-
-.faq-icon::before,
-.faq-icon::after {
-  content: '';
-  position: absolute;
-  background-color: var(--primary);
-  transition: var(--transition);
-}
-
-.faq-icon::before {
-  width: 12px;
-  height: 2px;
-}
-
-.faq-icon::after {
-  width: 2px;
-  height: 12px;
-}
-
-.faq-item.active .faq-icon {
-  background-color: var(--primary);
-}
-
-.faq-item.active .faq-icon::before,
-.faq-item.active .faq-icon::after {
-  background-color: var(--white);
-}
-
-.faq-item.active .faq-icon::after {
-  transform: rotate(90deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 var(--spacing-xl);
-  border-top: 0 solid var(--gray-100);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  border-top: 1px solid var(--gray-100);
-}
-
-.faq-answer-content {
-  color: var(--gray-700);
-  font-size: var(--font-size-md);
-  line-height: 1.6;
-}
-
-.faq-more {
-  margin-top: var(--spacing-2xl);
-  text-align: center;
-}
-
-.faq-more-text {
-  font-size: var(--font-size-lg);
-  color: var(--gray-700);
-  margin-bottom: var(--spacing-md);
-}
-
-.faq-contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md) var(--spacing-xl);
-  background-color: var(--primary-dark);
-  color: var(--white);
-  border-radius: var(--radius-xl);
+.faq-q[aria-expanded="true"] {
   font-weight: 600;
-  transition: var(--transition);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
 }
 
-.faq-contact-btn:hover {
-  background-color: #1e3a8a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
-  color: var(--white);
+.faq-chev {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--gray-500);
+  transition: transform 0.25s ease, color 0.2s ease;
 }
 
-.faq-contact-btn svg {
-  width: 18px;
-  height: 18px;
+.faq-q:hover .faq-chev {
+  color: var(--brand-navy);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .faq-categories {
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-lg);
+.faq-q[aria-expanded="true"] .faq-chev {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.faq-a > div {
+  overflow: hidden;
+}
+
+.faq-a p {
+  margin: 0;
+  padding: 0 var(--space-7) var(--space-5) 0;
+  max-width: 62ch;
+  color: var(--gray-600);
+  line-height: 1.75;
+  transition: opacity 0.25s ease 0.08s;
+}
+
+.faq-a b {
+  color: var(--brand-navy);
+  font-weight: 600;
+}
+
+.faq-a a {
+  color: var(--brand-navy);
+  text-decoration: underline;
+  text-decoration-color: var(--gray-300);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.faq-a a:hover {
+  text-decoration-color: var(--brand-navy);
+}
+
+/* collapsing only happens once the script has set things up */
+.faq-list.is-enhanced .faq-q[aria-expanded="false"] + .faq-a {
+  grid-template-rows: 0fr;
+}
+
+.faq-list.is-enhanced .faq-q[aria-expanded="false"] + .faq-a p {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.faq-q:focus-visible,
+.faq-arrow-link:focus-visible,
+.faq-contact-plain:focus-visible,
+.faq-a a:focus-visible {
+  outline: 2px solid var(--brand-navy);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+  .faqs-section {
+    padding: var(--space-9) 0;
   }
-  
-  .faq-category {
-    padding: var(--spacing-xs) var(--spacing-md);
-    font-size: var(--font-size-xs);
+
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
-  
-  .faq-question-btn {
-    padding: var(--spacing-md) var(--spacing-lg);
+
+  .faq-side {
+    position: static;
+    display: contents;
+  }
+
+  .faq-head { order: 0; }
+  .faq-list { order: 1; }
+  .faq-contact { order: 2; margin-top: 0; }
+
+  .faq-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .faq-q {
     font-size: var(--font-size-md);
+    padding: var(--space-4) 0;
+    gap: var(--space-4);
   }
-  
-  .faq-item.active .faq-answer {
-    padding: var(--spacing-md) var(--spacing-lg);
+
+  .faq-a p {
+    padding-right: 0;
   }
 }
 
-@media (max-width: 576px) {
-  .faq-search-input {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    padding-left: var(--space-7);
-  }
-  
-  .faq-categories {
-    justify-content: center;
-  }
-  
-  .faq-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .faq-icon::before {
-    width: 10px;
-  }
-  
-  .faq-icon::after {
-    height: 10px;
+@media (prefers-reduced-motion: reduce) {
+  .faq-a,
+  .faq-a p,
+  .faq-chev,
+  .faq-arrow-link span {
+    transition: none;
   }
 }
 
-    /* Contact Section */
+    /* Contact Section: heading and checklist beside a short form. Project
+       details (type, size, timeline) are optional and open on request.
+       Quiet like the FAQ: hairlines, one deep-gold caption, no fills. */
     .contact-section {
-      background: var(--gray-50);
-    }
-
-    .contact-shell {
-      position: relative;
       background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
-      padding: var(--spacing-2xl);
-      overflow: hidden;
+      border-top: 1px solid var(--gray-200);
+      padding: var(--space-12) 0;
     }
 
-    /* Faint drafting-grid texture, like graph paper under a drawing */
-    .contact-shell::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      z-index: 0;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+      gap: var(--space-10);
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: start;
     }
 
-    .contact-shell > .row {
-      position: relative;
-      z-index: 1;
+    .contact-caption {
+      margin: 0 0 var(--space-3);
+      color: var(--brand-gold-text);
+      font-size: var(--font-size-md);
+      font-weight: 600;
     }
 
-    .contact-eyebrow {
-      display: inline-block;
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--primary);
-      background-color: rgba(15, 23, 42, 0.05);
-      padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-xl);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .contact-heading {
-      color: var(--dark);
-      font-weight: 700;
-      margin-bottom: var(--spacing-sm);
+    .contact-title {
+      margin: 0;
+      color: var(--brand-navy);
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
     }
 
     .contact-lead {
+      margin: var(--space-4) 0 0;
       color: var(--gray-600);
-      margin-bottom: var(--spacing-lg);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      max-width: 44ch;
     }
 
-    .contact-checklist {
+    .contact-checks {
       list-style: none;
-      margin: 0 0 var(--spacing-xl);
+      margin: var(--space-6) 0 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
+      max-width: 380px;
     }
 
-    .contact-checklist li {
+    .contact-checks li {
       display: flex;
-      align-items: center;
       gap: var(--space-3);
-      color: var(--gray-800);
+      align-items: baseline;
+      padding: var(--space-3) 0;
+      border-top: 1px solid var(--gray-200);
+      color: var(--brand-navy);
       font-weight: 500;
-      font-size: var(--font-size-md);
     }
 
-    .contact-checklist svg {
-      width: 20px;
-      height: 20px;
-      color: var(--primary);
-      flex-shrink: 0;
+    .contact-checks li:last-child {
+      border-bottom: 1px solid var(--gray-200);
     }
 
-    .contact-info {
-      margin-bottom: 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
+    .contact-tick {
+      flex: none;
+      width: 14px;
+      height: 14px;
+      transform: translateY(2px);
     }
 
-    .contact-info-heading {
-      color: var(--gray-500);
-      font-size: var(--font-size-xs);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
+    .cf-form {
+      display: grid;
       gap: var(--space-4);
-      margin-bottom: var(--spacing-sm);
-      padding: var(--space-3);
-      border-radius: 12px;
-      border: 1px solid transparent;
-      transition: var(--transition);
     }
 
-    .contact-item:hover {
-      background: var(--gray-50);
-      border-color: var(--gray-200);
+    .cf-pair,
+    .cf-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
     }
 
-    .contact-item:last-child {
-      margin-bottom: 0;
+    .cf-duo {
+      grid-template-columns: 1.2fr 1fr;
     }
 
-    .contact-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--gray-100);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .cf-field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
     }
 
-    .contact-icon svg {
-      width: 20px;
-      height: 20px;
-      color: var(--primary);
+    .cf-field label,
+    .cf-legend {
+      color: var(--brand-navy);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
     }
 
-    .contact-text {
+    .cf-field input,
+    .cf-field textarea,
+    .cf-field select {
+      width: 100%;
+      font: inherit;
       font-size: var(--font-size-md);
-      line-height: 1.45;
-      font-weight: 500;
+      color: var(--brand-navy);
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      padding: 10px 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .contact-text a {
-      color: var(--gray-800);
-      transition: var(--transition);
+    .cf-field textarea {
+      min-height: 132px;
+      resize: vertical;
+      line-height: 1.55;
     }
 
-    .contact-text a:hover {
-      color: var(--primary);
+    .cf-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 36px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px;
     }
 
-    .contact-form {
-      background: transparent;
-      border: none;
-      box-shadow: none;
+    .cf-field input:focus,
+    .cf-field textarea:focus,
+    .cf-field select:focus {
+      outline: none;
+      border-color: var(--brand-navy);
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
+    }
+
+    .cf-unit {
+      position: relative;
+    }
+
+    .cf-unit input {
+      padding-right: 52px;
+    }
+
+    .cf-unit span {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-500);
+      font-size: var(--font-size-sm);
+      pointer-events: none;
+    }
+
+    .cf-disclose {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 6px 0;
+      font: inherit;
+      font-weight: 600;
+      color: var(--brand-navy);
+      background: none;
+      border: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-color: var(--gray-300);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .cf-disclose:hover {
+      text-decoration-color: var(--brand-navy);
+    }
+
+    .cf-pm {
+      position: relative;
+      width: 12px;
+      height: 12px;
+    }
+
+    .cf-pm::before,
+    .cf-pm::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .cf-pm::after {
+      transform: rotate(90deg);
+    }
+
+    .cf-disclose[aria-expanded="true"] .cf-pm::after {
+      transform: rotate(0deg);
+    }
+
+    .cf-details {
+      display: grid;
+      gap: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .cf-timeline {
+      border: 0;
+      margin: 0;
       padding: 0;
+      min-width: 0;
+      display: grid;
+      gap: 6px;
     }
 
+    .cf-legend {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 6px;
+    }
+
+    .cf-choices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-2);
+    }
+
+    .cf-choice {
+      position: relative;
+    }
+
+    .cf-choice input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .cf-choice span {
+      display: block;
+      text-align: center;
+      padding: 10px 8px;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      color: var(--gray-600);
+      font-weight: 500;
+      background: var(--white);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .cf-choice input:hover + span {
+      border-color: var(--gray-500);
+    }
+
+    .cf-choice input:checked + span {
+      border-color: var(--brand-navy);
+      color: var(--brand-navy);
+      font-weight: 600;
+      box-shadow: inset 0 0 0 1px var(--brand-navy);
+    }
+
+    .cf-submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3) var(--space-4);
+    }
+
+    .cf-submit {
+      font: inherit;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--brand-navy);
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 22px;
+      cursor: pointer;
+    }
+
+    .cf-submit:hover {
+      background: var(--brand-navy-hover);
+    }
+
+    .cf-submit:disabled {
+      opacity: 0.7;
+      cursor: progress;
+    }
+
+    .cf-status {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      min-height: 1.3em;
+    }
+
+    .cf-disclose:focus-visible,
+    .cf-submit:focus-visible,
+    .cf-choice input:focus-visible + span {
+      outline: 2px solid var(--brand-navy);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-section {
+        padding: var(--space-9) 0;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+
+      .contact-title {
+        font-size: var(--font-size-3xl);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cf-pair,
+      .cf-duo {
+        grid-template-columns: 1fr;
+      }
+
+      .cf-submit {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cf-pm::before,
+      .cf-pm::after,
+      .cf-choice span,
+      .cf-field input,
+      .cf-field textarea,
+      .cf-field select {
+        transition: none;
+      }
+    }
+
+    /* Shared form fields (used by the quote popup) */
     .form-group {
       margin-bottom: var(--spacing-md);
     }
@@ -1612,27 +1880,13 @@
 
     .form-control:focus {
       outline: none;
-      border-color: var(--primary);
+      border-color: var(--brand-gold-text);
       box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
     }
 
     textarea.form-control {
       min-height: 120px;
       resize: vertical;
-    }
-
-    .contact-form .form-group label {
-      color: var(--gray-500);
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 991px) {
-      .contact-shell {
-        padding: var(--spacing-xl) var(--spacing-lg);
-      }
     }
 
     /* Footer */
@@ -1974,15 +2228,6 @@
         padding: var(--spacing-sm) var(--spacing-lg);
         font-size: var(--font-size-md);
       }
-      
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .contact-icon {
-        margin-bottom: var(--spacing-sm);
-      }
     }
   
 .site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
@@ -1992,23 +2237,23 @@
 .footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
 .footer-social{display:flex;gap:var(--space-2)}
 .social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
-.social-link:hover{background:#4da6e7;color:#fff;border-color:#4da6e7}
+.social-link:hover{background: var(--brand-gold);color: var(--brand-navy);border-color:var(--brand-gold)}
 .footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
 .footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
 .footer-link-item{margin-bottom:var(--space-2)}
 .footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
-.footer-grid .footer-link:hover{color:#1d4ed8;background:none}
+.footer-grid .footer-link:hover{color: var(--brand-gold-text);background:none}
 .footer-newsletter{margin-top:var(--space-5)}
 .newsletter-form{display:flex;gap:var(--space-2)}
 .newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
 .newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:#1d4ed8;color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
-.newsletter-button:hover{background:#1e3a8a}
+.newsletter-button{border:none;background:var(--brand-navy);color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
+.newsletter-button:hover{background:var(--brand-navy-hover)}
 .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
 .footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
 .footer-legal{display:flex;gap:var(--space-4)}
 .legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
-.legal-link:hover{color:#1d4ed8}
+.legal-link:hover{color: var(--brand-gold-text)}
 @media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 </style>
@@ -2275,22 +2520,24 @@
         <div class="line-dec"></div>
         <p>Transparent baseline pricing with scope-based adjustments after plan review.</p>
       </div>
-      
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="pricing-card wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-            <h3>Permit-Ready Plan Package</h3>
-            <div class="pricing-amount">$0.45<span class="pricing-unit">/sq ft</span></div>
-            <p>Starting rate for larger projects, with fixed-price options for select scopes.</p>
-            <ul class="pricing-features">
-              <li>Fast 4-10 day turnaround on most scopes</li>
-              <li>Building design, structural, MEP and fire protection coordination</li>
-              <li>Permit-focused, code-aware documentation</li>
-              <li>Review call and revision path included</li>
-            </ul>
-            <a class="btn btn-primary" href="/permit-estimate.html">Request Quote</a>
+
+      <div class="pricing-band">
+        <div class="pricing-summary">
+          <h3>Permit-Ready Plan Package</h3>
+          <div class="pricing-amount">$0.45<span class="pricing-unit">/sq ft</span></div>
+          <p>Starting rate for larger projects, with fixed-price options for select scopes.</p>
+          <div class="pricing-actions">
+            <a class="btn btn-lg pricing-btn-gold" href="/permit-estimate.html">Get Estimate</a>
+            <a class="btn btn-lg pricing-btn-ghost" href="https://cal.com/ts9designs/discoverycall">Book A Call</a>
           </div>
         </div>
+
+        <ul class="pricing-features">
+          <li>Fast 4-10 day turnaround on most scopes</li>
+          <li>Building design, structural, MEP and fire protection coordination</li>
+          <li>Permit-focused, code-aware documentation</li>
+          <li>Review call and revision path included</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2832,117 +3079,83 @@
   <!-- FAQs Section Start -->
   <div id="faqs" class="section faqs-section">
     <div class="container">
-      <div class="section-heading">
-        <p class="section-eyebrow">Frequently Asked Questions</p>
-        <h4>Everything You Need to Know</h4>
-        <div class="line-dec"></div>
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="faq-container wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-            <div class="faq-search">
-              <span class="faq-search-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-              </span>
-              <input type="text" class="faq-search-input" placeholder="Search for answers..." id="faqSearch">
-            </div>
-            
-            <div class="faq-categories">
-              <div class="faq-category active" data-category="all">All Questions</div>
-              <div class="faq-category" data-category="services">Services</div>
-              <div class="faq-category" data-category="process">Process</div>
-              <div class="faq-category" data-category="technical">Technical</div>
-            </div>
-            
-            <div class="faq-list">
-              <div class="faq-item" data-category="services">
-                <button class="faq-question-btn">
-                  <span>What services does ts9designs offer?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    We specialize in providing Mechanical, Electrical, and Plumbing (MEP) and Structural plans for residential and commercial projects. Whether you're starting a new construction or renovating an existing space, we can help with comprehensive engineering plans.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>How do I get started with ts9designs?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    Simply fill out our contact form on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>What information do you need to begin my project?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    To get started, we typically need basic information about your project, such as the size of the space, the scope of work (new construction, renovation, etc.), and any specific requirements or design preferences you may have. The more details you can provide, the better we can tailor our services to meet your needs.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="process">
-                <button class="faq-question-btn">
-                  <span>How long does it take to complete the engineering plans?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    The timeline for completing engineering plans typically takes 4-10 days to complete.
-                  </div>
-                </div>
-              </div>
-              
-              <div class="faq-item" data-category="technical">
-                <button class="faq-question-btn">
-                  <span>Are your engineering plans compliant with local codes?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    Yes, all our engineering plans are created by professionals and comply with local building codes and regulations. We ensure that your project meets all necessary standards to pass inspections and obtain permits.
-                  </div>
-                </div>
-              </div>
-
-              <div class="faq-item" data-category="technical">
-                <button class="faq-question-btn">
-                  <span>Does ts9designs coordinate projects requiring additional licensed professionals?</span>
-                  <span class="faq-icon"></span>
-                </button>
-                <div class="faq-answer">
-                  <div class="faq-answer-content">
-                    <b>ts9designs</b> provides design, drafting, engineering, and project coordination services within the scope permitted by the applicable jurisdiction. When a project requires professional services outside ts9designs' permitted scope, those services must be provided through appropriately licensed professionals or firms in accordance with applicable state requirements.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="faq-more">
-              <p class="faq-more-text">Still have questions?</p>
-              <a href="/contact.html" class="faq-contact-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.009-.94-.584 0-1.009.388-1.009.94z"/>
-                  Talk to ts9designs
-                </svg>
-                Contact Us
-              </a>
+      <div class="faq-layout">
+        <div class="faq-side">
+          <div class="faq-head">
+            <p class="faq-caption">Frequently Asked Questions</p>
+            <h2 class="faq-title">Everything You Need to Know</h2>
+          </div>
+          <div class="faq-contact">
+            <p class="faq-contact-label">Still have questions?</p>
+            <a class="faq-contact-plain" href="mailto:info@ts9designs.com">info@ts9designs.com</a>
+            <a class="faq-contact-plain" href="tel:+12154367333">(215) 436-7333</a>
+            <div class="faq-arrow-links">
+              <a class="faq-arrow-link" href="#contact">Contact Us <span aria-hidden="true">&rarr;</span></a>
+              <a class="faq-arrow-link" href="https://cal.com/ts9designs/discoverycall">Book A Call <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
+        </div>
+
+        <div class="faq-list">
+          <p class="faq-group-label">Services</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">
+                <span>What services does ts9designs offer?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <div><p>We specialize in providing Mechanical, Electrical, and Plumbing (MEP) and Structural plans for residential and commercial projects. Whether you're starting a new construction or renovating an existing space, we can help with comprehensive engineering plans.</p></div>
+              </div>
+            </div>
+
+          <p class="faq-group-label">Process</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+                <span>How do I get started with ts9designs?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                <div><p>Simply fill out our <a href="#contact">contact form</a> on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+                <span>What information do you need to begin my project?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                <div><p>To get started, we typically need basic information about your project, such as the size of the space, the scope of work (new construction, renovation, etc.), and any specific requirements or design preferences you may have. The more details you can provide, the better we can tailor our services to meet your needs.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+                <span>How long does it take to complete the engineering plans?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                <div><p>The timeline for completing engineering plans typically takes 4-10 days to complete.</p></div>
+              </div>
+            </div>
+
+          <p class="faq-group-label">Technical</p>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+                <span>Are your engineering plans compliant with local codes?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                <div><p>Yes, all our engineering plans are created by professionals and comply with local building codes and regulations. We ensure that your project meets all necessary standards to pass inspections and obtain permits.</p></div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
+                <span>Does ts9designs coordinate projects requiring additional licensed professionals?</span>
+                <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
+              </button>
+              <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                <div><p><b>ts9designs</b> provides design, drafting, engineering, and project coordination services within the scope permitted by the applicable jurisdiction. When a project requires professional services outside ts9designs' permitted scope, those services must be provided through appropriately licensed professionals or firms in accordance with applicable state requirements.</p></div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -2952,95 +3165,75 @@
   <!-- Contact Section Start -->
   <div id="contact" class="section contact-section">
     <div class="container">
-      <div class="contact-shell">
-        <div class="row">
-        <div class="col-lg-5">
-          <div class="contact-info wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-            <span class="contact-eyebrow">Contact Us</span>
-            <h4 class="contact-heading">Let’s Scope Your Project</h4>
-            <p class="contact-lead">Share your scope and timeline. We will reply with next steps and a practical path to permitting.</p>
+      <div class="contact-layout">
+        <div>
+          <p class="contact-caption">Contact Us</p>
+          <h2 class="contact-title">Let’s Scope Your Project</h2>
+          <p class="contact-lead">Share your scope and timeline. We will reply with next steps and a practical path to permitting.</p>
+          <ul class="contact-checks">
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Stamped &amp; Sealed Drawings</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Structural, MEP &amp; Fire Under One Roof</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Fast Turnaround Times</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>City Approval Support</span></li>
+          </ul>
+        </div>
 
-            <ul class="contact-checklist">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Stamped &amp; Sealed Drawings
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Structural, MEP &amp; Fire Under One Roof
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Fast Turnaround Times
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                City Approval Support
-              </li>
-            </ul>
-
-            <p class="contact-info-heading">General Contact Info</p>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="tel:215-436-7333">Call us: 215-436-7333</a>
-              </div>
+        <form id="homepage-contact-form" class="cf-form" novalidate>
+          <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-pair">
+            <div class="cf-field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" autocomplete="name" required>
             </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="mailto:info@ts9designs.com">info@ts9designs.com</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H6a1 1 0 0 1-1-1V10h14v10z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="https://cal.com/ts9designs/discoverycall">Book a 15-min discovery call with us</a>
-              </div>
+            <div class="cf-field">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" required>
             </div>
           </div>
-        </div>
 
-        <div class="col-lg-7">
-          <div class="contact-form wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
-            <form id="homepage-contact-form">
-              <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <div class="form-group">
-                <label for="contact-name">Name</label>
-                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-email">Email</label>
-                <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-message">Message</label>
-                <textarea id="contact-message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary" id="homepage-contact-submit">Submit Message</button>
-              <p id="homepage-contact-status" role="status" aria-live="polite" style="margin-top:0.6rem; font-size:var(--font-size-sm);"></p>
-            </form>
+          <div class="cf-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
           </div>
-        </div>
-        </div>
+
+          <button type="button" class="cf-disclose" id="contact-details-toggle" aria-expanded="false" aria-controls="contact-details"><span class="cf-pm" aria-hidden="true"></span>Add project details (optional)</button>
+
+          <div class="cf-details" id="contact-details" hidden>
+            <div class="cf-duo">
+              <div class="cf-field">
+                <label for="contact-project-type">Project type</label>
+                <select id="contact-project-type" name="projectType">
+                  <option value="">Choose one</option>
+                  <option>Residential</option>
+                  <option>Commercial build-out</option>
+                  <option>Ground-up commercial</option>
+                  <option>Engineering only (MEP)</option>
+                  <option>Fire protection</option>
+                </select>
+              </div>
+              <div class="cf-field">
+                <label for="contact-size">Approximate size</label>
+                <div class="cf-unit">
+                  <input type="number" id="contact-size" name="approxSize" min="0" step="10" inputmode="numeric">
+                  <span aria-hidden="true">sq ft</span>
+                </div>
+              </div>
+            </div>
+            <fieldset class="cf-timeline">
+              <legend class="cf-legend">Timeline</legend>
+              <div class="cf-choices">
+                <label class="cf-choice"><input type="radio" name="timeline" value="Standard"><span>Standard</span></label>
+                <label class="cf-choice"><input type="radio" name="timeline" value="Expedited"><span>Expedited</span></label>
+                <label class="cf-choice"><input type="radio" name="timeline" value="Rush"><span>Rush</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="cf-submit-row">
+            <button type="submit" class="cf-submit" id="homepage-contact-submit">Submit Message</button>
+            <p id="homepage-contact-status" class="cf-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -3145,9 +3338,21 @@
       const statusEl = document.getElementById('homepage-contact-status');
       const renderedAt = Date.now();
 
+      // "Add project details (optional)" opens the extra fields.
+      const detailsToggle = document.getElementById('contact-details-toggle');
+      const detailsPanel = document.getElementById('contact-details');
+      if (detailsToggle && detailsPanel) {
+        detailsToggle.addEventListener('click', function () {
+          const open = detailsToggle.getAttribute('aria-expanded') !== 'true';
+          detailsToggle.setAttribute('aria-expanded', String(open));
+          detailsPanel.hidden = !open;
+        });
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         statusEl.textContent = '';
+        if (!form.reportValidity()) return;
 
         const honeypot = form.querySelector('.hp-field');
         if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
@@ -3165,17 +3370,28 @@
           const name = formData.get('name') || '';
           const email = formData.get('email') || '';
           const message = formData.get('message') || '';
+          // Optional project details; empty ones are left out of the email.
+          const projectType = formData.get('projectType') || '';
+          const size = Number(formData.get('approxSize')) || 0;
+          const timeline = formData.get('timeline') || '';
 
           await window.TS9_sendMail('contact', {
             name: name,
             email: email,
-            message: message
+            message: message,
+            projectType: projectType,
+            approxSize: size > 0 ? size.toLocaleString('en-US') + ' sq ft' : '',
+            timeline: timeline
           }, {
             honeypot: honeypot ? honeypot.value : '',
             renderedAt: renderedAt
           });
 
           form.reset();
+          if (detailsToggle && detailsPanel) {
+            detailsToggle.setAttribute('aria-expanded', 'false');
+            detailsPanel.hidden = true;
+          }
           statusEl.textContent = 'Message sent. Our team will follow up shortly.';
           statusEl.style.color = '#15803d';
         } catch (error) {
@@ -3282,70 +3498,30 @@
       // Start automatic slideshow
       if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
 
-      // FAQ Accordion functionality
-      const faqItems = document.querySelectorAll('.faq-item');
-      const faqButtons = document.querySelectorAll('.faq-question-btn');
-      const faqSearch = document.getElementById('faqSearch');
-      const faqCategories = document.querySelectorAll('.faq-category');
-      
-      // Toggle FAQ item
-      faqButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const faqItem = this.parentElement;
-          
-          // Close all other items
-          faqItems.forEach(item => {
-            if (item !== faqItem && item.classList.contains('active')) {
-              item.classList.remove('active');
-            }
-          });
-          
-          // Toggle current item
-          faqItem.classList.toggle('active');
-        });
-      });
-      
-      // FAQ Search functionality
-      if (faqSearch) {
-        faqSearch.addEventListener('input', function() {
-          const searchTerm = this.value.toLowerCase();
-          
-          faqItems.forEach(item => {
-            const questionNode = item.querySelector('.faq-question-btn span');
-            const answerNode = item.querySelector('.faq-answer-content');
-            const question = questionNode ? questionNode.textContent.toLowerCase() : '';
-            const answer = answerNode ? answerNode.textContent.toLowerCase() : '';
-            
-            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
+      // FAQ: open and close answers; arrow keys move between questions.
+      // Answers stay visible unless this runs (see .is-enhanced in the CSS).
+      const faqList = document.querySelector('.faq-list');
+      if (faqList) {
+        const faqQuestions = [...faqList.querySelectorAll('.faq-q')];
+        const setFaq = (btn, open) => {
+          btn.setAttribute('aria-expanded', String(open));
+          const panel = document.getElementById(btn.getAttribute('aria-controls'));
+          if (panel) panel.inert = !open;
+        };
+        faqQuestions.forEach(btn => {
+          setFaq(btn, btn.getAttribute('aria-expanded') === 'true');
+          btn.addEventListener('click', () => setFaq(btn, btn.getAttribute('aria-expanded') !== 'true'));
+          btn.addEventListener('keydown', e => {
+            const i = faqQuestions.indexOf(btn);
+            const last = faqQuestions.length - 1;
+            const target = { ArrowDown: i === last ? 0 : i + 1, ArrowUp: i === 0 ? last : i - 1, Home: 0, End: last }[e.key];
+            if (target === undefined) return;
+            e.preventDefault();
+            faqQuestions[target].focus();
           });
         });
+        faqList.classList.add('is-enhanced');
       }
-      
-      // FAQ Category filtering
-      faqCategories.forEach(category => {
-        category.addEventListener('click', function() {
-          // Remove active class from all categories
-          faqCategories.forEach(cat => cat.classList.remove('active'));
-          
-          // Add active class to clicked category
-          this.classList.add('active');
-          
-          const categoryFilter = this.getAttribute('data-category');
-          
-          // Filter FAQ items
-          faqItems.forEach(item => {
-            if (categoryFilter === 'all' || item.getAttribute('data-category') === categoryFilter) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
 
       // Quote modal functionality
       const getQuoteBtn = document.getElementById('getQuoteBtn');

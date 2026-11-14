@@ -131,9 +131,10 @@ function rangeBox(low, high) {
 }
 
 // ---------------------------------------------------------------------------
-// Contact / lead — covers both the homepage quick-contact form (name, email,
-// message) and the full contact.html form (adds phone, project type,
-// location, timeline, budget). Missing fields are simply omitted.
+// Contact / lead — covers both the homepage contact form (name, email,
+// message, plus optional project type, approximate size and timeline) and
+// the full contact.html form (adds phone, location, budget). Missing fields
+// are simply omitted.
 // ---------------------------------------------------------------------------
 export function renderLeadEmail(fields, sourcePage) {
   const bodyHtml =
@@ -142,6 +143,7 @@ export function renderLeadEmail(fields, sourcePage) {
       ["Email", fields.email],
       ["Phone", fields.phone],
       ["Project Type", fields.projectType],
+      ["Approx. Size", fields.approxSize],
       ["Location", fields.location],
       ["Timeline", fields.timeline],
       ["Budget", fields.budget]
