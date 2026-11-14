@@ -241,98 +241,303 @@
     .btn-link { text-decoration:none; border:1px solid var(--gray-200); color:var(--gray-800); padding:var(--space-2) var(--space-4); border-radius:15px; font-weight:600; transition:0.2s ease; }
     .btn-link:hover { border-color: var(--primary); color: var(--brand-gold-text); }
 
-    /* Main Banner Styles */
-    .main-banner {
-      padding-top: var(--space-3);
-      padding-bottom: var(--spacing-xl);
-      background-color: #faf6ee;
-      position: relative;
+    /* Hero: centered text, then a slow drifting band of project photos.
+       The band pauses on hover, on keyboard focus and with the Pause button,
+       and stands still for visitors who ask for reduced motion. */
+    .hero {
+      padding: var(--space-10) 0 var(--space-9);
+      background: #ffffff;
       overflow: hidden;
     }
-
-    .header-text {
-      position: relative;
-      z-index: 1;
-      padding: var(--space-1) var(--space-2) var(--space-1) 0;
-    }
-
-    .header-text h6 {
-      margin-bottom: var(--spacing-sm);
-      display: inline-block;
-      background-color: rgba(15, 23, 42, 0.05);
-      padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-xl);
-    }
-
-    .header-text h1 {
-      font-size: clamp(1.7rem, 2.6vw, 2.35rem);
-      margin-bottom: var(--space-3);
+    .hero-top { max-width: 860px; margin: 0 auto; text-align: center; }
+    .hero-title {
+      margin: 0;
+      color: var(--brand-navy);
+      font-size: clamp(2.125rem, 4.4vw, var(--font-size-5xl));
+      line-height: 1.1;
       font-weight: 600;
-      line-height: 1.22;
-      letter-spacing: 0.01em;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
     }
-
-    .header-text p {
-      font-size: var(--font-size-md);
-      color: var(--gray-700);
-      margin-bottom: var(--space-3);
+    .hero-title em { font-style: normal; color: var(--gray-500); }
+    .hero-lead {
+      margin: var(--space-5) auto 0;
+      max-width: 54ch;
+      color: var(--gray-600);
+      font-size: var(--font-size-lg);
+      line-height: 1.65;
     }
-
-    .quote-button-wrapper {
-      margin-top: var(--space-3);
-      display: flex;
-      flex-wrap: nowrap;
-      gap: var(--space-3);
-      align-items: center;
-    }
-
-    .quote-button-wrapper .btn {
-      min-width: 195px;
-      padding: var(--space-3) var(--space-5);
-      border-radius: 15px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
-
-    .quote-button-wrapper .btn-primary {
-      background: var(--dark);
-      border: 1px solid var(--dark);
-      color: #ffffff;
-    }
-
-    .quote-button-wrapper .btn-primary:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--dark);
-    }
-
-    .quote-button-wrapper .btn-hero-secondary {
-      background: var(--white);
-      color: var(--gray-800);
-      border: 1px solid var(--gray-300);
-    }
-
-    .quote-button-wrapper .btn-hero-secondary:hover {
-      color: var(--gray-900);
-      border-color: var(--gold);
-      background: rgba(213, 168, 15, 0.06);
-    }
-
-    .hero-points {
+    .hero-actions {
+      margin-top: var(--space-6);
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-1);
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-3) var(--space-5);
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: var(--brand-navy);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: var(--font-size-md);
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .hero-btn:hover { background: var(--brand-navy-hover); color: #ffffff; }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--brand-navy);
+      font-weight: 600;
+      font-size: var(--font-size-md);
+      text-decoration: none;
+    }
+    .hero-link:hover { color: var(--brand-gold-text); }
+    .hero-link svg { display: block; width: 0.875em; height: 0.875em; transition: transform 0.2s ease; }
+    .hero-link:hover svg { transform: translateX(2px); }
+    .hero-btn:focus-visible, .hero-link:focus-visible, .hero-pause:focus-visible, .hero-tile a:focus-visible {
+      outline: 2px solid var(--brand-navy);
+      outline-offset: 3px;
+    }
+    .hero-types {
+      list-style: none;
+      margin: var(--space-5) 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-1) var(--space-5);
+      color: var(--gray-500);
+      font-size: var(--font-size-sm);
+    }
+    .hero-types li { white-space: nowrap; }
+
+    .hero-drift {
+      margin-top: var(--space-9);
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+    .hero-track {
+      display: flex;
+      gap: var(--space-4);
+      width: max-content;
+      animation: hero-drift 144s linear infinite;
+    }
+    .hero-drift:hover .hero-track,
+    .hero-drift:focus-within .hero-track,
+    .hero-drift.is-paused .hero-track { animation-play-state: paused; }
+    @keyframes hero-drift { to { transform: translateX(calc(-50% - var(--space-4) / 2)); } }
+    .hero-set { display: flex; gap: var(--space-4); list-style: none; margin: 0; padding: 0; }
+    .hero-tile { width: 340px; flex: none; }
+    .hero-tile a, .hero-tile > div { display: block; color: inherit; text-decoration: none; }
+    .hero-tile img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 10px;
+      background: var(--gray-100);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06);
+    }
+    .hero-tile-cap {
+      display: block;
       margin-top: var(--space-2);
+      color: var(--gray-500);
+      font-size: 0.8125rem;
+    }
+    .hero-tile a:hover .hero-tile-cap { color: var(--brand-navy); }
+
+    .hero-controls { display: flex; justify-content: flex-end; margin-top: var(--space-4); }
+    .hero-pause {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--brand-navy);
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .hero-pause:hover { border-color: var(--gray-500); }
+    .hero-pause-icon { width: 10px; height: 10px; background: currentColor;
+      -webkit-mask: linear-gradient(90deg, #000 0 35%, transparent 35% 65%, #000 65%);
+      mask: linear-gradient(90deg, #000 0 35%, transparent 35% 65%, #000 65%); }
+    .hero-pause[aria-pressed="true"] .hero-pause-icon {
+      -webkit-mask: none; mask: none;
+      clip-path: polygon(10% 0, 100% 50%, 10% 100%);
     }
 
-    .hero-point {
-      font-size: var(--font-size-xs);
-      color: var(--gray-700);
-      border: 1px solid var(--gray-200);
-      background: var(--white);
-      padding: var(--space-1) var(--space-2);
+    @media (prefers-reduced-motion: reduce) {
+      .hero-track { animation: none; }
+      .hero-drift { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+      .hero-set[aria-hidden="true"] { display: none; }
+      .hero-controls { display: none; }
+    }
+
+    @media (max-width: 767px) {
+      .hero { padding: var(--space-7) 0 var(--space-7); }
+      .hero-top { text-align: left; }
+      .hero-title { font-size: var(--font-size-3xl); line-height: 1.15; }
+      .hero-lead { margin-left: 0; font-size: var(--font-size-md); }
+      .hero-actions, .hero-types { justify-content: flex-start; }
+      .hero-btn { flex: 1 1 100%; }
+      .hero-drift { margin-top: var(--space-7); }
+      .hero-tile { width: 240px; }
+      .hero-controls { justify-content: flex-start; }
+    }
+
+    /* Our Work: filterable photo tiles. Every motion uses one easing curve
+       and only animates transform and opacity, so it stays smooth. */
+    .work-section { padding: var(--space-12) 0; background: #ffffff; }
+    .work-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-5) var(--space-8); }
+    .work-caption { margin: 0 0 var(--space-3); color: var(--brand-gold-text); font-size: var(--font-size-md); font-weight: 600; }
+    .work-title { margin: 0; color: var(--brand-navy); font-size: var(--font-size-4xl); line-height: 1.15; font-weight: 600; letter-spacing: -0.025em; }
+    .work-title em { font-style: normal; color: var(--gray-500); }
+    .work-sub { margin: var(--space-4) 0 0; max-width: 52ch; color: var(--gray-600); font-size: var(--font-size-lg); line-height: 1.65; }
+    .work-all { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--brand-navy); font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .work-all:hover { color: var(--brand-gold-text); }
+    .work-all svg { display: block; width: 0.875em; height: 0.875em; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+    .work-all:hover svg { transform: translateX(3px); }
+
+    .work-filter {
+      position: relative;
+      display: inline-flex;
+      gap: 2px;
+      margin-top: var(--space-7);
+      padding: 4px;
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
       border-radius: 999px;
+      background: var(--gray-50);
+      box-shadow: inset 0 0 0 1px var(--gray-200);
+    }
+    .work-filter::-webkit-scrollbar { display: none; }
+    .work-filter-pill {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 0;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 0 0 1px var(--gray-200);
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .work-filter.is-ready .work-filter-pill { opacity: 1; }
+    .work-filter button {
+      position: relative;
+      z-index: 1;
+      border: 0;
+      border-radius: 999px;
+      background: none;
+      padding: 9px 16px;
+      color: var(--gray-500);
+      font-family: inherit;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .work-filter button:hover { color: var(--brand-navy); }
+    .work-filter button[aria-pressed="true"] { color: var(--brand-navy); }
+    .work-filter:not(.is-ready) button[aria-pressed="true"] { background: #ffffff; box-shadow: 0 0 0 1px var(--gray-200); }
+    .work-filter button:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; }
+    .work-count { margin-left: 6px; color: var(--gray-400); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    .work-grid-wrap { margin-top: var(--space-6); }
+    .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
+    .work-item[hidden] { display: none; }
+    .work-tile {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 3 / 4;
+      background: var(--gray-100);
+      color: #ffffff;
+      text-decoration: none;
+      isolation: isolate;
+    }
+    .work-tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .work-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.35) 45%, rgba(15, 23, 42, 0) 70%);
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 1;
+    }
+    .work-shade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-8) var(--space-4) var(--space-4);
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.86) 0%, rgba(15, 23, 42, 0.6) 40%, rgba(15, 23, 42, 0) 100%);
+    }
+    .work-name { font-size: var(--font-size-md); font-weight: 600; line-height: 1.3; }
+    .work-meta { margin-top: 2px; color: #dbe3ee; font-size: 0.8125rem; line-height: 1.4; }
+    .work-more {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transform: translateY(6px);
+      color: #dbe3ee;
+      font-size: var(--font-size-xs);
+      transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .work-more > span { overflow: hidden; min-height: 0; padding-top: var(--space-2); }
+    .work-tile:hover img, .work-tile:focus-visible img { transform: scale(1.04); }
+    .work-tile:hover::after, .work-tile:focus-visible::after { opacity: 1; }
+    .work-tile:hover .work-more, .work-tile:focus-visible .work-more { grid-template-rows: 1fr; opacity: 1; transform: none; }
+    .work-tile:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 3px; }
+    .work-tile:hover, .work-tile:focus, .work-tile:visited { color: #ffffff; }
+
+    @media (hover: none) { .work-more { display: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .work-tile img, .work-tile::after, .work-more, .work-filter-pill, .work-all svg { transition: none; }
+      .work-tile:hover img, .work-tile:focus-visible img { transform: none; }
+    }
+    @media (max-width: 991px) {
+      .work-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+    }
+    @media (max-width: 767px) {
+      .work-section { padding: var(--space-9) 0; }
+      .work-title { font-size: var(--font-size-3xl); line-height: 1.2; }
+      .work-sub { font-size: var(--font-size-md); }
+      .work-filter { margin-top: var(--space-5); }
+      .work-filter button { padding: 9px 12px; }
+      .work-shade { padding: var(--space-7) var(--space-3) var(--space-3); }
+      .work-name { font-size: var(--font-size-sm); }
+      .work-meta { font-size: var(--font-size-xs); }
     }
 
     .wow {
@@ -425,15 +630,6 @@
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
     }
 
-    @media (min-width: 992px) {
-      .main-banner .row {
-        align-items: center;
-      }
-
-      .main-banner .header-text {
-        margin-right: var(--space-3);
-      }
-    }
 
     /* Section Styles */
     .section {
@@ -1189,133 +1385,117 @@
       }
     }
 
-    /* Reviews Section */
-    .reviews-section {
-      background: var(--gray-50);
-      padding: var(--spacing-xxl) 0;
-    }
+    /* Reviews: client names work as tabs on the left; the chosen review
+       fades in on the right. All reviews share one grid cell, so the
+       section keeps the height of the longest and never jumps. Without
+       JavaScript every review shows, one under another. */
+    .reviews-section { padding: var(--space-12) 0; background: #ffffff; }
+    .reviews-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr); gap: var(--space-9); align-items: start; }
+    .reviews-caption { margin: 0 0 var(--space-3); color: var(--brand-gold-text); font-size: var(--font-size-md); font-weight: 600; }
+    .reviews-title { margin: 0; color: var(--brand-navy); font-size: var(--font-size-4xl); line-height: 1.15; font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
+    .reviews-title em { font-style: normal; color: var(--gray-500); }
+    .reviews-sub { margin: var(--space-4) 0 0; color: var(--gray-600); font-size: var(--font-size-lg); line-height: 1.65; }
 
-    /* One featured review beside two smaller ones; stacks on phones.
-       Everything is visible at once, so the section never changes height. */
-    .reviews-grid {
+    .review-tabs { margin-top: var(--space-7); border-top: 1px solid var(--gray-200); }
+    .review-tab {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: var(--space-5);
-      max-width: 1080px;
-      margin: 0 auto;
+      grid-template-columns: 1fr auto;
+      gap: 2px var(--space-3);
+      width: 100%;
+      padding: var(--space-4) var(--space-2) var(--space-4) var(--space-4);
+      border: 0;
+      border-bottom: 1px solid var(--gray-200);
+      background: none;
+      text-align: left;
+      font-family: inherit;
+      cursor: pointer;
     }
-
-    .reviews-side {
-      display: grid;
-      gap: var(--space-5);
+    .review-tab::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: var(--space-3);
+      bottom: var(--space-3);
+      width: 2px;
+      border-radius: 2px;
+      background: var(--brand-navy);
+      transform: scaleY(0);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
-
-    .review-feature,
-    .review-card {
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .review-feature {
-      justify-content: center;
-      gap: var(--space-5);
-      padding: var(--space-7);
-      border-radius: 18px;
-      border: 1px solid var(--brand-gold-line);
-      background: linear-gradient(140deg, var(--brand-gold-tint) 0%, #fdfaf2 60%, #ffffff 100%);
-    }
-
-    .review-card {
-      gap: var(--space-4);
-      padding: var(--space-5);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--gray-200);
-      background: var(--white);
-    }
-
-    .review-feature blockquote,
-    .review-card blockquote,
-    .review-feature blockquote p,
-    .review-card blockquote p {
-      margin: 0;
-    }
-
-    .review-feature blockquote {
-      font-size: var(--font-size-xl);
-      line-height: 1.6;
-      font-weight: 500;
-      color: var(--dark);
-    }
-
-    .review-card blockquote {
-      font-size: var(--font-size-md);
-      line-height: 1.65;
-      color: var(--gray-700);
-    }
-
-    .review-attribution {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: var(--space-1) var(--space-3);
-    }
-
-    .reviewer-name {
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .reviewer-title {
-      font-size: var(--font-size-sm);
-      color: var(--gray-500);
-    }
-
-    /* darker gray keeps 4.5:1 contrast on the tinted panel */
-    .review-feature .reviewer-title {
-      color: var(--gray-600);
-    }
-
-    .review-stars {
-      color: #d5a80f;
-      font-size: var(--font-size-md);
-      letter-spacing: 2px;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .review-card .review-stars {
-      margin-left: auto;
-    }
-
-    .review-source {
+    .review-tab[aria-selected="true"]::before { transform: scaleY(1); }
+    .review-tab-name { color: var(--brand-navy); font-size: var(--font-size-md); font-weight: 600; }
+    .review-tab-role { grid-column: 1; color: var(--gray-500); font-size: var(--font-size-sm); }
+    .review-tab .review-stars {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+      color: var(--brand-gold);
       font-size: var(--font-size-xs);
-      color: var(--gray-500);
+      letter-spacing: 2px;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+    }
+    .review-tab[aria-selected="true"] .review-stars, .review-tab:hover .review-stars { opacity: 1; }
+    .review-tab:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: -2px; }
+
+    .review-stage { display: grid; gap: var(--space-8); }
+    .review-panel { margin: 0; }
+    .review-panel::before {
+      content: "\201C";
+      display: block;
+      height: 2rem;
+      color: var(--brand-gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+    .review-panel blockquote, .review-panel blockquote p { margin: 0; }
+    .review-panel blockquote p {
+      color: var(--brand-navy);
+      font-size: var(--font-size-2xl);
+      line-height: 1.55;
       font-weight: 500;
+      letter-spacing: -0.01em;
+      text-wrap: pretty;
+    }
+    .review-by { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-3); margin-top: var(--space-5); font-size: var(--font-size-sm); }
+    .review-by-name { color: var(--brand-navy); font-weight: 600; }
+    .review-by-role { color: var(--gray-500); }
+    .review-by-source { flex-basis: 100%; color: var(--gray-500); font-size: var(--font-size-xs); }
+
+    /* Tabs only make sense once the script is running. */
+    .review-tabs { display: none; }
+    .reviews-section.is-enhanced .review-tabs { display: block; }
+    .reviews-section.is-enhanced .review-stage { gap: 0; }
+    .reviews-section.is-enhanced .review-panel {
+      grid-area: 1 / 1;
+      opacity: 0;
+      transform: translateY(10px);
+      visibility: hidden;
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.5s;
+    }
+    .reviews-section.is-enhanced .review-panel.is-active {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, visibility 0s;
     }
 
-    @media (max-width: 768px) {
-      .reviews-grid,
-      .reviews-side {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-      }
-
-      .review-feature {
-        padding: var(--space-5);
-      }
-
-      .review-feature blockquote {
-        font-size: var(--font-size-lg);
-      }
-
-      /* stars get their own line above the name instead of wrapping under it */
-      .review-card .review-stars {
-        order: -1;
-        flex-basis: 100%;
-        margin-left: 0;
-        margin-bottom: var(--space-1);
-      }
+    @media (prefers-reduced-motion: reduce) {
+      .review-tab::before, .review-tab .review-stars,
+      .reviews-section.is-enhanced .review-panel,
+      .reviews-section.is-enhanced .review-panel.is-active { transition: none; }
+    }
+    @media (max-width: 991px) {
+      .reviews-layout { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+    @media (max-width: 767px) {
+      .reviews-section { padding: var(--space-9) 0; }
+      .reviews-title { font-size: var(--font-size-3xl); line-height: 1.2; }
+      .reviews-sub { font-size: var(--font-size-md); }
+      .review-tabs { margin-top: var(--space-5); }
+      .review-panel blockquote p { font-size: var(--font-size-lg); }
     }
 
 /* FAQs Section: heading column (sticky on desktop) beside a ruled list
@@ -2134,14 +2314,7 @@
 
     /* Responsive Design */
     @media (max-width: 992px) {
-      .main-banner {
-        padding-top: var(--space-4);
-        padding-bottom: var(--space-4);
-      }
       
-      .header-text h1 {
-        font-size: var(--font-size-3xl);
-      }
     }
 
     @media (max-width: 1024px) {
@@ -2161,27 +2334,8 @@
         margin-top: var(--spacing-md);
       }
       
-      .header-text {
-        text-align: center;
-        margin-bottom: var(--spacing-lg);
-        padding: 0;
-      }
       
-      .quote-button-wrapper {
-        text-align: center;
-        justify-content: center;
-        flex-wrap: nowrap;
-        gap: var(--space-2);
-      }
 
-      .quote-button-wrapper .btn {
-        min-width: 0;
-        width: auto;
-        max-width: none;
-        flex: 1 1 0;
-        padding: var(--space-3) var(--space-3);
-        font-size: var(--font-size-sm);
-      }
       
       .portfolio-grid {
         gap: var(--spacing-md);
@@ -2232,17 +2386,8 @@
         height: 250px;
       }
       
-      .header-text h1 {
-        font-size: var(--font-size-2xl);
-      }
       
-      .header-text h6 {
-        font-size: var(--font-size-xs);
-      }
       
-      .header-text p {
-        font-size: var(--font-size-md);
-      }
       
       .modal-container {
         width: 95%;
@@ -2332,229 +2477,170 @@
 
   <main>
   <!-- Main Banner Start -->
-  <div class="main-banner" id="top">
+  <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-5 align-self-center">
-          <div class="header-text">
-            <h1>Your Partner for Cutting-Edge Building Design Services, MEP, Structural and Fire Design Solutions</h1>
-            <p>ts9designs delivers building design, structural, MEP, and fire protection design packages with permit-focused coordination.</p>
-            <div class="hero-points">
-              <span class="hero-point">Hotels, Restaurants</span>
-              <span class="hero-point">Apartments complexes</span>
-              <span class="hero-point">Gas Stations</span>
-              <span class="hero-point">Tenant Improvements</span>
-              <span class="hero-point">Industrial</span>
-            </div>
-            <div class="quote-button-wrapper">
-              <a href="/permit-estimate.html" class="btn btn-primary btn-lg">Get Estimate</a>
-              <a href="https://cal.com/ts9designs/discoverycall" class="btn btn-lg btn-hero-secondary">Book A Call</a>
-            </div>
-          </div>
+      <div class="hero-top">
+        <h1 class="hero-title" id="hero-title">Permit-ready <em>MEP, structural and fire plans</em></h1>
+        <p class="hero-lead">ts9designs delivers building design, structural, MEP, and fire protection design packages with permit-focused coordination.</p>
+        <div class="hero-actions">
+          <a href="/permit-estimate.html" class="hero-btn">Get Estimate</a>
+          <a href="https://cal.com/ts9designs/discoverycall" class="hero-link">Book A Call <span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
         </div>
-        
-        <!-- Slideshow Container -->
-        <div class="col-lg-7">
-          <div class="slideshow-container">
-            <div class="slides">
-              <!--<div class="slide">-->
-              <!--  <img src="assets/images/RomaBar/romabar1.webp" alt="MEP design example">-->
-              <!--</div>-->
-              <!--<div class="slide">-->
-              <!--  <img src="assets/images/Bishop/frontview.webp" alt="Fire design solution">-->
-              <!--</div>-->
-              <div class="slide active">
-                <img class="slide-bg" src="assets/images/28.webp" srcset="assets/images/28-sm.webp 750w, assets/images/28.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" src="assets/images/28.webp" srcset="assets/images/28-sm.webp 750w, assets/images/28.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
-              </div>
-              <div class="slide">
-                <img class="slide-bg" data-src="assets/images/27.webp" data-srcset="assets/images/27-sm.webp 750w, assets/images/27.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/27.webp" data-srcset="assets/images/27-sm.webp 750w, assets/images/27.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="Daycare">
-              </div>
-              <div class="slide">
-                <img class="slide-bg" data-src="assets/images/Living-Room.webp" data-srcset="assets/images/Living-Room-sm.webp 750w, assets/images/Living-Room.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/Living-Room.webp" data-srcset="assets/images/Living-Room-sm.webp 750w, assets/images/Living-Room.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
-              </div>
-              <div class="slide">
-                <img class="slide-bg" data-src="assets/images/29.webp" data-srcset="assets/images/29-sm.webp 750w, assets/images/29.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/29.webp" data-srcset="assets/images/29-sm.webp 750w, assets/images/29.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="MEP design example">
-              </div>
-              <div class="slide">
-                <img class="slide-bg" data-src="assets/images/32.webp" data-srcset="assets/images/32-sm.webp 857w, assets/images/32.webp 986w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/32.webp" data-srcset="assets/images/32-sm.webp 857w, assets/images/32.webp 986w" sizes="(min-width: 992px) 600px, 100vw" alt="Multifamily new-construction rendering">
-              </div>
-              <div class="slide">
-                <img class="slide-bg" data-src="assets/images/Optometry/Optometry2.webp" data-srcset="assets/images/Optometry/Optometry2-sm.webp 750w, assets/images/Optometry/Optometry2.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="" aria-hidden="true">
-                <img class="slide-fg" data-src="assets/images/Optometry/Optometry2.webp" data-srcset="assets/images/Optometry/Optometry2-sm.webp 750w, assets/images/Optometry/Optometry2.webp 1100w" sizes="(min-width: 992px) 600px, 100vw" alt="Eyes on Optometry">
-              </div>
-              <!--<div class="slide">-->
-              <!--  <img class="slide-bg" src="assets/images/DolceVilla/dolce4.webp" alt="" aria-hidden="true">-->
-              <!--  <img class="slide-fg" src="assets/images/DolceVilla/dolce4.webp" alt="Fire design solution">-->
-              <!--</div>-->
-              <!--<div class="slide">-->
-              <!--  <img class="slide-bg" src="assets/images/31.webp" alt="" aria-hidden="true">-->
-              <!--  <img class="slide-fg" src="assets/images/31.webp" alt="Pet Supplies">-->
-              <!--</div>-->
-            </div>
-            <!-- Slideshow controls -->
-            <div class="slideshow-controls">
-              <div class="slide-indicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-                <span class="indicator" data-slide="3"></span>
-                <span class="indicator" data-slide="4"></span>
-                <span class="indicator" data-slide="5"></span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="hero-types" aria-label="Building types">
+          <li>Hotels, Restaurants</li>
+          <li>Apartment complexes</li>
+          <li>Gas Stations</li>
+          <li>Tenant Improvements</li>
+          <li>Industrial</li>
+        </ul>
       </div>
     </div>
-  </div>
+    <div class="hero-drift" aria-label="Recent projects">
+      <div class="hero-track">
+        <ul class="hero-set">
+            <li class="hero-tile"><div><img src="assets/images/32-sm.webp" width="857" height="482" alt="" loading="eager" decoding="async"><span class="hero-tile-cap">Multifamily new construction (rendering)</span></div></li>
+            <li class="hero-tile"><a href="/case-studies/eyes-on-j-optometry.html"><img src="assets/images/hero/eyes-on-j.jpg" width="720" height="480" alt="" loading="eager" decoding="async"><span class="hero-tile-cap">Eyes on J Optometry</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/bishop-pond.html"><img src="assets/images/hero/bishop-pond.jpg" width="720" height="480" alt="" loading="eager" decoding="async"><span class="hero-tile-cap">Bishop Pond</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/la-dolce-vita-dover.html"><img src="assets/images/hero/la-dolce-vita.jpg" width="540" height="720" alt="" loading="eager" decoding="async"><span class="hero-tile-cap">La Dolce Vita</span></a></li>
+            <li class="hero-tile"><a href="/residential.html"><img src="assets/images/hero/cary-dr.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">1097 W Cary Dr, Citrus Springs, FL</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/pet-supplies-plus-hamilton.html"><img src="assets/images/hero/pet-supplies-plus.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Pet Supplies Plus</span></a></li>
+            <li class="hero-tile"><div><img src="assets/images/27-sm.webp" width="750" height="586" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Daycare</span></div></li>
+            <li class="hero-tile"><a href="/case-studies/conmigo-cafe.html"><img src="assets/images/hero/conmigo-cafe.jpg" width="720" height="540" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Conmigo Café</span></a></li>
+            <li class="hero-tile"><a href="/residential.html"><img src="assets/images/hero/two-bedroom.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">2-Bedroom Residential Plan</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/chefs-roma-kitchen-henderson.html"><img src="assets/images/hero/chefs-roma.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Chef&#39;s Roma Kitchen</span></a></li>
+            <li class="hero-tile"><a href="/residential.html"><img src="assets/images/hero/wentworth.jpg" width="720" height="399" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Wentworth Drive</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/bishop-pond.html"><img src="assets/images/Bishop/Living-Room-sm.webp" width="783" height="522" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Bishop Pond</span></a></li>
+        </ul>
+        <ul class="hero-set" aria-hidden="true">
+            <li class="hero-tile"><div><img src="assets/images/32-sm.webp" width="857" height="482" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Multifamily new construction (rendering)</span></div></li>
+            <li class="hero-tile"><a href="/case-studies/eyes-on-j-optometry.html" tabindex="-1"><img src="assets/images/hero/eyes-on-j.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Eyes on J Optometry</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/bishop-pond.html" tabindex="-1"><img src="assets/images/hero/bishop-pond.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Bishop Pond</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/la-dolce-vita-dover.html" tabindex="-1"><img src="assets/images/hero/la-dolce-vita.jpg" width="540" height="720" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">La Dolce Vita</span></a></li>
+            <li class="hero-tile"><a href="/residential.html" tabindex="-1"><img src="assets/images/hero/cary-dr.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">1097 W Cary Dr, Citrus Springs, FL</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/pet-supplies-plus-hamilton.html" tabindex="-1"><img src="assets/images/hero/pet-supplies-plus.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Pet Supplies Plus</span></a></li>
+            <li class="hero-tile"><div><img src="assets/images/27-sm.webp" width="750" height="586" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Daycare</span></div></li>
+            <li class="hero-tile"><a href="/case-studies/conmigo-cafe.html" tabindex="-1"><img src="assets/images/hero/conmigo-cafe.jpg" width="720" height="540" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Conmigo Café</span></a></li>
+            <li class="hero-tile"><a href="/residential.html" tabindex="-1"><img src="assets/images/hero/two-bedroom.jpg" width="720" height="405" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">2-Bedroom Residential Plan</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/chefs-roma-kitchen-henderson.html" tabindex="-1"><img src="assets/images/hero/chefs-roma.jpg" width="720" height="480" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Chef&#39;s Roma Kitchen</span></a></li>
+            <li class="hero-tile"><a href="/residential.html" tabindex="-1"><img src="assets/images/hero/wentworth.jpg" width="720" height="399" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Wentworth Drive</span></a></li>
+            <li class="hero-tile"><a href="/case-studies/bishop-pond.html" tabindex="-1"><img src="assets/images/Bishop/Living-Room-sm.webp" width="783" height="522" alt="" loading="lazy" decoding="async"><span class="hero-tile-cap">Bishop Pond</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-controls">
+        <button type="button" class="hero-pause" aria-pressed="false"><span class="hero-pause-icon" aria-hidden="true"></span><span class="hero-pause-label">Pause</span></button>
+      </div>
+    </div>
+  </section>
   <!-- Main Banner End -->
 
 <!-- Portfolio Section Start -->
-<div id="portfolio" class="section">
+<section id="portfolio" class="work-section" aria-labelledby="work-title">
   <div class="container">
-    <div class="section-heading">
-      <p class="section-eyebrow">Our Work</p>
-      <h4>See Our Recent Projects</h4>
-      <div class="line-dec"></div>
-      <p>Explore our portfolio of building design, MEP, structural, and fire protection solutions</p>
+    <div class="work-head">
+      <div>
+        <p class="work-caption">Our Work</p>
+        <h2 class="work-title" id="work-title">See Our <em>Recent Projects</em></h2>
+        <p class="work-sub">Explore our portfolio of building design, MEP, structural, and fire protection solutions</p>
+      </div>
+      <a class="work-all" href="/case-studies/">View all case studies <span aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
     </div>
-    
-    <div class="portfolio-grid">
-      <!-- Bishop Pond Project -->
-      <div class="portfolio-item" data-project="bishop-pond" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/Bishop/Living-Room.webp" srcset="assets/images/Bishop/Living-Room-sm.webp 783w, assets/images/Bishop/Living-Room.webp 1120w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="" aria-hidden="true" fetchpriority="high">
-          <img class="thumb-fg" src="assets/images/Bishop/Living-Room.webp" srcset="assets/images/Bishop/Living-Room-sm.webp 783w, assets/images/Bishop/Living-Room.webp 1120w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="Bishop Pond" fetchpriority="high">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Bishop Pond</h4>
-          <span>New Construction</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/bishop-pond.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- 17058 S Robey Street Project -->
-      <div class="portfolio-item" data-project="robey-street" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/Daycare/daycare2.webp" srcset="assets/images/Daycare/daycare2-sm.webp 783w, assets/images/Daycare/daycare2.webp 5712w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/Daycare/daycare2.webp" srcset="assets/images/Daycare/daycare2-sm.webp 783w, assets/images/Daycare/daycare2.webp 5712w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="17058 S Robey Street DayCare">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>17058 S Robey Street</h4>
-          <span>Daycare Renovation</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/robey-street-daycare.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- Pet Supplies Plus Project -->
-      <div class="portfolio-item" data-project="pet-supplies" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/PetSupplies/pet-supplies.webp" srcset="assets/images/PetSupplies/pet-supplies-sm.webp 783w, assets/images/PetSupplies/pet-supplies.webp 2048w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/PetSupplies/pet-supplies.webp" srcset="assets/images/PetSupplies/pet-supplies-sm.webp 783w, assets/images/PetSupplies/pet-supplies.webp 2048w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="Pet Supplies Plus">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Pet Supplies Plus</h4>
-          <span>Commercial</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/pet-supplies-plus-hamilton.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- La Dolce Vita Project -->
-      <div class="portfolio-item" data-project="dolce-vita" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/DolceVilla/dolce2.webp" srcset="assets/images/DolceVilla/dolce2-sm.webp 783w, assets/images/DolceVilla/dolce2.webp 1360w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/DolceVilla/dolce2.webp" srcset="assets/images/DolceVilla/dolce2-sm.webp 783w, assets/images/DolceVilla/dolce2.webp 1360w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="La Dolce Vita">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>La Dolce Vita</h4>
-          <span>Restaurant</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/la-dolce-vita-dover.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- Eyes on J Optometry Project -->
-      <div class="portfolio-item" data-project="eyes-on-j" data-wordmark="mep hvac">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/Optometry/Optometry.webp" srcset="assets/images/Optometry/Optometry-sm.webp 783w, assets/images/Optometry/Optometry.webp 1170w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/Optometry/Optometry.webp" srcset="assets/images/Optometry/Optometry-sm.webp 783w, assets/images/Optometry/Optometry.webp 1170w" sizes="(min-width: 992px) 380px, (min-width: 600px) 50vw, 100vw" alt="Eyes on J Optometry">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Eyes on J Optometry</h4>
-          <span>Medical Office</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/eyes-on-j-optometry.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- Conmigo Café Project -->
-      <div class="portfolio-item" data-project="conmigo-cafe" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/conmigo/conmigo.webp" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/conmigo/conmigo.webp" alt="Conmigo Café">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Conmigo Café</h4>
-          <span>Coffee Shop</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/conmigo-cafe.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- Luccino's Pizza Project -->
-      <div class="portfolio-item" data-project="luccinos-pizza" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/Tropicana/Tropicana.webp" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Luccino's Pizza</h4>
-          <span>Restaurant</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/luccinos-pizza-tropicana.html">See Case Study</a></div>
-        </div>
-      </div>
-      
-      <!-- Chef's Roma Kitchen Project -->
-      <div class="portfolio-item" data-project="chefs-roma" data-wordmark="mep">
-        <div class="thumb">
-          <img class="thumb-bg" src="assets/images/RomaBar/romabar.webp" alt="" aria-hidden="true">
-          <img class="thumb-fg" src="assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen">
-          <div class="item-overlay">
-            <div class="view-project">View Project</div>
-          </div>
-        </div>
-        <div class="content">
-          <h4>Chef's Roma Kitchen</h4>
-          <span>Restaurant</span>
-          <div class="portfolio-actions"><a class="btn-link" href="/case-studies/chefs-roma-kitchen-henderson.html">See Case Study</a></div>
-        </div>
-      </div>
+
+    <div class="work-filter" role="group" aria-label="Filter projects by type">
+      <span class="work-filter-pill" aria-hidden="true"></span>
+        <button type="button" data-filter="all" aria-pressed="true">All<span class="work-count">8</span></button>
+        <button type="button" data-filter="restaurant" aria-pressed="false">Restaurant<span class="work-count">4</span></button>
+        <button type="button" data-filter="retail-office" aria-pressed="false">Retail &amp; office<span class="work-count">3</span></button>
+        <button type="button" data-filter="residential" aria-pressed="false">Residential<span class="work-count">1</span></button>
+    </div>
+
+    <div class="work-grid-wrap">
+      <ul class="work-grid">
+        <li class="work-item" data-type="residential">
+          <a class="work-tile" href="/case-studies/bishop-pond.html">
+            <img src="assets/images/Bishop/Living-Room-sm.webp" width="783" height="522" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Bishop Pond</span>
+              <span class="work-meta">New Construction · Indianapolis, IN</span>
+              <span class="work-more"><span>12,500 sq ft · Full MEP Engineering</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="restaurant">
+          <a class="work-tile" href="/case-studies/la-dolce-vita-dover.html">
+            <img src="assets/images/DolceVilla/dolce2-sm.webp" width="783" height="587" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">La Dolce Vita</span>
+              <span class="work-meta">Restaurant · Dover, NH</span>
+              <span class="work-more"><span>4,200 sq ft · Building Design &amp; MEP</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="retail-office">
+          <a class="work-tile" href="/case-studies/pet-supplies-plus-hamilton.html">
+            <img src="assets/images/PetSupplies/pet-supplies-sm.webp" width="783" height="522" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Pet Supplies Plus</span>
+              <span class="work-meta">Commercial · Hamilton, NJ</span>
+              <span class="work-more"><span>7,800 sq ft · Full MEP Engineering</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="retail-office">
+          <a class="work-tile" href="/case-studies/eyes-on-j-optometry.html">
+            <img src="assets/images/Optometry/Optometry-sm.webp" width="783" height="648" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Eyes on J Optometry</span>
+              <span class="work-meta">Medical Office · Sacramento, CA</span>
+              <span class="work-more"><span>2,800 sq ft · MEP Engineering</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="restaurant">
+          <a class="work-tile" href="/case-studies/chefs-roma-kitchen-henderson.html">
+            <img src="assets/images/RomaBar/romabar.webp" width="700" height="700" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Chef&#39;s Roma Kitchen</span>
+              <span class="work-meta">Restaurant · Henderson, NV</span>
+              <span class="work-more"><span>5,200 sq ft · MEP &amp; Building Design</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="restaurant">
+          <a class="work-tile" href="/case-studies/conmigo-cafe.html">
+            <img src="assets/images/conmigo/conmigo.webp" width="680" height="1020" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Conmigo Café</span>
+              <span class="work-meta">Coffee Shop · Western Pennsylvania</span>
+              <span class="work-more"><span>1,850 sq ft · Building Design &amp; MEP</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="restaurant">
+          <a class="work-tile" href="/case-studies/luccinos-pizza-tropicana.html">
+            <img src="assets/images/work/luccinos-pizza.jpg" width="720" height="608" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">Luccino&#39;s Pizza</span>
+              <span class="work-meta">Restaurant · Las Vegas, NV</span>
+              <span class="work-more"><span>3,600 sq ft · Building Design &amp; MEP</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="work-item" data-type="retail-office">
+          <a class="work-tile" href="/case-studies/robey-street-daycare.html">
+            <img src="assets/images/Daycare/daycare2-sm.webp" width="783" height="587" alt="" loading="lazy" decoding="async">
+            <span class="work-shade">
+              <span class="work-name">17058 S Robey Street</span>
+              <span class="work-meta">Daycare Renovation · Hazel Crest, IL</span>
+              <span class="work-more"><span>3,200 sq ft · Renovation MEP</span></span>
+            </span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 <!-- Portfolio Section End -->
 
   <!-- Sample Drawings Section Start -->
@@ -2615,537 +2701,47 @@
   </div>
   <!-- Pricing Section End -->
 
-  <!-- Project Modal -->
-  <div id="projectModal" class="project-modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-container">
-      <button class="close-modal">&times;</button>
-      
-      <div class="modal-content">
-        <!-- Bishop Pond Project Content -->
-        <div class="project-content" id="bishop-pond-content">
-          <div class="project-header">
-            <h3>Bishop Pond</h3>
-            <span class="project-category">New Construction</span>
-            <div class="project-location">Indianapolis, Indiana</div>
-            <div class="project-completion">Completed: 2024</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/Bishop/Living-Room.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/Bishop/frontview.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Bishop/Bishop-Pond1.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/Bishop/Bishop-Pond2.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Bishop/Bishop-Pond3.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/Bishop/Large-outdoor-Deck.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Bishop/bishop-pond-bathro.webp" alt="Bishop Pond" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="bishop-pond">&#10094;</button>
-                <button class="next-slide" data-project="bishop-pond">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">12,500 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Full MEP Engineering</span>
-              </div>
-            </div>
-            
-            <p>ts9designs proudly provided the full engineering plans for the Bishop Pond residential community in Indianapolis—a beautifully planned development combining modern living with classic Midwestern charm.</p>
-            
-            <p>Our team delivered comprehensive Mechanical, Electrical, and Plumbing (MEP) engineering designs tailored to meet the specific needs of this high-quality residential project. Every system was thoughtfully designed for efficiency, comfort, and long-term reliability, aligning with the builder's vision and local code requirements.</p>
-            
-            
-            <p>From concept to permit-ready plans, our engineering support helped bring this elegant neighborhood to life—another example of how ts9designs powers great design through smart engineering.</p>
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 17058 S Robey Street Project Content -->
-        <div class="project-content" id="robey-street-content">
-          <div class="project-header">
-            <h3>17058 S Robey Street</h3>
-            <span class="project-category">Daycare Renovation</span>
-            <div class="project-location">Hazel Crest, Illinois</div>
-            <div class="project-completion">Completed: 2024</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/Daycare/daycare1.webp" alt="Daycare" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Daycare/daycare2.webp" alt="Daycare" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Daycare/daycare3.webp" alt="Daycare" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Daycare/daycare4.webp" alt="Daycare" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Daycare/daycare5.webp" alt="Daycare" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="robey-street">&#10094;</button>
-                <button class="next-slide" data-project="robey-street">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">3,200 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Renovation MEP</span>
-              </div>
-            </div>
-            
-            <p>ts9designs provided full MEP engineering plans and ongoing construction support for this daycare and office space renovation for our client, Richard Andrews.</p>
-            
-            <p>By reusing much of the existing mechanical systems—found to be in excellent condition—we helped save Richard thousands in construction costs while still delivering code-compliant, efficient designs tailored to the needs of a childcare facility.</p>
-            
-            
-            <p>This project highlights our commitment to smart, cost-effective engineering that supports both function and budget.</p>
-            
-            <div class="project-actions">
-              <a href="assets/drawing-sets/18- Unit 62nd St and Coffman Ave - Full MEP Plans Rev A. .pdf" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Pet Supplies Plus Project Content -->
-        <div class="project-content" id="pet-supplies-content">
-          <div class="project-header">
-            <h3>Pet Supplies Plus</h3>
-            <span class="project-category">Commercial</span>
-            <div class="project-location">Hamilton, New Jersey</div>
-            <div class="project-completion">Completed: 2025</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/PetSupplies/pet-supplies1.webp" alt="Pet Supplies Plus" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/PetSupplies/pet-supplies.webp" alt="Pet Supplies Plus" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/PetSupplies/pet-supplies3.webp" alt="Pet Supplies Plus" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/PetSupplies/pet-supplies2.webp" alt="Pet Supplies Plus" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="pet-supplies">&#10094;</button>
-                <button class="next-slide" data-project="pet-supplies">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">7,800 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Full MEP Engineering</span>
-              </div>
-            </div>
-            
-            <p>ts9designs provided the full engineering plans for the new Pet Supplies Plus location in Hamilton, New Jersey.</p>
-            
-            <p>For this project, we collaborated closely with the corporate team to ensure their brand standards and operational requirements were fully integrated into our drawings. From lighting layouts and electrical panel coordination to mechanical and plumbing systems, every element was tailored to meet their established design guidelines and ensure a seamless rollout.</p>
-            
-            
-            <p>Check them out in Hamilton, NJ—another example of how ts9designs brings national brands to life at the local level!</p>
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- La Dolce Vita Project Content -->
-        <div class="project-content" id="dolce-vita-content">
-          <div class="project-header">
-            <h3>La Dolce Vita</h3>
-            <span class="project-category">Restaurant</span>
-            <div class="project-location">Dover, New Hampshire</div>
-            <div class="project-completion">Completed: 2025</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/DolceVilla/dolce1.webp" alt="La Dolce Vita" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/DolceVilla/dolce2.webp" alt="La Dolce Vita" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/DolceVilla/dolce3.webp" alt="La Dolce Vita" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/DolceVilla/dolce4.webp" alt="La Dolce Vita" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/DolceVilla/dolce5.webp" alt="La Dolce Vita" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="dolce-vita">&#10094;</button>
-                <button class="next-slide" data-project="dolce-vita">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">4,200 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Building Design & MEP</span>
-              </div>
-            </div>
-
-            <p>ts9designs provided building-design documentation and MEP engineering plans for La Dolce Vita, an elegant dining destination in Dover, New Hampshire.</p>
-
-            <p>Our scope included floor plans, space-planning layouts, exterior elevations, and related building-design documentation, capturing the restaurant's desired aesthetic while ensuring functionality and code compliance. From floor plans to façade detailing, we worked closely with ownership to bring their vision to life through thoughtful design.</p>
-            
-            
-            <p>We also delivered complete Mechanical, Electrical, and Plumbing (MEP) engineering solutions, tailored to support the kitchen, dining, and back-of-house operations efficiently.</p>
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Eyes on J Optometry Project Content -->
-        <div class="project-content" id="eyes-on-j-content">
-          <div class="project-header">
-            <h3>Eyes on J Optometry</h3>
-            <span class="project-category">Medical Office</span>
-            <div class="project-location">Sacramento, California</div>
-            <div class="project-completion">Completed: 2024</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/Optometry/Optometry.webp" alt="Eyes on J Optometry" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/Optometry/Optometry3.webp" alt="Eyes on J Optometry" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Optometry/Optometry1.webp" alt="Eyes on J Optometry" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/Optometry/Optometry2.webp" alt="Eyes on J Optometry" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="eyes-on-j">&#10094;</button>
-                <button class="next-slide" data-project="eyes-on-j">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">2,800 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">MEP Engineering</span>
-              </div>
-            </div>
-            
-            <p>ts9designs had the pleasure of providing engineering plans for Eyes on J Optometry, a modern and welcoming eye care clinic located in Sacramento, California.</p>
-            
-            <p>We loved working with Dr. Sarah to bring her vision to life—focusing on delivering high-quality, efficient Mechanical, Electrical, and Plumbing (MEP) designs that support the clinic's functionality and patient experience. From lighting and HVAC to plumbing systems, every detail was tailored to fit the needs of a professional medical space while keeping comfort and efficiency top of mind.</p>
-            
-           
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Conmigo Café Project Content -->
-        <div class="project-content" id="conmigo-cafe-content">
-          <div class="project-header">
-            <h3>Conmigo Café</h3>
-            <span class="project-category">Coffee Shop</span>
-            <div class="project-location">Western Pennsylvania</div>
-            <div class="project-completion">Completed: 2025</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/conmigo/conmigo.webp" alt="Conmigo Café" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/conmigo/conmigo1.webp" alt="Conmigo Café" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/conmigo/conmigo2.webp" alt="Conmigo Café" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="conmigo-cafe">&#10094;</button>
-                <button class="next-slide" data-project="conmigo-cafe">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">1,850 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Building Design & MEP</span>
-              </div>
-            </div>
-
-            <p>ts9designs provided building-design documentation and MEP engineering plans for Conmigo Café, a cozy and community-focused coffee shop located in Western Pennsylvania.</p>
-            
-            <p>From the very start, we worked closely with the café team to bring their warm, welcoming vision to life—delivering detailed floor plans, thoughtful exterior elevations, and efficient Mechanical, Electrical, and Plumbing (MEP) designs tailored to café operations. Our focus was on creating a space that feels just as good as it functions—blending aesthetics with code compliance and practical flow.</p>
-            
-            
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Luccino's Pizza Project Content -->
-        <div class="project-content" id="luccinos-pizza-content">
-          <div class="project-header">
-            <h3>Luccino's Pizza</h3>
-            <span class="project-category">Restaurant</span>
-            <div class="project-location">Las Vegas, Nevada</div>
-            <div class="project-completion">Completed: 2025</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/Tropicana/Tropicana.webp" alt="Luccino's Pizza" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Tropicana/Tropicana1.webp" alt="Luccino's Pizza" loading="lazy">
-                </div>
-                <div class="slide active">
-                  <img src="assets/images/Tropicana/Tropicana2.webp" alt="Luccino's Pizza" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="luccinos-pizza">&#10094;</button>
-                <button class="next-slide" data-project="luccinos-pizza">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">3,600 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">Building Design & MEP</span>
-              </div>
-            </div>
-
-            <p>ts9designs was proud to provide the full building design and engineering plans for Luccino's Pizza, a vibrant new pizzeria located at 3035 East Tropicana in Las Vegas, Nevada.</p>
-
-            <p>Our team delivered detailed floor plans, code-compliant Mechanical, Electrical, and Plumbing (MEP) systems, and exterior elevations that captured the energy and functionality needed for a fast-paced kitchen and inviting dine-in experience. Every detail—from kitchen layout to customer flow—was carefully designed to support efficiency, safety, and a great customer experience.</p>
-            
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Chef's Roma Kitchen Project Content -->
-        <div class="project-content" id="chefs-roma-content">
-          <div class="project-header">
-            <h3>Chef's Roma Kitchen</h3>
-            <span class="project-category">Restaurant</span>
-            <div class="project-location">Henderson, Nevada</div>
-            <div class="project-completion">Completed: 2024</div>
-          </div>
-          
-          <div class="project-slideshow">
-            <div class="slideshow-container project">
-              <div class="slides">
-                <div class="slide active">
-                  <img src="assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/RomaBar/romabar.webp" alt="Chef's Roma Kitchen" loading="lazy">
-                </div>
-                <div class="slide">
-                  <img src="assets/images/RomaBar/romabar1.webp" alt="Chef's Roma Kitchen" loading="lazy">
-                </div>
-              </div>
-              
-              <div class="slideshow-controls project">
-                <button class="prev-slide" data-project="chefs-roma">&#10094;</button>
-                <button class="next-slide" data-project="chefs-roma">&#10095;</button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="project-description">
-            <div class="project-meta">
-              <div class="meta-item">
-                <span class="meta-label">Size:</span>
-                <span class="meta-value">5,200 sq ft</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Scope:</span>
-                <span class="meta-value">MEP & Building Design</span>
-              </div>
-            </div>
-            
-            <p>ts9designs is proud to have provided comprehensive Mechanical, Electrical, and Plumbing (MEP) engineering and floor plan design for Chef's Roma Kitchen, a distinguished Italian restaurant located in Henderson, Nevada.</p>
-            
-            <p>Collaborating closely with the restaurant's ownership and design team, we developed detailed floor plans that optimize both customer experience and operational efficiency. Our MEP designs were meticulously crafted to support the restaurant's high-performance kitchen, ambient dining areas, and full-service bar, ensuring seamless integration with the establishment's aesthetic and functional goals.</p>
-            
-            
-            <p>Chef's Roma Kitchen is renowned for its warm ambiance and authentic Italian cuisine, offering patrons a memorable dining experience. Our involvement in this project underscores ts9designs' commitment to delivering tailored engineering and building design work that brings our clients' visions to life.</p>
-            
-            <p>Explore more about the restaurant at <a href="https://chefsromakitchen.com" target="_blank" rel="noopener">chefsromakitchen.com</a>.</p>
-            
-            <div class="project-actions">
-              <a href="#" class="view-plans-btn">View Full Plans</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Reviews Section Start -->
-  <div id="reviews" class="section reviews-section">
-    <div class="container">
-      <div class="section-heading">
-        <p class="section-eyebrow">Reviews</p>
-        <h4>Trusted by Owners, Builders, and Operators</h4>
-        <div class="line-dec"></div>
-        <p>Real feedback from clients who moved from concept to permit-ready execution with ts9designs.</p>
-      </div>
-
-      <div class="reviews-grid">
-        <figure class="review-feature">
-          <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-          <blockquote>
-            <p>I hired ts9designs for blueprints on a buildout project, and I'm extremely pleased. They paid great attention to detail, ensuring compliance with codes and regulations. The blueprints were delivered promptly, allowing for a smooth construction process. Their professionalism and expertise surpassed my expectations, highly recommended for anyone seeking detailed and timely blueprint services.</p>
-          </blockquote>
-          <figcaption class="review-attribution">
-            <span class="reviewer-name">KeSean</span>
-            <span class="reviewer-title">Smoke Shop · Houston, TX</span>
-          </figcaption>
-        </figure>
-
-        <div class="reviews-side">
-          <figure class="review-card">
-            <blockquote>
-              <p>Nadif was excellent to work with. The contract involved mechanical, electrical, and plumbing design for a commercial building. Communication, responsiveness, and professionalism are his strengths. Even when the project experienced delays and changes, Nadif was flexible and available to help bring the contract to completion. I would recommend Nadif to my colleagues and would work with him again on my next project. Thanks Nadif!</p>
-            </blockquote>
-            <figcaption class="review-attribution">
-              <span class="reviewer-name">Sarah</span>
-              <span class="reviewer-title">Medical Office · Sacramento, CA</span>
-              <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-            </figcaption>
-            <span class="review-source">via Upwork</span>
-          </figure>
-
-          <figure class="review-card">
-            <blockquote>
-              <p>Nadif was excellent to work with. The plans were exactly as I needed. They were done in a time and professional manner. The communication was excellent which was very important to me. I'd definitely use him again and recommend him to others.</p>
-            </blockquote>
-            <figcaption class="review-attribution">
-              <span class="reviewer-name">Richard</span>
-              <span class="reviewer-title">DayCare · Chicago</span>
-              <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
-            </figcaption>
-            <span class="review-source">via Upwork</span>
-          </figure>
+  <section id="reviews" class="reviews-section" aria-labelledby="reviews-title">
+    <div class="container reviews-layout">
+      <div class="reviews-side">
+        <p class="reviews-caption">Reviews</p>
+        <h2 class="reviews-title" id="reviews-title">Trusted by Owners, <em>Builders, and Operators</em></h2>
+        <p class="reviews-sub">Real feedback from clients who moved from concept to permit-ready execution with ts9designs.</p>
+        <div class="review-tabs" role="tablist" aria-label="Client reviews">
+          <button type="button" class="review-tab" role="tab" id="review-tab-kesean" aria-controls="review-kesean" aria-selected="true">
+            <span class="review-tab-name">KeSean</span>
+            <span class="review-tab-role">Smoke Shop · Houston, TX</span>
+            <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          </button>
+          <button type="button" class="review-tab" role="tab" id="review-tab-sarah" aria-controls="review-sarah" aria-selected="false" tabindex="-1">
+            <span class="review-tab-name">Sarah</span>
+            <span class="review-tab-role">Medical Office · Sacramento, CA</span>
+            <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          </button>
+          <button type="button" class="review-tab" role="tab" id="review-tab-richard" aria-controls="review-richard" aria-selected="false" tabindex="-1">
+            <span class="review-tab-name">Richard</span>
+            <span class="review-tab-role">DayCare · Chicago</span>
+            <span class="review-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
+          </button>
         </div>
       </div>
+      <div class="review-stage">
+        <figure class="review-panel is-active" id="review-kesean" role="tabpanel" aria-labelledby="review-tab-kesean">
+          <blockquote><p>I hired ts9designs for blueprints on a buildout project, and I&#39;m extremely pleased. They paid great attention to detail, ensuring compliance with codes and regulations. The blueprints were delivered promptly, allowing for a smooth construction process. Their professionalism and expertise surpassed my expectations, highly recommended for anyone seeking detailed and timely blueprint services.</p></blockquote>
+          <figcaption class="review-by"><span class="review-by-name">KeSean</span><span class="review-by-role">Smoke Shop · Houston, TX</span></figcaption>
+        </figure>
+        <figure class="review-panel" id="review-sarah" role="tabpanel" aria-labelledby="review-tab-sarah">
+          <blockquote><p>Nadif was excellent to work with. The contract involved mechanical, electrical, and plumbing design for a commercial building. Communication, responsiveness, and professionalism are his strengths. Even when the project experienced delays and changes, Nadif was flexible and available to help bring the contract to completion. I would recommend Nadif to my colleagues and would work with him again on my next project. Thanks Nadif!</p></blockquote>
+          <figcaption class="review-by"><span class="review-by-name">Sarah</span><span class="review-by-role">Medical Office · Sacramento, CA</span><span class="review-by-source">via Upwork</span></figcaption>
+        </figure>
+        <figure class="review-panel" id="review-richard" role="tabpanel" aria-labelledby="review-tab-richard">
+          <blockquote><p>Nadif was excellent to work with. The plans were exactly as I needed. They were done in a time and professional manner. The communication was excellent which was very important to me. I&#39;d definitely use him again and recommend him to others.</p></blockquote>
+          <figcaption class="review-by"><span class="review-by-name">Richard</span><span class="review-by-role">DayCare · Chicago</span><span class="review-by-source">via Upwork</span></figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
+  </section>
   <!-- Reviews Section End -->
 
   <!-- FAQs Section Start -->
@@ -3504,71 +3100,22 @@
         });
       }
       
-      // Visitors who ask for reduced motion don't get an auto-advancing
-      // slideshow; the dots still work.
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Main Slideshow functionality
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.main-banner .slide');
-      const indicators = document.querySelectorAll('.main-banner .indicator');
-      const slideCount = slides.length;
-      let slideInterval;
-
-      // The active slide's images load eagerly via src; the other slides
-      // use data-src so they don't compete with the initial critical-path
-      // requests. Hydrate them once the page has settled, well before the
-      // first auto-advance needs them.
-      function hydrateSlideImages() {
-        slides.forEach((slide) => {
-          slide.querySelectorAll('img[data-src]').forEach((img) => {
-            if (img.dataset.srcset) {
-              img.srcset = img.dataset.srcset;
-              img.removeAttribute('data-srcset');
-            }
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-          });
+      // Hero photo band: the Pause button stops the drift for touch and
+      // keyboard visitors (hover and focus already pause it in the CSS).
+      const heroDrift = document.querySelector('.hero-drift');
+      const heroPause = document.querySelector('.hero-pause');
+      // The first few photos load with the page; the rest wait until the
+      // page has finished loading, so they never hold up the first view.
+      const loadHeroPhotos = () => document.querySelectorAll('.hero-tile img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+      if (document.readyState === 'complete') loadHeroPhotos();
+      else window.addEventListener('load', loadHeroPhotos, { once: true });
+      if (heroDrift && heroPause) {
+        heroPause.addEventListener('click', () => {
+          const paused = heroDrift.classList.toggle('is-paused');
+          heroPause.setAttribute('aria-pressed', String(paused));
+          heroPause.querySelector('.hero-pause-label').textContent = paused ? 'Play' : 'Pause';
         });
       }
-      if (document.readyState === 'complete') {
-        hydrateSlideImages();
-      } else {
-        window.addEventListener('load', hydrateSlideImages, { once: true });
-      }
-
-      // Function to advance to next slide
-      function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
-        
-        currentSlide = (currentSlide + 1) % slideCount;
-        
-        slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
-      }
-      
-      // Set up indicator click events
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          // Clear the slide interval to prevent conflicts
-          clearInterval(slideInterval);
-          
-          slides[currentSlide].classList.remove('active');
-          indicators[currentSlide].classList.remove('active');
-          
-          currentSlide = index;
-          
-          slides[currentSlide].classList.add('active');
-          indicators[currentSlide].classList.add('active');
-          
-          // Restart the slide interval
-          if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
-        });
-      });
-      
-      // Start automatic slideshow
-      if (!reduceMotion) slideInterval = setInterval(nextSlide, 5000);
 
       // FAQ: open and close answers; arrow keys move between questions.
       // Answers stay visible unless this runs (see .is-enhanced in the CSS).
@@ -3593,6 +3140,35 @@
           });
         });
         faqList.classList.add('is-enhanced');
+      }
+
+      // Reviews: client names act as tabs (click, or arrow keys / Home / End).
+      const reviewsSection = document.querySelector('.reviews-section');
+      if (reviewsSection) {
+        const reviewTabs = [...reviewsSection.querySelectorAll('.review-tab')];
+        const selectReview = (tab, focus) => {
+          reviewTabs.forEach(t => {
+            const on = t === tab;
+            t.setAttribute('aria-selected', String(on));
+            t.tabIndex = on ? 0 : -1;
+            const panel = document.getElementById(t.getAttribute('aria-controls'));
+            if (panel) { panel.classList.toggle('is-active', on); panel.inert = !on; }
+          });
+          if (focus) tab.focus();
+        };
+        reviewTabs.forEach((tab, i) => {
+          tab.addEventListener('click', () => selectReview(tab, false));
+          tab.addEventListener('keydown', e => {
+            const last = reviewTabs.length - 1;
+            const next = { ArrowDown: i === last ? 0 : i + 1, ArrowRight: i === last ? 0 : i + 1,
+                           ArrowUp: i === 0 ? last : i - 1, ArrowLeft: i === 0 ? last : i - 1, Home: 0, End: last }[e.key];
+            if (next === undefined) return;
+            e.preventDefault();
+            selectReview(reviewTabs[next], true);
+          });
+        });
+        selectReview(reviewTabs.find(t => t.getAttribute('aria-selected') === 'true') || reviewTabs[0], false);
+        reviewsSection.classList.add('is-enhanced');
       }
 
       // Quote modal functionality
@@ -3651,147 +3227,76 @@
         });
       }
       
-      // Portfolio item click handlers
-      const portfolioItems = document.querySelectorAll('.portfolio-item');
-      const caseStudyLinks = document.querySelectorAll('.portfolio-item .portfolio-actions > a.btn-link');
-      const projectModal = document.getElementById('projectModal');
-      const projectModalOverlay = document.querySelector('#projectModal .modal-overlay');
-      const closeProjectModalBtn = document.querySelector('#projectModal .close-modal');
-      const projectContents = document.querySelectorAll('.project-content');
-      
-      // Current slide tracking for each project
-      const currentProjectSlides = {
-        'bishop-pond': 0,
-        'robey-street': 0,
-        'pet-supplies': 0,
-        'dolce-vita': 0,
-        'eyes-on-j': 0,
-        'conmigo-cafe': 0,
-        'luccinos-pizza': 0,
-        'chefs-roma': 0
-      };
-      
-      // Open modal when portfolio item is clicked
-      portfolioItems.forEach(item => {
-        item.addEventListener('click', function() {
-          const projectId = this.getAttribute('data-project');
-          openProjectModal(projectId);
-        });
-      });
+      // Our Work: filter the project tiles. The pill slides to the chosen
+      // filter; tiles that stay glide to their new spots, leaving tiles fade
+      // out and new ones fade in, and the grid eases to its new height.
+      const workFilter = document.querySelector('.work-filter');
+      const workGridWrap = document.querySelector('.work-grid-wrap');
+      if (workFilter && workGridWrap) {
+        const pill = workFilter.querySelector('.work-filter-pill');
+        const buttons = [...workFilter.querySelectorAll('button')];
+        const items = [...workGridWrap.querySelectorAll('.work-item')];
+        const still = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+        let run = 0;
 
-      // Prevent case study links from opening modal
-      caseStudyLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-      });
-      
-      // Close project modal functions
-      function closeProjectModal() {
-        projectModal.style.display = 'none';
-        document.body.style.overflow = ''; // Re-enable scrolling
-        
-        // Hide all project contents
-        projectContents.forEach(content => {
-          content.classList.remove('active');
-        });
-      }
-      
-      if (closeProjectModalBtn) closeProjectModalBtn.addEventListener('click', closeProjectModal);
-      if (projectModalOverlay) projectModalOverlay.addEventListener('click', closeProjectModal);
-      
-      // Close project modal with escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && projectModal.style.display === 'block') {
-          closeProjectModal();
-        }
-      });
-      
-      // Open modal with specific project
-      function openProjectModal(projectId) {
-        // Hide all project contents first
-        projectContents.forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        // Show the selected project content
-        const selectedContent = document.getElementById(`${projectId}-content`);
-        if (selectedContent) {
-          selectedContent.classList.add('active');
-        }
-        
-        // Display the modal
-        projectModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      }
-      
-      // Slideshow navigation
-      const prevButtons = document.querySelectorAll('.prev-slide');
-      const nextButtons = document.querySelectorAll('.next-slide');
-      
-      // Previous slide button click
-      prevButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const projectId = this.getAttribute('data-project');
-          changeProjectSlide(projectId, -1);
-        });
-      });
-      
-      // Next slide button click
-      nextButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const projectId = this.getAttribute('data-project');
-          changeProjectSlide(projectId, 1);
-        });
-      });
-      
-      // Change slide function
-      function changeProjectSlide(projectId, direction) {
-        const slides = document.querySelectorAll(`#${projectId}-content .slide`);
-        if (slides.length <= 1) return; // Skip if only one slide
-        
-        // Hide current slide
-        slides[currentProjectSlides[projectId]].classList.remove('active');
-        
-        // Calculate new slide index
-        currentProjectSlides[projectId] = (currentProjectSlides[projectId] + direction + slides.length) % slides.length;
-        
-        // Show new slide
-        slides[currentProjectSlides[projectId]].classList.add('active');
-      }
-      
-      // Handle touch events for mobile slideshows
-      const projectSlideshows = document.querySelectorAll('.slideshow-container.project');
-      
-      projectSlideshows.forEach(slideshow => {
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        slideshow.addEventListener('touchstart', function(e) {
-          touchStartX = e.changedTouches[0].screenX;
-        }, false);
-        
-        slideshow.addEventListener('touchend', function(e) {
-          touchEndX = e.changedTouches[0].screenX;
-          handleSwipe(slideshow);
-        }, false);
-        
-        function handleSwipe(slideshow) {
-          const projectId = slideshow.closest('.project-content').id.replace('-content', '');
-          const swipeThreshold = 50;
-          
-          if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left - next slide
-            changeProjectSlide(projectId, 1);
+        const placePill = (btn, animate) => {
+          pill.style.transition = animate && !still() ? '' : 'none';
+          pill.style.width = btn.offsetWidth + 'px';
+          pill.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+          if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+        };
+        const current = () => buttons.find(b => b.getAttribute('aria-pressed') === 'true');
+        placePill(current(), false);
+        workFilter.classList.add('is-ready');
+        window.addEventListener('resize', () => placePill(current(), false));
+        if (document.fonts) document.fonts.ready.then(() => placePill(current(), false));
+
+        const show = (item, type) => type === 'all' || item.dataset.type === type;
+
+        async function applyFilter(type) {
+          const token = ++run;
+          workGridWrap.getAnimations({ subtree: true }).forEach(a => a.cancel());
+          if (still()) { items.forEach(i => { i.hidden = !show(i, type); }); return; }
+
+          const before = new Map(items.filter(i => !i.hidden).map(i => [i, i.getBoundingClientRect()]));
+          const startH = workGridWrap.offsetHeight;
+          const leaving = items.filter(i => !i.hidden && !show(i, type));
+          const entering = items.filter(i => i.hidden && show(i, type));
+
+          if (leaving.length) {
+            await Promise.all(leaving.map(i => i.animate(
+              [{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(0.96)' }],
+              { duration: 180, easing: 'ease-in', fill: 'forwards' }).finished.catch(() => {})));
+            if (token !== run) return;
           }
-          
-          if (touchEndX > touchStartX + swipeThreshold) {
-            // Swipe right - previous slide
-            changeProjectSlide(projectId, -1);
+          items.forEach(i => { i.hidden = !show(i, type); });
+          leaving.forEach(i => i.getAnimations().forEach(a => a.cancel()));
+
+          const endH = workGridWrap.offsetHeight;
+          if (endH !== startH) {
+            workGridWrap.animate([{ height: startH + 'px' }, { height: endH + 'px' }],
+              { duration: 420, easing: ease });
           }
+          items.filter(i => !i.hidden && before.has(i)).forEach(i => {
+            const a = before.get(i), b = i.getBoundingClientRect();
+            const dx = a.left - b.left, dy = a.top - b.top;
+            if (dx || dy) i.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
+              { duration: 420, easing: ease });
+          });
+          entering.forEach((i, n) => i.animate(
+            [{ opacity: 0, transform: 'translateY(12px) scale(0.98)' }, { opacity: 1, transform: 'none' }],
+            { duration: 420, delay: 60 + n * 40, easing: ease, fill: 'backwards' }));
         }
-      });
-      
+
+        buttons.forEach(btn => btn.addEventListener('click', () => {
+          if (btn.getAttribute('aria-pressed') === 'true') return;
+          buttons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+          placePill(btn, true);
+          applyFilter(btn.dataset.filter);
+        }));
+      }
+
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
