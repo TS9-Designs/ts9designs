@@ -1512,164 +1512,352 @@
   }
 }
 
-    /* Contact Section */
+    /* Contact Section: heading and checklist beside a short form. Project
+       details (type, size, timeline) are optional and open on request.
+       Quiet like the FAQ: hairlines, one deep-gold caption, no fills. */
     .contact-section {
-      background: var(--gray-50);
-    }
-
-    .contact-shell {
-      position: relative;
       background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
-      padding: var(--spacing-2xl);
-      overflow: hidden;
+      border-top: 1px solid var(--gray-200);
+      padding: var(--space-12) 0;
     }
 
-    /* Faint drafting-grid texture, like graph paper under a drawing */
-    .contact-shell::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      z-index: 0;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+      gap: var(--space-10);
+      max-width: 1080px;
+      margin: 0 auto;
+      align-items: start;
     }
 
-    .contact-shell > .row {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-eyebrow {
-      display: inline-block;
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .contact-caption {
+      margin: 0 0 var(--space-3);
       color: var(--brand-gold-text);
-      background-color: rgba(15, 23, 42, 0.05);
-      padding: var(--space-1) var(--space-3);
-      border-radius: var(--radius-xl);
-      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-md);
+      font-weight: 600;
     }
 
-    .contact-heading {
-      color: var(--dark);
-      font-weight: 700;
-      margin-bottom: var(--spacing-sm);
+    .contact-title {
+      margin: 0;
+      color: var(--brand-navy);
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
     }
 
     .contact-lead {
+      margin: var(--space-4) 0 0;
       color: var(--gray-600);
-      margin-bottom: var(--spacing-lg);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      max-width: 44ch;
     }
 
-    .contact-checklist {
+    .contact-checks {
       list-style: none;
-      margin: 0 0 var(--spacing-xl);
+      margin: var(--space-6) 0 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
+      max-width: 380px;
     }
 
-    .contact-checklist li {
+    .contact-checks li {
       display: flex;
-      align-items: center;
       gap: var(--space-3);
-      color: var(--gray-800);
+      align-items: baseline;
+      padding: var(--space-3) 0;
+      border-top: 1px solid var(--gray-200);
+      color: var(--brand-navy);
       font-weight: 500;
-      font-size: var(--font-size-md);
     }
 
-    .contact-checklist svg {
-      width: 20px;
-      height: 20px;
-      color: var(--brand-gold-text);
-      flex-shrink: 0;
+    .contact-checks li:last-child {
+      border-bottom: 1px solid var(--gray-200);
     }
 
-    .contact-info {
-      margin-bottom: 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
+    .contact-tick {
+      flex: none;
+      width: 14px;
+      height: 14px;
+      transform: translateY(2px);
     }
 
-    .contact-info-heading {
-      color: var(--gray-500);
-      font-size: var(--font-size-xs);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
+    .cf-form {
+      display: grid;
       gap: var(--space-4);
-      margin-bottom: var(--spacing-sm);
-      padding: var(--space-3);
-      border-radius: 12px;
-      border: 1px solid transparent;
-      transition: var(--transition);
     }
 
-    .contact-item:hover {
-      background: var(--gray-50);
-      border-color: var(--gray-200);
+    .cf-pair,
+    .cf-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
     }
 
-    .contact-item:last-child {
-      margin-bottom: 0;
+    .cf-duo {
+      grid-template-columns: 1.2fr 1fr;
     }
 
-    .contact-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--gray-100);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .cf-field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
     }
 
-    .contact-icon svg {
-      width: 20px;
-      height: 20px;
-      color: var(--brand-gold-text);
+    .cf-field label,
+    .cf-legend {
+      color: var(--brand-navy);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
     }
 
-    .contact-text {
+    .cf-field input,
+    .cf-field textarea,
+    .cf-field select {
+      width: 100%;
+      font: inherit;
       font-size: var(--font-size-md);
-      line-height: 1.45;
-      font-weight: 500;
+      color: var(--brand-navy);
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      padding: 10px 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .contact-text a {
-      color: var(--gray-800);
-      transition: var(--transition);
+    .cf-field textarea {
+      min-height: 132px;
+      resize: vertical;
+      line-height: 1.55;
     }
 
-    .contact-text a:hover {
-      color: var(--brand-gold-text);
+    .cf-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 36px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3.5 6 8 10.5 12.5 6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px;
     }
 
-    .contact-form {
-      background: transparent;
-      border: none;
-      box-shadow: none;
+    .cf-field input:focus,
+    .cf-field textarea:focus,
+    .cf-field select:focus {
+      outline: none;
+      border-color: var(--brand-navy);
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
+    }
+
+    .cf-unit {
+      position: relative;
+    }
+
+    .cf-unit input {
+      padding-right: 52px;
+    }
+
+    .cf-unit span {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-500);
+      font-size: var(--font-size-sm);
+      pointer-events: none;
+    }
+
+    .cf-disclose {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 6px 0;
+      font: inherit;
+      font-weight: 600;
+      color: var(--brand-navy);
+      background: none;
+      border: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-color: var(--gray-300);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+    }
+
+    .cf-disclose:hover {
+      text-decoration-color: var(--brand-navy);
+    }
+
+    .cf-pm {
+      position: relative;
+      width: 12px;
+      height: 12px;
+    }
+
+    .cf-pm::before,
+    .cf-pm::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .cf-pm::after {
+      transform: rotate(90deg);
+    }
+
+    .cf-disclose[aria-expanded="true"] .cf-pm::after {
+      transform: rotate(0deg);
+    }
+
+    .cf-details {
+      display: grid;
+      gap: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .cf-timeline {
+      border: 0;
+      margin: 0;
       padding: 0;
+      min-width: 0;
+      display: grid;
+      gap: 6px;
     }
 
+    .cf-legend {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin-bottom: 6px;
+    }
+
+    .cf-choices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-2);
+    }
+
+    .cf-choice {
+      position: relative;
+    }
+
+    .cf-choice input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .cf-choice span {
+      display: block;
+      text-align: center;
+      padding: 10px 8px;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      color: var(--gray-600);
+      font-weight: 500;
+      background: var(--white);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .cf-choice input:hover + span {
+      border-color: var(--gray-500);
+    }
+
+    .cf-choice input:checked + span {
+      border-color: var(--brand-navy);
+      color: var(--brand-navy);
+      font-weight: 600;
+      box-shadow: inset 0 0 0 1px var(--brand-navy);
+    }
+
+    .cf-submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3) var(--space-4);
+    }
+
+    .cf-submit {
+      font: inherit;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--brand-navy);
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 22px;
+      cursor: pointer;
+    }
+
+    .cf-submit:hover {
+      background: var(--brand-navy-hover);
+    }
+
+    .cf-submit:disabled {
+      opacity: 0.7;
+      cursor: progress;
+    }
+
+    .cf-status {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      min-height: 1.3em;
+    }
+
+    .cf-disclose:focus-visible,
+    .cf-submit:focus-visible,
+    .cf-choice input:focus-visible + span {
+      outline: 2px solid var(--brand-navy);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-section {
+        padding: var(--space-9) 0;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+
+      .contact-title {
+        font-size: var(--font-size-3xl);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cf-pair,
+      .cf-duo {
+        grid-template-columns: 1fr;
+      }
+
+      .cf-submit {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cf-pm::before,
+      .cf-pm::after,
+      .cf-choice span,
+      .cf-field input,
+      .cf-field textarea,
+      .cf-field select {
+        transition: none;
+      }
+    }
+
+    /* Shared form fields (used by the quote popup) */
     .form-group {
       margin-bottom: var(--spacing-md);
     }
@@ -1699,20 +1887,6 @@
     textarea.form-control {
       min-height: 120px;
       resize: vertical;
-    }
-
-    .contact-form .form-group label {
-      color: var(--gray-500);
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    @media (max-width: 991px) {
-      .contact-shell {
-        padding: var(--spacing-xl) var(--spacing-lg);
-      }
     }
 
     /* Footer */
@@ -2053,15 +2227,6 @@
       .btn-lg {
         padding: var(--spacing-sm) var(--spacing-lg);
         font-size: var(--font-size-md);
-      }
-      
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .contact-icon {
-        margin-bottom: var(--spacing-sm);
       }
     }
   
@@ -2925,7 +3090,7 @@
             <a class="faq-contact-plain" href="mailto:info@ts9designs.com">info@ts9designs.com</a>
             <a class="faq-contact-plain" href="tel:+12154367333">(215) 436-7333</a>
             <div class="faq-arrow-links">
-              <a class="faq-arrow-link" href="/contact.html">Contact Us <span aria-hidden="true">&rarr;</span></a>
+              <a class="faq-arrow-link" href="#contact">Contact Us <span aria-hidden="true">&rarr;</span></a>
               <a class="faq-arrow-link" href="https://cal.com/ts9designs/discoverycall">Book A Call <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
@@ -2950,7 +3115,7 @@
                 <svg class="faq-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 6 8 10.5 12.5 6"/></svg>
               </button>
               <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
-                <div><p>Simply fill out our <a href="/contact.html">contact form</a> on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.</p></div>
+                <div><p>Simply fill out our <a href="#contact">contact form</a> on the website or reach out to us directly via email or phone. Once we have an idea of your project needs, we'll schedule a consultation to discuss your requirements in detail.</p></div>
               </div>
             </div>
             <div class="faq-item">
@@ -3000,95 +3165,75 @@
   <!-- Contact Section Start -->
   <div id="contact" class="section contact-section">
     <div class="container">
-      <div class="contact-shell">
-        <div class="row">
-        <div class="col-lg-5">
-          <div class="contact-info wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-            <span class="contact-eyebrow">Contact Us</span>
-            <h4 class="contact-heading">Let’s Scope Your Project</h4>
-            <p class="contact-lead">Share your scope and timeline. We will reply with next steps and a practical path to permitting.</p>
+      <div class="contact-layout">
+        <div>
+          <p class="contact-caption">Contact Us</p>
+          <h2 class="contact-title">Let’s Scope Your Project</h2>
+          <p class="contact-lead">Share your scope and timeline. We will reply with next steps and a practical path to permitting.</p>
+          <ul class="contact-checks">
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Stamped &amp; Sealed Drawings</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Structural, MEP &amp; Fire Under One Roof</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>Fast Turnaround Times</span></li>
+            <li><svg class="contact-tick" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2.5 8.5 6.5 12 13.5 4"/></svg><span>City Approval Support</span></li>
+          </ul>
+        </div>
 
-            <ul class="contact-checklist">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Stamped &amp; Sealed Drawings
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Structural, MEP &amp; Fire Under One Roof
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                Fast Turnaround Times
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
-                City Approval Support
-              </li>
-            </ul>
-
-            <p class="contact-info-heading">General Contact Info</p>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.3 21 3 13.7 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="tel:215-436-7333">Call us: 215-436-7333</a>
-              </div>
+        <form id="homepage-contact-form" class="cf-form" novalidate>
+          <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cf-pair">
+            <div class="cf-field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" autocomplete="name" required>
             </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="mailto:info@ts9designs.com">info@ts9designs.com</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H6a1 1 0 0 1-1-1V10h14v10z"/>
-                </svg>
-              </div>
-              <div class="contact-text">
-                <a href="https://cal.com/ts9designs/discoverycall">Book a 15-min discovery call with us</a>
-              </div>
+            <div class="cf-field">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" required>
             </div>
           </div>
-        </div>
 
-        <div class="col-lg-7">
-          <div class="contact-form wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
-            <form id="homepage-contact-form">
-              <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <div class="form-group">
-                <label for="contact-name">Name</label>
-                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-email">Email</label>
-                <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email" required>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-message">Message</label>
-                <textarea id="contact-message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary" id="homepage-contact-submit">Submit Message</button>
-              <p id="homepage-contact-status" role="status" aria-live="polite" style="margin-top:0.6rem; font-size:var(--font-size-sm);"></p>
-            </form>
+          <div class="cf-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
           </div>
-        </div>
-        </div>
+
+          <button type="button" class="cf-disclose" id="contact-details-toggle" aria-expanded="false" aria-controls="contact-details"><span class="cf-pm" aria-hidden="true"></span>Add project details (optional)</button>
+
+          <div class="cf-details" id="contact-details" hidden>
+            <div class="cf-duo">
+              <div class="cf-field">
+                <label for="contact-project-type">Project type</label>
+                <select id="contact-project-type" name="projectType">
+                  <option value="">Choose one</option>
+                  <option>Residential</option>
+                  <option>Commercial build-out</option>
+                  <option>Ground-up commercial</option>
+                  <option>Engineering only (MEP)</option>
+                  <option>Fire protection</option>
+                </select>
+              </div>
+              <div class="cf-field">
+                <label for="contact-size">Approximate size</label>
+                <div class="cf-unit">
+                  <input type="number" id="contact-size" name="approxSize" min="0" step="10" inputmode="numeric">
+                  <span aria-hidden="true">sq ft</span>
+                </div>
+              </div>
+            </div>
+            <fieldset class="cf-timeline">
+              <legend class="cf-legend">Timeline</legend>
+              <div class="cf-choices">
+                <label class="cf-choice"><input type="radio" name="timeline" value="Standard"><span>Standard</span></label>
+                <label class="cf-choice"><input type="radio" name="timeline" value="Expedited"><span>Expedited</span></label>
+                <label class="cf-choice"><input type="radio" name="timeline" value="Rush"><span>Rush</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="cf-submit-row">
+            <button type="submit" class="cf-submit" id="homepage-contact-submit">Submit Message</button>
+            <p id="homepage-contact-status" class="cf-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -3193,9 +3338,21 @@
       const statusEl = document.getElementById('homepage-contact-status');
       const renderedAt = Date.now();
 
+      // "Add project details (optional)" opens the extra fields.
+      const detailsToggle = document.getElementById('contact-details-toggle');
+      const detailsPanel = document.getElementById('contact-details');
+      if (detailsToggle && detailsPanel) {
+        detailsToggle.addEventListener('click', function () {
+          const open = detailsToggle.getAttribute('aria-expanded') !== 'true';
+          detailsToggle.setAttribute('aria-expanded', String(open));
+          detailsPanel.hidden = !open;
+        });
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         statusEl.textContent = '';
+        if (!form.reportValidity()) return;
 
         const honeypot = form.querySelector('.hp-field');
         if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
@@ -3213,17 +3370,28 @@
           const name = formData.get('name') || '';
           const email = formData.get('email') || '';
           const message = formData.get('message') || '';
+          // Optional project details; empty ones are left out of the email.
+          const projectType = formData.get('projectType') || '';
+          const size = Number(formData.get('approxSize')) || 0;
+          const timeline = formData.get('timeline') || '';
 
           await window.TS9_sendMail('contact', {
             name: name,
             email: email,
-            message: message
+            message: message,
+            projectType: projectType,
+            approxSize: size > 0 ? size.toLocaleString('en-US') + ' sq ft' : '',
+            timeline: timeline
           }, {
             honeypot: honeypot ? honeypot.value : '',
             renderedAt: renderedAt
           });
 
           form.reset();
+          if (detailsToggle && detailsPanel) {
+            detailsToggle.setAttribute('aria-expanded', 'false');
+            detailsPanel.hidden = true;
+          }
           statusEl.textContent = 'Message sent. Our team will follow up shortly.';
           statusEl.style.color = '#15803d';
         } catch (error) {
