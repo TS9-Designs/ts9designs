@@ -1,6 +1,9 @@
 /* Shared design scale for every page.
    Pages should use these variables instead of raw sizes, so the
-   whole site draws from one type scale and one spacing scale. */
+   whole site draws from one type scale and one spacing scale.
+   Browsers cache CSS for 24 hours: after changing this file (or
+   site-header.css / site-footer.css), bump the ?v= value on their
+   <link> tags in every page so returning visitors get the update. */
 :root {
   /* Brand colors, taken from the logo (navy + gold).
      Gold is only 2.2:1 on white, so it is for fills, lines, icons and
