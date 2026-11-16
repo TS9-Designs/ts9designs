@@ -80,7 +80,6 @@
     .card { border:1px solid var(--border); border-radius:12px; background:#fff; overflow:hidden; }
     .library-card { display:flex; flex-direction:column; min-height:100%; }
     .library-card .thumb { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; background:#f1f5f9; }
-    .library-card .thumb--contain { object-fit:contain; background:#f3f1ea; }
     .card-body { padding:var(--space-3); display:flex; flex-direction:column; gap:var(--space-2); flex:1; }
     .card-title { margin:0; font-size:var(--font-size-md); font-weight:600; }
     .card-meta { margin:0; font-size:var(--font-size-xs); color:var(--muted); line-height:1.4; }
@@ -108,20 +107,7 @@
     }
   
 .site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;padding:var(--space-5) 0 var(--space-6);margin-top:var(--space-4)}
-.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--space-4);align-items:start}
-.footer-title{margin:0 0 var(--space-2);font-size:var(--font-size-sm);font-weight:700;color:#0f172a}
-.footer-text,.footer-link{color:#64748b;font-size:var(--font-size-sm);text-decoration:none}
-.footer-link:hover{color: var(--brand-gold-text)}
-.footer-social{display:flex;gap:var(--space-2);margin-top:var(--space-3)}
-.social-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
-.social-link:hover{background: var(--brand-gold);color: var(--brand-navy)}
 .newsletter-form{display:flex;gap:var(--space-2)}
-.newsletter-input{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-family:inherit}
-.newsletter-button{border:1px solid #e2e8f0;background:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer}
-.newsletter-button:hover{border-color:var(--brand-gold);color: var(--brand-gold-text)}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2) var(--space-4);margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid #e2e8f0}
-.footer-copyright{margin:0;color:#64748b;font-size:var(--font-size-xs);max-width:640px}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr}}
 </style>
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261114"><link rel="stylesheet" href="/assets/css/site-header.css?v=20261116b">
   <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261116">
@@ -246,7 +232,7 @@
   <script src="/assets/js/ts9-mailer.js"></script>
   <script src="/assets/js/newsletter.js"></script>
   <script src="/assets/js/load-footer.js?v=20261116"></script>
-  <script src="/assets/js/load-header.js?v=20261116"></script>
+  <script src="/assets/js/load-header.js?v=20261117"></script>
 </body>
 </html>
 

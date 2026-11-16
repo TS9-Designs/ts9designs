@@ -134,10 +134,7 @@
 
     /* Content is static — no scroll-triggered motion, consistent with the
        flat Swiss treatment used elsewhere on the site. */
-    .fade-in,
-    .slide-in-left,
-    .slide-in-right,
-    .scale-in {
+    .fade-in {
       opacity: 1;
     }
 
@@ -210,29 +207,6 @@
       padding: 0 var(--container-padding);
     }
 
-    .grid {
-      display: grid;
-      gap: var(--space-6);
-    }
-
-    .grid-2-col {
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 992px) {
-      .grid-2-col {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      .grid-3-col {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .grid-4-col {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
     /* Enhanced Page Sections */
     .page-section {
       padding: var(--space-10) 0;
@@ -263,15 +237,6 @@
       font-size: clamp(1.9rem, 4vw, 2.6rem);
       line-height: 1.25;
       margin-bottom: var(--space-4);
-    }
-
-    .hero-subtitle {
-      color: var(--brand-gold-text);
-      font-weight: 600;
-      font-size: var(--font-size-sm);
-      margin-bottom: var(--space-4);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
     .hero-description {
@@ -519,27 +484,6 @@
       line-height: 1.6;
     }
 
-
-    /* Enhanced Licenses Section */
-    .licenses-section {
-      background: var(--color-gray-50);
-      border-radius: var(--border-radius-xl);
-      padding: var(--space-8);
-      position: relative;
-    }
-
-    .licenses-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
-      margin-top: var(--space-6);
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     .license-item {
       background: var(--color-white);
       padding: var(--space-4) var(--space-5);
@@ -549,27 +493,6 @@
       color: var(--color-gray-700);
       cursor: default;
       border: 1px solid rgba(15, 23, 42, 0.18);
-    }
-
-    /* Enhanced CTA Section */
-    .cta-section {
-      background: var(--brand-navy);
-      color: var(--color-white);
-      text-align: center;
-      border-radius: var(--border-radius-xl);
-      padding: var(--space-10);
-      position: relative;
-    }
-
-    .cta-section h2 {
-      color: var(--color-white);
-      margin-bottom: var(--space-4);
-    }
-
-    .cta-section p {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--space-6);
     }
 
     /* Enhanced Button */
@@ -589,17 +512,6 @@
       border-radius: 15px;
       text-decoration: none;
       z-index: 1;
-    }
-
-    .btn-white {
-      background-color: var(--color-white);
-      color: var(--brand-navy);
-    }
-
-    .btn-white:hover {
-      background-color: var(--color-gray-50);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-xl);
     }
 
     .btn-primary {
@@ -622,51 +534,6 @@
       border-color: var(--color-gold);
       background: rgba(213, 168, 15, 0.06);
       color: var(--color-gray-800);
-    }
-
-    /* Enhanced Footer */
-
-    .footer-logo {
-      font-weight: 700;
-      font-size: var(--font-size-xl);
-      display: inline-flex;
-      align-items: center;
-      color: var(--color-white);
-      margin-bottom: var(--space-4);
-      transition: transform var(--transition-fast);
-    }
-
-    .footer-logo:hover {
-      transform: scale(1.05);
-    }
-
-    .footer-logo svg {
-      margin-right: var(--space-2);
-    }
-
-    .footer-text {
-      color: var(--color-gray-300);
-      margin-bottom: var(--space-4);
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-6);
-      margin-bottom: var(--space-4);
-    }
-
-    .footer-link {
-      color: var(--color-gray-300);
-      transition: all var(--transition-fast);
-      padding: var(--space-2);
-      border-radius: var(--border-radius-sm);
-    }
-
-    .footer-link:hover {
-      color: var(--color-white);
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-1px);
     }
 
     /* Responsive adjustments */
@@ -721,21 +588,6 @@
         border-left: none;
         padding: var(--space-6) 0;
       }
-
-      .licenses-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-links {
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .licenses-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     /* Loading animation */
@@ -770,31 +622,7 @@
     }
 
 .site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-6)}
-.footer-logo{display:inline-flex;align-items:center;gap:var(--space-2);color:#0f172a;text-decoration:none;font-weight:700;font-size:var(--font-size-lg);margin-bottom:var(--space-4)}
-.footer-logo svg{width:24px;height:24px}
-.footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
-.footer-social{display:flex;gap:var(--space-2)}
-.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease;border:none}
-.social-link:hover{background: var(--brand-gold);color: var(--brand-navy);border-color:var(--brand-gold)}
-.footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
-.footer-grid ul.footer-links{list-style:none;margin:0;padding:0;display:block}
-.footer-link-item{margin-bottom:var(--space-2)}
-.footer-grid .footer-link{display:inline;width:auto;height:auto;border:none;color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
-.footer-grid .footer-link:hover{color: var(--brand-gold-text);background:none}
-.footer-newsletter{margin-top:var(--space-5)}
 .newsletter-form{display:flex;gap:var(--space-2)}
-.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
-.newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:var(--brand-navy);color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
-.newsletter-button:hover{background:var(--brand-navy-hover)}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
-.footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
-.footer-legal{display:flex;gap:var(--space-4)}
-.legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
-.legal-link:hover{color: var(--brand-gold-text)}
-@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://www.ts9designs.com/about.html#webpage","url":"https://www.ts9designs.com/about.html","name":"About ts9designs","description":"ts9designs is a full-service engineering and design firm providing Building Design Services, Structural, MEP, and Fire Protection services through licensed professionals in applicable jurisdictions.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"About ts9designs","item":"https://www.ts9designs.com/about.html"}]}]}</script>
 </head>
@@ -804,7 +632,7 @@
   <div class="loading-bar" id="loadingBar"></div>
 
   <div id="site-header-root"></div>
-  <script src="/assets/js/load-header.js?v=20261116"></script>
+  <script src="/assets/js/load-header.js?v=20261117"></script>
 
   <!-- Main Content -->
   <main>
@@ -826,7 +654,7 @@
           <!-- Stats -->
           <div class="stats-grid">
             <div class="stat-item">
-              <div class="stat-number">15</div>
+              <div class="stat-number">17</div>
               <div class="stat-label">Active U.S. state markets</div>
             </div>
             <div class="stat-item">
