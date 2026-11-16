@@ -9,13 +9,15 @@
   const root = document.getElementById('site-header-root');
   if (!root) return;
 
-  fetch('/assets/partials/header.html')
+  // Bump ?v= together with site-header.css so browsers fetch matching markup.
+  fetch('/assets/partials/header.html?v=20261116')
     .then(function (res) { return res.text(); })
     .then(function (html) {
       root.innerHTML = html;
       markActiveLink();
       initToggle();
       initWordmark();
+      initNav();
     })
     .catch(function (err) {
       console.error('Failed to load site header:', err);
@@ -25,6 +27,14 @@
     if (window.ts9InitWordmark) { window.ts9InitWordmark(root); return; }
     const s = document.createElement('script');
     s.src = '/assets/js/wordmark.js';
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
+  function initNav() {
+    if (window.TS9_initSiteNav) { window.TS9_initSiteNav(root); return; }
+    const s = document.createElement('script');
+    s.src = '/assets/js/site-nav.js?v=20261116';
     s.defer = true;
     document.head.appendChild(s);
   }

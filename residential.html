@@ -19,8 +19,8 @@
   <meta name="twitter:image" content="https://www.ts9designs.com/assets/images/676/676.webp">
   <link rel="canonical" href="https://www.ts9designs.com/residential.html">
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261114">
-  <link rel="stylesheet" href="/assets/css/site-header.css?v=20261114">
-  <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261114">
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=20261116b">
+  <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261116">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -222,155 +222,9 @@
       color: var(--brand-gold-text);
     }
     
-    /* Header and Navigation */
-    .site-header {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70px;
-      gap: var(--space-4);
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-    }
-
-    .logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-    }
-
-    /* Wordmark: "ts9" stays put while the rest types through the services
-       (mep, structural, fire, hvac) and settles on "designs". See wordmark.js. */
-    .logo-word {
-      --wm-ink: #0f172a;
-      --wm-gold: #d5a80f;
-      --wm-gold-deep: #a9840a;
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
-      font-weight: 800;
-      font-size: var(--font-size-lg);
-      line-height: 1;
-      letter-spacing: -0.035em;
-      text-transform: none;
-      color: var(--wm-ink);
-    }
-
-    .logo-word .wm-tail {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .logo-word .wm-slot {
-      color: var(--wm-gold-deep);
-      font-weight: 500;
-    }
-
-    /* the typing caret: only shown while the words are cycling */
-    .logo-word .wm-caret {
-      width: 2px;
-      height: 0.95em;
-      margin-left: 2px;
-      background: var(--wm-gold);
-      opacity: 0;
-    }
-
-    .logo-word.is-typing .wm-caret {
-      opacity: 1;
-      animation: wm-blink 0.9s steps(1) infinite;
-    }
-
-    @keyframes wm-blink {
-      50% { opacity: 0; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .logo-word.is-typing .wm-caret { animation: none; }
-    }
-
-    .top-nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .top-nav > a {
-      color: #334155;
-      text-decoration: none;
-      font-size: var(--font-size-xs);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding-bottom: var(--space-1);
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .top-nav > a:hover {
-      color: var(--color-slate-900);
-    }
-
-    .top-nav > a.active {
-      color: var(--color-slate-900);
-      border-bottom-color: #d5a80f;
-    }
-
-    .nav-divider {
-      width: 1px;
-      height: 18px;
-      background: #cbd5e1;
-      flex-shrink: 0;
-    }
-
-    .top-nav .btn-link {
-      text-decoration: none;
-      border: none;
-      border-radius:15px;
-      background: var(--color-slate-900);
-      color: var(--color-white);
-      padding: var(--space-2) var(--space-4);
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: background-color 0.2s ease;
-    }
-
-    .top-nav .btn-link:hover {
-      background: #d5a80f;
-      color: var(--color-slate-900);
-    }
-
-    .top-nav #cart-toggle {
-      color: #334155;
-      font-weight: 600;
-      font-size: var(--font-size-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .top-nav #cart-toggle:hover {
-      color: var(--color-slate-900);
-    }
-
-    .top-nav #cart-toggle .cart-count {
+    /* Cart link in the header (the rest of the header is in site-header.css) */
+    .nav-cart { display: inline-flex; align-items: center; gap: 6px; }
+    #cart-toggle .cart-count {
       position: static;
       display: inline;
       background: none;
@@ -384,99 +238,13 @@
       border-radius: 999px;
       transition: background-color 0.15s ease, color 0.15s ease, padding 0.15s ease;
     }
-
-    .top-nav #cart-toggle .cart-count.has-items {
+    #cart-toggle .cart-count.has-items {
       display: inline-block;
       background: var(--brand-gold);
       color: var(--brand-navy);
       padding: 0.05rem var(--space-2);
       margin-left: 0.2rem;
     }
-
-    .mobile-nav-toggle {
-      display: none;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--color-slate-border);
-      border-radius: 10px;
-      background: #fff;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-1);
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .mobile-nav-toggle span {
-      width: 18px;
-      height: 2px;
-      background: var(--color-slate-900);
-      border-radius: 2px;
-      transition: 0.2s ease;
-    }
-
-    .mobile-nav-toggle.active span:nth-child(1) {
-      transform: translateY(6px) rotate(45deg);
-    }
-
-    .mobile-nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-nav-toggle.active span:nth-child(3) {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-
-    @media (max-width: 760px) {
-      .mobile-nav-toggle {
-        display: flex;
-      }
-      .top-nav {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: min(320px, 86vw);
-        height: calc(100vh - 70px);
-        background: var(--color-white);
-        box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 0.2rem;
-        padding: var(--space-4);
-        overflow-y: auto;
-        transition: right 0.25s ease;
-        z-index: 120;
-      }
-      .top-nav.active {
-        right: 0;
-      }
-      .top-nav > a:not(.btn-link),
-      .top-nav > .btn-link {
-        display: block;
-        width: 100%;
-        font-size: var(--font-size-sm);
-        padding: var(--space-3) var(--space-2);
-        border-radius:15px;
-        border-bottom: none;
-      }
-      .top-nav > a.active {
-        background: #f1f5f9;
-        border-left: 3px solid #d5a80f;
-        padding-left: calc(0.55rem - 3px);
-      }
-      .top-nav > .btn-link {
-        margin-top: var(--space-2);
-        text-align: center;
-      }
-      .nav-divider {
-        width: 100%;
-        height: 1px;
-        margin: var(--space-2) 0;
-      }
-    }
-    
 
     /* Buttons */
     .btn {
@@ -1519,17 +1287,6 @@
     }
     
     @media (max-width: 768px) {
-      .site-header {
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
       .grid-3-col {
         grid-template-columns: 1fr;
       }
@@ -1805,24 +1562,30 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="/" aria-label="ts9designs home">
-        <img src="assets/images/logo-v3.webp" alt="ts9designs Logo">
+        <img src="assets/images/logo-v3.webp" alt="ts9designs Logo" width="26" height="32">
         <span class="logo-word" data-wordmark-cycle><span class="wm-fixed">ts9</span><span class="wm-tail" aria-hidden="true"><span class="wm-slot">designs</span><span class="wm-caret"></span></span></span>
       </a>
+      <nav class="top-nav" id="topNav" aria-label="Main navigation">
+        <div class="nav-links">
+          <span class="nav-glide" aria-hidden="true"></span>
+          <span class="nav-dot" aria-hidden="true"></span>
+          <a href="/about.html">About Us</a>
+          <a href="/#portfolio">Services</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/residential.html" class="active" aria-current="page">Get Plans</a>
+          <a href="/case-studies/index.html">Case Studies</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#" id="cart-toggle" class="nav-estimate nav-cart" aria-label="Open shopping cart">Cart <span class="cart-count" id="cart-count">0</span></a>
+          <a class="nav-estimate" href="/permit-estimate.html">Get Estimate</a>
+          <a class="btn-link" href="https://cal.com/ts9designs/discoverycall">Book A Call</a>
+        </div>
+        <p class="nav-contact"><a href="mailto:info@ts9designs.com">info@ts9designs.com</a><a href="tel:+12154367333">(215) 436-7333</a></p>
+      </nav>
       <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="topNav">
         <span></span><span></span><span></span>
       </button>
-      <nav class="top-nav" id="topNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/about.html">About Us</a>
-        <a href="/#portfolio">Services</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/residential.html" class="active" aria-current="page">Get Plans</a>
-        <a href="/case-studies/index.html">Case Studies</a>
-        <a href="/permit-estimate.html">Estimate</a>
-        <a href="#" id="cart-toggle" aria-label="Open shopping cart">Cart <span class="cart-count" id="cart-count">0</span></a>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <a class="btn-link" href="https://cal.com/ts9designs/discoverycall">Book A Call</a>
-      </nav>
     </div>
   </header>
 
@@ -2211,7 +1974,8 @@
     })();
   </script>
   <script src="/assets/js/wordmark.js" defer></script>
-  <script src="/assets/js/load-footer.js"></script>
+  <script src="/assets/js/site-nav.js?v=20261116" defer></script>
+  <script src="/assets/js/load-footer.js?v=20261116"></script>
 </body>
 </html>
 

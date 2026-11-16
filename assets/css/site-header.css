@@ -12,22 +12,19 @@
 }
 
 .site-header {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 32px rgba(15, 23, 42, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  --header-h: 68px;
   position: sticky;
   top: 0;
   z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e6ebf1;
 }
 
 .header-inner {
-  min-height: 70px;
+  min-height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 .site-header .logo {
@@ -89,80 +86,134 @@
   50% { opacity: 0; }
 }
 
-/* Site-wide: visitors who ask their OS for reduced motion get every
-   animation and transition finished instantly (end states still apply,
-   so faded-in content stays visible) and no smooth scrolling. Every page
-   loads this file, so this one block covers them all. */
+/* Reduced motion is handled case by case, next to each animation, so
+   movement (slides, zooms, drifts) stops while simple fades and color
+   changes keep working. A blanket "0.01ms everything" rule made some
+   effects more jarring and also cut timers short. This block covers only
+   site-wide pieces. */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-delay: 0s !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    transition-delay: 0s !important;
-    scroll-behavior: auto !important;
-  }
+  html { scroll-behavior: auto; }
   .site-header .logo-word.is-typing .wm-caret { animation: none; }
 }
 
+/* Page-to-page navigation: a short cross-fade instead of a white flash
+   (Chrome, Edge, Safari; other browsers just navigate). Only for visitors
+   who haven't asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 0.25s; }
+}
+
+/* Navigation: links centered between the logo and the two actions.
+   A soft highlight glides under the hovered link and settles back on the
+   current page, which also gets a small gold dot (see site-nav.js). */
 .top-nav {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: var(--space-5);
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
-.top-nav a {
-  color: #334155;
+.nav-links {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  position: relative;
+  z-index: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #475569;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1.2;
   text-decoration: none;
-  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current] { color: #0f172a; }
+.nav-links a[aria-current] { font-weight: 600; }
+
+/* Before the script runs (or without it), the current page gets a plain pill. */
+.nav-links:not(.is-gliding) a[aria-current] { background: #f8fafc; box-shadow: inset 0 0 0 1px #e6ebf1; }
+
+.nav-glide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: #f8fafc;
+  box-shadow: inset 0 0 0 1px #e6ebf1;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+.nav-dot {
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d5a80f;
+  opacity: 0;
+}
+
+.nav-links.is-gliding .nav-glide.is-on,
+.nav-links.is-gliding .nav-dot.is-on { opacity: 1; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nav-estimate {
+  color: #0f172a;
+  font-size: var(--font-size-sm);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-bottom: var(--space-1);
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.top-nav a:hover {
-  color: #0f172a;
-}
-
-.top-nav a.active {
-  color: #0f172a;
-  border-bottom-color: #d5a80f;
-}
-
-.nav-divider {
-  width: 1px;
-  height: 18px;
-  background: #cbd5e1;
-  flex-shrink: 0;
-}
+.nav-estimate:hover { color: #86670a; }
+.nav-estimate[aria-current] { text-decoration: underline; text-decoration-color: #d5a80f; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 
 .site-header .btn-link {
-  text-decoration: none;
-  border: none;
-  border-radius: 15px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
   background: #0f172a;
   color: #ffffff;
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
   transition: background-color 0.2s ease;
 }
 
-.site-header .btn-link:hover {
-  background: #d5a80f;
-  color: #0f172a;
-}
+.site-header .btn-link:hover { background: #1e293b; color: #ffffff; }
+
+.site-header a:focus-visible,
+.mobile-nav-toggle:focus-visible { outline: 2px solid #0f172a; outline-offset: 2px; }
+
+.nav-contact { display: none; }
 
 .mobile-nav-toggle {
   display: none;
+  margin-left: auto;
   width: 40px;
   height: 40px;
   border: 1px solid #e2e8f0;
@@ -170,7 +221,7 @@
   background: #fff;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
+  gap: 4px;
   flex-direction: column;
   cursor: pointer;
 }
@@ -178,86 +229,111 @@
 .mobile-nav-toggle span {
   width: 18px;
   height: 2px;
-  background: #334155;
+  background: #0f172a;
   border-radius: 2px;
-  transition: 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
 }
 
-.mobile-nav-toggle.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+.mobile-nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.mobile-nav-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-glide { transition: none; }
 }
 
-.mobile-nav-toggle.active span:nth-child(2) {
-  opacity: 0;
+@media (max-width: 1100px) {
+  .header-inner { gap: var(--space-4); }
+  .top-nav { gap: var(--space-4); }
+  .nav-links a { padding: 8px 9px; }
+  .nav-actions { gap: var(--space-4); }
 }
 
-.mobile-nav-toggle.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-@media (max-width: 1200px) {
-  .top-nav {
-    gap: var(--space-3);
-  }
-
-  .top-nav a {
-    font-size: var(--font-size-xs);
-  }
-}
-
+/* Phones and tablets: the menu drops down under the header as a sheet. */
 @media (max-width: 992px) {
-  .mobile-nav-toggle {
-    display: flex;
-  }
+  .site-header { --header-h: 64px; }
+  .mobile-nav-toggle { display: flex; }
 
   .top-nav {
     position: fixed;
-    top: 70px;
-    right: -100%;
-    width: min(320px, 86vw);
-    height: calc(100vh - 70px);
-    background: #ffffff;
-    box-shadow: -8px 0 30px rgba(15, 23, 42, 0.12);
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.2rem;
-    padding: var(--space-4);
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--header-h));
     overflow-y: auto;
-    transition: right 0.25s ease;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-2) var(--space-5) var(--space-6);
+    background: #ffffff;
+    border-bottom: 1px solid #e6ebf1;
+    box-shadow: 0 24px 48px -24px rgba(15, 23, 42, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.3s;
     z-index: 120;
   }
 
   .top-nav.active {
-    right: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
   }
 
-  .top-nav a:not(.btn-link),
-  .top-nav .btn-link {
-    display: block;
-    width: 100%;
-    font-size: var(--font-size-sm);
-    padding: var(--space-3) var(--space-2);
-    border-radius: 15px;
-    border-bottom: none;
-    box-sizing: border-box;
+  .nav-links { flex-direction: column; gap: 0; }
+  .nav-glide, .nav-dot { display: none; }
+  .nav-links a,
+  .nav-links:not(.is-gliding) a[aria-current] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-radius: 0;
+    border-bottom: 1px solid #e6ebf1;
+    background: none;
+    box-shadow: none;
+    color: #0f172a;
+    font-size: var(--font-size-lg);
+  }
+  .nav-links a[aria-current]::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d5a80f;
   }
 
-  .top-nav a.active {
-    background: #f1f5f9;
-    border-left: 3px solid #d5a80f;
-    padding-left: calc(0.55rem - 3px);
+  .nav-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
   }
-
-  .top-nav .btn-link {
-    margin-top: var(--space-2);
+  .site-header .nav-actions > a {
+    justify-content: center;
+    padding: 13px 16px;
+    border-radius: 10px;
     text-align: center;
   }
+  .nav-estimate { display: flex; border: 1px solid #cbd5e1; text-decoration: none !important; }
+  .nav-actions > a:only-child, .nav-actions > a:nth-child(3) { grid-column: 1 / -1; }
 
-  .nav-divider {
-    width: 100%;
-    height: 1px;
-    margin: var(--space-2) 0;
+  .nav-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    margin: var(--space-5) 0 0;
+    font-size: var(--font-size-sm);
   }
+  .nav-contact a { color: #64748b; text-decoration: none; }
 }
+
+/* Windows high contrast removes backgrounds and shadows, so give the
+   current page a real border there. */
+@media (forced-colors: active) {
+  .nav-links a[aria-current] { outline: 1px solid CanvasText; outline-offset: -1px; }
+  .nav-glide, .nav-dot { display: none; }
+}
+

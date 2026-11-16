@@ -1,7 +1,7 @@
 /**
  * Mounts the shared site footer "component" into <div id="site-footer-root">.
- * The host page picks a variant via data-footer-variant="full" (default) or
- * "compact" on that same div.
+ * Every page gets the same footer. (Pages may still carry an old
+ * data-footer-variant attribute; it is ignored.)
  *
  * The partials use a non-.html extension on purpose: VS Code Live Server injects
  * its reload script before every </svg> in .html responses, which truncates
@@ -11,10 +11,8 @@
   const root = document.getElementById('site-footer-root');
   if (!root) return;
 
-  const variant = root.getAttribute('data-footer-variant') === 'compact' ? 'compact' : 'full';
-  const partial = variant === 'compact'
-    ? '/assets/partials/footer-compact.partial'
-    : '/assets/partials/footer.partial';
+  // Bump ?v= with site-footer.css so browsers fetch the matching markup.
+  const partial = '/assets/partials/footer.partial?v=20261116';
 
   fetch(partial)
     .then(function (res) { return res.text(); })

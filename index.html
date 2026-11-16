@@ -10,8 +10,8 @@
   <title>ts9designs - Building Design, MEP, Structural & Fire Engineering</title>
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261114">
-  <link rel="stylesheet" href="/assets/css/site-header.css?v=20261114">
-  <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261114">
+  <link rel="stylesheet" href="/assets/css/site-header.css?v=20261116b">
+  <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261116">
   <link rel="canonical" href="https://www.ts9designs.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ts9designs">
@@ -376,7 +376,7 @@
     .hero-pause-icon { width: 10px; height: 10px; background: currentColor;
       -webkit-mask: linear-gradient(90deg, #000 0 35%, transparent 35% 65%, #000 65%);
       mask: linear-gradient(90deg, #000 0 35%, transparent 35% 65%, #000 65%); }
-    .hero-pause[aria-pressed="true"] .hero-pause-icon {
+    .hero-pause.is-paused .hero-pause-icon {
       -webkit-mask: none; mask: none;
       clip-path: polygon(10% 0, 100% 50%, 10% 100%);
     }
@@ -459,6 +459,10 @@
     .work-filter button[aria-pressed="true"] { color: var(--brand-navy); }
     .work-filter:not(.is-ready) button[aria-pressed="true"] { background: #ffffff; box-shadow: 0 0 0 1px var(--gray-200); }
     .work-filter button:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; }
+    @media (forced-colors: active) {
+      .work-filter button[aria-pressed="true"] { outline: 1px solid CanvasText; }
+      .work-filter-pill { display: none; }
+    }
     .work-count { margin-left: 6px; color: var(--gray-400); font-weight: 500; font-variant-numeric: tabular-nums; }
 
     .work-grid-wrap { margin-top: var(--space-6); }
@@ -1417,9 +1421,8 @@
       left: 0;
       top: var(--space-3);
       bottom: var(--space-3);
-      width: 2px;
-      border-radius: 2px;
-      background: var(--brand-navy);
+      width: 0;
+      border-left: 2px solid var(--brand-navy);
       transform: scaleY(0);
       transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -2473,7 +2476,7 @@
 
 <body data-nav-active="home">
   <div id="site-header-root"></div>
-  <script src="/assets/js/load-header.js"></script>
+  <script src="/assets/js/load-header.js?v=20261116"></script>
 
   <main>
   <!-- Main Banner Start -->
@@ -2529,7 +2532,7 @@
     </div>
     <div class="container">
       <div class="hero-controls">
-        <button type="button" class="hero-pause" aria-pressed="false"><span class="hero-pause-icon" aria-hidden="true"></span><span class="hero-pause-label">Pause</span></button>
+        <button type="button" class="hero-pause"><span class="hero-pause-icon" aria-hidden="true"></span><span class="hero-pause-label">Pause</span></button>
       </div>
     </div>
   </section>
@@ -3112,7 +3115,7 @@
       if (heroDrift && heroPause) {
         heroPause.addEventListener('click', () => {
           const paused = heroDrift.classList.toggle('is-paused');
-          heroPause.setAttribute('aria-pressed', String(paused));
+          heroPause.classList.toggle('is-paused', paused);
           heroPause.querySelector('.hero-pause-label').textContent = paused ? 'Play' : 'Pause';
         });
       }
@@ -3320,7 +3323,7 @@
       });
     });
   </script>
-  <script src="/assets/js/load-footer.js"></script>
+  <script src="/assets/js/load-footer.js?v=20261116"></script>
 </body>
 </html>
 
