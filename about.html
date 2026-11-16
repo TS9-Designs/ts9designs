@@ -52,7 +52,7 @@
     });
   </script>
   
-  <script src="/assets/js/meta-pixel.js"></script>
+  <script src="/assets/js/meta-pixel.js" defer></script>
 <style>
     /* Enhanced Swiss Design System */
     :root {
@@ -971,9 +971,6 @@
 
       init() {
         this.setupLoadingBar();
-        this.setupMobileMenu();
-        this.setupScrollAnimations();
-        this.setupHeaderScroll();
         this.setupLicenseAnimations();
         this.setupSmoothScrolling();
       }
@@ -989,75 +986,10 @@
         });
       }
 
-      setupMobileMenu() {
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        if (mobileMenuToggle && mainNav) {
-          mobileMenuToggle.addEventListener('click', () => {
-            mobileMenuToggle.classList.toggle('active');
-            mainNav.classList.toggle('active');
-          });
-
-          // Close menu when clicking outside
-          document.addEventListener('click', (e) => {
-            if (!mobileMenuToggle.contains(e.target) && !mainNav.contains(e.target)) {
-              mobileMenuToggle.classList.remove('active');
-              mainNav.classList.remove('active');
-            }
-          });
-
-          // Close menu when clicking on nav links
-          const navLinks = mainNav.querySelectorAll('a');
-          navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-              mobileMenuToggle.classList.remove('active');
-              mainNav.classList.remove('active');
-            });
-          });
-        }
-      }
-
-      setupScrollAnimations() {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, observerOptions);
-
-        // Observe all animated elements
-        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
-        animatedElements.forEach(el => observer.observe(el));
-      }
-
-      setupHeaderScroll() {
-        const header = document.getElementById('siteHeader');
-        if (!header) return;
-        let lastScrollY = window.scrollY;
-
-        window.addEventListener('scroll', () => {
-          const currentScrollY = window.scrollY;
-          
-          if (currentScrollY > 100) {
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
-
-          lastScrollY = currentScrollY;
-        });
-      }
-
       setupLicenseAnimations() {
         const licensesGrid = document.getElementById('licensesGrid');
         if (!licensesGrid) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         const licenseItems = licensesGrid.querySelectorAll('.license-item');
         
