@@ -10,7 +10,7 @@
   if (!root) return;
 
   // Bump ?v= together with site-header.css so browsers fetch matching markup.
-  fetch('/assets/partials/header.html?v=20261116')
+  fetch('/assets/partials/header.html?v=20261117')
     .then(function (res) { return res.text(); })
     .then(function (html) {
       root.innerHTML = html;

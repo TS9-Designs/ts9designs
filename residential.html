@@ -170,25 +170,10 @@
       gap: var(--space-6);
     }
     
-    .grid-main {
-      grid-template-columns: 1fr;
-    }
-    
     @media (min-width: 992px) {
-      .grid-main {
-        grid-template-columns: 8fr 4fr;
-      }
-      
-      .grid-2-col {
-        grid-template-columns: 1fr 1fr;
-      }
       
       .grid-3-col {
         grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .grid-4-col {
-        grid-template-columns: repeat(4, 1fr);
       }
     }
     
@@ -304,67 +289,6 @@
       border-top: 1px solid rgba(15, 23, 42, 0.5);
     }
     
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--space-6);
-      margin-bottom: var(--space-8);
-    }
-    
-    .footer-logo {
-      font-weight: 700;
-      font-size: var(--font-size-xl);
-      display: flex;
-      align-items: center;
-      color: var(--color-white);
-      margin-bottom: var(--space-4);
-    }
-    
-    .footer-logo svg {
-      margin-right: var(--space-2);
-    }
-    
-    .footer-about {
-      color: #94a3b8;
-      margin-bottom: var(--space-4);
-    }
-    
-    .footer-social {
-      display: flex;
-      gap: var(--space-3);
-    }
-    
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background-color: var(--color-gray-700);
-      border-radius: 50%;
-      color: var(--color-white);
-      transition: background-color var(--transition-fast);
-    }
-    
-    .social-link:hover {
-      background-color: var(--color-accent);
-    }
-    
-    .footer-heading {
-      font-size: var(--font-size-md);
-      font-weight: 600;
-      margin-bottom: var(--space-4);
-      color: var(--color-white);
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-link-item {
-      margin-bottom: var(--space-2);
-    }
-    
     .footer-link {
       color: #cbd5e1;
       transition: color var(--transition-fast);
@@ -391,31 +315,10 @@
       width: 100%;
       margin-top: var(--space-4);
     }
-    .footer-newsletter {
-      margin-top: var(--space-4);
-    }
     
     .newsletter-form {
       display: flex;
       margin-top: var(--space-2);
-    }
-    
-    .newsletter-input {
-      flex: 1;
-      padding: var(--space-2) var(--space-3);
-      border: none;
-      border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
-      font-family: var(--font-family);
-      font-size: var(--font-size-sm);
-    }
-    
-    .newsletter-button {
-      background-color: var(--brand-navy);
-      color: var(--color-white);
-      border: none;
-      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-      padding: var(--space-2) var(--space-3);
-      font-weight: 500;
     }
     
     /* Project Card Styles */
@@ -783,49 +686,6 @@
       transition: width 0.3s ease;
     }
 
-    /* Custom Dropdown Styles */
-    .custom-select {
-      position: relative;
-      margin-bottom: var(--space-4);
-    }
-
-    .custom-select label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: var(--space-2);
-      color: var(--color-gray-700);
-      font-size: var(--font-size-sm);
-    }
-
-    .custom-select select {
-      width: 100%;
-      padding: var(--space-3) var(--space-4);
-      border: var(--border-width) solid var(--color-gray-300);
-      border-radius: var(--border-radius-md);
-      background-color: var(--color-white);
-      font-family: var(--font-family);
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-700);
-      cursor: pointer;
-      transition: border-color var(--transition-fast);
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-      background-position: right var(--space-3) center;
-      background-repeat: no-repeat;
-      background-size: 16px;
-      padding-right: var(--space-8);
-    }
-
-    .custom-select select:focus {
-      outline: none;
-      border-color: var(--brand-gold-text);
-      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
-    }
-
-    .custom-select select:hover {
-      border-color: var(--color-gray-600);
-    }
-
     /* Customization Panel */
     .customization-panel {
       background-color: var(--color-gray-100);
@@ -974,11 +834,6 @@
       transition: background-color 0.3s ease;
     }
 
-    .cart-item-highlight {
-      background-color: rgba(15, 23, 42, 0.05);
-      border-color: var(--color-accent);
-    }
-
     .cart-item-image {
       width: 60px;
       height: 60px;
@@ -1080,28 +935,6 @@
 
     .cart-total-value {
       color: var(--brand-navy);
-    }
-
-    .payment-methods {
-      margin-top: var(--space-4);
-      text-align: center;
-    }
-
-    .payment-methods-title {
-      font-size: var(--font-size-sm);
-      margin-bottom: var(--space-2);
-      color: var(--color-gray-600);
-    }
-
-    .payment-cards {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-2);
-    }
-
-    .payment-cards img {
-      height: 24px;
-      width: auto;
     }
 
     /* Perfect For Section */
@@ -1240,50 +1073,10 @@
       }
     }
     
-    /* Utilities */
-    .text-accent {
-      color: var(--brand-navy);
-    }
-    
     .text-muted {
       color: var(--color-slate-600);
       line-height: 1.65;
       max-width: 52rem;
-    }
-    
-    .text-center {
-      text-align: center;
-    }
-    
-    .font-bold {
-      font-weight: 700;
-    }
-    
-    .font-medium {
-      font-weight: 500;
-    }
-    
-    .mb-1 { margin-bottom: var(--space-1); }
-    .mb-2 { margin-bottom: var(--space-2); }
-    .mb-4 { margin-bottom: var(--space-4); }
-    .mb-6 { margin-bottom: var(--space-6); }
-    .mb-8 { margin-bottom: var(--space-8); }
-    
-    .mt-1 { margin-top: var(--space-1); }
-    .mt-2 { margin-top: var(--space-2); }
-    .mt-4 { margin-top: var(--space-4); }
-    .mt-6 { margin-top: var(--space-6); }
-    
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-      
-      .footer-about-column {
-        grid-column: span 3;
-        margin-bottom: var(--space-6);
-      }
     }
     
     @media (max-width: 768px) {
@@ -1302,25 +1095,9 @@
       .house-plan-section {
         padding: var(--space-6) 0;
       }
-      
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-6) var(--space-4);
-      }
-      
-      .footer-about-column {
-        grid-column: span 2;
-      }
     }
     
     @media (max-width: 480px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-about-column {
-        grid-column: span 1;
-      }
       
       h1 {
         font-size: var(--font-size-3xl);
@@ -1450,105 +1227,11 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    /* Contact form styles for complex orders */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: var(--space-6);
-      background: var(--color-white);
-      border-radius: var(--border-radius-md);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-      margin-bottom: var(--space-4);
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: var(--space-2);
-      font-weight: 600;
-      color: var(--color-gray-700);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: var(--space-3);
-      border: var(--border-width) solid var(--color-gray-300);
-      border-radius: var(--border-radius-md);
-      font-family: var(--font-family);
-      font-size: var(--font-size-md);
-      transition: border-color var(--transition-fast);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--brand-gold-text);
-      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
-    }
-
-    .order-summary {
-      background-color: var(--color-gray-100);
-      padding: var(--space-4);
-      border-radius: var(--border-radius-md);
-      margin-bottom: var(--space-4);
-    }
-
-    .order-summary h3 {
-      margin-bottom: var(--space-3);
-      color: var(--brand-navy);
-    }
-
-    .order-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: var(--space-2);
-      padding-bottom: var(--space-2);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-
-    .order-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .order-total {
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-      color: var(--brand-navy);
-      border-top: 2px solid var(--color-accent);
-      padding-top: var(--space-2);
-      margin-top: var(--space-2);
-    }
   
 .site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-6)}
-.footer-logo{display:inline-flex;align-items:center;gap:var(--space-2);color:#0f172a;text-decoration:none;font-weight:700;font-size:var(--font-size-lg);margin-bottom:var(--space-4)}
-.footer-about{color:#64748b;font-size:var(--font-size-sm);line-height:1.6;margin-bottom:var(--space-4)}
-.footer-social{display:flex;gap:var(--space-2)}
-.social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#e2e8f0;color:#64748b;transition:.2s ease}
-.social-link:hover{background: var(--brand-gold);color: var(--brand-navy)}
-.footer-heading{color:#0f172a;font-size:var(--font-size-md);font-weight:700;margin-bottom:var(--space-4)}
-.footer-links{list-style:none;margin:0;padding:0}
-.footer-link-item{margin-bottom:var(--space-2)}
 .footer-link{color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
 .footer-link:hover{color: var(--brand-gold-text)}
-.footer-newsletter{margin-top:var(--space-5)}
 .newsletter-form{display:flex;gap:var(--space-2)}
-.newsletter-input{flex:1;min-width:0;border:1px solid #e2e8f0;border-radius:8px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);background:#fff;color:#0f172a;font-family:inherit}
-.newsletter-input::placeholder{color:#94a3b8}
-.newsletter-button{border:none;background:var(--brand-navy);color:#fff;border-radius:15px;padding:var(--space-2) var(--space-3);font-size:var(--font-size-sm);font-weight:600;cursor:pointer;white-space:nowrap}
-.newsletter-button:hover{background:var(--brand-navy-hover)}
-.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3) var(--space-5);padding-top:var(--space-5);border-top:1px solid #e2e8f0}
-.footer-copyright{color:#64748b;font-size:var(--font-size-xs);max-width:640px}
-.footer-legal{display:flex;gap:var(--space-4)}
-.legal-link{color:#64748b;font-size:var(--font-size-xs);text-decoration:none}
-.legal-link:hover{color: var(--brand-gold-text)}
-@media(max-width:980px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://www.ts9designs.com/residential.html#webpage","url":"https://www.ts9designs.com/residential.html","name":"Residential Projects and Plans","description":"Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"Residential Projects and Plans","item":"https://www.ts9designs.com/residential.html"}]}]}</script>
 </head>
@@ -1570,7 +1253,7 @@
           <span class="nav-glide" aria-hidden="true"></span>
           <span class="nav-dot" aria-hidden="true"></span>
           <a href="/about.html">About Us</a>
-          <a href="/#portfolio">Services</a>
+          <a href="/#portfolio">Our Services</a>
           <a href="/#pricing">Pricing</a>
           <a href="/residential.html" class="active" aria-current="page">Get Plans</a>
           <a href="/case-studies/index.html">Case Studies</a>
