@@ -86,7 +86,7 @@
       'display:flex;align-items:center;justify-content:center;color:#0f172a;margin-bottom:0.9rem;}',
       '.ts9-cookie-banner__icon svg{width:20px;height:20px;}',
       '.ts9-cookie-banner__text{font-size:0.85rem;line-height:1.6;color:#334155;margin:0 0 1.1rem;}',
-      '.ts9-cookie-banner__text a{color:#4da6e7;text-decoration:underline;}',
+      '.ts9-cookie-banner__text a{color:#0f172a;text-decoration:underline;text-underline-offset:2px;}',
       '.ts9-cookie-banner__actions{display:flex;gap:0.6rem;}',
       '.ts9-cookie-btn{border:none;cursor:pointer;border-radius:15px;padding:0.65rem 1rem;flex:1 1 0;',
       'font-size:0.82rem;font-weight:600;font-family:inherit;',
