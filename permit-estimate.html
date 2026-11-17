@@ -1394,8 +1394,6 @@
     const submitBtn = document.getElementById("submitBtn");
     const estimateFormRenderedAt = Date.now();
     const toastStack = document.getElementById("toastStack");
-    const mobileNavToggle = document.getElementById("mobileNavToggle");
-    const topNav = document.getElementById("topNav");
     const scopeOptions = { 
       "full-set": "Full Set (Arch + Structural + MEP)",
       "mep-only": "MEP Only",
@@ -1463,28 +1461,6 @@
 
     function syncAllActiveCards() {
       ["projectType", "scope", "timeline"].forEach(syncActiveCardsForInput);
-    }
-
-    if (mobileNavToggle && topNav) {
-      mobileNavToggle.addEventListener("click", () => {
-        const active = topNav.classList.toggle("active");
-        mobileNavToggle.classList.toggle("active", active);
-        mobileNavToggle.setAttribute("aria-expanded", active ? "true" : "false");
-      });
-      topNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          topNav.classList.remove("active");
-          mobileNavToggle.classList.remove("active");
-          mobileNavToggle.setAttribute("aria-expanded", "false");
-        });
-      });
-      document.addEventListener("click", (event) => {
-        if (!topNav.classList.contains("active")) return;
-        if (topNav.contains(event.target) || mobileNavToggle.contains(event.target)) return;
-        topNav.classList.remove("active");
-        mobileNavToggle.classList.remove("active");
-        mobileNavToggle.setAttribute("aria-expanded", "false");
-      });
     }
 
     function formatUsd(value) {
