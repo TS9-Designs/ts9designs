@@ -2131,30 +2131,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const mobileNavToggle = document.getElementById('mobileNavToggle');
-      const topNav = document.getElementById('topNav');
-      if (mobileNavToggle && topNav) {
-        mobileNavToggle.addEventListener('click', () => {
-          const active = topNav.classList.toggle('active');
-          mobileNavToggle.classList.toggle('active', active);
-          mobileNavToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
-        });
-        topNav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            topNav.classList.remove('active');
-            mobileNavToggle.classList.remove('active');
-            mobileNavToggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-        document.addEventListener('click', (event) => {
-          if (!topNav.classList.contains('active')) return;
-          if (topNav.contains(event.target) || mobileNavToggle.contains(event.target)) return;
-          topNav.classList.remove('active');
-          mobileNavToggle.classList.remove('active');
-          mobileNavToggle.setAttribute('aria-expanded', 'false');
-        });
-      }
-      
       // Hero photo band: the Pause button stops the drift for touch and
       // keyboard visitors (hover and focus already pause it in the CSS).
       const heroDrift = document.querySelector('.hero-drift');
