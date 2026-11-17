@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-header.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261117">
+  <link rel="stylesheet" href="/assets/css/residential.css?v=20261118">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -33,1214 +34,19 @@
 
   <script src="/assets/js/meta-pixel.js" defer></script>
 <style>
-    /* TS9 residential — tokens aligned with main site */
-    :root {
-      /* Color palette */
-      --color-black: #000000;
-      --color-white: #ffffff;
-      --color-accent: var(--brand-gold); /* Ts9 main color */
-      --color-accent-dark: var(--brand-navy);
-      --color-slate-900: #0f172a;
-      --color-slate-600: #475569;
-      --color-slate-500: #64748b;
-      --color-slate-border: #e2e8f0;
-      --color-teal: var(--brand-gold);
-      --color-teal-900: var(--brand-navy);
-      --color-gray-100: #f7f7f7;
-      --color-gray-200: #e6e6e6;
-      --color-gray-300: #d1d1d1;
-      --color-gray-400: #a8a8a8;
-      --color-gray-500: #737373;
-      --color-gray-600: #525252;
-      --color-gray-700: #404040;
-      --color-gray-800: #262626;
-      
-      /* Typography */
-      --font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, sans-serif;
-      
-      /* Type and spacing scales live in /assets/css/tokens.css */
-      
-      /* Grid */
-      --grid-columns: 12;
-      --container-width: 1120px;
-      --container-padding: var(--space-4);
-      
-      /* Transitions */
-      --transition-fast: 150ms ease;
-      --transition-normal: 250ms ease;
-      --transition-slow: 350ms ease;
-      
-      /* Borders - Updated to 15px */
-      --border-radius-sm: 8px;
-      --border-radius-md: 10px;
-      --border-radius-lg: 14px;
-      --border-width: 1px;
-      
-      /* Z-index layers */
-      --z-dropdown: 100;
-      --z-sticky: 200;
-      --z-modal: 300;
-      --z-overlay: 400;
-    }
-    
-    /* Reset and base styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html {
-      font-size: var(--font-size-md);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: var(--font-family);
-      line-height: 1.6;
-      color: var(--color-slate-900);
-      background: #ffffff;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-    
-    a:hover {
-      color: var(--brand-gold-text);
-    }
-    
-    button {
-      font-family: var(--font-family);
-      cursor: pointer;
-    }
-    
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--color-slate-900);
-    }
-    
-    h1 {
-      font-size: var(--font-size-4xl);
-      margin-bottom: var(--space-5);
-    }
-    
-    h2 {
-      font-size: var(--font-size-3xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    h3 {
-      font-size: var(--font-size-2xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    h4 {
-      font-size: var(--font-size-xl);
-      margin-bottom: var(--space-3);
-    }
-    
-    p {
-      margin-bottom: var(--space-4);
-    }
-    
-    /* Layout */
-    .container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 var(--container-padding);
-    }
-    
-    .grid {
-      display: grid;
-      gap: var(--space-6);
-    }
-    
-    @media (min-width: 992px) {
-      
-      .grid-3-col {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    
-    .house-plan-section {
-      padding: clamp(2rem, 5vw, var(--space-9)) 0 var(--space-9);
-    }
-
-    .house-plan-section h1 {
-      font-size: clamp(1.85rem, 3vw, 2.5rem);
-      letter-spacing: -0.02em;
-      color: var(--color-slate-900);
-      margin-bottom: var(--space-3);
-    }
-
-    .breadcrumb {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--space-1);
-      font-size: var(--font-size-sm);
-      color: var(--color-slate-500);
-      margin-bottom: var(--space-5);
-    }
-
-    .breadcrumb a {
-      color: var(--color-slate-500);
-      font-weight: 500;
-    }
-
-    .breadcrumb a:hover {
-      color: var(--brand-gold-text);
-    }
-    
-    /* Cart link in the header (the rest of the header is in site-header.css) */
-    .nav-cart { display: inline-flex; align-items: center; gap: 6px; }
-    #cart-toggle .cart-count {
-      position: static;
-      display: inline;
-      background: none;
-      color: inherit;
-      width: auto;
-      height: auto;
-      font-size: inherit;
-      font-weight: 600;
-      margin: 0;
-      padding: 0;
-      border-radius: 999px;
-      transition: background-color 0.15s ease, color 0.15s ease, padding 0.15s ease;
-    }
-    #cart-toggle .cart-count.has-items {
-      display: inline-block;
-      background: var(--brand-gold);
-      color: var(--brand-navy);
-      padding: 0.05rem var(--space-2);
-      margin-left: 0.2rem;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-3) var(--space-5);
-      font-weight: 500;
-      cursor: pointer;
-      text-align: center;
-      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-      border: none;
-      position: relative;
-      overflow: hidden;
-      font-size: var(--font-size-md);
-      border-radius: 15px;
-    }
-    
-    .btn-primary {
-      background: var(--color-slate-900);
-      color: var(--color-white);
-      border: none;
-      font-weight: 600;
-      border-radius:15px;
-    }
-
-    .btn-primary:hover {
-      background: #d5a80f;
-      color: var(--color-slate-900);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--color-black);
-      border: var(--border-width) solid var(--color-gray-300);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--color-black);
-    }
-
-    .btn-accent {
-      background-color: var(--color-slate-900);
-      color: var(--color-white);
-    }
-
-    .btn-accent:hover {
-      background-color: #d5a80f;
-      color: var(--color-slate-900);
-    }
-    
-    /* Footer */
-    .site-footer {
-      background-color: var(--color-slate-900);
-      color: #e2e8f0;
-      padding: var(--space-9) 0 var(--space-6);
-      border-top: 1px solid rgba(15, 23, 42, 0.5);
-    }
-    
-    .footer-link {
-      color: #cbd5e1;
-      transition: color var(--transition-fast);
-    }
-    
-    .footer-link:hover {
-      color: var(--color-white);
-    }
-
-    #details-modal .footer-link,
-    .customization-panel .footer-link {
-      color: var(--brand-navy);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    #details-modal .footer-link:hover,
-    .customization-panel .footer-link:hover {
-      color: var(--brand-gold-text);
-    }
-    
-
-    #add-to-cart-modal {
-      width: 100%;
-      margin-top: var(--space-4);
-    }
-    
-    .newsletter-form {
-      display: flex;
-      margin-top: var(--space-2);
-    }
-    
-    /* Project Card Styles */
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      background-color: var(--color-white);
-      border: 1px solid var(--color-slate-border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-      margin-bottom: var(--space-6);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1);
-      border-color: rgba(15, 23, 42, 0.18);
-    }
-    
-    .project-image {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-    }
-
-    .project-image.view-details-image {
-      cursor: pointer;
-    }
-
-    .project-image.view-details-image:focus-visible {
-      outline: 2px solid var(--brand-gold-text);
-      outline-offset: -2px;
-    }
-    
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-    
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-    
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: var(--space-5);
-    }
-    
-    .project-plan {
-      color: var(--color-slate-500);
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: var(--space-2);
-    }
-    
-    .project-description {
-      margin-bottom: var(--space-4);
-    }
-    
-    .project-price {
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-      color: var(--brand-navy);
-      margin-bottom: var(--space-4);
-    }
-    
-    .project-actions {
-      display: flex;
-      gap: var(--space-3);
-      margin-top: auto;
-    }
-    
-    .project-actions .btn {
-      flex: 1;
-    }
-
-    /* Built Highlight */
-    .built-highlight {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: var(--space-6);
-      align-items: stretch;
-      background-color: var(--color-white);
-      border: 1px solid var(--color-slate-border);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-      margin: var(--space-6) 0 var(--space-8);
-    }
-
-    .built-highlight__media {
-      min-height: 280px;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 2px;
-    }
-
-    .built-highlight__media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      cursor: pointer;
-    }
-
-    .built-highlight__media img:focus-visible {
-      outline: 2px solid var(--brand-gold-text);
-      outline-offset: -2px;
-    }
-
-    .built-highlight__media img:first-child {
-      grid-row: 1 / 3;
-    }
-
-    .built-highlight__body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: var(--space-6) var(--space-6) var(--space-6) 0;
-    }
-
-    .built-highlight__eyebrow {
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-gold-text);
-      margin-bottom: var(--space-2);
-    }
-
-    .built-highlight__body h2 {
-      font-size: var(--font-size-2xl);
-      margin-bottom: var(--space-2);
-    }
-
-    .built-highlight__meta {
-      color: var(--color-slate-500);
-      font-size: var(--font-size-sm);
-      margin-bottom: var(--space-4);
-    }
-
-    .built-highlight__stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-bottom: var(--space-4);
-    }
-
-    .built-highlight__stats .stat-chip {
-      display: inline-block;
-      font-size: var(--font-size-xs);
-      font-weight: 600;
-      color: var(--color-slate-900);
-      background-color: #f1f5f9;
-      border: 1px solid var(--color-slate-border);
-      border-radius: 999px;
-      padding: var(--space-1) var(--space-3);
-    }
-
-    .built-highlight__body p {
-      color: var(--color-slate-600);
-      margin-bottom: var(--space-5);
-    }
-
-    .built-highlight .btn {
-      align-self: flex-start;
-    }
-
-    @media (max-width: 860px) {
-      .built-highlight {
-        grid-template-columns: 1fr;
-      }
-      .built-highlight__media {
-        min-height: 220px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-      }
-      .built-highlight__media img:first-child {
-        grid-column: 1 / 3;
-        grid-row: auto;
-        aspect-ratio: 16/9;
-      }
-      .built-highlight__body {
-        padding: var(--space-5);
-      }
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: var(--z-modal);
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-4);
-    }
-    
-    .modal.open {
-      display: flex !important;
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .modal-content {
-      background-color: var(--color-white);
-      width: 100%;
-      max-width: 1200px;
-      max-height: 90vh;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      position: relative;
-      transform: translateY(0);
-      transition: transform 0.3s ease;
-    }
-    
-    .modal:not(.open) .modal-content {
-      transform: translateY(-20px);
-    }
-    
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space-5) var(--space-6);
-      border-bottom: var(--border-width) solid var(--color-gray-200);
-    }
-    
-    .modal-title {
-      font-size: var(--font-size-2xl);
-      font-weight: 600;
-      margin: 0;
-    }
-    
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: var(--font-size-2xl);
-      cursor: pointer;
-      color: var(--color-gray-500);
-      transition: color var(--transition-fast);
-      padding: var(--space-2);
-    }
-    
-    .modal-close:hover {
-      color: var(--color-black);
-    }
-    
-    .modal-body {
-      padding: var(--space-6);
-      max-height: calc(90vh - 140px);
-      overflow-y: auto;
-    }
-    
-    /* Slideshow Styles */
-    .slideshow-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: var(--border-radius-md);
-      margin-bottom: var(--space-5);
-    }
-    
-    .slideshow-slide {
-      display: none;
-      width: 100%;
-      transition: transform 0.5s ease;
-    }
-    
-    .slideshow-slide.active {
-      display: block;
-    }
-    
-    .slideshow-slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--border-radius-md);
-    }
-    
-    .slideshow-prev, .slideshow-next {
-      position: absolute;
-      top: 50%;
-      transition-duration: 5000ms;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-      transition: background-color var(--transition-fast);
-    }
-    
-    .slideshow-prev:hover, .slideshow-next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .slideshow-prev {
-      left: 10px;
-    }
-    
-    .slideshow-next {
-      right: 10px;
-    }
-    
-    .slideshow-dots {
-      display: flex;
-      justify-content: center;
-      margin-top: var(--space-3);
-    }
-    
-    .slideshow-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: var(--color-gray-300);
-      margin: 0 var(--space-1);
-      cursor: pointer;
-      transition: background-color var(--transition-fast);
-      border: none;
-    }
-    
-    .slideshow-dot.active {
-      background-color: var(--color-accent);
-    }
-    
-    /* Loading indicator */
-    .loading-indicator {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-color: var(--color-gray-200);
-      z-index: 1000;
-    }
-    
-    .loading-bar {
-      height: 100%;
-      width: 0;
-      background-color: var(--color-accent);
-      transition: width 0.3s ease;
-    }
-
-    /* Customization Panel */
-    .customization-panel {
-      background-color: var(--color-gray-100);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-5);
-      margin-top: var(--space-5);
-    }
-
-    .customization-title {
-      font-size: var(--font-size-sm);
-      font-weight: 400;
-      margin-top: var(--space-4);
-      margin-bottom: 0;
-      color: var(--color-slate-500);
-    }
-
-    /* MEP Addon */
-    .mep-addon {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--space-4);
-      background-color: rgba(15, 23, 42, 0.05);
-      border-radius: var(--border-radius-md);
-      margin-bottom: var(--space-4);
-    }
-
-    .mep-addon-info h4 {
-      margin-bottom: var(--space-1);
-      color: var(--brand-navy);
-      font-weight: 600;
-    }
-
-    .mep-addon-info p {
-      margin-bottom: var(--space-1);
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-600);
-    }
-
-    .mep-addon-price {
-      font-weight: 600;
-      color: var(--brand-navy);
-    }
-
-    /* Features Section */
-    .features-section {
-      margin-top: var(--space-4);
-    }
-
-    .features-title {
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-      margin-bottom: var(--space-4);
-      color: var(--color-gray-900);
-    }
-
-    /* Cart Panel Styles */
-    .cart-panel {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      width: 400px;
-      height: 100vh;
-      background: var(--color-white);
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      z-index: var(--z-modal);
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-panel.open {
-      right: 0;
-    }
-
-    .cart-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: calc(var(--z-modal) - 1);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease;
-    }
-
-    .cart-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-panel-header {
-      padding: var(--space-4);
-      border-bottom: 1px solid var(--color-gray-200);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .cart-panel-header h3 {
-      margin: 0;
-      font-size: var(--font-size-lg);
-    }
-
-    .cart-panel-body {
-      flex: 1;
-      padding: var(--space-4);
-      overflow-y: auto;
-    }
-
-    .cart-panel-footer {
-      padding: var(--space-4);
-      border-top: 1px solid var(--color-gray-200);
-      display: flex;
-      gap: var(--space-3);
-    }
-
-    .cart-panel-footer .btn {
-      flex: 1;
-    }
-
-    .cart-empty {
-      text-align: center;
-      padding: var(--space-8) var(--space-4);
-      color: var(--color-gray-500);
-    }
-
-    .cart-empty svg {
-      margin: 0 auto var(--space-4);
-    }
-
-    .cart-items {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-
-    .cart-item {
-      display: flex;
-      gap: var(--space-3);
-      padding: var(--space-3);
-      border: 1px solid var(--color-gray-200);
-      border-radius: var(--border-radius-md);
-      transition: background-color 0.3s ease;
-    }
-
-    .cart-item-image {
-      width: 60px;
-      height: 60px;
-      border-radius: var(--border-radius-sm);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .cart-item-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cart-item-details {
-      flex: 1;
-    }
-
-    .cart-item-title {
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-      font-size: var(--font-size-sm);
-    }
-
-    .cart-item-price {
-      color: var(--brand-navy);
-      font-weight: 600;
-      margin-bottom: var(--space-2);
-    }
-
-    .cart-item-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .cart-item-quantity {
-      display: flex;
-      align-items: center;
-      gap: var(--space-1);
-    }
-
-    .cart-quantity-btn {
-      width: 24px;
-      height: 24px;
-      border: 1px solid var(--color-gray-300);
-      background: var(--color-white);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: var(--font-size-xs);
-    }
-
-    .cart-quantity-input {
-      width: 40px;
-      text-align: center;
-      border: 1px solid var(--color-gray-300);
-      border-radius: 4px;
-      padding: 2px;
-      font-size: var(--font-size-xs);
-    }
-
-    .cart-item-remove {
-      background: none;
-      border: none;
-      color: var(--color-gray-500);
-      cursor: pointer;
-      font-size: var(--font-size-xs);
-      padding: var(--space-1);
-    }
-
-    .cart-item-remove:hover {
-      color: var(--color-black);
-    }
-
-    .cart-summary {
-      margin-top: var(--space-4);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-gray-200);
-    }
-
-    .cart-summary-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: var(--space-2);
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-      margin-top: var(--space-3);
-      padding-top: var(--space-3);
-      border-top: 1px solid var(--color-gray-200);
-    }
-
-    .cart-total-value {
-      color: var(--brand-navy);
-    }
-
-    /* Perfect For Section */
-    .perfect-for-section {
-      background-color: rgba(15, 23, 42, 0.04);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-4);
-      margin-top: var(--space-4);
-    }
-
-    .perfect-for-title {
-      font-size: var(--font-size-md);
-      font-weight: 600;
-      margin-bottom: var(--space-3);
-      color: var(--brand-navy);
-    }
-
-    .perfect-for-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: var(--space-3);
-    }
-
-    .feature-icon {
-      width: 6px;
-      height: 6px;
-      background-color: var(--color-accent);
-      border-radius: 50%;
-      margin-right: var(--space-3);
-      margin-top: var(--space-2);
-      flex-shrink: 0;
-    }
-
-    .feature-text {
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-700);
-      line-height: 1.5;
-    }
-
-    /* Quantity Selector */
-    .quantity-selector {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-4);
-    }
-
-    .quantity-label {
-      font-weight: 600;
-      color: var(--color-gray-700);
-      font-size: var(--font-size-sm);
-    }
-
-    .quantity-btn {
-      width: 36px;
-      height: 36px;
-      border: var(--border-width) solid var(--color-gray-300);
-      background-color: var(--color-white);
-      border-radius: var(--border-radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: border-color var(--transition-fast);
-    }
-
-    .quantity-btn:hover {
-      border-color: var(--color-accent);
-    }
-
-    .quantity-input {
-      width: 60px;
-      text-align: center;
-      border: var(--border-width) solid var(--color-gray-300);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-2);
-      font-family: var(--font-family);
-    }
-
-    /* Price Summary */
-    .price-summary {
-      background-color: var(--color-white);
-      border: var(--border-width) solid var(--color-gray-200);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-4);
-      margin-top: var(--space-4);
-    }
-
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: var(--space-2);
-      font-size: var(--font-size-sm);
-    }
-
-    .price-row.total {
-      border-top: var(--border-width) solid var(--color-gray-200);
-      padding-top: var(--space-3);
-      margin-top: var(--space-3);
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-    }
-
-    .price-row.total .price-value {
-      color: var(--brand-navy);
-      font-size: var(--font-size-xl);
-    }
-
-    /* Two Column Layout for Modal */
-    .modal-two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-6);
-      margin-top: var(--space-5);
-    }
-
-    @media (max-width: 992px) {
-      .modal-two-column {
-        grid-template-columns: 1fr;
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .text-muted {
-      color: var(--color-slate-600);
-      line-height: 1.65;
-      max-width: 52rem;
-    }
-    
-    @media (max-width: 768px) {
-      .grid-3-col {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-actions {
-        flex-direction: column;
-      }
-      
-      .modal-content {
-        width: 95%;
-      }
-      
-      .house-plan-section {
-        padding: var(--space-6) 0;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      
-      h1 {
-        font-size: var(--font-size-3xl);
-      }
-    }
-
-    /* Cart notification */
-    .cart-notification {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background-color: var(--color-white);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-4);
-      max-width: 320px;
-      z-index: var(--z-overlay);
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      transform: translateY(-20px);
-      opacity: 0;
-      visibility: hidden;
-      transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .cart-notification.show {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-notification-image {
-      width: 60px;
-      height: 60px;
-      border-radius: var(--border-radius-sm);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .cart-notification-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cart-notification-content {
-      flex: 1;
-    }
-
-    .cart-notification-title {
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-      font-size: var(--font-size-sm);
-    }
-
-    .cart-notification-message {
-      font-size: var(--font-size-xs);
-      color: var(--color-gray-600);
-      margin-bottom: var(--space-1);
-    }
-
-    .cart-notification-price {
-      font-weight: 600;
-      color: var(--brand-navy);
-      font-size: var(--font-size-sm);
-    }
-
-    .cart-notification-close {
-      background: none;
-      border: none;
-      color: var(--color-gray-500);
-      cursor: pointer;
-      padding: var(--space-1);
-      font-size: var(--font-size-lg);
-      line-height: 1;
-    }
-
-    .cart-notification-close:hover {
-      color: var(--color-black);
-    }
-
-    .perfect-for-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: var(--space-2);
-    }
-
-    .perfect-for-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .perfect-for-icon {
-      width: 6px;
-      height: 6px;
-      background-color: var(--color-accent);
-      border-radius: 50%;
-      margin-right: var(--space-3);
-      margin-top: var(--space-2);
-      flex-shrink: 0;
-    }
-
-    .perfect-for-text {
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-700);
-      line-height: 1.5;
-    }
-
-    /* Checkout Loading State */
-    .checkout-loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-    }
-
-    .checkout-spinner {
-      width: 20px;
-      height: 20px;
-      border: 2px solid transparent;
-      border-top: 2px solid currentColor;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
-.footer-link{color:#64748b;font-size:var(--font-size-sm);text-decoration:none;transition:color .2s ease}
-.footer-link:hover{color: var(--brand-gold-text)}
-.newsletter-form{display:flex;gap:var(--space-2)}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--font-size-md); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; color: var(--brand-navy); background: #ffffff; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+    @media (min-width: 768px) { .container { padding: 0 var(--space-6); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://www.ts9designs.com/residential.html#webpage","url":"https://www.ts9designs.com/residential.html","name":"Residential Projects and Plans","description":"Browse our collection of residential projects including pre-designed home plans from 1,694 to 2,529 sq ft. Permit-ready construction drawings for Florida building codes.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"Residential Projects and Plans","item":"https://www.ts9designs.com/residential.html"}]}]}</script>
 </head>
 <body>
-  <!-- Loading indicator -->
-  <div class="loading-indicator">
-    <div class="loading-bar" id="loading-bar"></div>
-  </div>
 
   <!-- Header -->
   <header class="site-header">
@@ -1261,7 +67,7 @@
           <a href="/contact.html">Contact</a>
         </div>
         <div class="nav-actions">
-          <a href="#" id="cart-toggle" class="nav-estimate nav-cart" aria-label="Open shopping cart">Cart <span class="cart-count" id="cart-count">0</span></a>
+          <a href="#" id="cart-toggle" class="nav-estimate nav-cart" aria-label="Open shopping cart"><svg class="nav-cart-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span class="nav-cart-word">Cart</span> <span class="cart-count" id="cart-count">0</span></a>
           <a class="nav-estimate" href="/permit-estimate.html">Get Estimate</a>
           <a class="btn-link" href="https://cal.com/ts9designs/discoverycall">Book A Call</a>
         </div>
@@ -1274,333 +80,212 @@
   </header>
 
   <!-- Main Content -->
-  <main class="house-plan-section">
-    <div class="container">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span>/</span>
-        <span>Residential Projects</span>
-      </nav>
+  <main class="rs">
+    <section class="rs-sec" aria-labelledby="rs-title">
+      <div class="container">
+        <nav class="rs-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Residential Projects</span></nav>
+        <h1 class="rs-h1" id="rs-title">Residential <em>Projects</em></h1>
+        <p class="rs-lede">Explore our collection of residential projects, featuring pre-designed home plans ranging from 1,694 to 2,529 sq ft. All plans are customizable and come with permit-ready construction drawings tailored to meet local building codes across the U.S.</p>
 
-      <h1>Residential Projects</h1>
-      <p class="text-muted">Explore our collection of residential projects, featuring pre-designed home plans ranging from 1,694 to 2,529 sq ft. All plans are customizable and come with permit-ready construction drawings tailored to meet local building codes across the U.S.</p>
-
-      <!-- Recently Built Highlight -->
-      <section class="built-highlight">
-        <div class="built-highlight__media" id="built-highlight-media">
-          <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" role="button" tabindex="0" data-index="0" aria-label="View larger photos of 1097 W Cary Dr" width="800" height="450" fetchpriority="high">
-          <img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="5" aria-label="View larger photos of 1097 W Cary Dr" width="1083" height="720">
-          <img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" loading="lazy" role="button" tabindex="0" data-index="4" aria-label="View larger photos of 1097 W Cary Dr" width="1083" height="724">
+        <div class="rs-built">
+          <div class="rs-strip" id="built-highlight-media">
+            <button type="button" class="rs-shot" data-index="0" aria-label="View larger photos of 1097 W Cary Dr, starting with the front of the home">
+              <img src="assets/images/cary-dr/cary-dr.webp" srcset="assets/images/opt/res-cary-main-480.webp 480w, assets/images/cary-dr/cary-dr.webp 800w" sizes="(max-width: 767px) calc(100vw - 40px), 560px" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" width="800" height="450" fetchpriority="high">
+            </button>
+            <button type="button" class="rs-shot" data-index="5" aria-label="View larger photos of 1097 W Cary Dr, starting with the primary bathroom">
+              <img src="assets/images/opt/res-cary-bath-560.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" width="560" height="372" loading="lazy">
+            </button>
+            <button type="button" class="rs-shot" data-index="4" aria-label="View larger photos of 1097 W Cary Dr, starting with the kitchen">
+              <img src="assets/images/opt/res-cary-kitchen-560.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" width="560" height="374" loading="lazy">
+            </button>
+          </div>
+          <div class="rs-split">
+            <div>
+              <p class="rs-cap">Recently Built</p>
+              <h2 class="rs-h2">From Plan to <em>Finished Home</em></h2>
+              <p class="rs-meta">1097 W Cary Dr &middot; Citrus Springs, FL</p>
+              <ul class="rs-stats">
+                <li>4 Bedrooms</li>
+                <li>3 Bathrooms</li>
+                <li>2-Car Garage</li>
+              </ul>
+            </div>
+            <div class="rs-built-text">
+              <p>One of our pre-designed residential plans, taken from drawings to a fully permitted, move-in-ready home. Now on the market&mdash;see the finished build.</p>
+              <a class="rs-btn rs-btn-navy" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow</a>
+            </div>
+          </div>
         </div>
-        <div class="built-highlight__body">
-          <p class="built-highlight__eyebrow">Recently Built</p>
-          <h2>From Plan to Finished Home</h2>
-          <p class="built-highlight__meta">1097 W Cary Dr &middot; Citrus Springs, FL</p>
-          <div class="built-highlight__stats">
-            <span class="stat-chip">4 Bedrooms</span>
-            <span class="stat-chip">3 Bathrooms</span>
-            <span class="stat-chip">2-Car Garage</span>
-          </div>
-          <p>One of our pre-designed residential plans, taken from drawings to a fully permitted, move-in-ready home. Now on the market&mdash;see the finished build.</p>
-          <a class="btn btn-primary" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow</a>
-        </div>
-      </section>
-
-      <!-- Project Grid -->
-      <div class="grid grid-3-col">
-        <!-- Project 1 -->
-        <article class="project-card">
-          <div class="project-image view-details-image" data-plan="1" role="button" tabindex="0" aria-label="View details for 4-Bedroom Residential Home Plan – 2,462 Sq Ft">
-            <img src="assets/images/676/676.webp" alt="4-Bedroom Residential Home Plan – 2,462 Sq Ft" loading="lazy" width="1323" height="739">
-          </div>
-          <div class="project-content">
-            <p class="project-plan">Plan #1</p>
-            <h3>4-Bedroom Residential Home Plan – 2,462 Sq Ft</h3>
-            <p class="project-description">Modern, functional 2,462 sq ft home with permit-ready construction drawings—delivered at a fraction of custom design costs.</p>
-            <p class="project-price">$499.00</p>
-            <div class="project-actions">
-              <button class="btn btn-primary view-details-btn" data-plan="1">View Details</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card">
-          <div class="project-image view-details-image" data-plan="2" role="button" tabindex="0" aria-label="View details for Pre-Designed Residential Plan – 2,529 Sq Ft">
-            <img src="assets/images/wentworth/wentworth.webp" alt="Wentworth Drive" loading="lazy" width="1315" height="729">
-          </div>
-          <div class="project-content">
-            <p class="project-plan">Plan #2</p>
-            <h3>Pre-Designed Residential Plan – 2,529 Sq Ft</h3>
-            <p class="project-description">Ready-to-permit, 4-bedroom residential home plan with clean, functional layout designed for maximum efficiency and code compliance.</p>
-            <p class="project-price">$499.00</p>
-            <div class="project-actions">
-              <button class="btn btn-primary view-details-btn" data-plan="2">View Details</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card">
-          <div class="project-image view-details-image" data-plan="3" role="button" tabindex="0" aria-label="View details for Pre-Designed Residential Plan – 1,694 Sq Ft">
-            <img src="assets/images/2Bed/2-bed.webp" alt="2-Bedroom Residential Plan" loading="lazy" width="1600" height="900">
-          </div>
-          <div class="project-content">
-            <p class="project-plan">Plan #3</p>
-            <h3>Pre-Designed Residential Plan – 1,694 Sq Ft</h3>
-            <p class="project-description">Beautifully crafted residential plan with optimized living space, ideal for families or investors seeking a functional, stylish, and permit-ready home.</p>
-            <p class="project-price">$299.00</p>
-            <div class="project-actions">
-              <button class="btn btn-primary view-details-btn" data-plan="3">View Details</button>
-            </div>
-          </div>
-        </article>
       </div>
-    </div>
+    </section>
+
+    <section class="rs-sec" aria-label="Home plans">
+      <div class="container">
+        <div class="rs-plans">
+          <article class="rs-plan">
+            <button type="button" class="rs-plan-pic view-details-image" data-plan="1" aria-label="View details for Plan #1">
+              <img src="assets/images/opt/res-plan-1-400.webp" srcset="assets/images/opt/res-plan-1-400.webp 400w, assets/images/opt/res-plan-1-720.webp 720w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 991px) 45vw, 340px" alt="" width="720" height="450" loading="lazy">
+            </button>
+            <p class="rs-num">Plan #1</p>
+            <h2>4-Bedroom Residential Home Plan – 2,462 Sq Ft</h2>
+            <p class="rs-desc">Modern, functional 2,462 sq ft home with permit-ready construction drawings—delivered at a fraction of custom design costs.</p>
+            <dl class="rs-facts">
+              <div><dt>Sq ft</dt><dd>2,462</dd></div>
+              <div><dt>Bedrooms</dt><dd>4</dd></div>
+              <div><dt>Bathrooms</dt><dd>3</dd></div>
+            </dl>
+            <div class="rs-buyrow">
+              <span class="rs-price">$499.00</span>
+              <button type="button" class="rs-link view-details-btn" data-plan="1" aria-label="View details for Plan #1">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            </div>
+          </article>
+          <article class="rs-plan">
+            <button type="button" class="rs-plan-pic view-details-image" data-plan="2" aria-label="View details for Plan #2">
+              <img src="assets/images/opt/res-plan-2-400.webp" srcset="assets/images/opt/res-plan-2-400.webp 400w, assets/images/opt/res-plan-2-720.webp 720w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 991px) 45vw, 340px" alt="" width="720" height="450" loading="lazy">
+            </button>
+            <p class="rs-num">Plan #2</p>
+            <h2>Pre-Designed Residential Plan – 2,529 Sq Ft</h2>
+            <p class="rs-desc">Ready-to-permit, 4-bedroom residential home plan with clean, functional layout designed for maximum efficiency and code compliance.</p>
+            <dl class="rs-facts">
+              <div><dt>Sq ft</dt><dd>2,529</dd></div>
+              <div><dt>Bedrooms</dt><dd>4</dd></div>
+              <div><dt>Bathrooms</dt><dd>3.5</dd></div>
+            </dl>
+            <div class="rs-buyrow">
+              <span class="rs-price">$499.00</span>
+              <button type="button" class="rs-link view-details-btn" data-plan="2" aria-label="View details for Plan #2">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            </div>
+          </article>
+          <article class="rs-plan">
+            <button type="button" class="rs-plan-pic view-details-image" data-plan="3" aria-label="View details for Plan #3">
+              <img src="assets/images/opt/res-plan-3-400.webp" srcset="assets/images/opt/res-plan-3-400.webp 400w, assets/images/opt/res-plan-3-720.webp 720w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 991px) 45vw, 340px" alt="" width="720" height="450" loading="lazy">
+            </button>
+            <p class="rs-num">Plan #3</p>
+            <h2>Pre-Designed Residential Plan – 1,694 Sq Ft</h2>
+            <p class="rs-desc">Beautifully crafted residential plan with optimized living space, ideal for families or investors seeking a functional, stylish, and permit-ready home.</p>
+            <dl class="rs-facts">
+              <div><dt>Sq ft</dt><dd>1,694</dd></div>
+              <div><dt>Bedrooms</dt><dd>2</dd></div>
+              <div><dt>Bathrooms</dt><dd>2</dd></div>
+            </dl>
+            <div class="rs-buyrow">
+              <span class="rs-price">$299.00</span>
+              <button type="button" class="rs-link view-details-btn" data-plan="3" aria-label="View details for Plan #3">View Details <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Modal and cart -->
-  <!-- Built Highlight Lightbox -->
-  <div class="modal" id="built-highlight-modal" aria-hidden="true" role="dialog" aria-labelledby="built-highlight-modal-title">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="built-highlight-modal-title">1097 W Cary Dr &middot; Citrus Springs, FL</h2>
-        <button class="modal-close" id="built-highlight-close" aria-label="Close">&times;</button>
+  <!-- Built-home photos -->
+  <div class="rs-modal" id="built-highlight-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="built-highlight-modal-title">
+    <div class="rs-dialog">
+      <div class="rs-mbar">
+        <h2 id="built-highlight-modal-title">1097 W Cary Dr &middot; Citrus Springs, FL</h2>
+        <button type="button" class="rs-x" id="built-highlight-close" aria-label="Close">&times;</button>
       </div>
-      <div class="modal-body">
-        <div class="slideshow-container" id="built-highlight-slideshow">
-          <div class="slideshow-slide active">
-            <img src="assets/images/cary-dr/cary-dr.webp" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-1" width="800" height="450" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-1.webp" alt="Front view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-2" width="576" height="432" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-2.webp" alt="Aerial view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-3" width="576" height="432" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-3.webp" alt="Kitchen and great room of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-4" width="576" height="432" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-5" width="1083" height="724" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-6" width="1083" height="720" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-6.webp" alt="Primary bathroom dual vanity at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-7" width="576" height="432" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/cary-dr/cary-dr-7.webp" alt="Bedroom hallway at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-8" width="1086" height="724" loading="lazy" fetchpriority="low">
-          </div>
-          <button class="slideshow-prev" id="built-highlight-prev" aria-label="Previous image">&#10094;</button>
-          <button class="slideshow-next" id="built-highlight-next" aria-label="Next image">&#10095;</button>
-          <div class="slideshow-dots" id="built-highlight-dots">
-            <button class="slideshow-dot active" aria-label="Image 1"></button>
-            <button class="slideshow-dot" aria-label="Image 2"></button>
-            <button class="slideshow-dot" aria-label="Image 3"></button>
-            <button class="slideshow-dot" aria-label="Image 4"></button>
-            <button class="slideshow-dot" aria-label="Image 5"></button>
-            <button class="slideshow-dot" aria-label="Image 6"></button>
-            <button class="slideshow-dot" aria-label="Image 7"></button>
-            <button class="slideshow-dot" aria-label="Image 8"></button>
-          </div>
+      <div class="rs-viewer">
+        <div class="rs-view" id="built-highlight-slideshow">
+            <div class="slideshow-slide active"><img src="assets/images/cary-dr/cary-dr.webp" alt="Completed ts9designs home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-1" width="800" height="450" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-1.webp" alt="Front view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-2" width="576" height="432" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-2.webp" alt="Aerial view of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-3" width="576" height="432" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-3.webp" alt="Kitchen and great room of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-4" width="576" height="432" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-4.webp" alt="Kitchen of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-5" width="1083" height="724" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-5.webp" alt="Primary bathroom of the completed home at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-6" width="1083" height="720" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-6.webp" alt="Primary bathroom dual vanity at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-7" width="576" height="432" loading="lazy" fetchpriority="low"></div>
+            <div class="slideshow-slide"><img src="assets/images/cary-dr/cary-dr-7.webp" alt="Bedroom hallway at 1097 W Cary Dr, Citrus Springs, FL" id="built-highlight-img-8" width="1086" height="724" loading="lazy" fetchpriority="low"></div>
+          <button type="button" class="rs-nav prev" id="built-highlight-prev" aria-label="Previous photo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button type="button" class="rs-nav next" id="built-highlight-next" aria-label="Next photo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
         </div>
-        <a class="btn btn-primary" id="built-highlight-zillow-link" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Details Modal -->
-  <div class="modal" id="details-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Plan Details</h2>
-        <button class="modal-close" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <!-- Slideshow -->
-        <div class="slideshow-container" id="slideshow">
-          <div class="slideshow-slide active">
-            <img src="assets/images/676/676-1.webp" alt="Plan Image 1" id="slide-img-1" width="1317" height="739" loading="lazy" fetchpriority="low">
+        <div class="rs-viewer-foot">
+          <div class="rs-bars" id="built-highlight-dots">
+            <button type="button" class="active" aria-label="Photo 1 of 8"></button>
+            <button type="button" aria-label="Photo 2 of 8"></button>
+            <button type="button" aria-label="Photo 3 of 8"></button>
+            <button type="button" aria-label="Photo 4 of 8"></button>
+            <button type="button" aria-label="Photo 5 of 8"></button>
+            <button type="button" aria-label="Photo 6 of 8"></button>
+            <button type="button" aria-label="Photo 7 of 8"></button>
+            <button type="button" aria-label="Photo 8 of 8"></button>
           </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/676/676-2.webp" alt="Plan Image 2" id="slide-img-2" width="1321" height="739" loading="lazy" fetchpriority="low">
-          </div>
-          <div class="slideshow-slide">
-            <img src="assets/images/676/676-3.webp" alt="Plan Image 3" id="slide-img-3" width="1333" height="744" loading="lazy" fetchpriority="low">
-          </div>
-          <button class="slideshow-prev" aria-label="Previous image">&#10094;</button>
-          <button class="slideshow-next" aria-label="Next image">&#10095;</button>
-          <div class="slideshow-dots">
-            <button class="slideshow-dot active" aria-label="Image 1"></button>
-            <button class="slideshow-dot" aria-label="Image 2"></button>
-            <button class="slideshow-dot" aria-label="Image 3"></button>
-          </div>
-        </div>
-
-        <div class="modal-two-column">
-          <!-- Left Column - Plan Details -->
-          <div>
-            <p id="modal-description">Explore the features and options available for this plan.</p>
-            
-            <!-- Customization Panel -->
-            <div class="customization-panel">
-              <!-- MEP Add-on -->
-              <div class="mep-addon">
-                <div class="mep-addon-info">
-                  <h4>MEP Plans Add-on</h4>
-                  <p>Complete Mechanical, Electrical, and Plumbing drawings</p>
-                  <p class="mep-addon-price">+$350.00</p>
-                </div>
-                <button class="btn btn-outline" id="mep-toggle" data-active="false">Add MEP</button>
-              </div>
-              <p class="customization-title">Need something beyond MEP? Email <a href="mailto:info@ts9designs.com" class="footer-link">info@ts9designs.com</a> and we'll help customize this plan.</p>
-
-              <!-- Features Section -->
-              <div class="features-section">
-                <h3 class="features-title">Plan Features</h3>
-                <div class="features-grid">
-                  <div>
-                    <h4>Plan Highlights:</h4>
-                    <ul class="feature-list" id="plan-highlights">
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Total Living Area: 2,462 sq ft</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Bedrooms: 4</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Bathrooms: 3 (including master suite)</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Open Concept: Integrated kitchen, dining, and living area</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Roof Design: Sloped roof with scuppers</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4>What's Included:</h4>
-                    <ul class="feature-list" id="plan-included">
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Building Design Plans</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Roof plan and elevations</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Foundation and structural framing plans</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Door and window schedules</span>
-                      </li>
-                      <li class="feature-item">
-                        <div class="feature-icon"></div>
-                        <span class="feature-text">Construction detailing</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Perfect For Section -->
-              <div class="perfect-for-section">
-                <h4 class="perfect-for-title">Perfect For:</h4>
-                <ul class="perfect-for-list" id="perfect-for-list">
-                  <li class="perfect-for-item">
-                    <div class="perfect-for-icon"></div>
-                    <span class="perfect-for-text">Florida-based builders and homeowners</span>
-                  </li>
-                  <li class="perfect-for-item">
-                    <div class="perfect-for-icon"></div>
-                    <span class="perfect-for-text">Investors seeking fast permit approval</span>
-                  </li>
-                  <li class="perfect-for-item">
-                    <div class="perfect-for-icon"></div>
-                    <span class="perfect-for-text">Anyone who needs a high-quality, engineer-reviewed home plan</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Quantity Selector -->
-              <div class="quantity-selector">
-                <span class="quantity-label">Quantity:</span>
-                <button class="quantity-btn" id="quantity-decrease">-</button>
-                <input type="number" class="quantity-input" id="quantity-input" value="1" min="1">
-                <button class="quantity-btn" id="quantity-increase">+</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column - Price Summary -->
-          <div>
-            <div class="price-summary">
-              <h3>Price Summary</h3>
-              <div class="price-row">
-                <span>Base Price:</span>
-                <span id="base-price">$499.00</span>
-              </div>
-              <div id="option-prices">
-                <!-- Dynamic option prices will be added here -->
-              </div>
-              <div class="price-row total">
-                <span>Total:</span>
-                <span class="price-value" id="total-price">$499.00</span>
-              </div>
-              <button class="btn btn-accent" id="add-to-cart-modal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: var(--space-2);">
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                Add to Cart
-              </button>
-            </div>
-          </div>
+          <a class="rs-link" id="built-highlight-zillow-link" href="https://www.zillow.com/homedetails/1097-W-Cary-Dr-Citrus-Springs-FL-34434/443574365_zpid/" target="_blank" rel="noopener noreferrer">View Listing on Zillow <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Cart Panel -->
-  <div class="cart-panel" id="cart-panel" aria-hidden="true">
+  <!-- Plan details -->
+  <div class="rs-modal" id="details-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="rs-dialog">
+      <div class="rs-mbar">
+        <span id="modal-plan-num">Plan #1</span>
+        <button type="button" class="rs-x modal-close" aria-label="Close plan details">&times;</button>
+      </div>
+      <div class="rs-mbody">
+        <div class="rs-gal">
+          <img class="rs-gal-main" id="modal-main-img" src="assets/images/676/676-1.webp" alt="" width="1317" height="739" loading="lazy">
+          <div class="rs-thumbs" role="group" aria-label="Plan images">
+            <button type="button" aria-current="true" aria-label="Show image 1"><img src="assets/images/676/676-1.webp" alt="" width="1317" height="739" loading="lazy"></button>
+            <button type="button" aria-current="false" aria-label="Show image 2"><img src="assets/images/676/676-2.webp" alt="" width="1321" height="739" loading="lazy"></button>
+            <button type="button" aria-current="false" aria-label="Show image 3"><img src="assets/images/676/676-3.webp" alt="" width="1333" height="744" loading="lazy"></button>
+          </div>
+        </div>
+        <div class="rs-buy">
+          <h2 class="rs-buy-title" id="modal-title">Plan Details</h2>
+          <p class="rs-buy-desc" id="modal-description">Explore the features and options available for this plan.</p>
+          <label class="rs-opt">
+            <input type="checkbox" id="mep-toggle">
+            <span><b>MEP Plans Add-on</b><small>Complete Mechanical, Electrical, and Plumbing drawings</small></span>
+            <span class="rs-opt-price">+$350.00</span>
+          </label>
+          <div class="rs-qty">
+            <label for="quantity-input">Quantity</label>
+            <div class="rs-step">
+              <button type="button" id="quantity-decrease" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" id="quantity-input" value="1" min="1" inputmode="numeric">
+              <button type="button" id="quantity-increase" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="rs-sum" aria-live="polite">
+            <div class="price-row"><span>Base Price</span><span id="base-price">$499.00</span></div>
+            <div id="option-prices"></div>
+            <div class="price-row rs-tot"><span>Total</span><span id="total-price">$499.00</span></div>
+          </div>
+          <button type="button" class="rs-btn rs-btn-navy rs-add" id="add-to-cart-modal">Add to Cart</button>
+          <p class="rs-help">Need something beyond MEP? Email <a href="mailto:info@ts9designs.com">info@ts9designs.com</a> and we'll help customize this plan.</p>
+        </div>
+      </div>
+      <div class="rs-lists">
+        <div><h3>Plan Highlights</h3><ul id="plan-highlights"></ul></div>
+        <div><h3>What's Included</h3><ul id="plan-included"></ul></div>
+        <div><h3>Perfect For</h3><ul id="perfect-for-list"></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart -->
+  <div class="cart-panel" id="cart-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
     <div class="cart-panel-header">
-      <h3>Shopping Cart</h3>
-      <button id="cart-panel-close" aria-label="Close cart">&times;</button>
+      <h2 id="cart-panel-title">Shopping Cart</h2>
+      <button type="button" class="rs-x" id="cart-panel-close" aria-label="Close cart">&times;</button>
     </div>
-    <div class="cart-panel-body" id="cart-panel-body">
-      <!-- Cart items will be dynamically inserted here -->
-    </div>
+    <div class="cart-panel-body" id="cart-panel-body"></div>
     <div class="cart-panel-footer">
-      <button class="btn btn-outline" id="continue-shopping">Continue Shopping</button>
-      <button class="btn btn-accent" id="checkout-btn">Checkout</button>
+      <button type="button" class="rs-btn rs-btn-line" id="continue-shopping">Continue Shopping</button>
+      <button type="button" class="rs-btn rs-btn-navy" id="checkout-btn">Checkout</button>
     </div>
   </div>
   <div class="cart-overlay" id="cart-overlay"></div>
 
-  <!-- Cart Notification -->
-  <div class="cart-notification" id="cart-notification">
-    <div class="cart-notification-image">
-      <img src="assets/images/676/676.webp" alt="Plan thumbnail" width="1323" height="739" loading="lazy" fetchpriority="low">
-    </div>
+  <div class="cart-notification" id="cart-notification" role="status">
+    <div class="cart-notification-image"><img src="assets/images/opt/res-plan-1-400.webp" alt="" width="400" height="250" loading="lazy"></div>
     <div class="cart-notification-content">
       <div class="cart-notification-title">Added to cart</div>
       <div class="cart-notification-message">Plan has been added to your cart</div>
       <div class="cart-notification-price">$499.00</div>
     </div>
-    <button class="cart-notification-close">&times;</button>
+    <button type="button" class="cart-notification-close" aria-label="Dismiss">&times;</button>
   </div>
 
   <!-- Footer -->
@@ -1608,45 +293,44 @@
 <script src="assets/js/mailer-config.js" defer></script>
   <script src="assets/js/ts9-mailer.js" defer></script>
   <script src="assets/js/newsletter.js" defer></script>
-  <script src="assets/js/website-controller.js"></script>
+  <script src="assets/js/website-controller.js?v=20261118" defer></script>
   <script>
     (function () {
       var modal = document.getElementById("built-highlight-modal");
       if (!modal) return;
       var slides = modal.querySelectorAll(".slideshow-slide");
-      var dots = modal.querySelectorAll(".slideshow-dot");
-      var current = 0;
+      var bars = modal.querySelectorAll("#built-highlight-dots button");
+      var closeBtn = document.getElementById("built-highlight-close");
+      var current = 0, opener = null;
 
       function showSlide(index) {
         current = (index + slides.length) % slides.length;
         slides.forEach(function (slide, i) { slide.classList.toggle("active", i === current); });
-        dots.forEach(function (dot, i) { dot.classList.toggle("active", i === current); });
+        bars.forEach(function (bar, i) { bar.classList.toggle("active", i === current); bar.setAttribute("aria-current", i === current ? "true" : "false"); });
       }
-
-      function openModal(index) {
+      function openModal(index, from) {
+        opener = from || null;
         showSlide(index || 0);
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+        closeBtn.focus();
       }
-
       function closeModal() {
+        if (!modal.classList.contains("open")) return;
         modal.classList.remove("open");
         modal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
+        if (opener) opener.focus();
       }
 
-      document.querySelectorAll("#built-highlight-media img").forEach(function (img) {
-        img.addEventListener("click", function () { openModal(parseInt(img.getAttribute("data-index"), 10) || 0); });
-        img.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(parseInt(img.getAttribute("data-index"), 10) || 0); }
-        });
+      document.querySelectorAll("#built-highlight-media [data-index]").forEach(function (btn) {
+        btn.addEventListener("click", function () { openModal(parseInt(btn.getAttribute("data-index"), 10) || 0, btn); });
       });
-
-      document.getElementById("built-highlight-close").addEventListener("click", closeModal);
+      closeBtn.addEventListener("click", closeModal);
       document.getElementById("built-highlight-prev").addEventListener("click", function () { showSlide(current - 1); });
       document.getElementById("built-highlight-next").addEventListener("click", function () { showSlide(current + 1); });
-      dots.forEach(function (dot, i) { dot.addEventListener("click", function () { showSlide(i); }); });
+      bars.forEach(function (bar, i) { bar.addEventListener("click", function () { showSlide(i); }); });
 
       modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
       document.addEventListener("keydown", function (e) {
