@@ -4,6 +4,18 @@
    Browsers cache CSS for 24 hours: after changing this file (or
    site-header.css / site-footer.css), bump the ?v= value on their
    <link> tags in every page so returning visitors get the update. */
+/* Fallback font sized to Montserrat's metrics (measured: ~11% wider than
+   Arial), so text doesn't reflow and shift the layout when the web font
+   arrives. Pages list it right after "Montserrat" in font-family. */
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial"), local("Helvetica");
+  size-adjust: 111%;
+  ascent-override: 87.2%;
+  descent-override: 22.6%;
+  line-gap-override: 0%;
+}
+
 :root {
   /* Brand colors, taken from the logo (navy + gold).
      Gold is only 2.2:1 on white, so it is for fills, lines, icons and

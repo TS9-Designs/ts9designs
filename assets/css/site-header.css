@@ -2,6 +2,11 @@
  * Shared site header — matches index.html's Swiss-style sticky bar, nav, and mobile drawer.
  * Scope .btn-link under .site-header so card/footer buttons are unaffected.
  */
+/* Until load-header.js fills it, hold the header's height so the page
+   doesn't jump down when the header appears. */
+#site-header-root:empty { display: block; height: 69px; }
+@media (max-width: 992px) { #site-header-root:empty { height: 65px; } }
+
 #site-header-root {
   /* Without this, the header is boxed inside a wrapper that's only as tall as
      itself, so position:sticky has no room to stick within and the header
