@@ -79,7 +79,7 @@
       'width:min(380px, calc(100% - 2.5rem));',
       'background:#ffffff;border:1px solid #e2e8f0;border-radius:18px;',
       'box-shadow:0 20px 45px rgba(15,23,42,0.14);padding:1.35rem;',
-      'font-family:"Montserrat",sans-serif;',
+      'font-family:"Montserrat","Montserrat Fallback",sans-serif;',
       'opacity:0;transform:translateY(12px);transition:opacity 0.3s ease,transform 0.3s ease;}',
       '.ts9-cookie-banner.is-visible{opacity:1;transform:translateY(0);}',
       '.ts9-cookie-banner__icon{width:38px;height:38px;border-radius:10px;background:#f1f5f9;',
