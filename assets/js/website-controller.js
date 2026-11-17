@@ -1,5 +1,7 @@
 // ts9designs Website Controller
 const TS9_CART_STORAGE_KEY = "ts9_residential_cart"
+// Cart items are read back from localStorage, so escape them before use in HTML.
+const esc = (value) => String(value).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch])
 
 class TS9WebsiteController {
   constructor() {
@@ -26,6 +28,7 @@ class TS9WebsiteController {
       1: {
         title: "4-Bedroom Residential Home Plan – 2,462 Sq Ft",
         basePrice: 499,
+        thumb: "assets/images/opt/res-plan-1-400.webp",
         description:
           "Modern, functional 2,462 sq ft home with permit-ready construction drawings—delivered at a fraction of custom design costs.",
         images: [
@@ -56,6 +59,7 @@ class TS9WebsiteController {
       2: {
         title: "Pre-Designed Residential Plan – 2,529 Sq Ft",
         basePrice: 499,
+        thumb: "assets/images/opt/res-plan-2-400.webp",
         description:
           "Ready-to-permit, 4-bedroom residential home plan with clean, functional layout designed for maximum efficiency and code compliance.",
         images: [
@@ -82,6 +86,7 @@ class TS9WebsiteController {
       3: {
         title: "Pre-Designed Residential Plan – 1,694 Sq Ft",
         basePrice: 299,
+        thumb: "assets/images/opt/res-plan-3-400.webp",
         description:
           "Beautifully crafted residential plan with optimized living space, ideal for families or investors seeking a functional, stylish, and permit-ready home.",
         images: [
@@ -129,26 +134,16 @@ class TS9WebsiteController {
   }
   setupEventListeners() {
     // Modal event listeners
-    document.querySelectorAll(".view-details-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const planId = e.target.getAttribute("data-plan")
-        this.openModal(planId)
+    // "View Details" and the plan photo both open the details pop-up
+    document.querySelectorAll(".view-details-btn, .view-details-image").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.openModal(btn.getAttribute("data-plan"), btn)
       })
     })
-    // Clicking (or keyboard-activating) the plan image also opens the details modal
-    document.querySelectorAll(".view-details-image").forEach((el) => {
-      el.addEventListener("click", () => {
-        this.openModal(el.getAttribute("data-plan"))
-      })
-      el.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          this.openModal(el.getAttribute("data-plan"))
-        }
-      })
-    })
-    // Modal close listeners
-    document.querySelector(".modal-close")?.addEventListener("click", () => {
+    // Everything below is scoped to the plan pop-up: the page also has a
+    // built-home photo viewer that uses similar markup.
+    const details = document.getElementById("details-modal")
+    details?.querySelector(".modal-close")?.addEventListener("click", () => {
       this.closeModal()
     })
     document.getElementById("details-modal")?.addEventListener("click", (e) => {
@@ -156,16 +151,9 @@ class TS9WebsiteController {
         this.closeModal()
       }
     })
-    // Slideshow controls
-    document.querySelector(".slideshow-prev")?.addEventListener("click", () => {
-      this.previousSlide()
-    })
-    document.querySelector(".slideshow-next")?.addEventListener("click", () => {
-      this.nextSlide()
-    })
-    // Slideshow dots
-    document.querySelectorAll(".slideshow-dot").forEach((dot, index) => {
-      dot.addEventListener("click", () => {
+    // Image thumbnails
+    details?.querySelectorAll(".rs-thumbs button").forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
         this.goToSlide(index)
       })
     })
@@ -188,8 +176,8 @@ class TS9WebsiteController {
       })
     })
     // MEP toggle
-    document.getElementById("mep-toggle")?.addEventListener("click", (e) => {
-      this.toggleMEP(e.target)
+    document.getElementById("mep-toggle")?.addEventListener("change", () => {
+      this.updatePricing()
     })
     // Add to cart
     document.getElementById("add-to-cart-modal")?.addEventListener("click", () => {
@@ -198,6 +186,7 @@ class TS9WebsiteController {
     // Cart panel controls
     document.getElementById("cart-toggle")?.addEventListener("click", (e) => {
       e.preventDefault()
+      this.cartOpener = e.currentTarget
       this.toggleCartPanel()
     })
     document.getElementById("cart-panel-close")?.addEventListener("click", () => {
@@ -219,8 +208,8 @@ class TS9WebsiteController {
     // Escape key to close modals
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
-        this.closeModal()
-        this.closeCartPanel()
+        if (document.getElementById("details-modal")?.classList.contains("open")) this.closeModal()
+        else this.closeCartPanel()
         this.hideCartNotification()
       }
     })
@@ -288,91 +277,49 @@ class TS9WebsiteController {
       })
     })
   }
-  openModal(planId) {
-    this.currentPlan = planId
+  openModal(planId, opener) {
     const plan = this.planData[planId]
-    if (!plan) return
-    const modalTitle = document.getElementById("modal-title")
-    const modalDesc = document.getElementById("modal-description")
-    const basePriceEl = document.getElementById("base-price")
-    if (!modalTitle || !modalDesc || !basePriceEl) return
-    // Update modal content
-    modalTitle.textContent = plan.title
-    modalDesc.textContent = plan.description
-    basePriceEl.textContent = `$${plan.basePrice}.00`
-    // Update slideshow images
-    const slides = document.querySelectorAll(".slideshow-slide img")
-    slides.forEach((img, index) => {
-      if (plan.images[index]) {
-        img.src = plan.images[index]
-        img.alt = `${plan.title} - Image ${index + 1}`
-      }
+    const modal = document.getElementById("details-modal")
+    if (!plan || !modal) return
+    this.currentPlan = planId
+    this.modalOpener = opener || document.activeElement
+    document.getElementById("modal-plan-num").textContent = `Plan #${planId}`
+    document.getElementById("modal-title").textContent = plan.title
+    document.getElementById("modal-description").textContent = plan.description
+    document.getElementById("base-price").textContent = `$${plan.basePrice}.00`
+    // Images: one large view plus a thumbnail per image
+    modal.querySelectorAll(".rs-thumbs button img").forEach((img, index) => {
+      if (plan.images[index]) img.src = plan.images[index]
     })
-    // Update plan highlights
-    const highlightsList = document.getElementById("plan-highlights")
-    if (highlightsList) {
-      highlightsList.innerHTML = plan.highlights
-        .map(
-          (highlight) => `
-        <li class="feature-item">
-          <div class="feature-icon"></div>
-          <span class="feature-text">${highlight}</span>
-        </li>
-      `,
-        )
-        .join("")
+    // Lists (plain text, so nothing in the data can inject markup)
+    const fill = (id, items) => {
+      const list = document.getElementById(id)
+      if (!list) return
+      list.replaceChildren(...items.map((text) => {
+        const li = document.createElement("li")
+        li.textContent = text
+        return li
+      }))
     }
-    // Update included items
-    const includedList = document.getElementById("plan-included")
-    if (includedList) {
-      includedList.innerHTML = plan.included
-        .map(
-          (item) => `
-        <li class="feature-item">
-          <div class="feature-icon"></div>
-          <span class="feature-text">${item}</span>
-        </li>
-      `,
-        )
-        .join("")
-    }
-    // Update perfect for list
-    const perfectForList = document.getElementById("perfect-for-list")
-    if (perfectForList) {
-      perfectForList.innerHTML = plan.perfectFor
-        .map(
-          (item) => `
-        <li class="perfect-for-item">
-          <div class="perfect-for-icon"></div>
-          <span class="perfect-for-text">${item}</span>
-        </li>
-      `,
-        )
-        .join("")
-    }
-    // Reset form values
+    fill("plan-highlights", plan.highlights)
+    fill("plan-included", plan.included)
+    fill("perfect-for-list", plan.perfectFor)
     this.resetModalForm()
     this.updatePricing()
-    // Show modal
-    const modal = document.getElementById("details-modal")
-    if (!modal) return
-    modal.style.display = "flex"
+    this.goToSlide(0)
     modal.classList.add("open")
     modal.setAttribute("aria-hidden", "false")
     document.body.style.overflow = "hidden"
-    // Reset slideshow
-    this.currentSlide = 0
-    this.updateSlideshow()
+    modal.scrollTop = 0
+    modal.querySelector(".modal-close")?.focus()
   }
   closeModal() {
     const modal = document.getElementById("details-modal")
-    if (!modal) return
+    if (!modal || !modal.classList.contains("open")) return
     modal.classList.remove("open")
     modal.setAttribute("aria-hidden", "true")
     document.body.style.overflow = ""
-    setTimeout(() => {
-      modal.style.display = "none"
-    }, 300)
+    this.modalOpener?.focus?.()
   }
   resetModalForm() {
     // Reset all select elements to their first option
@@ -384,30 +331,20 @@ class TS9WebsiteController {
     if (quantityInput) quantityInput.value = 1
     // Reset MEP toggle
     const mepToggle = document.getElementById("mep-toggle")
-    if (mepToggle) {
-      mepToggle.textContent = "Add MEP"
-      mepToggle.setAttribute("data-active", "false")
-      mepToggle.classList.remove("btn-accent")
-      mepToggle.classList.add("btn-outline")
-    }
+    if (mepToggle) mepToggle.checked = false
   }
   updateSlideshow() {
-    const slides = document.querySelectorAll(".slideshow-slide")
-    const dots = document.querySelectorAll(".slideshow-dot")
-    slides.forEach((slide, index) => {
-      slide.classList.toggle("active", index === this.currentSlide)
+    const modal = document.getElementById("details-modal")
+    const plan = this.planData[this.currentPlan]
+    if (!modal || !plan) return
+    const main = document.getElementById("modal-main-img")
+    if (main && plan.images[this.currentSlide]) {
+      main.src = plan.images[this.currentSlide]
+      main.alt = `${plan.title}, image ${this.currentSlide + 1} of ${plan.images.length}`
+    }
+    modal.querySelectorAll(".rs-thumbs button").forEach((thumb, index) => {
+      thumb.setAttribute("aria-current", index === this.currentSlide ? "true" : "false")
     })
-    dots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === this.currentSlide)
-    })
-  }
-  nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.totalSlides
-    this.updateSlideshow()
-  }
-  previousSlide() {
-    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides
-    this.updateSlideshow()
   }
   goToSlide(index) {
     this.currentSlide = index
@@ -419,21 +356,6 @@ class TS9WebsiteController {
     const currentValue = Number.parseInt(quantityInput.value) || 1
     const newValue = Math.max(1, currentValue + change)
     quantityInput.value = newValue
-    this.updatePricing()
-  }
-  toggleMEP(button) {
-    const isActive = button.getAttribute("data-active") === "true"
-    if (isActive) {
-      button.textContent = "Add MEP"
-      button.setAttribute("data-active", "false")
-      button.classList.remove("btn-accent")
-      button.classList.add("btn-outline")
-    } else {
-      button.textContent = "Remove MEP"
-      button.setAttribute("data-active", "true")
-      button.classList.remove("btn-outline")
-      button.classList.add("btn-accent")
-    }
     this.updatePricing()
   }
   updatePricing() {
@@ -468,7 +390,7 @@ class TS9WebsiteController {
     })
     // Add MEP if selected
     const mepToggle = document.getElementById("mep-toggle")
-    if (mepToggle && mepToggle.getAttribute("data-active") === "true") {
+    if (mepToggle && mepToggle.checked) {
       total += 350
       if (optionPricesContainer) {
         const mepRow = document.createElement("div")
@@ -510,7 +432,7 @@ class TS9WebsiteController {
     })
     // Check MEP
     const mepToggle = document.getElementById("mep-toggle")
-    if (mepToggle && mepToggle.getAttribute("data-active") === "true") {
+    if (mepToggle && mepToggle.checked) {
       options.push({ name: "MEP Plans", value: "Complete MEP drawings", price: 350 })
       itemPrice += 350
     }
@@ -533,7 +455,7 @@ class TS9WebsiteController {
         itemPrice: itemPrice,
         quantity: quantity,
         options: options,
-        image: plan.images[0],
+        image: plan.thumb || plan.images[0],
       }
       this.cart.push(cartItem)
     }
@@ -579,7 +501,7 @@ class TS9WebsiteController {
     if (this.cart.length === 0) {
       cartBody.innerHTML = `
         <div class="cart-empty">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -612,26 +534,24 @@ class TS9WebsiteController {
   generateCartItemHtml(item) {
     const optionsHtml =
       item.options.length > 0
-        ? `<div style="font-size: var(--font-size-xs); color: var(--color-gray-500); margin-top: var(--space-1);">
-            ${item.options.map((opt) => `${opt.name}: ${opt.value}`).join(", ")}
-          </div>`
+        ? `<div class="cart-item-options">${esc(item.options.map((opt) => `${opt.name}: ${opt.value}`).join(", "))}</div>`
         : ""
     return `
       <div class="cart-item" data-item-id="${item.id}">
         <div class="cart-item-image">
-          <img src="${item.image}" alt="${item.title}">
+          <img src="${esc(item.image)}" alt="" width="400" height="250">
         </div>
         <div class="cart-item-details">
-          <div class="cart-item-title">${item.title}</div>
+          <div class="cart-item-title">${esc(item.title)}</div>
           ${optionsHtml}
           <div class="cart-item-price">$${(item.itemPrice * item.quantity).toLocaleString()}.00</div>
           <div class="cart-item-controls">
             <div class="cart-item-quantity">
-              <button class="cart-quantity-btn" data-action="decrease" data-item-id="${item.id}">-</button>
-              <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" data-item-id="${item.id}">
-              <button class="cart-quantity-btn" data-action="increase" data-item-id="${item.id}">+</button>
+              <button type="button" class="cart-quantity-btn" data-action="decrease" data-item-id="${esc(item.id)}" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" class="cart-quantity-input" value="${esc(item.quantity)}" min="1" data-item-id="${esc(item.id)}" aria-label="Quantity">
+              <button type="button" class="cart-quantity-btn" data-action="increase" data-item-id="${esc(item.id)}" aria-label="Increase quantity">+</button>
             </div>
-            <button class="cart-item-remove" data-item-id="${item.id}">Remove</button>
+            <button type="button" class="cart-item-remove" data-item-id="${esc(item.id)}">Remove</button>
           </div>
         </div>
       </div>
@@ -692,17 +612,20 @@ class TS9WebsiteController {
         overlay.classList.add("open")
         panel.setAttribute("aria-hidden", "false")
         document.body.style.overflow = "hidden"
+        // The panel is still hidden this frame (visibility transition), so focus on the next one.
+        requestAnimationFrame(() => document.getElementById("cart-panel-close")?.focus())
       }
     }
   }
   closeCartPanel() {
     const panel = document.getElementById("cart-panel")
     const overlay = document.getElementById("cart-overlay")
-    if (panel && overlay) {
+    if (panel && overlay && panel.classList.contains("open")) {
       panel.classList.remove("open")
       overlay.classList.remove("open")
       panel.setAttribute("aria-hidden", "true")
       document.body.style.overflow = ""
+      this.cartOpener?.focus?.()
     }
   }
   checkout() {
@@ -730,10 +653,10 @@ class TS9WebsiteController {
           const checkoutBtn = document.getElementById("checkout-btn")
           const originalText = checkoutBtn.innerHTML
           checkoutBtn.innerHTML = `
-            <div class="checkout-loading">
-              <div class="checkout-spinner"></div>
+            <span class="checkout-loading">
+              <span class="checkout-spinner"></span>
               Redirecting to Stripe...
-            </div>
+            </span>
           `
           checkoutBtn.disabled = true
           
@@ -767,10 +690,10 @@ class TS9WebsiteController {
     const checkoutBtn = document.getElementById("checkout-btn")
     const originalText = checkoutBtn.innerHTML
     checkoutBtn.innerHTML = `
-      <div class="checkout-loading">
-        <div class="checkout-spinner"></div>
+      <span class="checkout-loading">
+        <span class="checkout-spinner"></span>
         Preparing order...
-      </div>
+      </span>
     `
     checkoutBtn.disabled = true
     // Redirect to contact page with the order pre-filled
@@ -788,14 +711,4 @@ class TS9WebsiteController {
 // Initialize the controller when the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new TS9WebsiteController()
-})
-// Handle page load animations
-window.addEventListener("load", () => {
-  const loadingBar = document.getElementById("loading-bar")
-  if (loadingBar) {
-    loadingBar.style.width = "100%"
-    setTimeout(() => {
-      loadingBar.parentElement.style.display = "none"
-    }, 500)
-  }
 })
