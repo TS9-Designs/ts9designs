@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-header.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261117">
+  <link rel="stylesheet" href="/assets/css/contact.css?v=20261118">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -34,630 +35,15 @@
   
   <script src="/assets/js/meta-pixel.js" defer></script>
 <style>
-    /* Use the same CSS variables and base styles from residential.html */
-    :root {
-      /* Color palette */
-      --color-black: #000000;
-      --color-white: #ffffff;
-      --color-accent: var(--brand-gold); /* Ts9 main color */
-      --color-accent-dark: var(--brand-navy);
-      --color-gray-100: #f7f7f7;
-      --color-gray-200: #e6e6e6;
-      --color-gray-300: #d1d1d1;
-      --color-gray-400: #a8a8a8;
-      --color-gray-500: #737373;
-      --color-gray-600: #525252;
-      --color-gray-700: #404040;
-      --color-gray-800: #262626;
-      --color-success: #10b981;
-      --color-error: #ef4444;
-      
-      /* Typography */
-      --font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, sans-serif;
-      
-      /* Type and spacing scales live in /assets/css/tokens.css */
-      
-      /* Grid */
-      --grid-columns: 12;
-      --container-width: 1120px;
-      --container-padding: var(--space-5);
-      
-      /* Transitions */
-      --transition-fast: 150ms ease;
-      --transition-normal: 250ms ease;
-      --transition-slow: 350ms ease;
-      
-      /* Borders */
-      --border-radius-sm: 8px;
-      --border-radius-md: 10px;
-      --border-radius-lg: 14px;
-      --border-width: 1px;
-      
-      /* Z-index layers */
-      --z-dropdown: 100;
-      --z-sticky: 200;
-      --z-modal: 300;
-      --z-overlay: 400;
-    }
-    
-    /* Reset and base styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html {
-      font-size: var(--font-size-md);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: var(--font-family);
-      line-height: 1.5;
-      color: var(--color-black);
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    a {
-      color: var(--color-black);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-    
-    a:hover {
-      color: var(--brand-gold-text);
-    }
-    
-    button {
-      font-family: var(--font-family);
-      cursor: pointer;
-    }
-    
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0;
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-    
-    h1 {
-      font-size: var(--font-size-4xl);
-      margin-bottom: var(--space-5);
-    }
-    
-    h2 {
-      font-size: var(--font-size-3xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    h3 {
-      font-size: var(--font-size-2xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    h4 {
-      font-size: var(--font-size-xl);
-      margin-bottom: var(--space-3);
-    }
-    
-    p {
-      margin-bottom: var(--space-4);
-    }
-    
-    /* Layout */
-    .container {
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 0 var(--container-padding);
-    }
-
-    @media (min-width: 768px) {
-      :root { --container-padding: var(--space-6); }
-    }
-    
-    .grid {
-      display: grid;
-      gap: var(--space-6);
-    }
-    
-    .grid-2-col {
-      grid-template-columns: 1fr;
-    }
-    
-    @media (min-width: 992px) {
-      .grid-2-col {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    
-    .contact-section {
-      padding: var(--space-8) 0 var(--space-9);
-    }
-
-    .contact-hero {
-      margin-bottom: var(--space-7);
-    }
-
-    .contact-hero h1 {
-      margin-bottom: var(--space-2);
-    }
-
-    .contact-hero .text-muted {
-      max-width: 640px;
-      margin-bottom: 0;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-3) var(--space-5);
-      font-weight: 500;
-      cursor: pointer;
-      text-align: center;
-      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-      border: none;
-      position: relative;
-      overflow: hidden;
-      font-size: var(--font-size-md);
-      border-radius: 15px;
-    }
-    
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(100%);
-      transition: transform var(--transition-fast);
-    }
-    
-    .btn:hover::after {
-      transform: translateY(0);
-    }
-    
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
-    .btn-primary {
-      background-color: var(--color-black);
-      color: var(--color-white);
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--color-gray-800);
-    }
-    
-    .btn-accent {
-      background-color: var(--color-black);
-      color: var(--color-white);
-    }
-
-    .btn-accent:hover {
-      background-color: var(--color-gray-700);
-      color: var(--color-white);
-    }
-
-    /* Schedule a Consultation — minimal / Swiss */
-    .consult-section {
-      margin-bottom: var(--space-7);
-      padding: var(--space-6) 0 0;
-      border-top: 2px solid var(--color-black);
-    }
-
-    .consult-section h2 {
-      margin-bottom: var(--space-2);
-    }
-
-    .consult-intro {
-      max-width: 640px;
-      margin-bottom: var(--space-6);
-      color: var(--color-gray-600);
-    }
-
-    .consult-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      border-top: 1px solid var(--color-gray-300);
-    }
-
-    @media (min-width: 900px) {
-      .consult-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .consult-card + .consult-card {
-        border-left: 1px solid var(--color-gray-300);
-      }
-    }
-
-    .consult-card {
-      display: flex;
-      flex-direction: column;
-      padding: var(--space-5) var(--space-5) var(--space-5) 0;
-      border-bottom: 1px solid var(--color-gray-300);
-    }
-
-    @media (max-width: 899px) {
-      .consult-card { padding-right: 0; }
-    }
-
-    @media (min-width: 900px) {
-      .consult-card { padding-left: var(--space-5); }
-      .consult-card:first-child { padding-left: 0; }
-    }
-
-    .consult-card h3 {
-      margin: 0 0 var(--space-4);
-      font-size: var(--font-size-lg);
-    }
-
-    .consult-price {
-      margin: 0 0 var(--space-4);
-      font-size: var(--font-size-4xl);
-      line-height: 1;
-      font-weight: 700;
-      color: var(--color-black);
-    }
-
-    .consult-includes {
-      margin: 0 0 var(--space-4);
-      padding: 0;
-      list-style: none;
-    }
-
-    .consult-includes li {
-      padding: var(--space-2) 0;
-      border-top: 1px solid var(--color-gray-200);
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-700);
-    }
-
-    .consult-note {
-      margin: auto 0 var(--space-4);
-      font-size: var(--font-size-xs);
-      color: var(--color-gray-500);
-    }
-
-    .consult-cta {
-      width: 100%;
-    }
-
-    .policy-card {
-      margin-top: var(--space-5);
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-600);
-    }
-
-    .policy-card h4 {
-      font-size: var(--font-size-sm);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--color-black);
-      margin-bottom: var(--space-1);
-    }
-
-    .policy-card p {
-      margin: 0 0 var(--space-1);
-    }
-
-    /* Contact Form Styles */
-    .contact-form {
-      scroll-margin-top: 96px;
-      background: var(--color-white);
-      border: var(--border-width) solid var(--color-gray-200);
-      border-radius: var(--border-radius-md);
-      padding: var(--space-7);
-    }
-    
-    .form-group {
-      margin-bottom: var(--space-5);
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: var(--space-2);
-      font-weight: 600;
-      color: var(--color-gray-700);
-      font-size: var(--font-size-sm);
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: var(--space-4);
-      border: 1px solid #d9e2ec;
-      border-radius: var(--border-radius-md);
-      font-family: var(--font-family);
-      font-size: var(--font-size-md);
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
-      background-color: var(--color-white);
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--brand-gold-text);
-      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
-    }
-    
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
-    }
-    
-    @media (min-width: 768px) {
-      .form-row {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    
-    /* Order Summary Styles */
-    .order-summary {
-      background-color: var(--color-gray-100);
-      border-radius: var(--border-radius-lg);
-      padding: var(--space-6);
-      margin-bottom: var(--space-6);
-      border: var(--border-width) solid var(--color-gray-200);
-    }
-    
-    .order-summary h3 {
-      margin-bottom: var(--space-4);
-      color: var(--brand-navy);
-      display: flex;
-      align-items: center;
-    }
-    
-    .order-summary h3 svg {
-      margin-right: var(--space-2);
-    }
-    
-    .order-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: var(--space-3);
-      padding-bottom: var(--space-3);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-    
-    .order-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-    
-    .order-item-details {
-      flex: 1;
-    }
-    
-    .order-item-name {
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-    }
-    
-    .order-item-customizations {
-      font-size: var(--font-size-sm);
-      color: var(--color-gray-600);
-      margin-bottom: var(--space-1);
-    }
-    
-    .order-item-price {
-      font-weight: 600;
-      color: var(--brand-navy);
-      text-align: right;
-      margin-left: var(--space-4);
-    }
-    
-    .order-total {
-      font-weight: 600;
-      font-size: var(--font-size-lg);
-      color: var(--brand-navy);
-      border-top: 2px solid var(--color-accent);
-      padding-top: var(--space-3);
-      margin-top: var(--space-3);
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    /* Contact Info Styles */
-    .contact-info {
-      padding-top: var(--space-2);
-      align-self: start;
-    }
-
-    @media (min-width: 992px) {
-      .contact-info {
-        position: sticky;
-        top: 96px;
-      }
-    }
-
-    .next-steps {
-      margin: 0 0 var(--space-7);
-      padding: 0;
-      list-style: none;
-      counter-reset: step;
-    }
-
-    .next-steps li {
-      counter-increment: step;
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-3);
-      padding: var(--space-3) 0;
-      border-bottom: 1px solid var(--color-gray-200);
-      color: var(--color-gray-600);
-    }
-
-    .next-steps li::before {
-      content: counter(step);
-      flex: none;
-      width: 1.5rem;
-      font-weight: 700;
-      color: var(--brand-navy);
-    }
-
-    .next-steps strong {
-      color: var(--color-black);
-    }
-
-    .form-lead {
-      margin-bottom: var(--space-5);
-      color: var(--color-gray-500);
-    }
-
-    .form-step {
-      margin: 0 0 var(--space-3);
-      padding-top: var(--space-2);
-      border-top: 1px solid var(--color-gray-200);
-      font-size: var(--font-size-xs);
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--color-gray-500);
-    }
-
-    .form-footnote {
-      margin: var(--space-3) 0 0;
-      text-align: center;
-      font-size: var(--font-size-xs);
-      color: var(--color-gray-500);
-    }
-    
-    .contact-info h3 {
-      margin-bottom: var(--space-5);
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: var(--space-5);
-      padding-bottom: var(--space-4);
-      border-bottom: 1px solid var(--color-gray-200);
-    }
-    
-    .contact-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-    
-    .contact-item svg {
-      margin-right: var(--space-3);
-      margin-top: 2px;
-      flex-shrink: 0;
-      color: var(--color-gray-500);
-    }
-    
-    .contact-item-content h4 {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      margin-bottom: var(--space-1);
-    }
-    
-    .contact-item-content p {
-      margin-bottom: 0;
-      color: var(--color-gray-600);
-    }
-    
-    /* Success/Error Messages */
-    .message {
-      padding: var(--space-4);
-      border-radius: var(--border-radius-md);
-      margin-bottom: var(--space-4);
-      display: none;
-    }
-    
-    .message.success {
-      background-color: rgba(16, 185, 129, 0.1);
-      border: 1px solid var(--color-success);
-      color: var(--color-success);
-    }
-    
-    .message.error {
-      background-color: rgba(239, 68, 68, 0.1);
-      border: 1px solid var(--color-error);
-      color: var(--color-error);
-    }
-    
-    .message.show {
-      display: block;
-    }
-    
-    /* Loading State */
-    .loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-    }
-    
-    .spinner {
-      width: 20px;
-      height: 20px;
-      border: 2px solid transparent;
-      border-top: 2px solid currentColor;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .text-muted {
-      color: var(--color-gray-500);
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .grid-2-col {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-section {
-        padding: var(--space-6) 0;
-      }
-
-      .contact-form {
-        padding: var(--space-6);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: var(--font-size-3xl);
-      }
-      
-      .contact-form {
-        padding: var(--space-4);
-      }
-      
-    }
-  
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--font-size-md); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; color: var(--brand-navy); background: #ffffff; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+    @media (min-width: 768px) { .container { padding: 0 var(--space-6); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://www.ts9designs.com/contact.html#webpage","url":"https://www.ts9designs.com/contact.html","name":"Contact ts9designs","description":"Contact ts9designs for custom home plans, Building design plans, and permit-ready construction drawings. Get a quote for your project today.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"Contact ts9designs","item":"https://www.ts9designs.com/contact.html"}]}]}</script>
 </head>
@@ -666,97 +52,34 @@
   <script src="/assets/js/load-header.js?v=20261117" defer></script>
 
   <!-- Main Content -->
-  <main class="contact-section">
-    <div class="container">
-      <section class="contact-hero" aria-label="Contact introduction">
-        <h1 id="page-title">Contact ts9designs</h1>
-        <p class="text-muted" id="page-description">Book a call or send us your project details.</p>
-        <a class="btn btn-primary" href="#contact-form" style="margin-top: var(--space-5);">Request a Quote</a>
-      </section>
-
-      <section class="consult-section" id="consultations" aria-labelledby="consult-title">
-        <h2 id="consult-title">Schedule a Consultation</h2>
-        <p class="consult-intro">Whether you're starting a new construction project, renovating an existing space, or seeking professional engineering or building design guidance, ts9designs offers convenient consultation options to fit your needs.</p>
-
-        <div class="consult-grid">
-          <article class="consult-card">
-            <h3>Free Project Discovery Call &mdash; 15 Minutes</h3>
-            <p class="consult-price">FREE</p>
-            <ul class="consult-includes">
-              <li>Initial project discussion</li>
-              <li>Identification of required services</li>
-              <li>Preliminary timeline discussion</li>
-              <li>Explanation of our design process</li>
-              <li>Next steps for receiving a proposal</li>
-            </ul>
-            <p class="consult-note">This appointment is intended for new project inquiries. Technical engineering advice, detailed code analysis, and drawing reviews are not included.</p>
-            <a class="btn btn-accent consult-cta" href="https://cal.com/ts9designs/discoverycall" target="_blank" rel="noopener">Book Free Call</a>
-          </article>
-          <article class="consult-card">
-            <h3>Building Design and Engineering Consultation &mdash; 30 Minutes</h3>
-            <p class="consult-price">$99</p>
-            <ul class="consult-includes">
-              <li>Preliminary engineering and building design guidance</li>
-              <li>Discussion of applicable building code requirements</li>
-              <li>MEP, structural, and fire protection design considerations, as applicable</li>
-              <li>Permitting and plan review concerns</li>
-              <li>Recommendations for next steps</li>
-            </ul>
-            <p class="consult-note">This is a consultation service and does not include engineering drawings, calculations, written reports, or professional seals. Advice requiring jurisdiction-specific professional licensure will be handled by an appropriately licensed professional.</p>
-            <a class="btn btn-accent consult-cta" href="https://cal.com/ts9designs/engineeringconsultation" target="_blank" rel="noopener">Book Consultation</a>
-          </article>
-          <article class="consult-card">
-            <h3>Drawing Review Consultation &mdash; 60 Minutes</h3>
-            <p class="consult-price">$199</p>
-            <ul class="consult-includes">
-              <li>Up to 30 minutes of preliminary document review before the appointment</li>
-              <li>60-minute consultation</li>
-              <li>Building design review: design and coordination issues</li>
-              <li>Preliminary code compliance observations</li>
-              <li>Recommendations for corrections and next steps</li>
-            </ul>
-            <p class="consult-note">This appointment does not include revised drawings, calculations, written engineering reports, formal code compliance certification, or signed and sealed documents. These services require a separate proposal.</p>
-            <a class="btn btn-accent consult-cta" href="https://cal.com/ts9designs/60min" target="_blank" rel="noopener">Book Drawing Review</a>
-          </article>
-        </div>
-
-        <div class="policy-card">
-          <h4>Consultation Fee Credit</h4>
-          <p>If you hire ts9designs for a qualifying design or engineering project within 30 days of your paid consultation, 100% of your consultation fee will be credited toward your project contract.</p>
-          <p>The credit is applied after the design agreement is signed and the required deposit is received.</p>
-          <p>Consultation credits may only be applied once and have no cash value.</p>
-        </div>
-
-        <div class="policy-card">
-          <h4>Cancellation &amp; Rescheduling</h4>
-          <p>Appointments may be rescheduled once at no additional charge when requested at least 24 hours before the scheduled start time.</p>
-          <p>Cancellations made at least 24 hours in advance are eligible for a full refund. Cancellations within 24 hours and missed appointments are nonrefundable.</p>
-          <p>If ts9designs must cancel an appointment, the client may choose a full refund or rescheduling.</p>
-        </div>
-      </section>
-
-      <div class="grid grid-2-col">
-        <!-- Contact Form -->
+  <main class="ct">
+    <section class="ct-sec ct-hero" aria-labelledby="page-title">
+      <div class="container ct-top">
         <div>
-          <!-- Order Summary (shown when coming from cart/customization) -->
+          <h1 class="ct-h1" id="page-title">Contact <em>ts9designs</em></h1>
+          <p class="ct-lede" id="page-description">Book a call or send us your project details.</p>
+        </div>
+        <a class="ct-jump" href="#consultations">Schedule a Consultation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+      </div>
+    </section>
+
+    <section class="ct-sec ct-form-sec" aria-labelledby="form-title">
+      <div class="container ct-split">
+        <div>
           <div class="order-summary" id="order-summary" style="display: none;">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <h2 class="ct-sum-title">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="21" r="1"></circle>
                 <circle cx="20" cy="21" r="1"></circle>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
               </svg>
               Your Order Summary
-            </h3>
-            <div id="order-items">
-              <!-- Order items will be populated by JavaScript -->
-            </div>
+            </h2>
+            <div id="order-items"></div>
           </div>
 
-          <!-- Contact Form -->
-          <form class="contact-form" id="contact-form">
+          <form class="ct-form" id="contact-form">
             <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <!-- Success/Error Messages -->
             <div class="message success" id="success-message">
               <strong>Sent.</strong> We'll reply within 24 hours.
             </div>
@@ -764,35 +87,37 @@
               <strong>Error:</strong> Message not sent. Please try again or email us.
             </div>
 
-            <h2 id="form-title">Request a Quote</h2>
-            <p class="form-lead" id="form-description">For design projects. No consultation purchase required.</p>
+            <div>
+              <h2 class="ct-h2" id="form-title">Request a <em>Quote</em></h2>
+              <p class="ct-form-lead" id="form-description">For design projects. No consultation purchase required.</p>
+            </div>
 
-            <p class="form-step">Your details</p>
-            <div class="form-row">
-              <div class="form-group">
+            <p class="ct-step">Your details</p>
+            <div class="ct-row">
+              <div class="ct-field">
                 <label for="first-name">First Name *</label>
                 <input type="text" id="first-name" name="firstName" autocomplete="given-name" required>
               </div>
-              <div class="form-group">
+              <div class="ct-field">
                 <label for="last-name">Last Name *</label>
                 <input type="text" id="last-name" name="lastName" autocomplete="family-name" required>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
+            <div class="ct-row">
+              <div class="ct-field">
                 <label for="email">Email *</label>
                 <input type="email" id="email" name="email" autocomplete="email" required>
               </div>
-              <div class="form-group">
+              <div class="ct-field">
                 <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone" autocomplete="tel">
               </div>
             </div>
 
-            <p class="form-step">Your project</p>
-            <div class="form-row">
-              <div class="form-group">
+            <p class="ct-step">Your project</p>
+            <div class="ct-row">
+              <div class="ct-field">
                 <label for="project-type">Service *</label>
                 <select id="project-type" name="projectType" required>
                   <option value="">Select a service</option>
@@ -818,14 +143,14 @@
                   </optgroup>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="ct-field">
                 <label for="location">Location *</label>
                 <input type="text" id="location" name="location" required placeholder="City, State">
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
+            <div class="ct-row">
+              <div class="ct-field">
                 <label for="timeline">Timeline</label>
                 <select id="timeline" name="timeline">
                   <option value="">Select</option>
@@ -836,7 +161,7 @@
                   <option value="flexible">Flexible</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="ct-field">
                 <label for="budget">Budget</label>
                 <select id="budget" name="budget">
                   <option value="">Select</option>
@@ -851,62 +176,86 @@
               </div>
             </div>
 
-            <!-- Project Details -->
-            <div class="form-group">
+            <div class="ct-field">
               <label for="message">Details *</label>
               <textarea id="message" name="message" required placeholder="Square footage, bedrooms/baths, special requirements, existing plans"></textarea>
             </div>
 
-            <!-- Hidden fields for order data -->
             <input type="hidden" id="order-data" name="orderData">
             <input type="hidden" id="order-total" name="orderTotal">
             <input type="hidden" id="order-type" name="orderType" value="general">
 
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-accent" id="submit-btn" style="width: 100%;">
+            <button type="submit" class="ct-btn ct-btn-navy ct-submit" id="submit-btn">
               <span id="submit-text">Request a Quote</span>
-              <div class="loading" id="submit-loading" style="display: none;">
-                <div class="spinner"></div>
+              <span class="loading" id="submit-loading" style="display: none;">
+                <span class="spinner"></span>
                 <span>Sending...</span>
-              </div>
+              </span>
             </button>
-            <p class="form-footnote">We reply within 24 hours.</p>
+            <p class="ct-foot">We reply within 24 hours.</p>
           </form>
         </div>
 
-        <!-- Contact Information -->
-        <aside class="contact-info">
+        <aside class="ct-side" aria-label="Next steps and contact details">
           <h3>What happens next</h3>
-          <ol class="next-steps">
-            <li><strong>Send your project details</strong></li>
-            <li><strong>We review them</strong></li>
-            <li><strong>You get a proposal</strong> or a free discovery call</li>
+          <ol class="ct-next">
+            <li><span><strong>Send your project details</strong></span></li>
+            <li><span><strong>We review them</strong></span></li>
+            <li><span><strong>You get a proposal</strong> or a free discovery call</span></li>
           </ol>
 
           <h3>Contact</h3>
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <div class="contact-item-content">
-              <h4>Email</h4>
-              <p><a href="mailto:info@ts9designs.com">info@ts9designs.com</a></p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <div class="contact-item-content">
-              <h4>Phone</h4>
-              <p><a href="tel:+12154367333">(215) 436-7333</a></p>
-            </div>
-          </div>
+          <dl class="ct-reach">
+            <div><dt>Email</dt><dd><a href="mailto:info@ts9designs.com">info@ts9designs.com</a></dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+12154367333">(215) 436-7333</a></dd></div>
+          </dl>
         </aside>
       </div>
-    </div>
+    </section>
+
+    <section class="ct-sec" id="consultations" aria-labelledby="consult-title">
+      <div class="container">
+        <h2 class="ct-h2" id="consult-title">Schedule a <em>Consultation</em></h2>
+        <p class="ct-lede">Whether you're starting a new construction project, renovating an existing space, or seeking professional engineering or building design guidance, ts9designs offers convenient consultation options to fit your needs.</p>
+        <div class="ct-table">
+          <div class="ct-tier">
+            <h3>Free Project Discovery Call &mdash; 15 Minutes</h3>
+            <p class="ct-price">FREE</p>
+            <p class="ct-inc">Initial project discussion &middot; Identification of required services &middot; Preliminary timeline discussion &middot; Explanation of our design process &middot; Next steps for receiving a proposal<small>This appointment is intended for new project inquiries. Technical engineering advice, detailed code analysis, and drawing reviews are not included.</small></p>
+            <p class="ct-act"><a class="ct-btn ct-btn-navy" href="https://cal.com/ts9designs/discoverycall" target="_blank" rel="noopener">Book Free Call</a></p>
+          </div>
+          <div class="ct-tier">
+            <div class="ct-name">
+              <h3>Building Design and Engineering Consultation &mdash; 30 Minutes</h3>
+              <p class="ct-tag">Most popular</p>
+            </div>
+            <p class="ct-price">$99</p>
+            <p class="ct-inc">Preliminary engineering and building design guidance &middot; Discussion of applicable building code requirements &middot; MEP, structural, and fire protection design considerations, as applicable &middot; Permitting and plan review concerns &middot; Recommendations for next steps<small>This is a consultation service and does not include engineering drawings, calculations, written reports, or professional seals. Advice requiring jurisdiction-specific professional licensure will be handled by an appropriately licensed professional.</small></p>
+            <p class="ct-act"><a class="ct-btn ct-btn-line" href="https://cal.com/ts9designs/engineeringconsultation" target="_blank" rel="noopener">Book Consultation</a></p>
+          </div>
+          <div class="ct-tier">
+            <h3>Drawing Review Consultation &mdash; 60 Minutes</h3>
+            <p class="ct-price">$199</p>
+            <p class="ct-inc">Up to 30 minutes of preliminary document review before the appointment &middot; 60-minute consultation &middot; Building design review: design and coordination issues &middot; Preliminary code compliance observations &middot; Recommendations for corrections and next steps<small>This appointment does not include revised drawings, calculations, written engineering reports, formal code compliance certification, or signed and sealed documents. These services require a separate proposal.</small></p>
+            <p class="ct-act"><a class="ct-btn ct-btn-line" href="https://cal.com/ts9designs/60min" target="_blank" rel="noopener">Book Drawing Review</a></p>
+          </div>
+        </div>
+        <div class="ct-pols">
+          <div>
+            <h3>Consultation Fee Credit</h3>
+            <p>If you hire ts9designs for a qualifying design or engineering project within 30 days of your paid consultation, 100% of your consultation fee will be credited toward your project contract.</p>
+            <p>The credit is applied after the design agreement is signed and the required deposit is received.</p>
+            <p>Consultation credits may only be applied once and have no cash value.</p>
+          </div>
+          <div>
+            <h3>Cancellation &amp; Rescheduling</h3>
+            <p>Appointments may be rescheduled once at no additional charge when requested at least 24 hours before the scheduled start time.</p>
+            <p>Cancellations made at least 24 hours in advance are eligible for a full refund. Cancellations within 24 hours and missed appointments are nonrefundable.</p>
+            <p>If ts9designs must cancel an appointment, the client may choose a full refund or rescheduling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
