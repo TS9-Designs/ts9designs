@@ -1,0 +1,182 @@
+/**
+ * Estimator page (layout E, "build your plan set"). The wizard is on the
+ * left; on the right a small drawing set shows which sheets the chosen scope
+ * includes, above the live estimate. Page classes are prefixed "pe-"; the
+ * script still toggles .option-card (aria-pressed), .message and
+ * .is-invisible, styled here too.
+ */
+.pe { background: #ffffff; color: #475569; }
+.pe-sec { padding: var(--space-10) 0; }
+.pe-sec + .pe-sec { border-top: 1px solid #e6ebf1; }
+.pe-h1 { margin: 0; color: var(--brand-navy); font-size: clamp(2rem, 3.6vw, 2.75rem); line-height: 1.12; font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
+.pe-h1 em { font-style: normal; color: #64748b; }
+.pe-lede { margin: var(--space-4) 0 0; max-width: 62ch; font-size: 1.0625rem; line-height: 1.65; }
+
+.pe-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-9); align-items: start; margin-top: var(--space-9); }
+
+/* Progress */
+.pe-prog-text { margin: 0; color: #64748b; font-size: 0.8125rem; font-weight: 600; }
+.pe-prog-text b { color: var(--brand-navy); font-weight: 600; }
+.pe-prog { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.pe-prog i { height: 3px; border-radius: 2px; background: #e6ebf1; transition: background-color 0.25s ease; }
+.pe-prog i.on { background: var(--brand-navy); }
+
+/* Steps */
+.pe-step { position: relative; margin-top: var(--space-7); }
+.pe-step[hidden] { display: none; }
+.pe-step.is-entering { animation: pe-step-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.pe-step.is-entering[data-dir="back"] { animation-name: pe-step-back; }
+@keyframes pe-step-in { from { opacity: 0; transform: translateX(14px); } }
+@keyframes pe-step-back { from { opacity: 0; transform: translateX(-14px); } }
+.pe-q { margin: 0; color: var(--brand-navy); font-size: var(--font-size-xl); line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
+.pe-q:focus { outline: none; }
+.pe-q:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 4px; border-radius: 2px; }
+.pe-hint { margin: var(--space-3) 0 0; color: #64748b; font-size: 0.8125rem; line-height: 1.5; }
+
+/* Project type tiles */
+.pe-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-5); }
+.pe-tile { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); min-height: 104px; padding: var(--space-4); border: 1px solid #cbd5e1; border-radius: 10px; background: #ffffff; color: var(--brand-navy); font: inherit; font-size: 0.9375rem; font-weight: 600; line-height: 1.3; text-align: left; cursor: pointer; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.pe-tile svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pe-tile:hover { border-color: #94a3b8; }
+
+/* Scope and timeline rows */
+.pe-rows { margin-top: var(--space-4); border-top: 1px solid #e6ebf1; }
+.pe-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); align-items: start; width: 100%; padding: var(--space-4) var(--space-1); border: 0; border-bottom: 1px solid #e6ebf1; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background-color 0.15s ease; }
+.pe-row:hover { background: #f8fafc; }
+.pe-row b { color: var(--brand-navy); font-size: 1rem; font-weight: 600; }
+.pe-row .pe-tag { margin-left: var(--space-2); color: var(--brand-gold-text); font-size: 0.75rem; font-weight: 600; }
+.pe-row .pe-desc { display: block; margin-top: 2px; font-size: 0.875rem; line-height: 1.55; }
+.pe-radio { width: 20px; height: 20px; margin-top: 2px; border: 1.5px solid #cbd5e1; border-radius: 50%; transition: border-width 0.15s ease, border-color 0.15s ease; }
+
+/* Selected state (the script sets aria-pressed on .option-card) */
+.pe-tile[aria-pressed="true"] { border-color: var(--brand-navy); box-shadow: 0 0 0 1px var(--brand-navy); }
+.pe-tile[aria-pressed="true"]::after { content: ""; position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border-radius: 50%; background: var(--brand-navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.pe-row[aria-pressed="true"] .pe-radio { border: 6px solid var(--brand-navy); }
+.pe-tile:focus-visible, .pe-row:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; }
+
+/* Hidden selects behind the cards: kept in the form for validation, so the
+   browser's "please select" bubble points at the cards. */
+.pe .guided-hidden-select { position: absolute; left: var(--space-4); bottom: 0; width: 1px; height: 1px; padding: 0; margin: 0; border: 0; opacity: 0; pointer-events: none; }
+
+/* Text fields */
+.pe-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); margin-top: var(--space-5); }
+.pe-fields.is-contact { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.pe-fields .is-full { grid-column: 1 / -1; }
+.pe-field label { display: block; margin-bottom: 6px; color: var(--brand-navy); font-size: 0.875rem; font-weight: 600; }
+.pe-field input, .pe-field select { display: block; width: 100%; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff; color: var(--brand-navy); font: inherit; font-size: 1rem; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.pe-field input::placeholder { color: #64748b; }
+.pe-field input:focus, .pe-field select:focus { outline: none; border-color: var(--brand-navy); box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12); }
+.pe-unit { position: relative; }
+.pe-unit input { padding-right: 52px; }
+.pe-unit span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #64748b; font-size: 0.875rem; pointer-events: none; }
+
+/* Back / Next */
+.pe-nav { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid #e6ebf1; }
+.pe-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 22px; border: 1px solid transparent; border-radius: 999px; font: inherit; font-size: 0.9375rem; font-weight: 600; line-height: 1.2; text-decoration: none; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease; }
+.pe-btn-navy { background: var(--brand-navy); color: #ffffff; }
+.pe-btn-navy:hover { background: var(--brand-navy-hover); }
+.pe-btn-navy:disabled { opacity: 0.45; cursor: not-allowed; }
+.pe-btn-line { border-color: #cbd5e1; background: #ffffff; color: var(--brand-navy); }
+.pe-btn-line:hover { border-color: var(--brand-navy); }
+.pe-btn:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 3px; }
+.pe-btn[hidden] { display: none; }
+.pe-btn.is-invisible { visibility: hidden; }
+
+/* Plan set */
+.pe-side { position: sticky; top: 96px; }
+.pe-set { position: relative; height: 300px; }
+.pe-sheet { position: absolute; width: 74%; aspect-ratio: 17 / 11; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4); overflow: hidden; transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
+.pe-sheet svg { position: absolute; top: 10px; left: 10px; width: calc(100% - 20px); height: calc(100% - 48px); fill: none; stroke: var(--brand-navy); stroke-width: 1; }
+.pe-sheet-tb { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; height: 28px; padding: 0 10px; border-top: 1px solid var(--brand-navy); color: var(--brand-navy); font-size: 0.6875rem; font-weight: 600; }
+.pe-sheet-tb i { font-style: normal; color: var(--brand-gold-text); }
+.pe-sheet:nth-child(1) { left: 0; top: 0; }
+.pe-sheet:nth-child(2) { left: 13%; top: 46px; }
+.pe-sheet:nth-child(3) { left: 26%; top: 92px; }
+/* Engineering Only: the building design and structural sheets drop out of the set */
+.pe-set[data-scope="mep-only"] .pe-sheet:not(.is-mep) { opacity: 0.3; border-style: dashed; box-shadow: none; transform: translateY(-6px); }
+
+/* Estimate */
+.pe-est { margin-top: var(--space-6); }
+.pe-est-label { margin: 0; color: var(--brand-gold-text); font-size: 0.8125rem; font-weight: 600; }
+.pe-est-value { margin: 6px 0 0; color: var(--brand-navy); font-size: 2.25rem; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pe-disc { margin: var(--space-3) 0 0; color: #64748b; font-size: 0.8125rem; line-height: 1.6; }
+.pe-break { margin: var(--space-5) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--brand-navy); font-size: 0.875rem; }
+.pe-break li { display: flex; justify-content: space-between; gap: var(--space-3); padding: 10px 0; border-bottom: 1px solid #e6ebf1; }
+.pe-break strong { color: var(--brand-navy); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.message { display: none; margin-top: var(--space-4); padding: var(--space-3) var(--space-4); border-left: 3px solid; border-radius: 4px; font-size: 0.875rem; line-height: 1.55; }
+.message.success { display: block; border-color: #15803d; background: #f0fdf4; color: #14532d; }
+.message.error { display: block; border-color: #b91c1c; background: #fef2f2; color: #7f1d1d; }
+.message a { color: inherit; font-weight: 600; }
+
+
+/* What the range is based on, and the stamp line */
+.pe-summary { margin: var(--space-2) 0 0; color: var(--brand-navy); font-size: 0.875rem; font-weight: 600; line-height: 1.5; }
+.pe-stamp { display: inline-flex; align-items: center; gap: 6px; margin: var(--space-2) 0 0; color: #475569; font-size: 0.8125rem; font-weight: 600; }
+.pe-stamp svg { width: 14px; height: 14px; fill: none; stroke: var(--brand-gold-text); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The multipliers sit behind a toggle */
+.pe-how { margin-top: var(--space-5); border-top: 1px solid #e6ebf1; border-bottom: 1px solid #e6ebf1; }
+.pe-how summary { display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) 0; color: var(--brand-navy); font-size: 0.875rem; font-weight: 600; cursor: pointer; list-style: none; }
+.pe-how summary::-webkit-details-marker { display: none; }
+.pe-how summary::after { content: ""; width: 8px; height: 8px; margin-right: 4px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.2s ease; }
+.pe-how[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.pe-how summary:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; }
+.pe-how .pe-break { margin: 0 0 var(--space-3); border-top: 1px solid #e6ebf1; }
+.pe-how .pe-break li:last-child { border-bottom: 0; }
+
+/* Confirmation after sending */
+.pe-done { padding-top: var(--space-2); }
+.pe-done[hidden], #estimate-form[hidden] { display: none; }
+.pe-done-text { margin: var(--space-3) 0 0; max-width: 46ch; line-height: 1.65; }
+.pe-done-list { margin: var(--space-6) 0 var(--space-6); border-top: 1px solid var(--brand-navy); }
+.pe-done-list div { padding: var(--space-3) 0; border-bottom: 1px solid #e6ebf1; }
+.pe-done-list dt { color: #64748b; font-size: 0.8125rem; }
+.pe-done-list dd { margin: 2px 0 0; color: var(--brand-navy); font-weight: 600; font-variant-numeric: tabular-nums; }
+.pe-done.is-entering, .pe-done:not([hidden]) { animation: pe-step-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+/* Phones: the range follows along in a slim bar until the full estimate scrolls into view */
+.pe-bar { display: none; }
+.pe-bar[hidden] { display: none !important; }
+
+/* Trust line and licensure */
+.pe-trust { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-8); margin: 0; padding: 0; list-style: none; color: var(--brand-navy); font-size: 0.9375rem; font-weight: 600; }
+.pe-trust li { display: inline-flex; align-items: center; gap: var(--space-3); }
+.pe-trust svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--brand-gold-text); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pe-lic { display: grid; grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr); gap: var(--space-8); margin-top: var(--space-8); padding-top: var(--space-7); border-top: 1px solid #e6ebf1; }
+.pe-lic h2 { margin: 0; color: var(--brand-navy); font-size: var(--font-size-lg); font-weight: 600; }
+.pe-lic p { margin: 0 0 var(--space-3); font-size: 0.875rem; line-height: 1.7; }
+.pe-lic p:last-child { margin-bottom: 0; }
+
+@media (max-width: 991px) {
+  .pe-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .pe-side { position: static; }
+  .pe-set { max-width: 520px; }
+}
+@media (max-width: 767px) {
+  .pe-sec { padding: var(--space-8) 0; }
+  .pe-h1 { font-size: var(--font-size-3xl); line-height: 1.18; }
+  .pe-lede { font-size: var(--font-size-md); }
+  .pe-grid { margin-top: var(--space-7); }
+  .pe-tiles { grid-template-columns: 1fr 1fr; }
+  .pe-tile { min-height: 92px; }
+  .pe-fields, .pe-fields.is-contact { grid-template-columns: 1fr; }
+  .pe-set { height: 210px; }
+  .pe-sheet:nth-child(2) { top: 32px; } .pe-sheet:nth-child(3) { top: 64px; }
+  .pe-est-value { font-size: var(--font-size-3xl); }
+  .pe-lic { grid-template-columns: 1fr; gap: var(--space-4); }
+  .pe-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-5) calc(var(--space-3) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #e6ebf1; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(6px); transition: transform 0.25s ease, visibility 0.25s; }
+  .pe-bar span { color: #64748b; font-size: 0.75rem; font-weight: 600; }
+  .pe-bar strong { color: var(--brand-navy); font-size: var(--font-size-lg); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .pe-bar.is-away { transform: translateY(100%); visibility: hidden; }
+  .pe { padding-bottom: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pe-sheet, .pe-prog i, .pe-bar, .pe-radio { transition: none; }
+  .pe-step.is-entering, .pe-done:not([hidden]) { animation: none; }
+  .pe-how summary::after { transition: none; }
+}
+@media (forced-colors: active) {
+  .pe-tile[aria-pressed="true"], .pe-row[aria-pressed="true"] { outline: 2px solid Highlight; }
+  .pe-prog i.on { background: Highlight; }
+}
