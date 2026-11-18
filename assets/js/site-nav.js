@@ -7,6 +7,10 @@
  *
  * Works with the shared header (load-header.js calls TS9_initSiteNav after
  * mounting it) and with pages that write the header into their own HTML.
+ *
+ * Nothing is measured during page load: CSS draws the current page's pill and
+ * dot on the link itself, and the gliding version takes over (in the same
+ * spot) the first time the pointer or keyboard reaches the menu.
  */
 (function () {
   function init(scope) {
@@ -20,7 +24,19 @@
       var links = Array.prototype.slice.call(list.querySelectorAll('a'));
       var current = function () { return list.querySelector('a[aria-current]'); };
 
+      var ready = false;
+      function getReady() {
+        if (ready) return;
+        ready = true;
+        list.classList.add('is-gliding');
+        place();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+        if (window.ResizeObserver) new ResizeObserver(place).observe(list);
+        else window.addEventListener('resize', place);
+      }
+
       function moveTo(a) {
+        getReady();
         glide.style.width = a.offsetWidth + 'px';
         glide.style.transform = 'translateX(' + a.offsetLeft + 'px)';
         glide.classList.add('is-on');
@@ -57,11 +73,8 @@
         if (!list.contains(e.relatedTarget)) settle();
       });
 
-      list.classList.add('is-gliding');
-      place();
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
-      if (window.ResizeObserver) new ResizeObserver(place).observe(list);
-      else window.addEventListener('resize', place);
+      list.addEventListener('pointerenter', getReady);
+      list.addEventListener('focusin', getReady);
     });
   }
 

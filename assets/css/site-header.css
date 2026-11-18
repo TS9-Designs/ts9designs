@@ -51,7 +51,7 @@
 .site-header .logo-word {
   --wm-ink: #0f172a;
   --wm-gold: #d5a80f;
-  --wm-gold-deep: #a9840a;
+  --wm-gold-deep: #8f6f08; /* 4.7:1 on white; the brighter #a9840a was 3.5:1 */
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -148,6 +148,10 @@
 
 /* Before the script runs (or without it), the current page gets a plain pill. */
 .nav-links:not(.is-gliding) a[aria-current] { background: #f8fafc; box-shadow: inset 0 0 0 1px #e6ebf1; }
+/* ...and its gold dot, in the same spot the script puts the gliding one. The
+   script takes over the first time someone reaches for the menu, so page load
+   never has to measure the links. */
+.nav-links:not(.is-gliding) a[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: -9px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: #d5a80f; }
 
 .nav-glide {
   position: absolute;
@@ -289,6 +293,7 @@
 
   .nav-links { flex-direction: column; gap: 0; }
   .nav-glide, .nav-dot { display: none; }
+  .nav-links a[aria-current]::after { display: none; }
   .nav-links a,
   .nav-links:not(.is-gliding) a[aria-current] {
     display: flex;
@@ -340,5 +345,6 @@
 @media (forced-colors: active) {
   .nav-links a[aria-current] { outline: 1px solid CanvasText; outline-offset: -1px; }
   .nav-glide, .nav-dot { display: none; }
+  .nav-links a[aria-current]::after { display: none; }
 }
 

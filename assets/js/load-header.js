@@ -34,7 +34,7 @@
   function initNav() {
     if (window.TS9_initSiteNav) { window.TS9_initSiteNav(root); return; }
     const s = document.createElement('script');
-    s.src = '/assets/js/site-nav.js?v=20261116';
+    s.src = '/assets/js/site-nav.js?v=20261118';
     s.defer = true;
     document.head.appendChild(s);
   }
