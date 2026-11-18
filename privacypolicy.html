@@ -27,415 +27,168 @@
   <link rel="preload" href="/assets/partials/footer.partial?v=20261116" as="fetch" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-header.css?v=20261117">
-    <style>
-        /* Modern Swiss Design System - Matching ts9designs */
-        :root {
-            --primary: var(--brand-gold);
-            --gold: #d5a80f;
-            --primary-dark: var(--brand-navy);
-            --secondary: #e11d48;
-            --secondary-dark: #be123c;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --white: #ffffff;
-            --black: #0f172a;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --radius-sm: 4px;
-            --radius-md: 15px;
-            --radius-lg: 15px;
-            --radius-xl: 15px;
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 3rem;
-            --spacing-3xl: 4rem;
-            --transition: all 0.3s ease;
-            --container-width: 1200px;
-        }
-
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Montserrat', "Montserrat Fallback", sans-serif;
-            color: var(--gray-800);
-            line-height: 1.6;
-            background: #ffffff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            width: 100%;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: var(--spacing-md);
-            color: var(--dark);
-        }
-
-        h1 {
-            font-size: var(--font-size-5xl);
-            letter-spacing: -0.5px;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        h2 {
-            font-size: var(--font-size-4xl);
-            letter-spacing: -0.5px;
-            margin-top: var(--spacing-2xl);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .section-eyebrow {
-            font-size: var(--font-size-sm);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--brand-gold-text);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        p {
-            margin-bottom: var(--spacing-md);
-            color: var(--gray-700);
-        }
-
-        a {
-            color: var(--brand-navy);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--brand-gold-text);
-        }
-
-        ul, ol {
-            margin-left: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
-        }
-
-        li {
-            margin-bottom: var(--spacing-xs);
-            color: var(--gray-700);
-        }
-
-        .privacy-header {
-            background: var(--gray-50);
-            padding: var(--spacing-2xl) 0;
-            margin-top: 0;
-        }
-
-        .privacy-header .container {
-            text-align: center;
-        }
-
-        .privacy-subtitle {
-            font-size: var(--font-size-xl);
-            color: var(--gray-600);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .last-updated {
-            display: inline-block;
-            background-color: rgba(15, 23, 42, 0.05);
-            color: var(--brand-gold-text);
-            padding: var(--space-2) var(--space-3);
-            border: 1px solid rgba(15, 23, 42, 0.18);
-            border-radius: 999px;
-            font-size: var(--font-size-sm);
-            font-weight: 600;
-            margin-top: var(--spacing-md);
-        }
-
-        /* Content Section */
-        .privacy-content {
-            padding: var(--spacing-3xl) 0;
-        }
-
-        .content-card {
-            background-color: #ffffff;
-            border: 1px solid var(--gray-200);
-            border-radius: 18px;
-            padding: var(--spacing-2xl);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .section-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-dark);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--spacing-md);
-            color: var(--white);
-        }
-
-        .section-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .content-card h2 {
-            margin-top: 0;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: var(--spacing-2xl) 0;
-            border-radius: 20px;
-            margin-top: var(--spacing-2xl);
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            color: var(--white);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .contact-section p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-item:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .privacy-header {
-                padding: var(--spacing-2xl) 0;
-            }
-
-            h1 {
-                font-size: var(--font-size-4xl);
-            }
-
-            h2 {
-                font-size: var(--font-size-3xl);
-            }
-
-            .privacy-content {
-                padding: var(--spacing-2xl) 0;
-            }
-
-            .content-card {
-                padding: var(--spacing-lg);
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: var(--spacing-md);
-            }
-        }
-    
-.site-footer{border-top:1px solid #e2e8f0;background:#f8fafc;color:#0f172a;padding:var(--space-8) 0 var(--space-5);margin-top:var(--space-6)}
-.newsletter-form{display:flex;gap:var(--space-2)}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--font-size-md); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', "Montserrat Fallback", -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.5; color: var(--brand-navy); background: #ffffff; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+    @media (min-width: 768px) { .container { padding: 0 var(--space-6); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
   <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261117">
+  <link rel="stylesheet" href="/assets/css/legal.css?v=20261118">
 </head>
 <body>
     <!-- Header -->
     <div id="site-header-root"></div>
     <script src="/assets/js/load-header.js?v=20261117" defer></script>
 
-    <!-- Header Section -->
-    <section class="privacy-header">
+    <main class="lg">
+      <section class="lg-sec" aria-labelledby="lg-title">
         <div class="container">
-            <p class="section-eyebrow">Legal Information</p>
-            <h1>Privacy Policy</h1>
-            <p class="privacy-subtitle">Your privacy matters to us. Here's how we protect and handle your information when you work with ts9designs.</p>
-            <span class="last-updated">Last Updated: January 2025</span>
+          <p class="lg-cap">Legal Information</p>
+          <h1 class="lg-h1" id="lg-title">Privacy <em>Policy</em></h1>
+          <p class="lg-lede">Your privacy matters to us. Here's how we protect and handle your information when you work with ts9designs.</p>
+          <span class="lg-updated">Last Updated: January 2025</span>
         </div>
-    </section>
+      </section>
 
-    <!-- Main Content -->
-    <section class="privacy-content">
-        <div class="container">
-            
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-                <h2>Our Commitment to Your Privacy</h2>
+      <section class="lg-sec">
+        <div class="container lg-body">
+          <nav class="lg-toc cs-toc" aria-label="On this page">
+            <p>On this page</p>
+            <ol>
+              <li><a href="#our-commitment-to-your-privacy">Our Commitment to Your Privacy</a></li>
+              <li><a href="#information-we-collect">Information We Collect</a></li>
+              <li><a href="#how-we-use-your-information">How We Use Your Information</a></li>
+              <li><a href="#how-we-protect-your-information">How We Protect Your Information</a></li>
+              <li><a href="#information-sharing">Information Sharing</a></li>
+              <li><a href="#your-rights-and-choices">Your Rights and Choices</a></li>
+              <li><a href="#cookies-and-website-analytics">Cookies and Website Analytics</a></li>
+              <li><a href="#data-retention">Data Retention</a></li>
+              <li><a href="#policy-updates">Policy Updates</a></li>
+              <li><a href="#questions">Questions About Your Privacy?</a></li>
+            </ol>
+          </nav>
+          <div class="lg-prose">
+            <section id="our-commitment-to-your-privacy" aria-labelledby="our-commitment-to-your-privacy-h">
+              <h2 id="our-commitment-to-your-privacy-h">Our Commitment to Your Privacy</h2>
                 <p>At ts9designs, we understand that trust is the foundation of every great design partnership. When you share your project vision, building plans, or business information with us, we treat it with the same care and precision we bring to our building-design, MEP, structural, and fire protection solutions.</p>
                 <p>This privacy policy explains how we collect, use, and protect your information when you visit our website or work with our design team.</p>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></div>
-                <h2>Information We Collect</h2>
+            <section id="information-we-collect" aria-labelledby="information-we-collect-h">
+              <h2 id="information-we-collect-h">Information We Collect</h2>
                 <p>To deliver exceptional design services, we may collect:</p>
                 <ul>
-                    <li><strong>Project Information:</strong> Building specifications, site plans, design requirements, and project timelines</li>
-                    <li><strong>Contact Details:</strong> Name, email, phone number, and company information</li>
-                    <li><strong>Communication Records:</strong> Project discussions, design feedback, and consultation notes</li>
-                    <li><strong>Website Analytics:</strong> How you interact with our portfolio and service pages</li>
-                    <li><strong>Technical Data:</strong> IP address, browser type, and device information for website optimization</li>
+                <li><strong>Project Information:</strong> Building specifications, site plans, design requirements, and project timelines</li>
+                <li><strong>Contact Details:</strong> Name, email, phone number, and company information</li>
+                <li><strong>Communication Records:</strong> Project discussions, design feedback, and consultation notes</li>
+                <li><strong>Website Analytics:</strong> How you interact with our portfolio and service pages</li>
+                <li><strong>Technical Data:</strong> IP address, browser type, and device information for website optimization</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg></div>
-                <h2>How We Use Your Information</h2>
+            <section id="how-we-use-your-information" aria-labelledby="how-we-use-your-information-h">
+              <h2 id="how-we-use-your-information-h">How We Use Your Information</h2>
                 <p>Your information helps us deliver the design excellence you expect:</p>
                 <ul>
-                    <li><strong>Project Delivery:</strong> Creating building-design, MEP, structural, and fire protection solutions tailored to your needs</li>
-                    <li><strong>Communication:</strong> Keeping you updated on project progress and design milestones</li>
-                    <li><strong>Service Improvement:</strong> Enhancing our design processes and client experience</li>
-                    <li><strong>Legal Compliance:</strong> Meeting building codes, safety regulations, and professional standards</li>
-                    <li><strong>Portfolio Development:</strong> Showcasing completed projects (with your permission)</li>
+                <li><strong>Project Delivery:</strong> Creating building-design, MEP, structural, and fire protection solutions tailored to your needs</li>
+                <li><strong>Communication:</strong> Keeping you updated on project progress and design milestones</li>
+                <li><strong>Service Improvement:</strong> Enhancing our design processes and client experience</li>
+                <li><strong>Legal Compliance:</strong> Meeting building codes, safety regulations, and professional standards</li>
+                <li><strong>Portfolio Development:</strong> Showcasing completed projects (with your permission)</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-                <h2>How We Protect Your Information</h2>
+            <section id="how-we-protect-your-information" aria-labelledby="how-we-protect-your-information-h">
+              <h2 id="how-we-protect-your-information-h">How We Protect Your Information</h2>
                 <p>We implement industry-standard security measures to safeguard your data:</p>
                 <ul>
-                    <li><strong>Secure Storage:</strong> Encrypted databases and secure cloud storage for project files</li>
-                    <li><strong>Access Control:</strong> Limited access to authorized team members only</li>
-                    <li><strong>Professional Standards:</strong> Adherence to professional design, engineering, and confidentiality practices</li>
-                    <li><strong>Regular Updates:</strong> Ongoing security assessments and system updates</li>
-                    <li><strong>Secure Communication:</strong> Encrypted email and secure file sharing for sensitive project data</li>
+                <li><strong>Secure Storage:</strong> Encrypted databases and secure cloud storage for project files</li>
+                <li><strong>Access Control:</strong> Limited access to authorized team members only</li>
+                <li><strong>Professional Standards:</strong> Adherence to professional design, engineering, and confidentiality practices</li>
+                <li><strong>Regular Updates:</strong> Ongoing security assessments and system updates</li>
+                <li><strong>Secure Communication:</strong> Encrypted email and secure file sharing for sensitive project data</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></div>
-                <h2>Information Sharing</h2>
+            <section id="information-sharing" aria-labelledby="information-sharing-h">
+              <h2 id="information-sharing-h">Information Sharing</h2>
                 <p>We respect your privacy and only share information when necessary:</p>
                 <ul>
-                    <li><strong>Project Partners:</strong> With contractors, consultants, or authorities as required for project completion</li>
-                    <li><strong>Legal Requirements:</strong> When required by law, building codes, or regulatory authorities</li>
-                    <li><strong>Service Providers:</strong> With trusted vendors who help us deliver our services (under strict confidentiality agreements)</li>
-                    <li><strong>Business Transfers:</strong> In the unlikely event of a business sale or merger (with advance notice)</li>
+                <li><strong>Project Partners:</strong> With contractors, consultants, or authorities as required for project completion</li>
+                <li><strong>Legal Requirements:</strong> When required by law, building codes, or regulatory authorities</li>
+                <li><strong>Service Providers:</strong> With trusted vendors who help us deliver our services (under strict confidentiality agreements)</li>
+                <li><strong>Business Transfers:</strong> In the unlikely event of a business sale or merger (with advance notice)</li>
                 </ul>
                 <p><strong>We never sell your personal information to third parties.</strong></p>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
-                <h2>Your Rights and Choices</h2>
+            <section id="your-rights-and-choices" aria-labelledby="your-rights-and-choices-h">
+              <h2 id="your-rights-and-choices-h">Your Rights and Choices</h2>
                 <p>You have control over your information:</p>
                 <ul>
-                    <li><strong>Access:</strong> Request copies of the information we have about you</li>
-                    <li><strong>Correction:</strong> Update or correct any inaccurate information</li>
-                    <li><strong>Deletion:</strong> Request removal of your information (subject to legal and contractual obligations)</li>
-                    <li><strong>Portability:</strong> Receive your project data in a standard format</li>
-                    <li><strong>Communication Preferences:</strong> Opt out of marketing communications while maintaining project updates</li>
+                <li><strong>Access:</strong> Request copies of the information we have about you</li>
+                <li><strong>Correction:</strong> Update or correct any inaccurate information</li>
+                <li><strong>Deletion:</strong> Request removal of your information (subject to legal and contractual obligations)</li>
+                <li><strong>Portability:</strong> Receive your project data in a standard format</li>
+                <li><strong>Communication Preferences:</strong> Opt out of marketing communications while maintaining project updates</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="0.6" fill="currentColor"/><circle cx="14.5" cy="10.5" r="0.6" fill="currentColor"/><circle cx="10" cy="14" r="0.6" fill="currentColor"/><circle cx="14" cy="15" r="0.6" fill="currentColor"/></svg></div>
-                <h2>Cookies and Website Analytics</h2>
+            <section id="cookies-and-website-analytics" aria-labelledby="cookies-and-website-analytics-h">
+              <h2 id="cookies-and-website-analytics-h">Cookies and Website Analytics</h2>
                 <p>Our website uses cookies to enhance your browsing experience:</p>
                 <ul>
-                    <li><strong>Essential Cookies:</strong> Required for website functionality and security</li>
-                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our portfolio</li>
-                    <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+                <li><strong>Essential Cookies:</strong> Required for website functionality and security</li>
+                <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our portfolio</li>
+                <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
                 </ul>
                 <p>You can control cookie settings through your browser preferences.</p>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
-                <h2>Data Retention</h2>
+            <section id="data-retention" aria-labelledby="data-retention-h">
+              <h2 id="data-retention-h">Data Retention</h2>
                 <p>We retain your information based on:</p>
                 <ul>
-                    <li><strong>Active Projects:</strong> Throughout the project lifecycle and warranty period</li>
-                    <li><strong>Completed Projects:</strong> For 7 years to meet professional liability requirements</li>
-                    <li><strong>Marketing Communications:</strong> Until you opt out or request deletion</li>
-                    <li><strong>Legal Requirements:</strong> As required by applicable laws and regulations</li>
+                <li><strong>Active Projects:</strong> Throughout the project lifecycle and warranty period</li>
+                <li><strong>Completed Projects:</strong> For 7 years to meet professional liability requirements</li>
+                <li><strong>Marketing Communications:</strong> Until you opt out or request deletion</li>
+                <li><strong>Legal Requirements:</strong> As required by applicable laws and regulations</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="content-card">
-                <div class="section-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
-                <h2>Policy Updates</h2>
+            <section id="policy-updates" aria-labelledby="policy-updates-h">
+              <h2 id="policy-updates-h">Policy Updates</h2>
                 <p>As our design services evolve and privacy laws change, we may update this policy. We'll notify you of significant changes through:</p>
                 <ul>
-                    <li>Email notifications to active clients</li>
-                    <li>Website announcements</li>
-                    <li>Project communication updates</li>
+                <li>Email notifications to active clients</li>
+                <li>Website announcements</li>
+                <li>Project communication updates</li>
                 </ul>
                 <p>Continued use of our services after updates indicates acceptance of the revised policy.</p>
-            </div>
+            </section>
 
-            <!-- Contact Section -->
-            <div class="contact-section">
-                <div class="container">
-                    <h2>Questions About Your Privacy?</h2>
-                    <p>Our team is here to address any privacy concerns or questions about how we handle your information.</p>
-                    <div class="contact-info">
-                        <a href="mailto:info@ts9designs.com" class="contact-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                            <span>info@ts9designs.com</span>
-                        </a>
-                        <a href="tel:+12154367333" class="contact-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span>215-436-7333</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+            <section class="lg-ask" id="questions" aria-labelledby="questions-h">
+              <h2 id="questions-h">Questions About Your Privacy?</h2>
+              <p>Our team is here to address any privacy concerns or questions about how we handle your information.</p>
+              <ul class="lg-reach">
+                <li><a href="mailto:info@ts9designs.com">info@ts9designs.com</a></li>
+                <li><a href="tel:+12154367333">215-436-7333</a></li>
+              </ul>
+            </section>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
 <div id="site-footer-root"></div>
   <script src="/assets/js/newsletter.js" defer></script>
   <script src="/assets/js/mailer-config.js" defer></script>
   <script src="/assets/js/ts9-mailer.js" defer></script>
+  <script src="/assets/js/case-study.js?v=20261117" defer></script>
   <script src="/assets/js/load-footer.js?v=20261116" defer></script>
 </body>
 </html>
