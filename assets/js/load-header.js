@@ -26,7 +26,7 @@
   function initWordmark() {
     if (window.ts9InitWordmark) { window.ts9InitWordmark(root); return; }
     const s = document.createElement('script');
-    s.src = '/assets/js/wordmark.js';
+    s.src = '/assets/js/wordmark.js?v=20261118';
     s.defer = true;
     document.head.appendChild(s);
   }
