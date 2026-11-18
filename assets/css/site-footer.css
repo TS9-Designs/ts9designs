@@ -25,7 +25,6 @@
 
 /* Honeypot: off-screen (not display:none) so most bots that skip hidden
    fields still fill it, but real users never see or tab into it. */
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* Closing call to action */
 .sf-cta {
