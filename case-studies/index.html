@@ -64,7 +64,7 @@
   <link rel="preload" href="/assets/partials/footer.partial?v=20261116" as="fetch" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261117"><link rel="stylesheet" href="/assets/css/site-header.css?v=20261117">
   <link rel="stylesheet" href="/assets/css/site-footer.css?v=20261117">
-  <link rel="stylesheet" href="/assets/css/case-study.css?v=20261117b">
+  <link rel="stylesheet" href="/assets/css/case-study.css?v=20261118b">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://www.ts9designs.com/case-studies/index.html#webpage","url":"https://www.ts9designs.com/case-studies/index.html","name":"Case Studies","description":"Explore ts9designs case studies—including Coffman Apts Indianapolis, Bishop Pond, and permit-ready MEP across retail, clinical, and restaurant programs.","isPartOf":{"@id":"https://www.ts9designs.com/#website"},"about":{"@id":"https://www.ts9designs.com/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ts9designs.com/"},{"@type":"ListItem","position":2,"name":"Case Studies","item":"https://www.ts9designs.com/case-studies/index.html"}]},{"@type":"ItemList","name":"ts9designs case studies","itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.ts9designs.com/case-studies/church-arizona.html","name":"Desert Shore Community Baptist Church"},{"@type":"ListItem","position":2,"url":"https://www.ts9designs.com/case-studies/conmigo-cafe.html","name":"Conmigo Cafe"},{"@type":"ListItem","position":3,"url":"https://www.ts9designs.com/case-studies/la-dolce-vita-dover.html","name":"La Dolce Vita Dover"},{"@type":"ListItem","position":4,"url":"https://www.ts9designs.com/case-studies/luccinos-pizza-tropicana.html","name":"Luccino's Pizza Tropicana"},{"@type":"ListItem","position":5,"url":"https://www.ts9designs.com/case-studies/pet-supplies-plus-hamilton.html","name":"Pet Supplies Plus Hamilton"},{"@type":"ListItem","position":6,"url":"https://www.ts9designs.com/case-studies/bishop-pond.html","name":"Bishop Pond"},{"@type":"ListItem","position":7,"url":"https://www.ts9designs.com/case-studies/chefs-roma-kitchen-henderson.html","name":"Chef's Roma Kitchen Henderson"},{"@type":"ListItem","position":8,"url":"https://www.ts9designs.com/case-studies/coffman-apts-indianapolis.html","name":"Coffman Apts"},{"@type":"ListItem","position":9,"url":"https://www.ts9designs.com/case-studies/eyes-on-j-optometry.html","name":"Eyes on J Optometry"},{"@type":"ListItem","position":10,"url":"https://www.ts9designs.com/case-studies/robey-street-daycare.html","name":"17058 S Robey Street Daycare"}]}]}</script>
 </head>
 <body data-nav-active="case-studies">
@@ -99,6 +99,7 @@
         <div class="ci-lib-head">
           <h2 id="ci-lib-title">Case Study Library</h2>
           <div class="ci-filter" role="group" aria-label="Filter case studies by type">
+          <span class="ci-glide" aria-hidden="true"></span>
           <button type="button" data-filter="all" aria-pressed="true">All<span>9</span></button>
           <button type="button" data-filter="restaurant" aria-pressed="false">Restaurant<span>4</span></button>
           <button type="button" data-filter="retail-office" aria-pressed="false">Retail &amp; office<span>3</span></button>
@@ -189,17 +190,71 @@
   <script src="/assets/js/load-footer.js?v=20261116" defer></script>
   <script src="/assets/js/load-header.js?v=20261117" defer></script>
 <script>
-  // Case study library filter: show only the chosen project type.
+  // Case study library filter: show only the chosen project type. The pill
+  // glides to the chosen filter, cards that stay slide to their new spots
+  // and newly shown cards fade in, all in about a fifth of a second.
   (function () {
     var group = document.querySelector('.ci-filter');
     if (!group) return;
-    var buttons = group.querySelectorAll('button');
-    var items = document.querySelectorAll('.ci-item');
+    var buttons = Array.prototype.slice.call(group.querySelectorAll('button'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('.ci-item'));
+    var glide = group.querySelector('.ci-glide');
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function placeGlide(btn, instant) {
+      if (!glide) return;
+      if (instant) glide.style.transition = 'none';
+      glide.style.width = btn.offsetWidth + 'px';
+      glide.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      if (instant) { glide.offsetWidth; glide.style.transition = ''; }
+    }
+    var pressed = buttons.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; })[0] || buttons[0];
+    group.classList.add('has-glide');
+    placeGlide(pressed, true);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placeGlide(pressed, true); });
+    window.addEventListener('resize', function () { placeGlide(pressed, true); });
+
+    // Load every card photo early so filtered cards never show an empty box.
+    var warmed = false;
+    function warm() {
+      if (warmed) return;
+      warmed = true;
+      items.forEach(function (it) { var img = it.querySelector('img'); if (img) img.loading = 'eager'; });
+    }
+    ['pointerenter', 'focusin', 'touchstart'].forEach(function (ev) { group.addEventListener(ev, warm, { once: true, passive: true }); });
+    window.addEventListener('load', function () {
+      if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 2000 });
+      else setTimeout(warm, 600);
+    });
+
     buttons.forEach(function (btn) {
       btn.addEventListener('click', function () {
+        if (btn === pressed) return;
+        warm();
+        pressed = btn;
         var type = btn.getAttribute('data-filter');
         buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        placeGlide(btn, still.matches);
+
+        var animate = !still.matches && typeof Element.prototype.animate === 'function';
+        var before = new Map();
+        if (animate) items.forEach(function (it) { if (!it.hidden) before.set(it, it.getBoundingClientRect()); });
+
         items.forEach(function (it) { it.hidden = type !== 'all' && it.getAttribute('data-type') !== type; });
+        if (!animate) return;
+
+        var shown = 0;
+        items.forEach(function (it) {
+          if (it.hidden) return;
+          var now = it.getBoundingClientRect();
+          var was = before.get(it);
+          if (was) {
+            var dx = was.left - now.left, dy = was.top - now.top;
+            if (dx || dy) it.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: 220, easing: 'cubic-bezier(0.3, 0.7, 0.2, 1)' });
+          } else {
+            it.animate([{ opacity: 0, transform: 'translateY(6px) scale(0.985)' }, { opacity: 1, transform: 'none' }], { duration: 200, delay: Math.min(shown++, 5) * 25, easing: 'cubic-bezier(0.3, 0.7, 0.2, 1)', fill: 'backwards' });
+          }
+        });
       });
     });
   })();
