@@ -15,6 +15,11 @@
  *
  * onDecision() fires the callback right away if consent was already decided
  * on a previous visit, or queues it until the visitor clicks Accept/Decline.
+ *
+ * Any element with data-cookie-settings (the footer's "Cookie settings")
+ * reopens the notice, as does TS9_CONSENT.open(). Changing an earlier choice
+ * saves it and reloads the page, so trackers load or stay off cleanly; on
+ * Decline the analytics cookies they set are removed first.
  */
 (function () {
   var STORAGE_KEY = 'ts9_cookie_consent';
@@ -45,7 +50,30 @@
     });
   }
 
+  // Cookies set by Google Analytics, Microsoft Clarity and the Meta Pixel.
+  var TRACKER_COOKIE = /^(_ga|_gid|_gat|_gcl_|_clck|_clsk|CLID|MUID|ANONCHK|_fbp|_fbc)/;
+  function clearTrackerCookies() {
+    var host = location.hostname;
+    var domains = ['', host, '.' + host, '.' + host.replace(/^www\./, '')];
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (!TRACKER_COOKIE.test(name)) return;
+      domains.forEach(function (d) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+      });
+    });
+  }
+
   function decide(value) {
+    if (decided) {
+      // A change of mind from the Cookie settings link.
+      var before = granted ? 'granted' : 'denied';
+      setStored(value);
+      if (value === before) { hideBanner(); return; }
+      if (value === 'denied') clearTrackerCookies();
+      location.reload();
+      return;
+    }
     decided = true;
     granted = value === 'granted';
     setStored(value);
@@ -54,6 +82,7 @@
   }
 
   window.TS9_CONSENT = {
+    open: function () { showBanner(true); },
     onDecision: function (fn) {
       if (decided) {
         fn(granted);
@@ -100,8 +129,10 @@
     document.head.appendChild(style);
   }
 
-  function showBanner() {
-    injectStyles();
+  var stylesAdded = false;
+  function showBanner(fromSettings) {
+    if (bannerEl && bannerEl.parentNode) return;
+    if (!stylesAdded) { injectStyles(); stylesAdded = true; }
 
     bannerEl = document.createElement('div');
     bannerEl.className = 'ts9-cookie-banner';
@@ -137,7 +168,19 @@
     document.getElementById('ts9CookieDecline').addEventListener('click', function () {
       decide('denied');
     });
+    // Opened from Cookie settings: put keyboard focus on the choice.
+    if (fromSettings === true) {
+      document.getElementById(granted ? 'ts9CookieDecline' : 'ts9CookieAccept').focus();
+    }
   }
+
+  // "Cookie settings" links reopen the notice (the footer loads later, so listen on the document).
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-cookie-settings]')) {
+      e.preventDefault();
+      showBanner(true);
+    }
+  });
 
   var stored = getStored();
   if (stored === 'granted' || stored === 'denied') {

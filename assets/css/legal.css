@@ -30,6 +30,9 @@
 .lg-prose strong { color: var(--brand-navy); font-weight: 600; }
 .lg-prose p a, .lg-prose li a { color: var(--brand-navy); font-weight: 600; text-decoration: underline; text-decoration-color: #cbd5e1; text-underline-offset: 3px; transition: text-decoration-color 0.15s ease; }
 .lg-prose p a:hover, .lg-prose li a:hover { text-decoration-color: var(--brand-navy); }
+.lg-inline-btn { padding: 0; border: 0; background: none; color: var(--brand-navy); font: inherit; font-weight: 600; text-decoration: underline; text-decoration-color: #cbd5e1; text-underline-offset: 3px; cursor: pointer; }
+.lg-inline-btn:hover { text-decoration-color: var(--brand-navy); }
+.lg-inline-btn:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; border-radius: 2px; }
 .lg-prose p a:focus-visible, .lg-prose li a:focus-visible { outline: 2px solid var(--brand-navy); outline-offset: 2px; border-radius: 2px; }
 .lg-prose ul { margin: var(--space-3) 0 0; padding: 0; list-style: none; border-top: 1px solid #e6ebf1; }
 .lg-prose li { padding: 10px 0; border-bottom: 1px solid #e6ebf1; line-height: 1.6; }

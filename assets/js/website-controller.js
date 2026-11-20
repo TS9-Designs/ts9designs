@@ -634,6 +634,15 @@ class TS9WebsiteController {
       return
     }
 
+    // Analytics (only sent if the visitor accepted cookies; see analytics.js)
+    if (typeof window.TS9_track === "function") {
+      window.TS9_track("checkout", {
+        value: this.cart.reduce((sum, item) => sum + item.itemPrice * item.quantity, 0),
+        currency: "USD",
+        num_items: this.cart.reduce((sum, item) => sum + item.quantity, 0),
+      })
+    }
+
     // Check if cart contains only one item with quantity 1 (eligible for direct Stripe link)
     if (this.cart.length === 1 && this.cart[0].quantity === 1) {
       const item = this.cart[0]
