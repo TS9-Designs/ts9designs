@@ -14,7 +14,7 @@
  * window.TS9_track(name, params) with one of the names in EVENTS.
  */
 (function () {
-  var GA_ID = 'G-ZR4DEKR6WZ';
+  var GA_ID = 'G-5EF8FS2WDW';
   var CLARITY_ID = 'offy18fm86';
   var PIXEL_ID = '716800377403198';
 
