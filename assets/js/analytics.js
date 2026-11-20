@@ -1,7 +1,12 @@
 /**
  * Site analytics, one file on every page. Nothing loads until the visitor
  * clicks Accept on the cookie notice (cookie-consent.js); after that this
- * loads Google Analytics 4, Microsoft Clarity and the Meta Pixel.
+ * loads the Google tag, Microsoft Clarity and the Meta Pixel.
+ *
+ * The Google tag (AW-11480937225) is the combined tag Google Analytics gives
+ * for this site's web stream (Admin > Data streams > View tag instructions).
+ * It carries its own destinations, the GA4 stream G-5EF8FS2WDW among them,
+ * so the page loads the tag and Google applies its configuration.
  *
  * It also records the actions that matter, in both GA and Meta:
  *   - a contact or estimate request sent  GA generate_lead   Meta Lead
@@ -14,7 +19,7 @@
  * window.TS9_track(name, params) with one of the names in EVENTS.
  */
 (function () {
-  var GA_ID = 'G-5EF8FS2WDW';
+  var GOOGLE_TAG_ID = 'AW-11480937225';
   var CLARITY_ID = 'offy18fm86';
   var PIXEL_ID = '716800377403198';
 
@@ -28,15 +33,15 @@
   var state = 'waiting'; // waiting | on | off
   var pending = [];
 
-  function loadGoogleAnalytics() {
+  // Google's own snippet for this tag, loaded after consent.
+  function loadGoogleTag() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GOOGLE_TAG_ID;
     document.head.appendChild(s);
     window.gtag('js', new Date());
-    window.gtag('config', GA_ID);
   }
 
   function loadClarity() {
@@ -80,7 +85,7 @@
   window.TS9_CONSENT.onDecision(function (granted) {
     if (!granted) { state = 'off'; pending = []; return; }
     state = 'on';
-    try { loadGoogleAnalytics(); } catch (e) {}
+    try { loadGoogleTag(); } catch (e) {}
     try { loadClarity(); } catch (e) {}
     try { loadMetaPixel(); } catch (e) {}
     pending.forEach(function (p) { send(p[0], p[1]); });
