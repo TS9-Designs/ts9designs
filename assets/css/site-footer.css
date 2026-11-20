@@ -16,6 +16,8 @@
 
 .sf a { color: var(--sf-text); text-decoration: none; transition: color 0.2s ease; }
 .sf a:hover { color: #ffffff; }
+.sf .sf-cookie { padding: 0; border: 0; background: none; color: var(--sf-text); font: inherit; text-align: left; cursor: pointer; transition: color 0.2s ease; }
+.sf .sf-cookie:hover { color: #ffffff; }
 .sf a:focus-visible, .sf button:focus-visible, .sf input:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; border-radius: 4px; }
 
 .sf-visually-hidden {
