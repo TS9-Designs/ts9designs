@@ -119,7 +119,10 @@ export default {
     // only then) and the access token secret is set.
     if (env.META_CAPI_TOKEN && body.meta && typeof body.meta.eventId === "string") {
       ctx.waitUntil(sendMetaEvent(request, env, { formType, fields, email, sourcePage, meta: body.meta })
+        .then(() => console.log(`Meta CAPI sent: ${formType}`))
         .catch((err) => console.error("Meta CAPI send failed:", err)));
+    } else {
+      console.log(`Meta CAPI skipped: token=${!!env.META_CAPI_TOKEN} meta=${!!(body.meta && body.meta.eventId)}`);
     }
 
     return json({ ok: true }, 200, origin);
