@@ -62,7 +62,7 @@
         </ul>
         <h3 class="sf-head sf-head-gap" id="sf-newsletter">Newsletter</h3>
         <form class="newsletter-form sf-nl" aria-labelledby="sf-newsletter">
-          <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="ts9_hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other">
           <input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required>
           <button type="submit">Subscribe</button>
         </form>

@@ -14,7 +14,7 @@
   <link rel="icon" type="image/x-icon" href="assets/images/logo-v3.webp">
   <link rel="canonical" href="https://www.ts9designs.com/permit-estimate.html">
   <link rel="preload" href="/assets/partials/header.html?v=20261119" as="fetch" crossorigin="anonymous">
-  <link rel="preload" href="/assets/partials/footer.partial?v=20261120b" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/assets/partials/footer.partial?v=20261123" as="fetch" crossorigin="anonymous">
   <link rel="preload" href="/assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/tokens.css?v=20261118">
   <link rel="stylesheet" href="/assets/css/site-header.css?v=20261118">
@@ -189,7 +189,7 @@
 
             <div class="pe-step step-section">
               <h2 class="pe-q" id="contactStepLabel" tabindex="-1">Where should we reach you? *</h2>
-              <input class="hp-field" type="text" name="hp_company_url" id="hp_company_url" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input class="hp-field" type="text" name="ts9_hp" id="ts9_hp" tabindex="-1" autocomplete="off" aria-hidden="true" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other">
               <div class="pe-fields is-contact" role="group" aria-labelledby="contactStepLabel">
                 <div class="pe-field">
                   <label for="estimateFullName">Full name</label>
@@ -364,7 +364,7 @@
     function toEstimateFields(formData) {
       const raw = {};
       formData.forEach((value, key) => {
-        if (key === "hp_company_url") return;
+        if (key === "ts9_hp") return;
         raw[key] = typeof value === "string" ? value : "";
       });
       return {
@@ -823,7 +823,7 @@
         return;
       }
 
-      const honeypot = document.getElementById("hp_company_url");
+      const honeypot = document.getElementById("ts9_hp");
       if ((honeypot && honeypot.value) || Date.now() - estimateFormRenderedAt < 1500) {
         showConfirmation();
         return;
@@ -987,7 +987,7 @@
     syncAllActiveCards();
     wizardController = initWizard();
   </script>
-  <script src="/assets/js/load-footer.js?v=20261120b" defer></script>
+  <script src="/assets/js/load-footer.js?v=20261123" defer></script>
 </body>
 </html>
 
