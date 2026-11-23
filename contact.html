@@ -257,7 +257,8 @@
 
   <!-- Footer -->
 <div id="site-footer-root"></div>
-<script src="/assets/js/newsletter.js?v=20261118" defer></script>
+<script src="/assets/js/sent.js?v=20261123" defer></script>
+  <script src="/assets/js/newsletter.js?v=20261123" defer></script>
   <script src="/assets/js/mailer-config.js?v=20261118" defer></script>
   <script src="/assets/js/ts9-mailer.js?v=20261118" defer></script>
   <script>
@@ -507,9 +508,16 @@
         e.preventDefault();
 
         const honeypot = form.querySelector('.hp-field');
+        const showSent = (kindValue) => {
+          if (typeof window.TS9_showSent === 'function') {
+            window.TS9_showSent({ kind: window.TS9_sentKind(kindValue), title: 'Sent.', text: "We'll reply within 24 hours." });
+          }
+        };
+        const kindValue = document.getElementById('project-type').value;
         if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
           successMessage.classList.add('show');
           form.reset();
+          showSent(kindValue);
           return;
         }
 
@@ -533,6 +541,7 @@
           // Show success message
           successMessage.classList.add('show');
           form.reset();
+          showSent(kindValue);
           
           // Hide order summary after successful submission
           document.getElementById('order-summary').style.display = 'none';

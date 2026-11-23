@@ -2374,7 +2374,8 @@ font-size: var(--font-size-sm);
   <!-- Scripts -->
   <script src="assets/js/mailer-config.js?v=20261118" defer></script>
   <script src="assets/js/ts9-mailer.js?v=20261118" defer></script>
-  <script src="assets/js/newsletter.js?v=20261118" defer></script>
+  <script src="/assets/js/sent.js?v=20261123" defer></script>
+  <script src="assets/js/newsletter.js?v=20261123" defer></script>
 
   <script>
     (function () {
@@ -2401,8 +2402,15 @@ font-size: var(--font-size-sm);
         if (!form.reportValidity()) return;
 
         const honeypot = form.querySelector('.hp-field');
+        const projectKind = window.TS9_sentKind ? window.TS9_sentKind(form.querySelector('#contact-project-type').value) : '';
+        const showSent = () => {
+          if (typeof window.TS9_showSent === 'function') {
+            window.TS9_showSent({ kind: projectKind, title: 'Message sent.', text: 'Our team will follow up shortly.' });
+          }
+        };
         if ((honeypot && honeypot.value) || Date.now() - renderedAt < 1500) {
           form.reset();
+          showSent();
           statusEl.textContent = 'Message sent. Our team will follow up shortly.';
           statusEl.style.color = '#15803d';
           return;
@@ -2438,6 +2446,7 @@ font-size: var(--font-size-sm);
             detailsToggle.setAttribute('aria-expanded', 'false');
             detailsPanel.hidden = true;
           }
+          showSent();
           statusEl.textContent = 'Message sent. Our team will follow up shortly.';
           statusEl.style.color = '#15803d';
         } catch (error) {

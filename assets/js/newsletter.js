@@ -1,3 +1,13 @@
+// Confirmation and error messages use the site's "Sent" overlay (sent.js);
+// the browser alert is only a fallback if that script didn't load.
+function TS9_newsletterNotice(title, isError) {
+  if (typeof window.TS9_showSent === 'function') {
+    window.TS9_showSent(isError ? { error: true, title: title } : { kind: 'commercial', title: 'You are subscribed.', text: 'Thanks for signing up!' });
+  } else {
+    alert(isError ? title : 'You are subscribed. Thanks for signing up!');
+  }
+}
+
 function TS9_initNewsletterForms() {
   const forms = document.querySelectorAll('.newsletter-form:not([data-newsletter-bound])');
   if (!forms.length) return;
@@ -17,7 +27,7 @@ function TS9_initNewsletterForms() {
       const renderedAt = Number(form.dataset.renderedAt || 0);
       const filledTooFast = Date.now() - renderedAt < 1500;
       if ((honeypot && honeypot.value) || filledTooFast) {
-        alert('You are subscribed. Thanks for signing up!');
+        TS9_newsletterNotice();
         form.reset();
         return;
       }
@@ -35,10 +45,13 @@ function TS9_initNewsletterForms() {
           honeypot: honeypot ? honeypot.value : '',
           renderedAt: renderedAt
         });
-        alert('You are subscribed. Thanks for signing up!');
+        TS9_newsletterNotice();
         form.reset();
       } catch (error) {
-        alert(error.message || 'Unable to subscribe right now.');
+        // Network failures ("Failed to fetch") get the plain message; errors
+        // the mailer explains (e.g. rate limits) are shown as written.
+        const msg = error && error.message && !/fetch|network/i.test(error.message) ? error.message : 'Unable to subscribe right now.';
+        TS9_newsletterNotice(msg, true);
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

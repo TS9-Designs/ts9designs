@@ -288,7 +288,8 @@
   </main>
 
 <div id="site-footer-root" data-footer-variant="compact"></div>
-<script src="assets/js/newsletter.js?v=20261118" defer></script>
+<script src="/assets/js/sent.js?v=20261123" defer></script>
+  <script src="assets/js/newsletter.js?v=20261123" defer></script>
   <script src="assets/js/mailer-config.js?v=20261118" defer></script>
   <script src="assets/js/ts9-mailer.js?v=20261118" defer></script>
   <script>
@@ -866,6 +867,14 @@
       donePanel.hidden = false;
       document.getElementById("estimateBar").hidden = true;
       document.getElementById("doneTitle").focus({ preventScroll: true });
+      if (typeof window.TS9_showSent === "function") {
+        window.TS9_showSent({
+          kind: window.TS9_sentKind(projectTypeSelect.value),
+          title: "Estimate request received.",
+          text: "Our team has your details and a lead designer will follow up shortly.",
+          returnFocus: document.getElementById("doneTitle")
+        });
+      }
       const top = donePanel.getBoundingClientRect().top;
       if (top < 80 || top > window.innerHeight * 0.6) {
         window.scrollTo({ top: window.scrollY + top - 120, behavior: reduceMotionQuery.matches ? "auto" : "smooth" });
