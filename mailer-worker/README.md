@@ -40,3 +40,14 @@ curl -X POST https://ts9designs-mailer.ts9designs.workers.dev/send \
 ```
 
 `formType` is `newsletter`, `contact`, or `estimate`. `renderedAt` must be more than ~1s in the past or the bot check silently no-ops (returns `{"ok":true}` without sending).
+
+## Meta Conversions API (optional)
+
+When `META_CAPI_TOKEN` is set, the Worker also sends each Lead (and newsletter
+sign-up) to Meta server-side, de-duplicated against the browser Pixel by event
+id. It only fires for visitors who accepted cookies.
+
+    wrangler secret put META_CAPI_TOKEN        # Events Manager > Dataset > Settings > Conversions API > Generate access token
+    wrangler secret put META_TEST_EVENT_CODE   # optional, only while checking Events Manager > Test events
+
+Remove `META_TEST_EVENT_CODE` once verified, or test events will not count.

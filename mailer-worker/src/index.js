@@ -114,9 +114,73 @@ export default {
       return json({ error: "Unable to send right now. Please try again shortly." }, 502, origin);
     }
 
+    // Server-side copy of the browser's Lead event (Meta Conversions API).
+    // Only runs when the visitor accepted cookies (the client sends `meta`
+    // only then) and the access token secret is set.
+    if (env.META_CAPI_TOKEN && body.meta && typeof body.meta.eventId === "string") {
+      ctx.waitUntil(sendMetaEvent(request, env, { formType, fields, email, sourcePage, meta: body.meta })
+        .catch((err) => console.error("Meta CAPI send failed:", err)));
+    }
+
     return json({ ok: true }, 200, origin);
   }
 };
+
+const META_PIXEL_ID = "716800377403198";
+const META_API_VERSION = "v21.0";
+
+async function sha256Hex(value) {
+  const data = new TextEncoder().encode(String(value).trim().toLowerCase());
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Event name and id match what analytics.js fires in the browser, so Meta
+// de-duplicates the pair. Email/phone/name are hashed as Meta requires.
+async function sendMetaEvent(request, env, { formType, fields, email, sourcePage, meta }) {
+  const isNewsletter = formType === "newsletter";
+  const userData = {
+    em: [await sha256Hex(email)],
+    client_ip_address: request.headers.get("CF-Connecting-IP") || undefined,
+    client_user_agent: request.headers.get("User-Agent") || undefined,
+    fbp: typeof meta.fbp === "string" && meta.fbp ? meta.fbp.slice(0, 200) : undefined,
+    fbc: typeof meta.fbc === "string" && meta.fbc ? meta.fbc.slice(0, 200) : undefined
+  };
+  const phone = typeof fields.phone === "string" ? fields.phone.replace(/\D/g, "") : "";
+  if (phone.length >= 10) userData.ph = [await sha256Hex(phone)];
+  const nameParts = typeof fields.name === "string" ? fields.name.trim().split(/\s+/).filter(Boolean) : [];
+  if (nameParts.length) userData.fn = [await sha256Hex(nameParts[0])];
+  if (nameParts.length > 1) userData.ln = [await sha256Hex(nameParts[nameParts.length - 1])];
+
+  const customData = { form_type: formType };
+  const low = Number(fields.estimateLow);
+  if (formType === "estimate" && low > 0) {
+    customData.value = low;
+    customData.currency = "USD";
+  }
+
+  const payload = {
+    data: [{
+      event_name: isNewsletter ? "NewsletterSignup" : "Lead",
+      event_time: Math.floor(Date.now() / 1000),
+      event_id: meta.eventId.slice(0, 100),
+      action_source: "website",
+      event_source_url: typeof sourcePage === "string" ? sourcePage.slice(0, 500) : undefined,
+      user_data: userData,
+      custom_data: customData
+    }]
+  };
+  if (env.META_TEST_EVENT_CODE) payload.test_event_code = env.META_TEST_EVENT_CODE;
+
+  const res = await fetch(
+    `https://graph.facebook.com/${META_API_VERSION}/${META_PIXEL_ID}/events?access_token=${encodeURIComponent(env.META_CAPI_TOKEN)}`,
+    { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }
+  );
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`Meta CAPI error ${res.status}: ${text}`);
+  }
+}
 
 function isAllowedOrigin(origin, env) {
   if (!origin) return false;

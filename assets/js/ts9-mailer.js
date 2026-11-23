@@ -19,6 +19,9 @@ function TS9_sendMail(formType, fields, opts) {
     renderedAt: opts.renderedAt || Date.now(),
     sourcePage: window.location.href
   };
+  // Set by analytics.js only when the visitor accepted cookies: lets the
+  // Worker report the same event to Meta server-side (Conversions API).
+  if (opts.meta) payload.meta = opts.meta;
 
   return fetch(endpoint, {
     method: 'POST',

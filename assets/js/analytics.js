@@ -66,21 +66,33 @@
     window.fbq('track', 'PageView');
   }
 
-  function send(name, params) {
+  function send(name, params, eventId) {
     var ev = EVENTS[name];
     if (!ev) return;
     params = params || {};
     if (window.gtag) window.gtag('event', ev.ga, params);
     if (window.fbq) {
-      if (ev.meta) window.fbq('track', ev.meta, params);
-      else window.fbq('trackCustom', ev.metaCustom, params);
+      // eventID lets Meta de-duplicate this against the server-side copy.
+      var opts = eventId ? { eventID: eventId } : undefined;
+      if (ev.meta) window.fbq('track', ev.meta, params, opts);
+      else window.fbq('trackCustom', ev.metaCustom, params, opts);
     }
   }
 
-  window.TS9_track = function (name, params) {
-    if (state === 'on') send(name, params);
-    else if (state === 'waiting') pending.push([name, params]);
+  window.TS9_track = function (name, params, eventId) {
+    if (state === 'on') send(name, params, eventId);
+    else if (state === 'waiting') pending.push([name, params, eventId]);
   };
+
+  function cookie(name) {
+    var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function newEventId() {
+    return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+      : String(Date.now()) + '-' + Math.random().toString(36).slice(2);
+  }
 
   window.TS9_CONSENT.onDecision(function (granted) {
     if (!granted) { state = 'off'; pending = []; return; }
@@ -88,7 +100,7 @@
     try { loadGoogleTag(); } catch (e) {}
     try { loadClarity(); } catch (e) {}
     try { loadMetaPixel(); } catch (e) {}
-    pending.forEach(function (p) { send(p[0], p[1]); });
+    pending.forEach(function (p) { send(p[0], p[1], p[2]); });
     pending = [];
   });
 
@@ -96,17 +108,27 @@
   function watchMailer() {
     var sendMail = window.TS9_sendMail;
     if (typeof sendMail !== 'function' || sendMail.ts9Tracked) return;
-    var wrapped = function (formType, fields) {
-      var result = sendMail.apply(this, arguments);
+    var wrapped = function (formType, fields, opts) {
+      // Only after Accept: share the browser's event id and Meta cookies so
+      // the Worker can send the matching server-side event.
+      var eventId = '';
+      var args = Array.prototype.slice.call(arguments);
+      if (state === 'on') {
+        eventId = newEventId();
+        args[2] = Object.assign({}, opts, {
+          meta: { eventId: eventId, fbp: cookie('_fbp'), fbc: cookie('_fbc') }
+        });
+      }
+      var result = sendMail.apply(this, args);
       Promise.resolve(result).then(function () {
         if (formType === 'newsletter') {
-          window.TS9_track('newsletter', { page_path: location.pathname });
+          window.TS9_track('newsletter', { page_path: location.pathname }, eventId);
           return;
         }
         var params = { form_type: formType, page_path: location.pathname };
         var low = fields && Number(fields.estimateLow);
         if (formType === 'estimate' && low > 0) { params.value = low; params.currency = 'USD'; }
-        window.TS9_track('lead', params);
+        window.TS9_track('lead', params, eventId);
       }, function () { /* failed sends are not leads */ });
       return result;
     };
