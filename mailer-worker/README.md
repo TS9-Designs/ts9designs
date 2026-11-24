@@ -51,3 +51,18 @@ id. It only fires for visitors who accepted cookies.
     wrangler secret put META_TEST_EVENT_CODE   # optional, only while checking Events Manager > Test events
 
 Remove `META_TEST_EVENT_CODE` once verified, or test events will not count.
+
+## Mailchimp newsletter sync (optional)
+
+When both secrets below are set, each newsletter sign-up is also added to a
+Mailchimp audience (tagged "Website newsletter"). Anyone already in the
+audience, including people who unsubscribed, is left untouched. A Mailchimp
+failure is logged and never shown to the visitor.
+
+    wrangler secret put MAILCHIMP_API_KEY       # Account > Extras > API keys (ends in -us22)
+    wrangler secret put MAILCHIMP_AUDIENCE_ID   # Audience > Settings > Audience name and defaults
+
+Optional: `MAILCHIMP_STATUS` = `pending` makes Mailchimp send its own
+confirmation email first (default is `subscribed`, because the Worker already
+sends a welcome email). Watch for `Mailchimp subscribed` or
+`Mailchimp subscribe failed` in `wrangler tail`.

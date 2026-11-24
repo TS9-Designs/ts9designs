@@ -114,6 +114,14 @@ export default {
       return json({ error: "Unable to send right now. Please try again shortly." }, 502, origin);
     }
 
+    // Newsletter sign-ups also go into the Mailchimp audience, when the
+    // MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID secrets are set.
+    if (formType === "newsletter" && env.MAILCHIMP_API_KEY && env.MAILCHIMP_AUDIENCE_ID) {
+      ctx.waitUntil(addToMailchimp(env, email)
+        .then(() => console.log("Mailchimp subscribed: newsletter"))
+        .catch((err) => console.error("Mailchimp subscribe failed:", err)));
+    }
+
     // Server-side copy of the browser's Lead event (Meta Conversions API).
     // Only runs when the visitor accepted cookies (the client sends `meta`
     // only then) and the access token secret is set.
@@ -128,6 +136,39 @@ export default {
     return json({ ok: true }, 200, origin);
   }
 };
+
+// Adds one contact to a Mailchimp audience. If the address is already there
+// (subscribed, unsubscribed or cleaned) Mailchimp answers 400 "Member Exists"
+// and we leave it alone, so a repeat sign-up is harmless and someone who
+// unsubscribed earlier is never silently re-subscribed. MAILCHIMP_STATUS can
+// be "subscribed" (default) or "pending" (Mailchimp sends its own
+// confirmation email first).
+async function addToMailchimp(env, email) {
+  const key = env.MAILCHIMP_API_KEY;
+  const server = env.MAILCHIMP_SERVER_PREFIX || (key.includes("-") ? key.split("-").pop() : "");
+  if (!/^[a-z]+\d+$/.test(server)) throw new Error("Mailchimp server prefix missing (expected e.g. us22)");
+
+  const status = env.MAILCHIMP_STATUS === "pending" ? "pending" : "subscribed";
+  const res = await fetch(
+    `https://${server}.api.mailchimp.com/3.0/lists/${encodeURIComponent(env.MAILCHIMP_AUDIENCE_ID)}/members`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${btoa(`ts9:${key}`)}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email_address: email.trim().toLowerCase(),
+        status,
+        tags: ["Website newsletter"]
+      })
+    }
+  );
+  if (res.ok) return;
+  const text = await res.text().catch(() => "");
+  if (res.status === 400 && /Member Exists/i.test(text)) return;
+  throw new Error(`Mailchimp API error ${res.status}: ${text.slice(0, 300)}`);
+}
 
 const META_PIXEL_ID = "716800377403198";
 const META_API_VERSION = "v21.0";
