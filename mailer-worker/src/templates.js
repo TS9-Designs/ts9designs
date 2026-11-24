@@ -218,7 +218,8 @@ export function renderEstimateAutoReply(fields) {
     <div style="margin:20px 0 0;padding:16px 20px;background:${BRAND.cardBg};border-radius:12px;text-align:center;">
       <p style="margin:0;font-size:13px;line-height:1.6;color:${BRAND.text};">Have floor plans, site photos, or reference images? Just reply to this email and attach them — it helps us scope your project faster.</p>
     </div>
-    <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:${BRAND.muted};text-align:center;">A lead designer will be in touch soon to confirm scope and next steps.</p>
+    <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:${BRAND.muted};text-align:center;">A lead designer will be in touch soon to confirm scope and next steps. Want to talk sooner? Book a free 15-minute call.</p>
+    ${ctaButton("https://cal.com/ts9designs/discoverycall?utm_source=estimator_reply&utm_medium=email", "Book a 15-minute call")}
   `;
   return {
     subject: "We got your ts9designs estimate request",
