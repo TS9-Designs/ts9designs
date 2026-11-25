@@ -299,33 +299,36 @@
     ];
 
     const pricingRules = {
+      // TS9 Price Guide (40% markup applied; every price includes stamps).
+      // These are the floors: the adjustments below only ever add to them.
       ranges: {
-        "single-family-home": { type: "fixed", low: 3500, high: 6500 },
-        "custom-floor-plan": { type: "perSqft", lowRate: 1.0, highRate: 1.5 },
-        "duplex-triplex-quadplex": { type: "fixed", low: 4500, high: 8500 },
-        "apartments-5-20": { type: "fixed", low: 7500, high: 18500 },
-        "apartments-20-60": { type: "perSqft", lowRate: 0.45, highRate: 0.6 },
-        "apartments-60-plus": { type: "perSqft", lowRate: 0.45, highRate: 0.65 },
-        "restaurant-buildout": { type: "fixed", low: 3500, high: 7500, alt: { "mep-only": [1500, 2500] } },
-        "retail-salon-office-buildout": { type: "fixed", low: 3000, high: 6000, alt: { "mep-only": [1200, 2200] } },
-        "liquor-smoke-buildout": { type: "fixed", low: 2500, high: 5500, alt: { "mep-only": [1200, 2000] } },
-        "medical-dental-ti": { type: "fixed", low: 4500, high: 8500 },
-        "warehouse-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.55 },
-        "large-warehouse-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.5 },
-        "gas-station-ground-up": { type: "fixed", low: 6500, high: 15000 },
-        "ground-up-restaurant": { type: "fixed", low: 4500, high: 12000 },
-        "retail-center-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.55 },
-        "hotel-motel-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.65 },
-        "special-use-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.6 },
-        "mechanical-only": { type: "fixed", low: 1000, high: 2200 },
-        "electrical-only": { type: "fixed", low: 800, high: 1800 },
-        "plumbing-only": { type: "fixed", low: 800, high: 1600 },
-        "full-mep-small": { type: "fixed", low: 1500, high: 3000 },
-        "full-mep-commercial": { type: "perSqft", lowRate: 1.5, highRate: 2.5 },
-        "fire-alarm": { type: "fixed", low: 800, high: 3500 },
-        "fire-sprinkler": { type: "fixed", low: 1200, high: 4500 },
-        "energy-compliance": { type: "fixed", low: 250, high: 800 },
-        "site-plans": { type: "fixed", low: 600, high: 2500 }
+        "single-family-home": { type: "fixed", low: 4900, high: 9100 },
+        "custom-floor-plan": { type: "perSqft", lowRate: 1.4, highRate: 2.1 },
+        "duplex-triplex-quadplex": { type: "fixed", low: 6300, high: 11900 },
+        "apartments-5-20": { type: "fixed", low: 10500, high: 25900 },
+        "apartments-20-60": { type: "perSqft", lowRate: 0.56, highRate: 0.84 },
+        "apartments-60-plus": { type: "perSqft", lowRate: 0.63, highRate: 0.91 },
+        "restaurant-buildout": { type: "fixed", low: 4900, high: 10500, alt: { "mep-only": [2100, 3500] } },
+        "retail-salon-office-buildout": { type: "fixed", low: 4200, high: 8400, alt: { "mep-only": [1680, 3080] } },
+        "liquor-smoke-buildout": { type: "fixed", low: 3500, high: 7700, alt: { "mep-only": [1680, 2800] } },
+        "medical-dental-ti": { type: "fixed", low: 6300, high: 11900 },
+        "warehouse-ground-up": { type: "perSqft", lowRate: 0.49, highRate: 0.77 },
+        // The guide lists $0.42 for large warehouses; $0.45 is the site-wide starting price.
+        "large-warehouse-ground-up": { type: "perSqft", lowRate: 0.45, highRate: 0.70 },
+        "gas-station-ground-up": { type: "fixed", low: 9100, high: 21000 },
+        "ground-up-restaurant": { type: "fixed", low: 6300, high: 16800 },
+        "retail-center-ground-up": { type: "perSqft", lowRate: 0.49, highRate: 0.77 },
+        "hotel-motel-ground-up": { type: "perSqft", lowRate: 0.56, highRate: 0.91 },
+        "special-use-ground-up": { type: "perSqft", lowRate: 0.49, highRate: 0.84 },
+        "mechanical-only": { type: "fixed", low: 1400, high: 3080 },
+        "electrical-only": { type: "fixed", low: 1120, high: 2520 },
+        "plumbing-only": { type: "fixed", low: 1120, high: 2240 },
+        "full-mep-small": { type: "fixed", low: 2100, high: 4200 },
+        "full-mep-commercial": { type: "perSqft", lowRate: 2.1, highRate: 3.5 },
+        "fire-alarm": { type: "fixed", low: 1120, high: 4900 },
+        "fire-sprinkler": { type: "fixed", low: 1680, high: 6300 },
+        "energy-compliance": { type: "fixed", low: 350, high: 1120 },
+        "site-plans": { type: "fixed", low: 840, high: 3500 }
       },
       scopeFactor: {
         "full-set": 1,
@@ -437,12 +440,12 @@
       if (pricingRules.midCostStates.includes(stateCode)) {
         return 1.04;
       }
-      return 0.99;
+      return 1;
     }
 
     // Regional labor/consultant market pressure (aligned with public indicators, but capped for affordability).
     function marketFactorFor(stateCode, cityValue) {
-      let factor = 0.99;
+      let factor = 1;
       if (stateCode === "CA" || stateCode === "NY" || stateCode === "DC") {
         factor += 0.03;
       } else if (stateCode === "WA" || stateCode === "NJ" || stateCode === "FL") {
@@ -620,10 +623,8 @@
       const scopeFactor = usedAltPrice ? 1 : (pricingRules.scopeFactor[normalizedScope] || 1);
       const timelineFactor = pricingRules.timelineFactor[timeline] || 1;
 
-      // Value-positioning adjustment (was 0.94 "below market" discount; raised 40% per pricing update).
-      const competitivenessFactor = 1.316;
-      const low = Math.round(baseLow * stateFactor * marketFactor * permitFactor * coordinationFactor * reviewFactor * scopeFactor * timelineFactor * competitivenessFactor);
-      const high = Math.round(baseHigh * stateFactor * marketFactor * permitFactor * coordinationFactor * reviewFactor * scopeFactor * timelineFactor * competitivenessFactor);
+      const low = Math.round(baseLow * stateFactor * marketFactor * permitFactor * coordinationFactor * reviewFactor * scopeFactor * timelineFactor);
+      const high = Math.round(baseHigh * stateFactor * marketFactor * permitFactor * coordinationFactor * reviewFactor * scopeFactor * timelineFactor);
 
       return { low, high, baseLow, baseHigh, stateFactor, marketFactor, permitFactor, coordinationFactor, reviewFactor, scopeFactor, timelineFactor };
     }
