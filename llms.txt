@@ -11,6 +11,7 @@ ts9designs is not an architecture firm and does not represent itself as providin
 - [Residential plans](https://www.ts9designs.com/residential.html): pre-designed and custom residential plan offerings.
 - [Permit-ready estimate calculator](https://www.ts9designs.com/permit-estimate.html): instant pricing-range estimate tool by project type, square footage, state, scope, and timeline.
 - [Case studies](https://www.ts9designs.com/case-studies/index.html): detailed project write-ups (MEP scope, challenges, outcomes) for real completed projects.
+- [Guide: restaurant build-out permit drawings](https://www.ts9designs.com/guides/restaurant-build-out-permit-drawings.html): the drawings most cities ask for when you build out or renovate a restaurant, and what each covers.
 - [Desert Shore Community Baptist Church, Bullhead City AZ](https://www.ts9designs.com/case-studies/church-arizona.html): MEP, fire alarm/life safety and structural engineering for a 25,416 sq ft church; approved in plan review.
 - [Contact](https://www.ts9designs.com/contact.html): contact form and direct contact details.
 - [Privacy policy](https://www.ts9designs.com/privacypolicy.html)
