@@ -2,3 +2,13 @@
 # Publish .well-known so /.well-known/security.txt is reachable.
 include:
   - .well-known
+
+# Repo-only files: kept in git, never served on ts9designs.com.
+exclude:
+  - README.md
+  - SECURITY.md
+  - .env.example
+  - mailer-worker/
+  - tools/
+  - node_modules/
+  - vendor/
