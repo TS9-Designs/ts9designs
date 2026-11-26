@@ -114,11 +114,12 @@ export default {
       return json({ error: "Unable to send right now. Please try again shortly." }, 502, origin);
     }
 
-    // Newsletter sign-ups also go into the Mailchimp audience, when the
+    // Every form's email address also goes into the Mailchimp audience (so
+    // estimate and contact leads get the welcome flow), when the
     // MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID secrets are set.
-    if (formType === "newsletter" && env.MAILCHIMP_API_KEY && env.MAILCHIMP_AUDIENCE_ID) {
-      ctx.waitUntil(addToMailchimp(env, email)
-        .then(() => console.log("Mailchimp subscribed: newsletter"))
+    if (env.MAILCHIMP_API_KEY && env.MAILCHIMP_AUDIENCE_ID) {
+      ctx.waitUntil(addToMailchimp(env, email, MAILCHIMP_TAGS[formType], fields.name)
+        .then(() => console.log(`Mailchimp subscribed: ${formType}`))
         .catch((err) => console.error("Mailchimp subscribe failed:", err)));
     }
 
@@ -137,18 +138,36 @@ export default {
   }
 };
 
-// Adds one contact to a Mailchimp audience. If the address is already there
-// (subscribed, unsubscribed or cleaned) Mailchimp answers 400 "Member Exists"
-// and we leave it alone, so a repeat sign-up is harmless and someone who
-// unsubscribed earlier is never silently re-subscribed. MAILCHIMP_STATUS can
-// be "subscribed" (default) or "pending" (Mailchimp sends its own
-// confirmation email first).
-async function addToMailchimp(env, email) {
+const MAILCHIMP_TAGS = {
+  newsletter: "Website newsletter",
+  estimate: "Website estimate",
+  contact: "Website contact"
+};
+
+// Adds one contact to a Mailchimp audience, email only (never SMS). If the
+// address is already there (subscribed, unsubscribed or cleaned) Mailchimp
+// answers 400 "Member Exists" and we leave it alone, so a repeat sign-up is
+// harmless and someone who unsubscribed earlier is never silently
+// re-subscribed. MAILCHIMP_STATUS can be "subscribed" (default) or "pending"
+// (Mailchimp sends its own confirmation email first).
+async function addToMailchimp(env, email, tag, name) {
   const key = env.MAILCHIMP_API_KEY;
   const server = env.MAILCHIMP_SERVER_PREFIX || (key.includes("-") ? key.split("-").pop() : "");
   if (!/^[a-z]+\d+$/.test(server)) throw new Error("Mailchimp server prefix missing (expected e.g. us22)");
 
   const status = env.MAILCHIMP_STATUS === "pending" ? "pending" : "subscribed";
+  const member = {
+    email_address: email.trim().toLowerCase(),
+    status,
+    tags: [tag || "Website newsletter"]
+  };
+  // "Website Lead" is the contact page's placeholder when no name was given.
+  const nameParts = typeof name === "string" && name !== "Website Lead"
+    ? name.trim().split(/\s+/).filter(Boolean) : [];
+  if (nameParts.length) {
+    member.merge_fields = { FNAME: nameParts[0].slice(0, 100) };
+    if (nameParts.length > 1) member.merge_fields.LNAME = nameParts.slice(1).join(" ").slice(0, 100);
+  }
   const res = await fetch(
     `https://${server}.api.mailchimp.com/3.0/lists/${encodeURIComponent(env.MAILCHIMP_AUDIENCE_ID)}/members`,
     {
@@ -157,11 +176,7 @@ async function addToMailchimp(env, email) {
         Authorization: `Basic ${btoa(`ts9:${key}`)}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        email_address: email.trim().toLowerCase(),
-        status,
-        tags: ["Website newsletter"]
-      })
+      body: JSON.stringify(member)
     }
   );
   if (res.ok) return;

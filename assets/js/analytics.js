@@ -1,7 +1,8 @@
 /**
  * Site analytics, one file on every page. Nothing loads until the visitor
  * clicks Accept on the cookie notice (cookie-consent.js); after that this
- * loads the Google tag, Microsoft Clarity and the Meta Pixel.
+ * loads the Google tag, Microsoft Clarity, the Meta Pixel and Mailchimp's
+ * site script (which shows the Mailchimp popup sign-up form).
  *
  * The Google tag (AW-11480937225) is the combined tag Google Analytics gives
  * for this site's web stream (Admin > Data streams > View tag instructions).
@@ -22,6 +23,7 @@
   var GOOGLE_TAG_ID = 'AW-11480937225';
   var CLARITY_ID = 'offy18fm86';
   var PIXEL_ID = '716800377403198';
+  var MAILCHIMP_SRC = 'https://chimpstatic.com/mcjs-connected/js/users/917b146be904b4721308c650a/538b9484670cd508dfdf2b5de.js';
 
   var EVENTS = {
     lead: { ga: 'generate_lead', meta: 'Lead' },
@@ -94,12 +96,24 @@
       : String(Date.now()) + '-' + Math.random().toString(36).slice(2);
   }
 
+  // Mailchimp's connected-site script: shows the "Sitewide Email & SMS
+  // Capture" popup form and records page visits for subscribers.
+  function loadMailchimp() {
+    if (document.getElementById('mcjs')) return;
+    var s = document.createElement('script');
+    s.id = 'mcjs';
+    s.async = true;
+    s.src = MAILCHIMP_SRC;
+    document.head.appendChild(s);
+  }
+
   window.TS9_CONSENT.onDecision(function (granted) {
     if (!granted) { state = 'off'; pending = []; return; }
     state = 'on';
     try { loadGoogleTag(); } catch (e) {}
     try { loadClarity(); } catch (e) {}
     try { loadMetaPixel(); } catch (e) {}
+    try { loadMailchimp(); } catch (e) {}
     pending.forEach(function (p) { send(p[0], p[1], p[2]); });
     pending = [];
   });

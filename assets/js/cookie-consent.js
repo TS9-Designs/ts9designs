@@ -50,8 +50,8 @@
     });
   }
 
-  // Cookies set by Google Analytics, Microsoft Clarity and the Meta Pixel.
-  var TRACKER_COOKIE = /^(_ga|_gid|_gat|_gcl_|_clck|_clsk|CLID|MUID|ANONCHK|_fbp|_fbc)/;
+  // Cookies set by Google Analytics, Microsoft Clarity, the Meta Pixel and Mailchimp.
+  var TRACKER_COOKIE = /^(_ga|_gid|_gat|_gcl_|_clck|_clsk|CLID|MUID|ANONCHK|_fbp|_fbc|_mcid)/;
   function clearTrackerCookies() {
     var host = location.hostname;
     var domains = ['', host, '.' + host, '.' + host.replace(/^www\./, '')];
