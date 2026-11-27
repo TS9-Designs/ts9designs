@@ -12,7 +12,7 @@
   if (!root) return;
 
   // Bump ?v= with site-footer.css so browsers fetch the matching markup.
-  const partial = '/assets/partials/footer.partial?v=20261123';
+  const partial = '/assets/partials/footer.partial?v=20261127';
 
   // The footer stylesheet loads without blocking the page (media="print",
   // switched to "all" once it arrives). Wait for it before showing the
