@@ -180,3 +180,5 @@
   .pe-tile[aria-pressed="true"], .pe-row[aria-pressed="true"] { outline: 2px solid Highlight; }
   .pe-prog i.on { background: Highlight; }
 }
+.pe-trust a { color: inherit; text-decoration: underline; text-decoration-color: var(--brand-gold-text); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.pe-trust a:hover { text-decoration-color: currentColor; }
