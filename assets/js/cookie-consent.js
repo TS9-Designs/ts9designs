@@ -4,8 +4,11 @@
  * This tag must be the first <script> in <head> on every page (before any
  * tracker snippets), so window.TS9_CONSENT exists by the time they run.
  *
- * Trackers (GA, Meta Pixel, Clarity) must not fire until the visitor has
- * accepted. Each tracker snippet registers a callback instead of running
+ * Opt-out model (US-style): trackers (GA, Meta Pixel, Clarity, Mailchimp)
+ * load on arrival unless the visitor has declined, or their browser sends the
+ * Global Privacy Control signal (navigator.globalPrivacyControl), which always
+ * counts as a decline. The notice stays up until the visitor clicks OK or
+ * Decline. Each tracker snippet registers a callback instead of running
  * immediately:
  *
  *   window.TS9_CONSENT.onDecision(function (granted) {
@@ -13,13 +16,13 @@
  *     // ...original tracker init code...
  *   });
  *
- * onDecision() fires the callback right away if consent was already decided
- * on a previous visit, or queues it until the visitor clicks Accept/Decline.
+ * onDecision() fires the callback right away (the decision is known as soon
+ * as this script runs).
  *
  * Any element with data-cookie-settings (the footer's "Cookie settings")
- * reopens the notice, as does TS9_CONSENT.open(). Changing an earlier choice
- * saves it and reloads the page, so trackers load or stay off cleanly; on
- * Decline the analytics cookies they set are removed first.
+ * reopens the notice, as does TS9_CONSENT.open(). Declining saves the choice,
+ * removes the tracker cookies and reloads the page so trackers stay off;
+ * turning them back on also reloads.
  */
 (function () {
   var STORAGE_KEY = 'ts9_cookie_consent';
@@ -149,12 +152,12 @@
         '</svg>' +
       '</div>' +
       '<p class="ts9-cookie-banner__text">' +
-        'We use cookies for essential site functionality and to understand how visitors use this site. ' +
-        'See our <a href="/privacypolicy.html">Privacy Policy</a> for details.' +
+        'We use cookies to understand how visitors use this site and to measure our ads. ' +
+        'You can decline at any time. See our <a href="/privacypolicy.html">Privacy Policy</a> for details.' +
       '</p>' +
       '<div class="ts9-cookie-banner__actions">' +
         '<button type="button" class="ts9-cookie-btn ts9-cookie-btn--decline" id="ts9CookieDecline">Decline</button>' +
-        '<button type="button" class="ts9-cookie-btn ts9-cookie-btn--accept" id="ts9CookieAccept">Accept</button>' +
+        '<button type="button" class="ts9-cookie-btn ts9-cookie-btn--accept" id="ts9CookieAccept">OK</button>' +
       '</div>';
 
     document.body.appendChild(bannerEl);
@@ -183,12 +186,13 @@
   });
 
   var stored = getStored();
-  if (stored === 'granted' || stored === 'denied') {
-    decided = true;
-    granted = stored === 'granted';
-    runQueue();
-    return;
-  }
+  var gpc = navigator.globalPrivacyControl === true;
+  decided = true;
+  granted = !gpc && stored !== 'denied';
+  runQueue();
+
+  // Only first-time visitors (no saved choice, no GPC) see the notice.
+  if (gpc || stored === 'granted' || stored === 'denied') return;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', showBanner);

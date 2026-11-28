@@ -1,7 +1,6 @@
 /**
- * Site analytics, one file on every page. Nothing loads until the visitor
- * clicks Accept on the cookie notice (cookie-consent.js); after that this
- * loads the Google tag, Microsoft Clarity, the Meta Pixel and Mailchimp's
+ * Site analytics, one file on every page. Unless the visitor has declined
+ * cookies or sends Global Privacy Control (cookie-consent.js), this loads the Google tag, Microsoft Clarity, the Meta Pixel and Mailchimp's
  * site script (which shows the Mailchimp popup sign-up form).
  *
  * The Google tag (AW-11480937225) is the combined tag Google Analytics gives
@@ -123,7 +122,7 @@
     var sendMail = window.TS9_sendMail;
     if (typeof sendMail !== 'function' || sendMail.ts9Tracked) return;
     var wrapped = function (formType, fields, opts) {
-      // Only after Accept: share the browser's event id and Meta cookies so
+      // Only when cookies are allowed: share the browser's event id and Meta cookies so
       // the Worker can send the matching server-side event.
       var eventId = '';
       var args = Array.prototype.slice.call(arguments);
